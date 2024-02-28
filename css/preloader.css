@@ -1,0 +1,178 @@
+@font-face {
+  font-display: swap;
+  font-family: "MonumentExtended";
+  src: url("../fonts/MonumentExtended-Regular.woff") format("woff");
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --p-white: #ece9e1;
+  --p-black: #222222;
+  --uziwhite: #fff;
+  --uziblack: #000;
+  --uziwheat: wheat;
+  --fontSizeMenu: 1vw;
+  --fontSizeH1: 19vw;
+  --fontSizeIntro: 3vw;
+  --fontSizeP: 1.48vw;
+  --maxWidth: 1100px;
+  --spinning: spinuzi 2s infinite ease-in-out;
+}
+
+/* @font-face {
+  font-family: "Uzicute";
+  src: url("https://raw.githubusercontent.com/vickkie/uzitrake/main/fonts/OCRAStd.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+.percentage {
+  color: var(--p-black);
+  font-family: "MonumentExtended", system-ui;
+  font-size: 130px;
+  font-weight: 300;
+  line-height: 2;
+}
+
+main.flex__col {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.intro {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--p-white);
+  font-size: var(--fontSizeIntro);
+  transform-origin: top;
+  line-height: normal !important;
+}
+
+.intro__red {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--p-black);
+  background-size: cover;
+  background-position: center center;
+  font-family: var(--font1);
+  font-size: 20vw;
+  font-weight: 900;
+  line-height: 30vh;
+  overflow: hidden;
+  color: transparent;
+  text-align: center;
+  -webkit-text-stroke: 1px #ffffff;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.intro__red div {
+  transform: scaleX(0.5) scaleY(1.5);
+  letter-spacing: -1vw;
+}
+
+@media (min-width: 1550px) {
+  :root {
+    --fontSizeMenu: 16px;
+    --fontSizeP: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .intro__red div {
+    transform: scaleY(4);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --fontSizeMenu: 11px;
+    --fontSizeP: 11px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 2050px) {
+  .percentage {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 50px) and (max-width: 450px) {
+  .percentage {
+    font-size: 24px;
+  }
+}
+
+.percentage-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: grid;
+  margin: auto;
+  justify-content: center;
+  height: fit-content;
+  z-index: 10;
+  background: var(--color-bg);
+}
+
+.preload-text {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.preloader__status-bar {
+  background: var(--p-black);
+  width: 100%;
+}
+
+.agency-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 25px;
+  grid-template-areas: "... ... dot";
+}
+
+.agency-box svg {
+  grid-area: dot;
+  justify-self: flex-end;
+  margin-right: 20px;
+}
+
+#loader1 {
+  display: block;
+}
+
+#loader2 {
+  display: none;
+}
+
+.prelogo {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.preloader__status-loader {
+  width: 3px;
+  height: 100%;
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  z-index: 6;
+}

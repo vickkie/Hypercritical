@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 15px;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-bg: #ece9e1;
+  --stick-black: #000;
+  --stick-white: #fff;
+
+  --font-1: grotesk-diamond;
+  --font-2: LA-LUXE;
+  --font-3: grotesk;
+
+  color: var(--color-black);
+  background-color: var(--color-bg);
+  font-family: var(--font-1), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  transition: all 0.3s ease;
+  height: max-content;
+  overflow: hidden;
+}
+.dark-mode {
+  --color-black: #fff !important;
+  --color-white: #000 !important;
+  --color-bg: #000 !important;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "LA-LUXE";
+  src: url("../fonts/Pavelt-VG24B.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "AdornScript";
+  src: url("../fonts/AdornStoryScript.woff") format("woff");
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+  outline: none;
+}
+
+a:hover {
+  color: var(--color-link);
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  background: transparent;
+}
+
+a:focus-visible {
+  outline: 2px solid #fff;
+  background: transparent;
+}

@@ -7,13 +7,13 @@
     <meta name="description" content="Welcome to my Hypercritical discover our work and skills" />
     <meta name="keywords" content="Welcome ,uzitrake , Hypercritical" />
     <meta name="author" content="uzitrake" />
-    <meta name="theme-color" content="#dbc6f7" />
+    <meta name="theme-color" content="#bfff0a />
     <meta http-equiv="Cache-Control" content="max-age=31536000" />
     <link id="browser_favicon" rel="icon" href="img/masks/uzitrake-logo.png" />
     <link
       fetchpriority="high"
       rel="preload"
-      href="fonts/MonumentExtended.woff"
+      href="fonts/MonumentExtended-Regular.woff"
       as="font"
       type="font/woff"
       crossorigin
@@ -102,6 +102,7 @@
       </section>
     </main>
     <script src="includes/preloader.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
 
     <section class="hero-main">
       <div class="nav">
@@ -120,141 +121,155 @@
                 />
               </svg>
             </div>
+            <link rel="stylesheet" type="text/css" href="css/multi-menu.css" />
+            <svg class="hidden">
+              <symbol id="icon-arrow" viewBox="0 0 24 24">
+                <title>arrow</title>
+                <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
+              </symbol>
+              <symbol id="icon-drop" viewBox="0 0 24 24">
+                <title>drop</title>
+                <path
+                  d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"
+                />
+                <path
+                  d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"
+                />
+              </symbol>
+              <symbol id="icon-menu" viewBox="0 0 119 25">
+                <title>menu</title>
+                <path
+                  d="M 0.053 7.899 L -0.139 0.148 L 100 0 L 100 8 L 0.148 8.186 Z Z M 0 28 L 0 20 L 71 20 L 71 28 L 0 28 Z"
+                />
+              </symbol>
+              <symbol id="icon-close" viewBox="0 0 24 24">
+                <title>close</title>
+
+                <path
+                  d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 7.425 2.717-2.718c.146-.146.339-.219.531-.219.404 0 .75.325.75.75 0 .193-.073.384-.219.531l-2.717 2.717 2.727 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.384-.073-.53-.219l-2.729-2.728-2.728 2.728c-.146.146-.338.219-.53.219-.401 0-.751-.323-.751-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"
+                  fill-rule="nonzero"
+                />
+              </symbol>
+            </svg>
+
+            <main>
+              <div class="hidcontent">
+                <div class="background" style="background-image: var(--website-color)"></div>
+                <h2 class="hidcontent__title">Hypercritical</h2>
+                <p class="hidcontent__tagline">Hypercritical is the best experience website</p>
+              </div>
+
+              <nav class="menuUzi targeted">
+                <div class="menuUzi__item menuUzi__item--1" data-direction="bt">
+                  <div class="menuUzi__item-inner">
+                    <div class="mainmenuUzi">
+                      <a href="index" class="mainmenuUzi__item">Home</a>
+                      <a href="blog" class="mainmenuUzi__item">Blog</a>
+                      <a href="about" class="mainmenuUzi__item">Work</a>
+                      <a href="company" class="mainmenuUzi__item">Company</a>
+                      <a href="contact" class="mainmenuUzi__item">Contact</a>
+                    </div>
+                    <p class="label label--topleft label--vert-mirror">the important stuff</p>
+                    <p class="label label--bottomright label--vert">Hypercritical studio</p>
+                  </div>
+                </div>
+                <div class="menuUzi__item menuUzi__item--2" data-direction="lr">
+                  <div class="menuUzi__item-inner">
+                    <div class="menuUzi__item-map"></div>
+                    <a href="#" class="menuUzi__item-hoverlink">Hypercritical</a>
+                  </div>
+                </div>
+                <div class="menuUzi__item menuUzi__item--3" data-direction="bt">
+                  <div class="menuUzi__item-inner">
+                    <div class="sidemenuUzi">
+                      <a href="company" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">The Company</span></a
+                      >
+                      <a href="about" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">Insights</span></a
+                      >
+                      <a href="policy" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">Policy</span></a
+                      >
+                      <a href="#" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">••••</span></a
+                      >
+                      <a href="account/" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">Enter</span></a
+                      >
+                      <a href="account/membership_signup" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
+                        <span class="sidemenuUzi__item-inner">Join</span></a
+                      >
+                      <a href="#" class="sidemenuUzi__item"> <span class="sidemenuUzi__item-inner">•••</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="menuUzi__item menuUzi__item--4" data-direction="rl">
+                  <div class="menuUzi__item-inner">
+                    <p class="label label--topleft label--line">Reach us now</p>
+                    <a href="contact" class="menuUzi__item-link"
+                      >Tell your<br /><br />
+                      Idea<br /><br />
+                      <span>
+                        <svg class="reachussvg">
+                          <path d="M0 10h73" stroke="#fff" stroke-width="2"></path>
+                          <path
+                            d="M71.526 0C74.012 4 77.882 7.422 82 10c-4.156 2.539-7.865 6-10.474 10h-2.485c2.608-4 5.744-7.379 9.618-10C74.785 7.34 71.526 4 69 0h2.526zm-6 0C68.013 4 71.884 7.422 76 10c-4.156 2.539-7.865 6-10.474 10H63.04c2.606-4 5.745-7.379 9.617-10C68.786 7.34 65.526 4 63 0h2.526z"
+                            fill="#fff"
+                          ></path>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="menuUzi__item menuUzi__item--5" data-direction="tb">
+                  <div class="menuUzi__item-inner">
+                    <p class="label label--topleft label--vert-mirror">Our socials</p>
+                    <ul class="socials-sidemenu">
+                      <li data-cursor="-medium -exclusion">
+                        <a class="instagram" target="_blank" aria-label="instagram">Instagram</a>
+                      </li>
+                      <li data-cursor="-medium -exclusion">
+                        <a class="twitter" target="_blank" aria-label="twitter">X</a>
+                      </li>
+                      <li data-cursor="-medium -exclusion">
+                        <a class="github" target="_blank" aria-label="github">Github</a>
+                      </li>
+                      <li data-cursor="-medium -exclusion">
+                        <a class="dribble" target="_blank" aria-label="dribble">Dribble</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button class="action action--menuUzi" aria-label="sidemenu button open">
+                  <!-- <svg data-cursor="-enlarge -exclusion" class="icon icon-cursor icon--menuUzi">
+                  <use xlink:href="#icon-menu"></use>
+                </svg> -->
+                  <div class="both-icon-menu">
+                    <div class="menu_button_wrapper">
+                      <div class="menu_button_line">
+                        <div class="menu_dot"></div>
+                        <div class="menu_line"></div>
+                      </div>
+                      <div class="menu_button_line">
+                        <div class="menu_dot"></div>
+                        <div class="menu_line"></div>
+                      </div>
+                    </div>
+                    <div class="menu-name">Menu</div>
+                  </div>
+                </button>
+                <button class="action action--close" aria-label="sidemenu button close">
+                  <svg data-cursor="-enlarge -exclusion" class="icon icon-cursor icon--close" height="12px">
+                    <use xlink:href="#icon-close"></use>
+                  </svg>
+                </button>
+              </nav>
+            </main>
           </div>
         </div>
       </div>
     </section>
-
-    <link rel="stylesheet" type="text/css" href="css/multi-menu.css" />
-    <svg class="hidden">
-      <symbol id="icon-arrow" viewBox="0 0 24 24">
-        <title>arrow</title>
-        <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
-      </symbol>
-      <symbol id="icon-drop" viewBox="0 0 24 24">
-        <title>drop</title>
-        <path
-          d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"
-        />
-        <path
-          d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"
-        />
-      </symbol>
-      <symbol id="icon-menu" viewBox="0 0 119 25">
-        <title>menu</title>
-        <path
-          d="M 0.053 7.899 L -0.139 0.148 L 100 0 L 100 8 L 0.148 8.186 Z Z M 0 28 L 0 20 L 71 20 L 71 28 L 0 28 Z"
-        />
-      </symbol>
-      <symbol id="icon-close" viewBox="0 0 24 24">
-        <title>close</title>
-        <path
-          d="M24 1.485L22.515 0 12 10.515 1.485 0 0 1.485 10.515 12 0 22.515 1.485 24 12 13.484 22.515 24 24 22.515 13.484 12z"
-        />
-      </symbol>
-    </svg>
-
-    <main>
-      <div class="hidcontent">
-        <div class="background" style="background-image: var(--website-color)"></div>
-        <h2 class="hidcontent__title">Hypercritical</h2>
-        <p class="hidcontent__tagline">Hypercritical is the best experience website</p>
-      </div>
-
-      <nav class="menuUzi targeted">
-        <div class="menuUzi__item menuUzi__item--1" data-direction="bt">
-          <div class="menuUzi__item-inner">
-            <div class="mainmenuUzi">
-              <a href="index" class="mainmenuUzi__item">Home</a>
-              <a href="blog" class="mainmenuUzi__item">Blog</a>
-              <a href="about" class="mainmenuUzi__item">Work</a>
-              <a href="company" class="mainmenuUzi__item">Company</a>
-              <a href="contact" class="mainmenuUzi__item">Contact</a>
-            </div>
-            <p class="label label--topleft label--vert-mirror">the important stuff</p>
-            <p class="label label--bottomright label--vert">Hypercritical agency</p>
-          </div>
-        </div>
-        <div class="menuUzi__item menuUzi__item--2" data-direction="lr">
-          <div class="menuUzi__item-inner">
-            <div class="menuUzi__item-map"></div>
-            <a href="#" class="menuUzi__item-hoverlink" style="font-size: 37px; margin: auto">Hypercritical</a>
-          </div>
-        </div>
-        <div class="menuUzi__item menuUzi__item--3" data-direction="bt">
-          <div class="menuUzi__item-inner">
-            <div class="sidemenuUzi">
-              <a href="company" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">The Company</span></a
-              >
-              <a href="about" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">Insights</span></a
-              >
-              <a href="policy" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">Policy</span></a
-              >
-              <a href="#" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">••••</span></a
-              >
-              <a href="account/" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">Enter</span></a
-              >
-              <a href="account/membership_signup" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                <span class="sidemenuUzi__item-inner">Join</span></a
-              >
-              <a href="#" class="sidemenuUzi__item"> <span class="sidemenuUzi__item-inner">•••</span></a>
-            </div>
-          </div>
-        </div>
-        <div class="menuUzi__item menuUzi__item--4" data-direction="rl">
-          <div class="menuUzi__item-inner">
-            <p class="label label--topleft label--line">Reach us now</p>
-            <a href="contact" class="menuUzi__item-link"
-              >Tell your<br /><br />
-              Idea<br /><br />
-              <span>
-                <svg class="reachussvg">
-                  <path d="M0 10h73" stroke="#fff" stroke-width="2"></path>
-                  <path
-                    d="M71.526 0C74.012 4 77.882 7.422 82 10c-4.156 2.539-7.865 6-10.474 10h-2.485c2.608-4 5.744-7.379 9.618-10C74.785 7.34 71.526 4 69 0h2.526zm-6 0C68.013 4 71.884 7.422 76 10c-4.156 2.539-7.865 6-10.474 10H63.04c2.606-4 5.745-7.379 9.617-10C68.786 7.34 65.526 4 63 0h2.526z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="menuUzi__item menuUzi__item--5" data-direction="tb">
-          <div class="menuUzi__item-inner">
-            <p class="label label--topleft label--vert-mirror">Our socials</p>
-            <ul class="socials-sidemenu">
-              <li data-cursor="-medium -exclusion">
-                <a href="<?php echo instagram  ?>">Instagram</a>
-              </li>
-              <li data-cursor="-medium -exclusion">
-                <a href="<?php echo twitter  ?>">X</a>
-              </li>
-              <li data-cursor="-medium -exclusion">
-                <a href="<?php echo meta  ?>">Facebook</a>
-              </li>
-              <li data-cursor="-medium -exclusion">
-                <a href="<?php echo dribble  ?>">Dribble</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <button class="action action--menuUzi" aria-label="sidemenu button open">
-          <svg data-cursor="-enlarge -exclusion" class="icon icon-cursor icon--menuUzi">
-            <use xlink:href="#icon-menu"></use>
-          </svg>
-        </button>
-        <button class="action action--close" aria-label="sidemenu button close">
-          <svg data-cursor="-enlarge -exclusion" class="icon icon-cursor icon--close">
-            <use xlink:href="#icon-close"></use>
-          </svg>
-        </button>
-      </nav>
-    </main>
 
     <script async src="js/imagesloaded.pkgd.min.js"></script>
     <script async src="js/TweenMax.min.js"></script>

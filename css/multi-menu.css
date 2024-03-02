@@ -8,7 +8,7 @@ body {
   --color-text: #fff;
   /*--color-bg-menu: #252525;*/
   --color-link: #fff;
-  --color-link-hover: #a17cea;
+  --color-link-hover: #bfff0a;
   --color-bg-menu-item1: #15171b;
   --color-bg-menu-item2: #2c35b7;
   --color-bg-menu-item3: #0f1013;
@@ -163,7 +163,7 @@ body {
 .action--menuUzi {
   pointer-events: auto;
   position: absolute;
-  top: 1.5rem;
+  top: 1.3rem;
   right: 1.5rem;
   z-index: 1000;
 }
@@ -174,12 +174,12 @@ body {
 
 .action--close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.75rem;
+  top: 1.2rem;
+  right: 1.5rem;
   z-index: 1000;
   opacity: 0;
   padding: 0 0.5rem;
-  color: var(--white);
+  color: var(--color-bg);
 }
 
 .icon--menuUzi {
@@ -400,7 +400,7 @@ body {
     color: var(--color-item-alt);
     position: absolute;
     z-index: 1000;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: bold;
     margin: 0;
     white-space: nowrap;
@@ -425,7 +425,7 @@ body {
     content: "------------- ";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -1px;
+    letter-spacing: -5px;
     margin: 0 0.75rem 0 0;
   }
   .label--vert::before,
@@ -469,7 +469,7 @@ body {
   .mainmenuUzi__item::after {
     content: "";
     width: 100%;
-    top: 58%;
+    top: 50%;
     height: 6px;
     background: var(--color-link-hover);
     position: absolute;
@@ -492,8 +492,8 @@ body {
   .menuUzi__item-hoverlink {
     font-size: 1.25rem;
     text-transform: lowercase;
-    border-bottom: 2px solid #fff;
-    opacity: 0;
+    /* border-bottom: 2px solid #fff; */
+    opacity: 1;
     transition: opacity 0.3s;
   }
   .menuUzi__item-inner:hover .menuUzi__item-hoverlink {
@@ -513,9 +513,6 @@ body {
   .sidemenuUzi a:nth-child(1),
   .sidemenuUzi a:last-child {
     display: none;
-  }
-  .action {
-    right: -14px !important;
   }
 }
 
@@ -542,8 +539,10 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  .action {
-    right: 2px !important;
-    width: 50px !important;
+  .action--menuUzi {
+    pointer-events: auto;
+    position: absolute;
+    top: 1.3rem;
+    right: 0.5rem;
   }
 }

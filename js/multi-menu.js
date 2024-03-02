@@ -1,5 +1,8 @@
 {
   // Class menuUzi.
+
+  let allowTilt = true;
+
   class MenuUzi {
     constructor(el) {
       this.DOM = { el: el };
@@ -109,6 +112,7 @@
 
       // Show/Hide open and close ctrls.
       TweenMax.to(this.DOM.closeCtrl, 0.6, {
+        delay: action === "open" ? 0.7 : 0.1,
         ease: action === "open" ? Quint.easeOut : Quart.easeInOut,
         startAt: action === "open" ? { rotation: 0 } : null,
         opacity: action === "open" ? 1 : 0,
@@ -118,14 +122,6 @@
         delay: action === "open" ? 0 : 0.3,
         ease: action === "open" ? Quint.easeOut : Quad.easeOut,
         opacity: action === "open" ? 0 : 1,
-      });
-      TweenMax.to(".nav_logo_parent", action === "open" ? 0.6 : 0.3, {
-        color: "var(--color-bg)",
-        ease: "power2.out",
-      });
-      TweenMax.to(".nav_logo_parent", action === "close" ? 0.6 : 0.3, {
-        color: "var(--color-black)",
-        ease: "power4.out",
       });
 
       // Main links animation.
@@ -283,6 +279,5 @@
     }
   }
 
-  let allowTilt = true;
   const tilt = new TiltFx();
 }

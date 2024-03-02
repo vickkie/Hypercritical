@@ -12,6 +12,10 @@ html {
   overflow: hidden;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   margin: 0;
   --color-black: #000000;
@@ -19,6 +23,7 @@ body {
   --color-bg: #ece9e1;
   --stick-black: #000;
   --stick-white: #fff;
+  --main-color: #bfff0a;
 
   --font-1: grotesk-diamond;
   --font-2: MonumentExtended;
@@ -136,6 +141,7 @@ a:focus-visible {
   overflow: hidden;
   justify-content: center;
   cursor: pointer;
+  z-index: 201;
 }
 .est_nav svg {
   padding-left: 8px;
@@ -157,9 +163,54 @@ a:focus-visible {
   fill: var(--color-black);
 }
 .mid-moon--light {
-  fill: var(--color-bg);
+  fill: var(--main-color);
 }
 
 .logo-close {
   color: var(--color-black);
+}
+
+.menu_button_wrapper {
+  width: 2.25rem;
+  height: 1rem;
+  grid-column-gap: 0.3rem;
+  grid-row-gap: 0.3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  overflow: hidden;
+  grid-area: menuicon;
+}
+
+.menu_button_line {
+  width: 100%;
+  height: 2px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  align-items: center;
+  display: flex;
+}
+.menu_dot {
+  width: 0.1875rem;
+  height: 0.1875rem;
+  background-color: var(--color-black);
+  border-radius: 100000rem;
+}
+.menu_line {
+  width: 100%;
+  height: 1.23438px;
+  background-color: var(--color-black);
+}
+.both-icon-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: " menuicon menuname";
+  grid-column-gap: 3px;
+}
+.menu-name {
+  grid-area: menuname;
+  font-family: "MonumentExtended";
 }

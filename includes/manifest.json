@@ -11,14 +11,20 @@
     "icons": [
     
     {
-      "src": "assets/images/maskable_icon2.png",
+      "src": "../assets/masks/maskable-196.png",
       "sizes": "196x196",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/images/maskable_icon1.png",
+      "src": "../assets/masks/maskable-512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "../assets/masks/maskable-923.png",
+      "sizes": "923x923",
       "type": "image/png",
       "purpose": "maskable any"
     }

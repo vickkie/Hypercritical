@@ -43,7 +43,7 @@ new Promise((resolve, reject) => {
       })
       .catch((error) => {
         console.error("Error loading config:", error);
-        reject(error); // Reject the promise if there's an error
+        reject(error); // Reject the promise if there's an error`
       });
   });
 })
@@ -53,3 +53,26 @@ new Promise((resolve, reject) => {
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
   });
+
+//GRoup 3: animation on hover of contact emoji
+
+document.addEventListener("DOMContentLoaded", () => {
+  let menuUziItemLink = document.querySelector(".menuUzi__item-link");
+  let defaultImage = menuUziItemLink.querySelector(".contact-emoji");
+
+  let rotateremoji = gsap.timeline();
+
+  const rotateemoji = () => {
+    rotateremoji.to(defaultImage, {
+      duration: 1,
+      rotation: -360,
+      repeat: -1,
+      ease: "linear",
+    });
+  };
+
+  menuUziItemLink.addEventListener("mouseover", rotateemoji);
+  menuUziItemLink.addEventListener("mouseout", () => {
+    rotateremoji.kill();
+  });
+});

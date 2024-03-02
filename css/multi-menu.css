@@ -522,20 +522,17 @@ body {
 .reachussvg {
   width: 100px;
   height: 50px;
-  transition: translate 0.3s ease;
+  margin-top: -30px;
 }
 
-.menuUzi__item-link:hover .reachussvg {
-  animation: moveright 3s ease;
+.menuUzi__item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-@keyframes moveright {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(20px);
-  }
+.reachussvg img {
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -545,4 +542,9 @@ body {
     top: 1.3rem;
     right: 0.5rem;
   }
+}
+
+.yearnow {
+  font-size: 2rem;
+  color: var(--color-bg);
 }

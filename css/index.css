@@ -28,7 +28,7 @@ body {
 
   --font-1: grotesk-diamond;
   --font-2: MonumentExtended;
-  --font-3: grotesk;
+  --font-3: MonumentExtended-light;
 
   --mid-largefont: 1.8rem;
 
@@ -234,7 +234,7 @@ a:focus-visible {
   padding-right: 7px;
 }
 .critical {
-  font-family: MonumentExtended-light;
+  font: var(--font-3);
 }
 
 .below-line {
@@ -331,7 +331,7 @@ a:focus-visible {
 .desc-wrapper {
   display: flex;
   width: 80%;
-  font-family: MonumentExtended-light;
+  font-family: var(--font-3);
 }
 
 @media screen and (min-width: 768px) {
@@ -356,6 +356,7 @@ a:focus-visible {
 }
 .intro-studio {
   grid-area: intro-studio;
+  font-family: var(--font-3);
 }
 
 .morestudio a {
@@ -394,4 +395,199 @@ a:focus-visible {
   position: absolute;
   left: 0;
   width: 88%;
+}
+
+.ourservices {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:
+    "servicehead  serviceaccordion"
+    "accordion-right  serviceaccordion";
+  max-height: max-content;
+  padding: 70px 30px;
+  /* background-color: var(--color-bg); */
+  background-color: transparent;
+  z-index: 2;
+  cursor: crosshair;
+}
+
+:before,
+:after {
+  --tw-content: "";
+}
+.ourservices:before {
+  content: var(--tw-content);
+  background-image: url(../assets/images/noise-XDeODQWT.png);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.services-head {
+  position: relative;
+  grid-area: servicehead;
+  padding-left: 100px;
+  padding-top: 30px;
+}
+.accordion-right {
+  grid-area: accordion-right;
+  position: inherit;
+}
+.services-accordion {
+  grid-area: serviceaccordion;
+}
+
+.col__content-txt {
+  max-width: 100%;
+  order: 2;
+  margin-left: 32px;
+}
+summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-items: center;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-icon,
+.accordion-icon::after {
+  display: block;
+  box-sizing: border-box;
+  background: black;
+  border-radius: 10px;
+}
+
+.accordion-icon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  top: -7px;
+  left: 7px;
+}
+
+.accordion-icon {
+  margin-top: -2px;
+  position: relative;
+  transform: scale(var(--ggs, 1));
+  width: 16px;
+  height: 2px;
+}
+
+details {
+  border-bottom: 1px solid;
+  padding: 1rem 0;
+  grid-gap: 1px;
+  max-width: 700px;
+}
+
+details[open] .accordion-icon::after {
+  display: none;
+}
+
+.col__content-txt span {
+  font-family: var(--font-3);
+}
+
+.services-head ::before {
+  border-radius: 100%;
+  content: "に";
+  left: 35px;
+  top: 20px;
+  position: absolute;
+  border: solid 0.0058vw;
+  height: 36px;
+  display: flex;
+  width: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+/* //elephant */
+
+.c-sprite.-elephant.is-lazy-loaded {
+  animation-timing-function: steps(74);
+  animation-duration: 2.5s;
+}
+
+.c-sprite.-elephant {
+  max-width: 13.4375rem;
+}
+.c-sprite.-loop {
+  animation: playelephant 0s linear;
+  background-position: center left;
+}
+.c-sprite.is-inview {
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+}
+/* .c-sprite.is-lazy-loaded {
+  animation-play-state: paused;
+} */
+.c-sprite {
+  margin: auto;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+.c-elephant {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.c-elephant_himself_wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 1;
+}
+
+.c-elephant_himself {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 165px;
+  height: 279px;
+  margin-left: -112.5px px;
+  margin-top: -148.5px;
+}
+@media (max-width: 1409px) {
+  .c-elephant_himself {
+    width: 100px;
+    height: 169px;
+    /* margin-left: -50px;
+    margin-top: -84.5px;
+  } */
+    margin-left: -112.5px;
+    margin-top: -148.5px;
+  }
+}
+
+.c-sprite {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://tigermilkrestaurants.com/wp-content/themes/qh-timber/theme/dist/assets/images/sprites/elephant-loop.png);
+}
+
+@keyframes playelephant {
+  100% {
+    background-position: 100%;
+  }
 }

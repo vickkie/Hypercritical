@@ -304,6 +304,8 @@ accordionItems.forEach((accordionItem) => {
   });
 });
 
+// Group 11: elephant fun mouse
+
 let elephant = select(".c-elephant_himself");
 // let elephant_wrapper = select(".c-elephant_himself_wrap");
 let elephant_wrapper = select(".ourservices");
@@ -314,5 +316,44 @@ elephant_wrapper.addEventListener("mouseenter", () => {
     el: elephant,
     container: elephant_wrapper,
     speed: 22.3,
+  });
+});
+
+// Group 12: inverse the arrow colors using gsap
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const darkSections = gsap.utils.toArray(".white-section");
+  var arrowWrapper = document.querySelector(".top-arrow-wrapper");
+  var arrowpath = document.querySelector(".top-arrow-path");
+
+  function makedark() {
+    arrowpath.style.stroke = "var(--color-black)";
+    arrowWrapper.style.fill = "var(--color-bg)";
+  }
+
+  function makewhite() {
+    arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
+  }
+  darkSections.forEach((darkSection, i) => {
+    //  let id = i;
+    //  console.log(id);
+    const darken = gsap.timeline({
+      scrollTrigger: {
+        trigger: darkSection,
+        id: i + 1,
+        start: "top 40%",
+        endtrigger: darkSection,
+        end: "bottom 10%",
+        scrub: true,
+        // markers: true,
+        onEnter: () => makewhite(),
+        onLeave: () => makedark(),
+        onEnterBack: () => makewhite(),
+        onLeaveBack: () => makedark(),
+      },
+    });
   });
 });

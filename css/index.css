@@ -389,6 +389,7 @@ a:focus-visible {
   border: none;
   rotate: -45deg;
   text-indent: 100%;
+  z-index: 20;
 }
 
 #toTop svg {
@@ -396,7 +397,12 @@ a:focus-visible {
   left: 0;
   width: 88%;
 }
-
+.top-arrow-wrapper {
+  fill: var(--color-bg);
+}
+.top-arrow-path {
+  stroke: var(--color-black);
+}
 .ourservices {
   position: relative;
   min-height: 100svh;

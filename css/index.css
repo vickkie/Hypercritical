@@ -276,6 +276,32 @@ a:focus-visible {
   background-color: var(--main-color);
 }
 
+@media screen and (max-width: 767px) {
+  .introduction {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr 200px;
+    grid-template-areas: "introtitle " "introexpla" "introfooter";
+  }
+  .intro-description {
+    padding-top: 10px;
+    padding-left: 25px;
+  }
+  .intro-footer {
+    padding: 25px;
+    grid-template-areas: "intro-studio" " morestudio";
+    grid-template-columns: 1fr;
+    position: relative;
+    text-align: left;
+  }
+  .morestudio {
+    padding: 30px 0;
+    align-items: start;
+    display: flex;
+    grid-area: morestudio;
+    justify-content: center;
+  }
+}
+
 .intro-title {
   grid-area: introtitle;
   padding-top: 100px;
@@ -298,8 +324,7 @@ a:focus-visible {
 }
 
 .intro-description {
-  padding-top: 100px;
-
+  padding-top: 10px;
   grid-area: introexpla;
   font-size: var(--mid-largefont);
 }
@@ -308,26 +333,31 @@ a:focus-visible {
   width: 80%;
   font-family: MonumentExtended-light;
 }
-.intro-footer {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-areas: "intro-studio morestudio";
-  position: relative;
-  text-align: left;
-  grid-area: introfooter;
-  padding-top: 30px;
-}
 
+@media screen and (min-width: 768px) {
+  .intro-footer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "intro-studio morestudio";
+    position: relative;
+    text-align: left;
+    grid-area: introfooter;
+    padding-top: 30px;
+  }
+  .morestudio {
+    display: flex;
+    grid-area: morestudio;
+    justify-content: flex-end;
+    align-items: start;
+  }
+  .intro-description {
+    padding-top: 100px;
+  }
+}
 .intro-studio {
   grid-area: intro-studio;
 }
 
-.morestudio {
-  display: flex;
-  grid-area: morestudio;
-  justify-content: flex-end;
-  align-items: start;
-}
 .morestudio a {
   padding: 13px;
   margin-right: 40px;

@@ -10,6 +10,7 @@
 
 html {
   overflow: hidden;
+  scroll-behavior: unset;
 }
 
 ul {
@@ -29,6 +30,8 @@ body {
   --font-2: MonumentExtended;
   --font-3: grotesk;
 
+  --mid-largefont: 1.8rem;
+
   color: var(--color-black);
   background-color: var(--color-bg);
   font-family: var(--font-2), sans-serif;
@@ -47,8 +50,8 @@ body {
 
 @font-face {
   font-display: swap;
-  font-family: "LA-LUXE";
-  src: url("../fonts/Pavelt-VG24B.woff") format("woff");
+  font-family: "MonumentExtended-light";
+  src: url("../fonts/monumentextended-ultralight.woff") format("woff");
 }
 
 @font-face {
@@ -85,15 +88,14 @@ a:focus-visible {
 .hero-main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 70px repeat(2, 1fr);
+  grid-template-rows: 70px repeat(2, 1fr) 70px;
   grid-template-areas:
     "... ... ..."
     "... ... ..."
-    "images ... ...";
-}
+    "herologo herologo herologo"
+    "scroll scroll scroll";
 
-.images {
-  grid-area: images;
+  min-height: 80vh;
 }
 
 .nav {
@@ -213,4 +215,153 @@ a:focus-visible {
 .menu-name {
   grid-area: menuname;
   font-family: "MonumentExtended";
+}
+
+.main-hero {
+  grid-area: herologo;
+  overflow: hidden;
+}
+
+.hero-largelogo {
+  font-size: 9vw;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.hyper {
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding-right: 7px;
+}
+.critical {
+  font-family: MonumentExtended-light;
+}
+
+.below-line {
+  height: 0.052vw;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  opacity: 1;
+  background-color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scrolldown-hero {
+  grid-area: scroll;
+  width: 100%;
+  text-align: center;
+}
+.hero-largelogo sup {
+  position: absolute;
+  right: 10px;
+  top: -23px;
+  font-family: auto;
+}
+.hero-image {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.introduction {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr 200px;
+  min-height: 100vh;
+  grid-template-areas: "introtitle  introexpla" "...  introfooter";
+  position: relative;
+  background-color: var(--main-color);
+}
+
+.intro-title {
+  grid-area: introtitle;
+  padding-top: 100px;
+  padding-left: 100px;
+}
+
+.intro-title:before {
+  border-radius: 100%;
+  content: "いち";
+  left: 35px;
+  top: 90px;
+  position: absolute;
+  border: solid 0.0058vw;
+  height: 36px;
+  display: flex;
+  width: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.intro-description {
+  padding-top: 100px;
+
+  grid-area: introexpla;
+  font-size: var(--mid-largefont);
+}
+.desc-wrapper {
+  display: flex;
+  width: 80%;
+  font-family: MonumentExtended-light;
+}
+.intro-footer {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-areas: "intro-studio morestudio";
+  position: relative;
+  text-align: left;
+  grid-area: introfooter;
+  padding-top: 30px;
+}
+
+.intro-studio {
+  grid-area: intro-studio;
+}
+
+.morestudio {
+  display: flex;
+  grid-area: morestudio;
+  justify-content: flex-end;
+  align-items: start;
+}
+.morestudio a {
+  padding: 13px;
+  margin-right: 40px;
+  border: solid 0.0058vw var(--color-black);
+  border-radius: 40px;
+}
+
+.divider-line {
+  height: 0.052vw;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background-color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  shape-rendering: geometricprecision;
+}
+#toTop {
+  text-decoration: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  border: none;
+  rotate: -45deg;
+  text-indent: 100%;
+}
+
+#toTop svg {
+  position: absolute;
+  left: 0;
+  width: 88%;
 }

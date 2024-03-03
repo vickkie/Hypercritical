@@ -243,11 +243,17 @@
   transform: scale(1);
 }
 
-.mf-cursor-media {
+/* .mf-cursor-media {
   position: absolute;
   width: 100px;
   height: 100px;
   margin: -50px 0 0 -50px;
+} */
+.mf-cursor-media {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
 }
 
 .mf-cursor-media img,

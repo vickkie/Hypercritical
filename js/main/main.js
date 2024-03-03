@@ -289,3 +289,30 @@ document.addEventListener("DOMContentLoaded", function () {
   cursor();
   window.addEventListener("res", cursor);
 });
+
+//Group 10: control opening and closing of accordion
+
+const accordionItems = document.querySelectorAll("details");
+
+accordionItems.forEach((accordionItem) => {
+  accordionItem.addEventListener("click", (event) => {
+    accordionItems.forEach((sibling) => {
+      if (sibling != accordionItem) {
+        sibling.removeAttribute("open");
+      }
+    });
+  });
+});
+
+let elephant = select(".c-elephant_himself");
+// let elephant_wrapper = select(".c-elephant_himself_wrap");
+let elephant_wrapper = select(".ourservices");
+
+elephant_wrapper.addEventListener("mouseenter", () => {
+  console.log("enter");
+  const elephantcursor = new MouseFollower({
+    el: elephant,
+    container: elephant_wrapper,
+    speed: 22.3,
+  });
+});

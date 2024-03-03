@@ -76,3 +76,216 @@ document.addEventListener("DOMContentLoaded", () => {
     rotateremoji.kill();
   });
 });
+
+//group 4: smooth scrolling
+
+import Lenis from "@studio-freight/lenis";
+
+const lenis = new Lenis({
+  duration: 3,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  direction: "vertical",
+  gestureDirection: "vertical",
+  smooth: true,
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+  autoResize: true,
+});
+
+lenis.on("scroll", (e) => {});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+//Group 5: Animating into into place
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
+
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+
+let select = (e) => document.querySelector(e);
+let selectAll = (e) => document.querySelectorAll(e);
+
+const herolargelogo = select(".hero-largelogo");
+const heroText = Splitting({ target: herolargelogo, by: "words" });
+
+let herowords = selectAll(".hero-largelogo [data-word]");
+
+console.log(herowords);
+
+let heroSeparator = select(".below-line"),
+  heroMedia = select(".hero-image");
+
+const showHero = () => {
+  gsap
+    .timeline({ defaults: { ease: "expo.out", delay: 1.2 } })
+    .addLabel("start")
+    .fromTo(
+      heroSeparator,
+      { width: 0 },
+      {
+        duration: 1.75,
+        width: "100%",
+        stagger: 0.095,
+      },
+      "start"
+    )
+    .fromTo(
+      herowords,
+      { y: "101%" },
+
+      {
+        delay: 0,
+        duration: 2.3,
+        y: "0",
+        stagger: 0.17,
+        ease: "expo.inOut",
+      },
+      "start+=0.28"
+    )
+
+    .fromTo(
+      heroMedia,
+      { width: 0 },
+
+      { width: "100%", duration: 1.5, ease: "expo.inOut", transformOrigin: "50% 50% 0" },
+      "start+=0.7"
+    );
+};
+
+// Group 7: parallax effect
+
+function initParallax() {
+  let slides = selectAll(".slide");
+  let slideId = 0;
+  slides.forEach((slide, i) => {
+    let imageWrapper = slide.querySelector(".parallax-image");
+
+    gsap.fromTo(
+      imageWrapper,
+      {
+        y: "-60vh",
+      },
+      {
+        y: "60vh",
+        scrollTrigger: {
+          trigger: slide,
+          scrub: true,
+          start: "top bottom", // position of trigger meets the scroller position
+          end: "bottom top",
+          markers: !1,
+        },
+        ease: "none",
+      }
+    );
+  });
+}
+
+function scrollTop() {
+  gsap.to(window, {
+    duration: 2,
+    scrollTo: {
+      y: "nav",
+    },
+    ease: "power2.inOut",
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  showHero();
+  setTimeout(() => {
+    initParallax();
+    scrollTop();
+  }, 3000);
+});
+
+//group 7 : animate divider lines using gsap and scrollTrigger
+// Group 5: Line Animation
+function lineTimeline(element) {
+  const afterPseudotl = gsap.timeline({
+    defaults: {
+      duration: 3,
+      ease: "power3.out",
+    },
+  });
+
+  afterPseudotl.fromTo(
+    element,
+    {
+      scaleX: 0,
+      opacity: 0,
+      transformOrigin: "left left",
+    },
+    {
+      scaleX: 1,
+      opacity: 1,
+    }
+  );
+
+  return afterPseudotl;
+}
+
+document.querySelectorAll("[line-trigger]").forEach(function (element) {
+  const lineTrigger = element.getAttribute("line-trigger");
+
+  const linetimeline = lineTimeline(element);
+
+  ScrollTrigger.create({
+    trigger: lineTrigger,
+    start: "top 92%",
+    animation: linetimeline,
+    onEnter: () => linetimeline.play(),
+    onLeaveBack: () => linetimeline.reverse({ duration: 6.5 }),
+  });
+});
+
+//group 8: show and hide the scroll top button and scroll to top
+
+document.addEventListener("DOMContentLoaded", function () {
+  let toTopbutton = document.querySelector("#toTop");
+
+  // Add an event listener to check scroll position
+  window.addEventListener("scroll", function () {
+    let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollPosition > 1.5 * window.innerHeight) {
+      toTopbutton.style.display = "block";
+    } else {
+      toTopbutton.style.display = "none";
+    }
+  });
+
+  function scrollTop() {
+    gsap.to(window, {
+      duration: 2,
+      delay: 0,
+      scrollTo: {
+        y: ".hero-main",
+      },
+      ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+  }
+
+  toTopbutton.addEventListener("click", scrollTop);
+});
+
+//Group 9: show mouse follower
+
+document.addEventListener("DOMContentLoaded", function () {
+  function cursor() {
+    if (innerWidth > 767) {
+      let cursorme = new MouseFollower();
+    }
+  }
+
+  cursor();
+  window.addEventListener("res", cursor);
+});

@@ -19,15 +19,22 @@
       crossorigin
     />
 
-    <script src="includes/call-workers.js"></script>
+    <link fetchpriority="high" rel="preload" href="assets/images/1.jpg" as="image" />
+    <link fetchpriority="low" rel="preload" href="assets/images/elephant-loop.png" as="image" />
+
+    <!-- <script src="includes/call-workers.js"></script> -->
     <link rel="manifest" href="includes/manifest.json" />
 
-    <script src="js/lazysizes.min.js" async=""></script>
+    <script src="js/lazysizes.min.js"></script>
     <script>
       if ("loading" in HTMLImageElement.prototype) {
         const images = document.querySelectorAll('img[loading="lazy"]');
         images.forEach((img) => {
           img.src = img.dataset.src;
+        });
+        const videos = document.querySelectorAll('source[loading="lazy"]');
+        videos.forEach((source) => {
+          source.src = source.dataset.src;
         });
       } else {
         const script = document.createElement("script");
@@ -207,12 +214,18 @@
                   <p class="label label--topleft label--line">Reach us now</p>
                   <a href="contact" class="menuUzi__item-link">
                     <div class="reachussvg">
-                      <img src="assets/svg/10.2b4ffb11.webp" alt="contact button 2" class="contact-emoji" />
+                      <img
+                        src="assets/svg/10.2b4ffb11.webp"
+                        data-label="image"
+                        alt="contact button 2"
+                        class="contact-emoji"
+                      />
                       <img
                         src="assets/svg/9.b586fa93.webp"
                         alt="contact button 2"
                         class="laugh-emoji"
                         style="display: none"
+                        data-label="image"
                       />
                     </div>
                   </a>
@@ -289,7 +302,7 @@
 
     <section class="hero-image slide" data-columns="2">
       <div class="parallax-image parallax-hero">
-        <img src="assets/images/1.jpg" alt="introduction image" />
+        <img src="assets/images/1.jpg" data-label="image " alt="introduction image" />
       </div>
     </section>
     <section class="introduction white-section">
@@ -311,7 +324,7 @@
           efficiency, and success for you.
         </div>
         <div class="morestudio">
-          <a href="studio" aria-label="more studio">More about us</a>
+          <a href="studio" role="link">More about us</a>
         </div>
       </div>
     </section>
@@ -329,7 +342,7 @@
         data-start="top 90%"
       >
         <span class="content__title" data-splitting data-effect28>
-          <span class="font-12 font-medium">Innovation </span>
+          <span class="font-12 font-medium">Services </span>
         </span>
       </div>
     </section>
@@ -628,12 +641,18 @@
         muted
         loop
         poster="assets/images/65baee591c3d847be314deac_Come-Final-1920-1.jpg"
+        class="lazyload"
       >
         <source src="https://raw.githubusercontent.com/vickkie/On-scroll-Filter/main/ACM-short.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div class="top-background"></div>
+      <div class="top-background">
+        <div class="div video-overlay">
+          WORKING WORLDWIDE
+          <div class="video-footer"><span class="bold">Unleash&nbsp;</span><span>➺ your potential</span></div>
+        </div>
+      </div>
     </section>
 
     <section class="ourservices" data-cursor-img="assets/images/peanut.webp">
@@ -696,6 +715,7 @@
         </details>
       </div>
     </section>
+    <section class="footer"></section>
 
     <script src="js/Scroll-Smoother.js"></script>
     <script src="js/scrolltrigger.js"></script>

@@ -141,7 +141,7 @@ const vue = new Vue({
       this.preloader.remove();
       this.enableScrolling();
       // this.animateWebsite();
-      animateDone();
+      // animateDone();
     },
     animateWebsite() {
       console.log("%c Greetings from HyperCritical", "color:white;background:#c389e1; font-size: 26px;font-family:Uzi");

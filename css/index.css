@@ -41,6 +41,7 @@ body {
   transition: all 0.3s ease;
   height: max-content;
   overflow: hidden;
+  margin: 0;
 }
 .dark-mode {
   --color-black: #fff !important;
@@ -641,4 +642,28 @@ details[open] .accordion-icon::after {
 .top-background {
   position: relative;
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+    "... "
+    "video-overlay"
+    "video-footer";
+  grid-row-gap: 12px;
+}
+
+.video-overlay {
+  grid-area: video-overlay;
+  font-size: 11vw;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  color: var(--main-color);
+}
+.video-footer {
+  grid-area: video-footer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.bold {
+  font-weight: 900;
 }

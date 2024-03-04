@@ -124,7 +124,7 @@ const heroText = Splitting({ target: herolargelogo, by: "words" });
 
 let herowords = selectAll(".hero-largelogo [data-word]");
 
-console.log(herowords);
+// console.log(herowords);
 
 let heroSeparator = select(".below-line"),
   heroMedia = select(".hero-image");
@@ -132,7 +132,7 @@ let heroimageWrapper = select(".parallax-hero");
 
 const showHero = () => {
   gsap
-    .timeline({ defaults: { ease: "expo.out", delay: 1.2 } })
+    .timeline({ defaults: { ease: "expo.out", delay: 0.5 } })
     .set(heroimageWrapper, { y: "-60vh" })
     .addLabel("start")
     .fromTo(
@@ -147,7 +147,7 @@ const showHero = () => {
     )
     .fromTo(
       herowords,
-      { y: "105%" },
+      { y: "110%" },
 
       {
         delay: 0,
@@ -156,7 +156,7 @@ const showHero = () => {
         stagger: 0.17,
         ease: "expo.inOut",
       },
-      "start+=0.18"
+      "start+=0.28"
     )
 
     .fromTo(
@@ -320,7 +320,7 @@ let elephant = select(".c-elephant_himself");
 let elephant_wrapper = select(".ourservices");
 
 elephant_wrapper.addEventListener("mouseenter", () => {
-  console.log("enter");
+  // console.log("enter");
   const elephantcursor = new MouseFollower({
     el: elephant,
     container: elephant_wrapper,
@@ -367,7 +367,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//group 13: imported imagehover
+//group 13: imported imagehover on innovation services
+
+import { Item } from "./code-anime/item";
+
+[...document.querySelectorAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));
+
+// group 14: animate how video resizes ..main video
+
+let worldvideoWrapper = select(".global-video");
+let worldvideo = select("#video-background");
+
+gsap.registerPlugin(ScrollTrigger);
+
+const animateVideo = gsap.timeline({
+  scrollTrigger: {
+    trigger: worldvideoWrapper,
+    start: "top bottom",
+    end: "top top",
+    scrub: true,
+    markers: !1,
+    toggleActions: "play none none reverse",
+  },
+});
+
+animateVideo.fromTo(
+  worldvideo,
+
+  {
+    scaleX: 0.9,
+    borderRadius: "45px",
+  },
+  {
+    scaleX: 1,
+    borderRadius: "0px",
+  }
+);
 
 //split and show this section header
 
@@ -444,7 +479,3 @@ document.addEventListener("DOMContentLoaded", () => {
 //     });
 //   });
 // }
-
-import { Item } from "./code-anime/item";
-
-[...document.querySelectorAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));

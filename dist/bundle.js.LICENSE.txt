@@ -1,3 +1,11 @@
+/*!
+ * Cuberto Mouse Follower
+ * https://cuberto.com/
+ *
+ * @version 1.1.2
+ * @author Cuberto, Artem Dordzhiev (Draft)
+ */
+
 /*! !!../../css-loader/dist/cjs.js!./splitting-cells.css */
 
 /*! !!../../css-loader/dist/cjs.js!./splitting.css */
@@ -6,7 +14,13 @@
 
 /*! ../../css-loader/dist/runtime/api.js */
 
+/*! ./code-anime/item */
+
+/*! ./utils.js */
+
 /*! @studio-freight/lenis */
+
+/*! mouse-follower */
 
 /*! splitting */
 
@@ -17,6 +31,14 @@
 /*!*************************!*\
   !*** ./js/main/main.js ***!
   \*************************/
+
+/*!************************************!*\
+  !*** ./js/main/code-anime/item.js ***!
+  \************************************/
+
+/*!*************************************!*\
+  !*** ./js/main/code-anime/utils.js ***!
+  \*************************************/
 
 /*!**************************************************!*\
   !*** ./node_modules/splitting/dist/splitting.js ***!
@@ -33,6 +55,10 @@
 /*!*********************************************************!*\
   !*** ./node_modules/splitting/dist/splitting-cells.css ***!
   \*********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
+  \**********************************************************/
 
 /*!***********************************************************!*\
   !*** ./node_modules/@studio-freight/lenis/dist/lenis.mjs ***!

@@ -282,15 +282,17 @@
 
     <script async src="js/imagesloaded.pkgd.min.js"></script>
     <script async src="js/TweenMax.min.js"></script>
+
     <script async src="js/multi-menu.js"></script>
+
     <!-- <script async src="js/main/main.js"></script> -->
 
     <section class="hero-image slide" data-columns="2">
-      <div class="parallax-image">
+      <div class="parallax-image parallax-hero">
         <img src="assets/images/1.jpg" alt="introduction image" />
       </div>
     </section>
-    <section class="introduction">
+    <section class="introduction white-section">
       <div class="intro-title">
         <span class="intro-title-inner">INTRODUCTION</span>
       </div>
@@ -314,7 +316,312 @@
       </div>
     </section>
 
-    <section class="ourservices white-section" data-cursor-img="assets/images/peanut.webp">
+    <!-- image-show -->
+
+    <link rel="stylesheet" type="text/css" href="css/animate-code.css" />
+    <section class="innovation-services">
+      <div class="title-inno">What we do</div>
+      <div
+        class="content-uzi content--full"
+        data-bgcolor="#030014"
+        data-textcolor="#fff"
+        data-cursor="-exclusion"
+        data-start="top 90%"
+      >
+        <span class="content__title" data-splitting data-effect28>
+          <span class="font-12 font-medium">Innovation </span>
+        </span>
+      </div>
+    </section>
+    <section id="coding">
+      <p class="label label--vert-mirror" style="left: 0px; transform: translateY(54px)">
+        <svg
+          height="15px"
+          width="15px"
+          class="-blink"
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 31.955 31.955"
+          xml:space="preserve"
+        >
+          <g>
+            <path
+              style="fill: #26c406"
+              d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                                       c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"
+            ></path>
+            <path
+              style="fill: #26c406"
+              d="M13.288,23.896l-1.768,5.207c2.567,0.829,5.331,0.886,7.926,0.17l-0.665-5.416
+                                      C17.01,24.487,15.067,24.5,13.288,23.896z M8.12,13.122l-5.645-0.859c-0.741,2.666-0.666,5.514,0.225,8.143l5.491-1.375
+                                      C7.452,17.138,7.426,15.029,8.12,13.122z M28.763,11.333l-4.965,1.675c0.798,2.106,0.716,4.468-0.247,6.522l5.351,0.672
+                                          C29.827,17.319,29.78,14.193,28.763,11.333z M11.394,2.883l1.018,5.528c2.027-0.954,4.356-1.05,6.442-0.288l1.583-5.137
+                                        C17.523,1.94,14.328,1.906,11.394,2.883z"
+            ></path>
+            <circle style="fill: #26c406" cx="15.979" cy="15.977" r="6.117"></circle>
+          </g>
+        </svg>
+        &nbsp;Our services
+      </p>
+
+      <div class="grid" data-cursor="-exclusion">
+        <div class="grid__item" ondblclick="videoUp(this);">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint uzijoint-bottom-left"></span>
+          <span class="uzijoint uzijoint-bottom-right"></span>
+
+          <a
+            class="grid__item-img grid-item-vid"
+            onmouseenter="videoDown(this);"
+            onmouseleave="videoUp(this);"
+            aria-label="web app dev video"
+            href="#trakexcel"
+          >
+            <div class="grid__item-img-deco"></div>
+
+            <div style="width: 100%; height: 100%" class="image">
+              <img src="assets/images/mobile-design.jpg" data-label class="lazyload" alt="web dev image" />
+            </div>
+
+            <video class="grid__item-video" loop autoplay muted>
+              <source src="assets/videos/mjobile.mp4" type="video/mp4" />
+            </video>
+          </a>
+          <p class="grid__item-label">
+            Providing our art in creating a modern and scalable website apps, optimizing speed, integrating cloud-based
+            hosting solutions.
+          </p>
+          <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Web App Development</span>
+        </div>
+        <div class="grid__item">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span>
+          <span class="uzijoint-bottom-right"></span>
+
+          <a
+            class="grid__item-img grid-item-vid"
+            onmouseenter="videoDown(this);"
+            onmouseleave="videoUp(this);"
+            aria-label="web design video"
+            href="#trakexcel"
+          >
+            <div class="grid__item-img-deco"></div>
+            <img src="assets/images/website-design.jpg" data-label class="lazyload" alt="Branding image" />
+            <video class="grid__item-video" loop autoplay muted>
+              <source src="assets/videos/home (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4" />
+            </video>
+          </a>
+          <p class="grid__item-label">
+            We develop professional websites across all industries, focusing on user-friendly design and seamless
+            navigation.
+          </p>
+          <span class="grid__item-tag">Website Design</span>
+        </div>
+        <div class="grid__item">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span>
+          <span class="uzijoint-bottom-right"></span>
+
+          <a
+            class="grid__item-img grid-item-vid"
+            onmouseenter="videoDown(this);"
+            onmouseleave="videoUp(this);"
+            aria-label="Branding video"
+            href="#trakexcel"
+          >
+            <div class="grid__item-img-deco"></div>
+            <img src="assets/images/Fabric.png" data-label class="lazyload" alt="brand this" />
+
+            <video class="grid__item-video" loop autoplay muted>
+              <source src="assets/videos/motion22.mp4" type="video/mp4" />
+            </video>
+          </a>
+          <p class="grid__item-label">
+            Transforming your brand into a compelling and unmistakably recognizable identity worldwide.
+          </p>
+          <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Branding</span>
+        </div>
+        <div class="grid__item grid-itemz">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span>
+          <span class="uzijoint-bottom-right"></span>
+
+          <a class="grid__item-img" aria-label="Visionary video" href="#trakexcel">
+            <div class="grid__item-img-decox"></div>
+            <img src="assets/images/innovation.jpg" data-label class="lazyload" alt="Backend design image" />
+          </a>
+          <p class="grid__item-label">
+            We are committed to fostering innovation, with a primary focus on creating intuitive data visualizations and
+            delivering clear and impactful messaging.
+          </p>
+          <span class="grid__item-tag">Visionary innovation</span>
+        </div>
+        <div class="grid__item">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span>
+          <span class="uzijoint-bottom-right"></span>
+
+          <a
+            class="grid__item-img grid-item-vid"
+            onmouseenter="videoDown(this);"
+            onmouseleave="videoUp(this);"
+            aria-label="Backend design animate"
+            href="#trakexcel"
+          >
+            <div class="grid__item-img-deco"></div>
+            <img
+              src="assets/images/90b50417aaab2c8a758d63b28ae35fc4.jpg"
+              border="0"
+              alt="4"
+              data-label
+              alt="Backend
+            design image"
+              class="lazyload"
+            />
+            <video class="grid__item-video" loop autoplay muted>
+              <source src="assets/videos/original-39fcceebe0cb5a1f113882e8060a6baf.mp4" type="video/mp4" />
+            </video>
+          </a>
+          <p class="grid__item-label">
+            Through intuitive data structures and efficient server-side logic, we pave the way for applications that not
+            only meet current needs but are adaptable to future challenges.
+          </p>
+          <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Backend Design</span>
+        </div>
+
+        <div class="grid__item grid-itemz">
+          <span class="uzijoint"></span>
+          <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span>
+          <span class="uzijoint-bottom-right"></span>
+
+          <a class="grid__item-img" aria-label="web security animation" href="#trakexcel">
+            <div class="grid__item-img-decox"></div>
+            <img
+              src="assets/images/security.jpg"
+              style="object-position: center center"
+              data-label
+              class="lazyload"
+              alt="web security"
+            />
+          </a>
+          <p class="grid__item-label">
+            We provide a comprehensive website overhaul, implementing advanced security features and SSL encryption.
+          </p>
+          <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Web Security</span>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function playVideo(element) {
+        var video = element.querySelector(".grid__item-video");
+        video.play();
+      }
+
+      function resetVideo(element) {
+        var video = element.querySelector(".grid__item-video");
+        video.pause();
+        video.currentTime = 0;
+      }
+
+      function toggleVideo(element) {
+        var video = element.querySelector(".grid__item-video");
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+
+      let imgconts = document.querySelectorAll(".grid-item-vid");
+
+      imgconts.forEach((imgcont) => {
+        imgcont.addEventListener("mouseenter", () => {
+          let gridItemVideo = imgcont.querySelector(".grid__item-video");
+          gridItemVideo.style.display = "block";
+          // videoDown(imgcont);
+          // toggleVideo(imgcont);
+        });
+      });
+
+      imgconts.forEach((imgcont) => {
+        imgcont.addEventListener("mouseout", () => {
+          let gridItemVideo = imgcont.querySelector(".grid__item-video");
+          // videoUp();
+          // toggleVideo(imgcont);
+
+          // setTimeout(()=>{
+          // 	resetVideo(imgcont);
+          // 	// gridItemVideo.style.display = 'none';
+          // },2000);
+        });
+      });
+
+      const animateImage = () => {
+        gsap.timeline({ defaults: { ease: "expo.out", delay: 0 } }).fromTo(
+          ".grid__item .cell",
+          {
+            y: 0,
+          },
+          {
+            duration: 1.25,
+            y: "100%",
+            stagger: 0.025,
+            ease: "expo.inOut",
+          },
+          0.5
+        );
+      };
+
+      const reverseImage = () => {
+        gsap.timeline({ defaults: { ease: "expo.out", delay: 0 } }).Fromto(
+          ".grid__item .cell",
+          {
+            y: "200%",
+          },
+          {
+            duration: 1.25,
+            y: 0,
+            stagger: 0.025,
+            ease: "expo.inOut",
+          },
+          0.2
+        );
+      };
+
+      const videoDown = (element) => {
+        gsap
+          .timeline({ defaults: { ease: "expo.out", delay: 0 } })
+          .fromTo(
+            element.querySelector(".grid__item-video"),
+            { y: "0%" },
+            { duration: 1.25, y: "101%", ease: "expo.inOut" },
+            0
+          );
+      };
+
+      const videoUp = (element) => {
+        gsap
+          .timeline({ defaults: { ease: "expo.out", delay: 0 } })
+          .fromTo(
+            element.querySelector(".grid__item-video"),
+            { y: "101%" },
+            { duration: 1.25, y: "0%", ease: "expo.inOut" },
+            0
+          );
+      };
+    </script>
+
+    <section class="ourservices" data-cursor-img="assets/images/peanut.webp">
       <div
         class="c-elephant_himself_wrap is-inview"
         data-scroll="item"
@@ -358,14 +665,29 @@
           </span>
         </details>
         <details class="col__content-txt">
-          <summary>&#10045;&nbsp;Careers?<i class="accordion-icon"></i></summary>
+          <summary>&#10045;&nbsp;Innovative Design Solutions<i class="accordion-icon"></i></summary>
           <span>
-            Hypercritical isn’t currently hiring but will be looking for two humans to join our team in the next six
-            months to help with operations. If that sounds like you, be sure to reach out and say hello! 👋.
+            We specialize in creating unique, cutting-edge designs that stand out in the digital landscape. Our
+            innovative approach ensures your brand's identity is distinctively represented online.
+          </span>
+        </details>
+        <details class="col__content-txt">
+          <summary>&#10045;&nbsp;Timely Delivery<i class="accordion-icon"></i></summary>
+          <span>
+            Hypercritical understand the importance of meeting deadlines in the fast-paced digital world. Our commitment
+            to timely delivery ensures your project is completed on time, allowing you to launch your website with
+            confidence and on schedule. 👋.
           </span>
         </details>
       </div>
     </section>
+
+    <script src="js/Scroll-Smoother.js"></script>
+    <script src="js/scrolltrigger.js"></script>
+    <script src="js/scrolltoplugin.js"></script>
+    <link href="css/mf.css" rel="stylesheet" />
+    <!-- <script src="js/mf.js"></script> -->
+    <script src="js/magnetic-curberto.js"></script>
 
     <a
       class="footer__link-top"
@@ -390,11 +712,5 @@
         />
       </svg>
     </a>
-    <script src="js/Scroll-Smoother.js"></script>
-    <script src="js/scrolltrigger.js"></script>
-    <script src="js/scrolltoplugin.js"></script>
-    <link href="css/mf.css" rel="stylesheet" />
-    <script src="js/mf.js"></script>
-    <script src="js/magnetic-curberto.js"></script>
   </body>
 </html>

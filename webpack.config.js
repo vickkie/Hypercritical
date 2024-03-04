@@ -41,6 +41,8 @@ module.exports = {
         { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
+        { from: ".barbelrc", to: ".barbelrc" },
+        { from: "tsconfig.json", to: "tsconfig.json" },
         { from: "fonts", to: "fonts" },
         { from: "js", to: "js" },
         { from: "assets", to: "assets" },

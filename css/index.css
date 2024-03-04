@@ -5,19 +5,6 @@
 }
 
 :root {
-  font-size: 15px;
-}
-
-html {
-  overflow: hidden;
-  scroll-behavior: unset;
-}
-
-ul {
-  list-style: none;
-}
-
-body {
   margin: 0;
   --color-black: #000000;
   --color-white: #ffffff;
@@ -31,7 +18,20 @@ body {
   --font-3: MonumentExtended-light;
 
   --mid-largefont: 1.8rem;
+  --mid-font: 6vw;
+  font-size: 15px;
+}
 
+html {
+  overflow: hidden;
+  scroll-behavior: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
   color: var(--color-black);
   background-color: var(--color-bg);
   font-family: var(--font-2), sans-serif;
@@ -53,11 +53,10 @@ body {
   font-family: "MonumentExtended-light";
   src: url("../fonts/monumentextended-ultralight.woff") format("woff");
 }
-
 @font-face {
   font-display: swap;
-  font-family: "AdornScript";
-  src: url("../fonts/AdornStoryScript.woff") format("woff");
+  font-family: "grotesk-diamond";
+  src: url("../fonts/PPMori-Regular.woff") format("woff");
 }
 
 a {
@@ -279,12 +278,11 @@ a:focus-visible {
 @media screen and (max-width: 767px) {
   .introduction {
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr 200px;
+    grid-template-rows: auto;
     grid-template-areas: "introtitle " "introexpla" "introfooter";
   }
   .intro-description {
-    padding-top: 10px;
-    padding-left: 25px;
+    padding: 40px 25px;
   }
   .intro-footer {
     padding: 25px;
@@ -299,6 +297,27 @@ a:focus-visible {
     display: flex;
     grid-area: morestudio;
     justify-content: center;
+  }
+  .intro-title {
+    grid-area: introtitle;
+    padding: 100px 100px 30px;
+  }
+  .ourservices {
+    grid-template-areas:
+      "servicehead"
+      "serviceaccordion" !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    padding: 15px 15px !important;
+  }
+  :root {
+    -mid-largefont: 1.3rem;
+  }
+  .services-head :before {
+    top: 37px;
+  }
+  .services-head {
+    padding: 45px;
   }
 }
 
@@ -398,10 +417,10 @@ a:focus-visible {
   width: 88%;
 }
 .top-arrow-wrapper {
-  fill: var(--color-bg);
+  fill: var(--color-black);
 }
 .top-arrow-path {
-  stroke: var(--color-black);
+  stroke: var(--color-bg);
 }
 .ourservices {
   position: relative;
@@ -510,7 +529,7 @@ details[open] .accordion-icon::after {
 
 .services-head ::before {
   border-radius: 100%;
-  content: "に";
+  content: "よん";
   left: 35px;
   top: 20px;
   position: absolute;
@@ -589,11 +608,16 @@ details[open] .accordion-icon::after {
 .c-sprite {
   width: 100%;
   height: 100%;
-  background-image: url(https://tigermilkrestaurants.com/wp-content/themes/qh-timber/theme/dist/assets/images/sprites/elephant-loop.png);
+  background-image: url(../assets/images/elephant-loop.png);
 }
 
 @keyframes playelephant {
   100% {
     background-position: 100%;
   }
+}
+
+.grid__item-label {
+  font-family: var(--font-1);
+  font-size: 0.9rem;
 }

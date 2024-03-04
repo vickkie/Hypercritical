@@ -1,3 +1,14 @@
+//Imports modules in file
+
+import MouseFollower from "mouse-follower";
+import Lenis from "@studio-freight/lenis";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+// import ScrollToPlugin from "gsap/ScrollToPlugin";
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+
 //Group 1: menuUzi midmoon
 let midmoon = document.querySelector(".mid-moon");
 let menuclose = document.querySelector(".action--close");
@@ -79,8 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //group 4: smooth scrolling
 
-import Lenis from "@studio-freight/lenis";
-
 const lenis = new Lenis({
   duration: 3,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -107,10 +116,6 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
-
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
 
@@ -123,10 +128,12 @@ console.log(herowords);
 
 let heroSeparator = select(".below-line"),
   heroMedia = select(".hero-image");
+let heroimageWrapper = select(".parallax-hero");
 
 const showHero = () => {
   gsap
     .timeline({ defaults: { ease: "expo.out", delay: 1.2 } })
+    .set(heroimageWrapper, { y: "-60vh" })
     .addLabel("start")
     .fromTo(
       heroSeparator,
@@ -140,7 +147,7 @@ const showHero = () => {
     )
     .fromTo(
       herowords,
-      { y: "101%" },
+      { y: "105%" },
 
       {
         delay: 0,
@@ -149,7 +156,7 @@ const showHero = () => {
         stagger: 0.17,
         ease: "expo.inOut",
       },
-      "start+=0.28"
+      "start+=0.18"
     )
 
     .fromTo(
@@ -253,15 +260,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let toTopbutton = document.querySelector("#toTop");
 
   // Add an event listener to check scroll position
-  window.addEventListener("scroll", function () {
+  function showTotop() {
     let scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollPosition > 1.5 * window.innerHeight) {
+    if (scrollPosition > 1.2 * window.innerHeight) {
       toTopbutton.style.display = "block";
     } else {
       toTopbutton.style.display = "none";
     }
-  });
+  }
+  showTotop();
+  window.addEventListener("scroll", showTotop);
 
   function scrollTop() {
     gsap.to(window, {
@@ -329,13 +338,13 @@ document.addEventListener("DOMContentLoaded", () => {
   var arrowpath = document.querySelector(".top-arrow-path");
 
   function makedark() {
-    arrowpath.style.stroke = "var(--color-black)";
-    arrowWrapper.style.fill = "var(--color-bg)";
+    arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
   }
 
   function makewhite() {
-    arrowpath.style.stroke = "var(--color-bg)";
-    arrowWrapper.style.fill = "var(--color-black)";
+    arrowpath.style.stroke = "var(--color-black)";
+    arrowWrapper.style.fill = "var(--color-bg)";
   }
   darkSections.forEach((darkSection, i) => {
     //  let id = i;
@@ -357,3 +366,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+//group 13: imported imagehover
+
+//split and show this section header
+
+// if (innerWidth > 767) {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     const fx28Titles = [...document.querySelectorAll(".content__title[data-splitting][data-effect28]")];
+
+//     gsap.registerPlugin(ScrollTrigger);
+//     gsap.registerPlugin(SplitText);
+
+//     // let title = new SplitText(".content__title[data-splitting][data-effect28]", {
+//     //   type: "words,lines,chars",
+//     //   wordsClass: "content__title word",
+//     //   charsClass: "char",
+//     //   linesClass: "lines",
+//     // });
+
+//     fx28Titles.forEach((title) => {
+//       const words = [...title.querySelectorAll(".word")];
+
+//       for (const word of words) {
+//         const chars = word.querySelectorAll(".char");
+//         const charsTotal = chars.length;
+
+//         gsap.fromTo(
+//           chars,
+//           {
+//             "will-change": "transform, filter",
+//             transformOrigin: "50% 100%",
+//             scale: (position) => {
+//               const factor =
+//                 position < Math.ceil(charsTotal / 2)
+//                   ? position
+//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+//               return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0.5, 2.1, factor);
+//             },
+//             y: (position) => {
+//               const factor =
+//                 position < Math.ceil(charsTotal / 2)
+//                   ? position
+//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+//               return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 60, factor);
+//             },
+//             rotation: (position) => {
+//               const factor =
+//                 position < Math.ceil(charsTotal / 2)
+//                   ? position
+//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+//               return position < charsTotal / 2
+//                 ? gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), -4, 0, factor)
+//                 : gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 4, factor);
+//             },
+//             filter: "blur(12px) opacity(0)",
+//           },
+//           {
+//             ease: "power2.inOut",
+//             y: 0,
+//             rotation: 0,
+//             scale: 1,
+//             filter: "blur(0px) opacity(1)",
+//             scrollTrigger: {
+//               trigger: word,
+//               start: "top bottom+=40%",
+//               end: "top top+=15%",
+//               scrub: true,
+//             },
+//             stagger: {
+//               amount: 0.15,
+//               from: "center",
+//             },
+//           }
+//         );
+//       }
+//     });
+//   });
+// }
+
+import { Item } from "./code-anime/item";
+
+[...document.querySelectorAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));

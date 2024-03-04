@@ -121,6 +121,14 @@ let selectAll = (e) => document.querySelectorAll(e);
 
 const herolargelogo = select(".hero-largelogo");
 const heroText = Splitting({ target: herolargelogo, by: "words" });
+const splitchars = selectAll(".split-chars");
+
+splitchars.forEach((splitchar) => {
+  Splitting({
+    target: splitchar,
+    by: "chars",
+  });
+});
 
 let herowords = selectAll(".hero-largelogo [data-word]");
 
@@ -317,14 +325,12 @@ accordionItems.forEach((accordionItem) => {
 
 let elephant = select(".c-elephant_himself");
 // let elephant_wrapper = select(".c-elephant_himself_wrap");
-let elephant_wrapper = select(".ourservices");
-
+let elephant_wrapper = select(".elephant-boundary");
 elephant_wrapper.addEventListener("mouseenter", () => {
-  // console.log("enter");
   const elephantcursor = new MouseFollower({
     el: elephant,
     container: elephant_wrapper,
-    speed: 22.3,
+    speed: 22.5,
   });
 });
 
@@ -403,6 +409,39 @@ animateVideo.fromTo(
     borderRadius: "0px",
   }
 );
+
+//GRoup 14: animate button on portfolio work trailers
+
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  const carouselItems = select(".carousel");
+  const backButton = select(".-prev");
+  const nextButton = select(".-next");
+
+  let currentIndex = 0;
+
+  function moveCarousel(direction) {
+    const itemWidth = carouselItems.children[0].offsetWidth;
+    const carouselWidth = carouselItems.offsetWidth;
+    const totalItems = carouselItems.children.length;
+
+    if (direction === "next") {
+      currentIndex = (currentIndex + 1) % totalItems;
+    } else if (direction === "back") {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    }
+
+    carouselItems.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  }
+
+  backButton.addEventListener("click", function () {
+    moveCarousel("back");
+  });
+
+  nextButton.addEventListener("click", function () {
+    moveCarousel("next");
+  });
+});
 
 //split and show this section header
 

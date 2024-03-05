@@ -1,11 +1,11 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // Import the plugin
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const Dotenv = require("dotenv-webpack"); // Updated to use dotenv-webpack
 
 module.exports = {
   mode: "production",
@@ -33,7 +33,6 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin(), new HtmlMinimizerPlugin()],
   },
-
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
@@ -50,9 +49,9 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html", // Path to your HTML file
-      filename: "index.html", // Output HTML file name
-      inject: "body", // Where to inject the generated script tags
+      template: "./index.html",
+      filename: "index.html",
+      inject: "body",
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -60,6 +59,7 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
+    new Dotenv(), // Using dotenv-webpack
     new HtmlMinimizerPlugin(),
     new CleanWebpackPlugin(),
   ],

@@ -1067,3 +1067,12 @@ details[open] .accordion-icon::after {
   top: -7px;
   width: 36px;
 }
+
+.all-social-wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 10px;
+}

@@ -528,3 +528,32 @@ document.getElementById("consultationForm").addEventListener("submit", function 
 
   alert("Your information has been submitted successfully!");
 });
+
+//group 17: toggle buttons color for submition
+let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+const changeColor = (event) => {
+  let wrapper = event.target.parentNode.querySelector(".checkbox-input");
+  wrapper.classList.toggle("clicked-color");
+  let wrappertext = event.target.parentNode.querySelector(".checkbox-text");
+  wrappertext.classList.toggle("clicked-text");
+};
+
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", changeColor);
+});
+
+let checkradios = document.querySelectorAll('input[type="radio"]');
+
+const changeColorr = (event) => {
+  // Find the .radio-text element within the parent of the clicked radio button
+  let radiotext = event.target.parentNode.querySelector(".radio-text");
+  // Remove 'clicked' class from all .radio-text elements
+  document.querySelectorAll(".radio-text").forEach((rb) => rb.parentElement.classList.remove("clicked"));
+  // Add 'clicked' class to the parent of the clicked .radio-text element
+  radiotext.parentElement.classList.add("clicked");
+};
+
+checkradios.forEach((checkradio) => {
+  checkradio.addEventListener("change", changeColorr);
+});

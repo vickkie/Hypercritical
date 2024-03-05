@@ -1028,16 +1028,22 @@ details[open] .accordion-icon::after {
     "socials-head socials-head"
     "socials-left socials-right"
     "socials-footer socials-footer";
-  grid-template-rows: 20% 70% 10%;
+  grid-template-rows: 35% 1fr 10%;
   margin-bottom: 15vh;
 }
 
 .socials-header {
-  grid-area: socials-head;
-  padding-top: 30px;
-  position: relative;
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-area: socials-head;
+  position: relative;
+  grid-template-columns: 30% 70%;
+  width: 100%;
+  column-gap: 30px;
+}
+
+.heading-2 {
+  font-size: var(--mid-font);
 }
 .socials-left {
   grid-area: socials-left;
@@ -1051,7 +1057,6 @@ details[open] .accordion-icon::after {
 
 .socials-brand {
   padding-left: 100px;
-  padding-top: 70px;
   position: relative;
 }
 .socials-brand:before {
@@ -1206,19 +1211,51 @@ input[type="radio"]:checked + .radio-input {
 #bait {
   display: none;
 }
-
 .submit-box {
   border-bottom: 0.0058vw solid var(--color-black);
   border-top: 0.0058vw solid var(--color-black);
   display: grid;
-
-  padding: 15px 0;
   grid-template-columns: 80% 20%;
+  position: relative;
+  z-index: 2;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
 }
+
+.submit-box::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-black);
+  content: "";
+  transition: 1.3s;
+  transform: scaleX(0);
+}
+
+.submit-box:hover::after {
+  transform: scaleX(1);
+}
+.submit-box:hover .text-field {
+  transition-delay: 0.7s;
+  color: var(--color-bg);
+}
+.submit-box:hover .arrow-submit svg {
+  fill: var(--color-bg);
+  transition-delay: 0.45s;
+}
+
 .submit-box .text-field {
   border-bottom: none !important;
   text-align: left;
   margin: 0;
+  width: 100%;
+  cursor: pointer;
+  z-index: 3;
+  padding-left: 30px;
 }
 .bot-bait {
   padding: 17px 0;
@@ -1227,7 +1264,37 @@ input[type="radio"]:checked + .radio-input {
   vertical-align: middle;
 }
 
+.arrow-wrapper {
+  z-index: 3;
+}
 .arrow-submit svg {
   height: 39px;
   width: 62px;
+}
+
+.title-upper {
+  color: var(--color-black);
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  font-size: 0.72em;
+  font-weight: 700;
+}
+.socials-buttons {
+  margin-top: 12px;
+  display: flex;
+}
+.social-networks {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(1, 1, 1, 0.35);
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+  display: flex;
+  background-color: rgba(1, 1, 1, 0);
+}
+.social-img {
+  width: 24px;
+  height: 24px;
 }

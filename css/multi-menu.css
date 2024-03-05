@@ -8,7 +8,7 @@ body {
   --color-text: #fff;
   /*--color-bg-menu: #252525;*/
   --color-link: #fff;
-  --color-link-hover: #bfff0a;
+  --color-link-hover: var(--main-color);
   --color-bg-menu-item1: #15171b;
   --color-bg-menu-item2: #2c35b7;
   --color-bg-menu-item3: #0f1013;

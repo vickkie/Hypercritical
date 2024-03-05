@@ -12,7 +12,9 @@
   --color-bg: #ece9e1;
   --stick-black: #000;
   --stick-white: #fff;
-  --main-color: #bfff0a;
+  /* --main-color: #bfff0a; */
+  --main-color: #fc1234;
+  --dark-green: #0d3026;
 
   --font-1: grotesk-diamond;
   --font-2: MonumentExtended;
@@ -72,13 +74,27 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-title);
+  color: var(--color-bg);
   outline: none;
 }
 
 a:hover {
-  color: blueviolet;
+  color: var(--color-black);
   outline: none;
+}
+
+a.website {
+  color: var(--color-title);
+}
+a.website:hover {
+  color: var(--dark-green);
+}
+
+a.black {
+  color: var(--color-black);
+}
+a.black:hover {
+  color: var(--color-bg);
 }
 
 a:focus {
@@ -544,7 +560,7 @@ details[open] .accordion-icon::after {
 
 .services-head ::before {
   border-radius: 100%;
-  content: "よん";
+  content: "さん";
   left: 35px;
   top: 20px;
   position: absolute;
@@ -1028,7 +1044,7 @@ details[open] .accordion-icon::after {
     "socials-head socials-head"
     "socials-left socials-right"
     "socials-footer socials-footer";
-  grid-template-rows: 35% 1fr 10%;
+  grid-template-rows: auto;
   margin-bottom: 15vh;
 }
 
@@ -1040,6 +1056,7 @@ details[open] .accordion-icon::after {
   grid-template-columns: 30% 70%;
   width: 100%;
   column-gap: 30px;
+  padding-bottom: 40px;
 }
 
 .heading-2 {
@@ -1063,7 +1080,7 @@ details[open] .accordion-icon::after {
   align-items: center;
   border: 0.0058vw solid;
   border-radius: 100%;
-  content: "よん";
+  content: "ご";
   display: flex;
   flex-flow: column;
   height: 36px;
@@ -1089,6 +1106,7 @@ details[open] .accordion-icon::after {
   display: flex;
 }
 .field-label {
+  font-family: var(--font-3);
   color: var(--color-black);
   text-transform: uppercase;
   font-size: 0.68em;
@@ -1191,15 +1209,15 @@ input[type="radio"] {
   opacity: 0.6;
 }
 .clicked-color {
-  background-color: #0d3026 !important;
+  background-color: var(--dark-green) !important;
 }
 .clicked-text {
   color: var(--color-bg) !important;
 }
 
 input[type="radio"]:checked + .radio-input {
-  background-color: #0d3026;
-  border-color: #0d3026;
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
 }
 .clicked {
   color: var(--color-bg);
@@ -1344,4 +1362,85 @@ input[type="radio"]:checked + .radio-input {
 .icon-close-dialog {
   width: 50px;
   height: 50px;
+}
+
+/* --footer-- */
+
+.footer {
+  display: grid;
+  min-height: 140vh;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 20% 1fr 10%;
+  grid-template-areas:
+    "... ..."
+    "footer-left footer-right"
+    "footer-footer footer-footer";
+  background-color: var(--color-black);
+  color: white;
+}
+
+.footer a:hover {
+  color: var(--main-color);
+}
+.footer-right {
+  grid-area: footer-right;
+}
+.footer-left {
+  grid-area: footer-left;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* grid-gap: 4em; */
+  counter-reset: footerMapCounter;
+}
+.footer-footer {
+  grid-area: footer-footer;
+  display: flex;
+  border-top: solid 0.0058vw var(--main-color);
+  display: flex;
+}
+.footer-footer-left,
+.footer-footer-right {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 30px;
+  align-items: center;
+}
+
+.footer-map-header {
+  color: var(--main-color);
+  padding-inline-start: 40px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  position: relative;
+  counter-increment: footerMapCounter;
+}
+.footer-map-header::before {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  content: counter(footerMapCounter);
+  width: 20px;
+  height: 20px;
+  border: solid 0.0058vw var(--main-color);
+  font-size: 0.7rem;
+  font-family: var(--font-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.large-c {
+  font-size: 31vw;
+  font-family: var(--font-1);
+}
+.large-h {
+  font-size: 33vw;
+  font-family: var(--font-3);
+}
+.footer li {
+  font-family: var(--font-1);
 }

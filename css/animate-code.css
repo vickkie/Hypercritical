@@ -308,7 +308,7 @@ body #cdawrap {
 }
 .title-inno::before {
   border-radius: 100%;
-  content: "よん";
+  content: "に";
   left: 35px;
   top: -7px;
   position: absolute;

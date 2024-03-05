@@ -18,6 +18,7 @@
       type="font/woff"
       crossorigin
     />
+    <link fetchpriority="low" rel="preload" href="fonts/Blind-Krystal.woff" as="font" type="font/woff" crossorigin />
 
     <link fetchpriority="high" rel="preload" href="assets/images/1.jpg" as="image" />
     <link fetchpriority="low" rel="preload" href="assets/images/elephant-loop.png" as="image" />
@@ -660,7 +661,6 @@
       <section class="global-video">
         <video
           id="video-background"
-          autoplay
           muted
           loop
           poster="assets/images/65baee591c3d847be314deac_Come-Final-1920-1.jpg"
@@ -786,7 +786,7 @@
           </div>
           <div class="trailer-view-buton">
             <div class="button margin-buttons">
-              <button class="btn-stack flex-withgap" type="button">
+              <button class="btn-stack flex-withgap" type="button" onclick="window.location='/works'">
                 <span>View all</span
                 ><span
                   ><svg role="button">
@@ -826,6 +826,30 @@
         <div class="portfolio-footer"></div>
       </section>
     </main>
+
+    <section class="getintouch">
+      <div class="marquee-horizontal">
+        <div class="marquee-css w-embed"></div>
+        <div class="track-horizontal-alt">
+          <div class="div-block-4">
+            <div class="marquee-text">get in touch</div>
+            <div class="marquee-text">get in touch</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass-bg"></div>
+      <div class="wrapper get-in-touch">
+        <div class="socials-header">
+          <span class="socials-brand">Socials</span>
+        </div>
+        <div class="socials-left"></div>
+        <div class="socials-right">
+          <div class="all-social-wrapper"></div>
+        </div>
+        <div class="socials-footer"></div>
+      </div>
+    </section>
+
     <section class="footer"></section>
 
     <script src="js/Scroll-Smoother.js"></script>

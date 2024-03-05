@@ -510,10 +510,33 @@ const database = getDatabase(app);
 document.getElementById("consultationForm").addEventListener("submit", function (e) {
   e.preventDefault();
   var message = document.getElementById("message").value;
-  var budget = document.getElementById("budget").value;
-  var consultationType = document.getElementById("consultationType").value;
   var email = document.getElementById("email").value;
   var name = document.getElementById("yourname").value;
+
+  // Collect checkbox values
+  var webDesign = document.getElementById("Web-Design").checked;
+  var seo = document.getElementById("SEO").checked;
+  var development = document.getElementById("Development").checked;
+  var other = document.getElementById("Other").checked;
+
+  // Determine the consultation type based on checkboxes
+  var consultationType = "";
+  if (webDesign) consultationType += "Web Design, ";
+  if (seo) consultationType += "SEO, ";
+  if (development) consultationType += "Development, ";
+  if (other) consultationType += "Other, ";
+  // Remove the trailing comma and space if any
+  consultationType = consultationType.slice(0, -2);
+
+  // Collect budget radio button value
+  var budget = "";
+  var budgetRadios = document.getElementsByName("priceGroup");
+  for (var i = 0; i < budgetRadios.length; i++) {
+    if (budgetRadios[i].checked) {
+      budget = budgetRadios[i].id;
+      break;
+    }
+  }
 
   // Generate a unique ID for the new entry
   var newConsultationRef = push(ref(database, "consultations"));
@@ -523,13 +546,13 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     budget: budget,
     consultationType: consultationType,
     email: email,
-    date: new Date().toISOString(), // Add the current date and time
+    date: new Date().toISOString(),
   });
 
   alert("Your information has been submitted successfully!");
 });
 
-//group 17: toggle buttons color for submition
+//Group 16: toggle buttons color for submition
 let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 const changeColor = (event) => {

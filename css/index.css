@@ -1398,6 +1398,7 @@ input[type="radio"]:checked + .radio-input {
   display: flex;
   border-top: solid 0.0058vw var(--main-color);
   display: flex;
+  min-height: 100px;
 }
 .footer-footer-left,
 .footer-footer-right {
@@ -1443,4 +1444,125 @@ input[type="radio"]:checked + .radio-input {
 }
 .footer li {
   font-family: var(--font-1);
+}
+
+@media (max-width: 835px) {
+  .large-c {
+    font-size: 50vw;
+  }
+  .large-h {
+    font-size: 50vw;
+    font-family: var(--font-3);
+  }
+
+  .footer {
+    background-color: var(--color-black);
+    color: #fff;
+    display: grid;
+
+    grid-template-areas:
+      "... "
+      "footer-left "
+      "footer-right"
+      " footer-footer"
+      "...";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-top: 100px;
+  }
+  .footer-footer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .wrapper.get-in-touch {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "socials-head"
+      "socials-left "
+      "socials-right"
+      "socials-footer ";
+  }
+  .socials-left {
+    padding-bottom: 50px;
+  }
+  .socials-header {
+    padding: 40px 10px;
+  }
+
+  .portfolio-footer,
+  .explore-portfolio {
+    border: none;
+  }
+  .hero-portfolio {
+    background-color: var(--color-black);
+    color: var(--color-bg);
+    display: grid;
+    grid-template-areas:
+      "portfolio-head "
+      "portfolio-trailer"
+      "portfolio-text "
+      "portfolio-footer ";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-height: 100vh;
+  }
+  .trailer-view-buton {
+    height: unset;
+  }
+  .margin-buttons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .trailer-expla {
+    width: 100%;
+  }
+  .total-trailers {
+    width: 100%;
+    font-size: 4rem;
+    text-align: center;
+  }
+  .introduction {
+    grid-template-areas:
+      "introtitle"
+      " introexpla"
+      " introfooter";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-height: 100vh;
+    position: relative;
+    padding: 25px;
+  }
+  .desc-wrapper {
+    width: 100%;
+  }
+  .portfolio-head {
+    border: none;
+    display: grid;
+    grid-area: portfolio-head;
+    grid-template-columns: 1fr;
+    grid-gap: 70px;
+  }
+  .port-header-text {
+    align-items: center;
+    display: grid;
+    font-size: calc(var(--mid-font) - 0vw);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer-left ul {
+    padding-left: 30px;
+  }
+  .field-box {
+    flex-direction: column;
+  }
+  .multicheck,
+  .text-field {
+    width: 100%;
+  }
+  .trailer-expla {
+    font-size: 1.9rem !important;
+  }
 }

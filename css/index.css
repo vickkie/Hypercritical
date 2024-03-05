@@ -1298,3 +1298,50 @@ input[type="radio"]:checked + .radio-input {
   width: 24px;
   height: 24px;
 }
+
+#overlay {
+  align-items: center;
+  background-color: #ffffff5c;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  backdrop-filter: blur(4px);
+}
+#dialog {
+  background-color: #fff;
+  border-radius: 25px;
+  left: 5%;
+  max-width: 500px;
+  padding: 20px;
+  position: fixed;
+  top: 10%;
+  width: 80%;
+  z-index: 1002;
+  padding: 60px 20px;
+}
+
+.dialog-content {
+  text-align: center;
+}
+
+.close-dialog {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+.icon-close-dialog {
+  width: 50px;
+  height: 50px;
+}

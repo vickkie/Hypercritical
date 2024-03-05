@@ -379,7 +379,7 @@ import { Item } from "./code-anime/item";
 
 [...document.querySelectorAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));
 
-// group 14: animate how video resizes ..main video
+// group 14: animate how video resizes ..main video also includes autoplay
 
 let worldvideoWrapper = select(".global-video");
 let worldvideo = select("#video-background");
@@ -409,6 +409,19 @@ animateVideo.fromTo(
     borderRadius: "0px",
   }
 );
+
+const playvideotl = gsap.timeline({
+  scrollTrigger: {
+    trigger: worldvideo,
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+    onEnter: () => worldvideo.play(),
+    onLeave: () => worldvideo.pause(),
+    onEnterBack: () => worldvideo.play(),
+    onLeaveBack: () => worldvideo.pause(),
+  },
+});
 
 //GRoup 14: animate button on portfolio work trailers
 

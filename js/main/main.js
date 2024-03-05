@@ -8,6 +8,8 @@ import Lenis from "@studio-freight/lenis";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, set } from "firebase/database";
 
 //Group 1: menuUzi midmoon
 let midmoon = document.querySelector(".mid-moon");
@@ -410,16 +412,46 @@ animateVideo.fromTo(
   }
 );
 
+//complicated way to pause and unpause video
+
 const playvideotl = gsap.timeline({
   scrollTrigger: {
     trigger: worldvideo,
     start: "top bottom",
-    end: "bottom top",
+    end: "bottom bottom",
     scrub: true,
-    onEnter: () => worldvideo.play(),
-    onLeave: () => worldvideo.pause(),
-    onEnterBack: () => worldvideo.play(),
-    onLeaveBack: () => worldvideo.pause(),
+    onEnter: () => {
+      if (worldvideo.paused) {
+        worldvideo.play().catch((error) => {
+          if (error.name === "NotAllowedError") {
+            console.log("Play request was interrupted by a pause call.");
+          } else {
+            console.error("An unexpected error occurred:", error);
+          }
+        });
+      }
+    },
+    onLeave: () => {
+      if (!worldvideo.paused) {
+        worldvideo.pause();
+      }
+    },
+    onEnterBack: () => {
+      if (worldvideo.paused) {
+        worldvideo.play().catch((error) => {
+          if (error.name === "NotAllowedError") {
+            console.log("Play request was interrupted by a pause call.");
+          } else {
+            console.error("An unexpected error occurred:", error);
+          }
+        });
+      }
+    },
+    onLeaveBack: () => {
+      if (!worldvideo.paused) {
+        worldvideo.pause();
+      }
+    },
   },
 });
 
@@ -456,78 +488,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//split and show this section header
+// Group 15: firebase
 
-// if (innerWidth > 767) {
-//   document.addEventListener("DOMContentLoaded", () => {
-//     const fx28Titles = [...document.querySelectorAll(".content__title[data-splitting][data-effect28]")];
+// Initialize Firebase API
+const firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL, //databaseURL here
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+};
 
-//     gsap.registerPlugin(ScrollTrigger);
-//     gsap.registerPlugin(SplitText);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
-//     // let title = new SplitText(".content__title[data-splitting][data-effect28]", {
-//     //   type: "words,lines,chars",
-//     //   wordsClass: "content__title word",
-//     //   charsClass: "char",
-//     //   linesClass: "lines",
-//     // });
+// Function to handle form submission
+document.getElementById("consultationForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var message = document.getElementById("message").value;
+  var budget = document.getElementById("budget").value;
+  var consultationType = document.getElementById("consultationType").value;
+  var email = document.getElementById("email").value;
+  var name = document.getElementById("yourname").value;
 
-//     fx28Titles.forEach((title) => {
-//       const words = [...title.querySelectorAll(".word")];
+  // Generate a unique ID for the new entry
+  var newConsultationRef = push(ref(database, "consultations"));
+  set(newConsultationRef, {
+    name: name,
+    message: message,
+    budget: budget,
+    consultationType: consultationType,
+    email: email,
+    date: new Date().toISOString(), // Add the current date and time
+  });
 
-//       for (const word of words) {
-//         const chars = word.querySelectorAll(".char");
-//         const charsTotal = chars.length;
-
-//         gsap.fromTo(
-//           chars,
-//           {
-//             "will-change": "transform, filter",
-//             transformOrigin: "50% 100%",
-//             scale: (position) => {
-//               const factor =
-//                 position < Math.ceil(charsTotal / 2)
-//                   ? position
-//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
-//               return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0.5, 2.1, factor);
-//             },
-//             y: (position) => {
-//               const factor =
-//                 position < Math.ceil(charsTotal / 2)
-//                   ? position
-//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
-//               return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 60, factor);
-//             },
-//             rotation: (position) => {
-//               const factor =
-//                 position < Math.ceil(charsTotal / 2)
-//                   ? position
-//                   : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
-//               return position < charsTotal / 2
-//                 ? gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), -4, 0, factor)
-//                 : gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 4, factor);
-//             },
-//             filter: "blur(12px) opacity(0)",
-//           },
-//           {
-//             ease: "power2.inOut",
-//             y: 0,
-//             rotation: 0,
-//             scale: 1,
-//             filter: "blur(0px) opacity(1)",
-//             scrollTrigger: {
-//               trigger: word,
-//               start: "top bottom+=40%",
-//               end: "top top+=15%",
-//               scrub: true,
-//             },
-//             stagger: {
-//               amount: 0.15,
-//               from: "center",
-//             },
-//           }
-//         );
-//       }
-//     });
-//   });
-// }
+  alert("Your information has been submitted successfully!");
+});

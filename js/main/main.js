@@ -487,8 +487,43 @@ document.addEventListener("DOMContentLoaded", function () {
     moveCarousel("next");
   });
 });
+//group 15 : overlay and succes button
 
-// Group 15: firebase
+function showDialog() {
+  // Show the overlay with a fade-in animation
+  gsap.to("#overlay", {
+    duration: 0.5,
+    opacity: 1,
+    scale: 1,
+    onComplete: () => {
+      gsap.to("#dialog", {
+        duration: 0.5,
+        scale: 1,
+        opacity: 1,
+        ease: "bounce",
+      });
+    },
+  });
+}
+
+// Function to hide the dialog box and overlay with GSAP animations
+function hideDialog() {
+  // Hide the dialog box with a scale animation
+  gsap.to("#dialog", {
+    duration: 0.5,
+    scale: 0,
+    opacity: 0,
+    onComplete: () => {
+      gsap.to("#overlay", {
+        duration: 0.5,
+        opacity: 0,
+        scale: 0,
+      });
+    },
+  });
+}
+
+// Group 16: firebase
 
 // Initialize Firebase API
 const firebaseConfig = {
@@ -549,8 +584,12 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     date: new Date().toISOString(),
   });
 
-  alert("Your information has been submitted successfully!");
+  showDialog();
+
+  document.getElementById("consultationForm").reset();
 });
+
+document.querySelector(".close-dialog").addEventListener("click", hideDialog);
 
 //Group 16: toggle buttons color for submition
 let checkboxes = document.querySelectorAll('input[type="checkbox"]');

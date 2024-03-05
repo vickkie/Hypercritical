@@ -52,6 +52,18 @@
   </head>
 
   <body class="page-index light" id="index-body" oncontextmenu="return true;">
+    <div id="overlay" style="scale: 0"></div>
+
+    <div id="dialog" style="display: block; scale: 0">
+      <div class="dialog-content">
+        <h2>Hypercritical &copy;</h2>
+        <h3>Message sent successfuly</h3>
+        <p>We will try to process your request as shortly as posible</p>
+        <button class="close-dialog" aria-label="dialog close">
+          <svg class="icon-close-dialog"><use xlink:href="#icon-close"></use></svg>
+        </button>
+      </div>
+    </div>
     <!-- --------preloader------------- -->
 
     <main class="flex__col" id="preloaderdoc">
@@ -990,10 +1002,11 @@
                       ></path>
                     </g>
                   </svg> </i
-                >By submitting this form you have agreed to our <a href="terms">terms and services</a></label
+                >By submitting this form you have agreed to our <a href="terms" aria-label="terms conditions">terms and services</a></label
               ><br />
               <input type="text" name="bait" id="bait" style="display: none" />
             </form>
+            <script></script>
           </div>
         </div>
         <div class="socials-footer"></div>

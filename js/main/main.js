@@ -12,6 +12,10 @@ import lozad from "lozad";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 // import ScrollToPlugin from "gsap/ScrollToPlugin";
 
+//global
+let select = (e) => document.querySelector(e);
+let selectAll = (e) => document.querySelectorAll(e);
+
 // Group 0: lazyload lodash
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -38,9 +42,9 @@ if ("serviceWorker" in navigator) {
 }
 
 //Group 1: menuUzi midmoon
-let midmoon = document.querySelector(".mid-moon");
-let menuclose = document.querySelector(".action--close");
-let menuopen = document.querySelector(".action--menuUzi");
+let midmoon = select(".mid-moon");
+let menuclose = select(".action--close");
+let menuopen = select(".action--menuUzi");
 
 function open() {
   midmoon.classList.add("mid-moon--light");
@@ -60,7 +64,7 @@ menuclose.addEventListener("click", close);
 function assignLinks(config) {
   for (const key in config) {
     if (config.hasOwnProperty(key)) {
-      const elements = document.querySelectorAll(key);
+      const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
           element.href = config[key];
@@ -96,7 +100,7 @@ new Promise((resolve, reject) => {
 //GRoup 3: animation on hover of contact emoji
 
 document.addEventListener("DOMContentLoaded", () => {
-  let menuUziItemLink = document.querySelector(".menuUzi__item-link");
+  let menuUziItemLink = select(".menuUzi__item-link");
   let defaultImage = menuUziItemLink.querySelector(".contact-emoji");
 
   let rotateremoji = gsap.timeline();
@@ -144,9 +148,6 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(SplitText);
-
-let select = (e) => document.querySelector(e);
-let selectAll = (e) => document.querySelectorAll(e);
 
 const herolargelogo = select(".hero-largelogo");
 
@@ -279,7 +280,7 @@ function lineTimeline(element) {
   return afterPseudotl;
 }
 
-document.querySelectorAll("[line-trigger]").forEach(function (element) {
+selectAll("[line-trigger]").forEach(function (element) {
   const lineTrigger = element.getAttribute("line-trigger");
 
   const linetimeline = lineTimeline(element);
@@ -296,7 +297,7 @@ document.querySelectorAll("[line-trigger]").forEach(function (element) {
 //group 8: show and hide the scroll top button and scroll to top
 
 document.addEventListener("DOMContentLoaded", function () {
-  let toTopbutton = document.querySelector("#toTop");
+  let toTopbutton = select("#toTop");
 
   // Add an event listener to check scroll position
   function showTotop() {
@@ -340,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Group 10: control opening and closing of accordion
 
-const accordionItems = document.querySelectorAll("details");
+const accordionItems = selectAll("details");
 
 accordionItems.forEach((accordionItem) => {
   accordionItem.addEventListener("click", (event) => {
@@ -382,10 +383,10 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const darkSections = gsap.utils.toArray(".white-section");
-  var arrowWrapper = document.querySelector(".top-arrow-wrapper");
-  var arrowpath = document.querySelector(".top-arrow-path");
-  var menuName = document.querySelector(".menu-name");
-  var menuDotline = document.querySelectorAll(".menu-dot-line");
+  var arrowWrapper = select(".top-arrow-wrapper");
+  var arrowpath = select(".top-arrow-path");
+  var menuName = select(".menu-name");
+  var menuDotline = selectAll(".menu-dot-line");
 
   function makedark() {
     arrowpath.style.stroke = "var(--color-bg)";
@@ -429,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 import { Item } from "./code-anime/item";
 
-[...document.querySelectorAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));
+[...selectAll(".grid-itemz > .grid__item-img")].forEach((img) => new Item(img));
 
 // group 14: animate how video resizes ..main video also includes autoplay
 
@@ -645,10 +646,10 @@ document.getElementById("consultationForm").addEventListener("submit", function 
   document.getElementById("consultationForm").reset();
 });
 
-document.querySelector(".close-dialog").addEventListener("click", hideDialog);
+select(".close-dialog").addEventListener("click", hideDialog);
 
 //Group 16: toggle buttons color for submition
-let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+let checkboxes = selectAll('input[type="checkbox"]');
 
 const changeColor = (event) => {
   let wrapper = event.target.parentNode.querySelector(".checkbox-input");
@@ -661,13 +662,13 @@ checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", changeColor);
 });
 
-let checkradios = document.querySelectorAll('input[type="radio"]');
+let checkradios = selectAll('input[type="radio"]');
 
 const changeColorr = (event) => {
   // Find the .radio-text element within the parent of the clicked radio button
   let radiotext = event.target.parentNode.querySelector(".radio-text");
   // Remove 'clicked' class from all .radio-text elements
-  document.querySelectorAll(".radio-text").forEach((rb) => rb.parentElement.classList.remove("clicked"));
+  selectAll(".radio-text").forEach((rb) => rb.parentElement.classList.remove("clicked"));
 
   radiotext.parentElement.classList.add("clicked");
 };
@@ -721,7 +722,7 @@ const videoUp = (element) => {
     );
 };
 
-let imgconts = document.querySelectorAll(".grid-item-vid");
+let imgconts = selectAll(".grid-item-vid");
 
 imgconts.forEach((imgcont) => {
   imgcont.addEventListener("mouseenter", () => {

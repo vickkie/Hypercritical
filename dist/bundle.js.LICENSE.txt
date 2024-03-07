@@ -30,6 +30,12 @@
 
 /*! idb */
 
+/*! lozad */
+
+/*! lozad.js - v1.16.0 - 2020-09-06
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2020 Apoorv Saxena; Licensed MIT */
+
 /*! mouse-follower */
 
 /*!*************************!*\
@@ -47,6 +53,10 @@
 /*!*****************************************!*\
   !*** ./node_modules/idb/build/index.js ***!
   \*****************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/lozad/dist/lozad.min.js ***!
+  \**********************************************/
 
 /*!**************************************************!*\
   !*** ./node_modules/idb/build/wrap-idb-value.js ***!

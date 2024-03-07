@@ -9,6 +9,7 @@
     <meta name="author" content="uzitrake" />
     <meta name="theme-color" content="#bfff0a" />
     <meta http-equiv="Cache-Control" content="max-age=31536000" />
+    <script src="call-worker.js"></script>
     <link id="browser_favicon" rel="icon" href="assets/masks/hypercritical-main-logo.png" />
     <link
       fetchpriority="high"
@@ -19,20 +20,23 @@
       crossorigin
     />
     <link fetchpriority="high" rel="preload" href="assets/images/0412-2.webp" as="image" />
-    <link fetchpriority="low" rel="preload" href="assets/images/elephant-loop.webp" as="image" />
+    <link fetchpriority="low" data-label rel="preload" href="assets/images/elephant-loop.webp" as="image" />
     <link rel="manifest" href="includes/manifest.json" />
     <script src="js/lazysizes.min.js"></script>
     <script>
       if ("loading" in HTMLImageElement.prototype) {
-        document.querySelectorAll('img[loading="lazy"]').forEach((e) => {
-          e.src = e.dataset.src;
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach((img) => {
+          img.src = img.dataset.src;
         });
-        document.querySelectorAll('source[loading="lazy"]').forEach((e) => {
-          e.src = e.dataset.src;
+        const videos = document.querySelectorAll('source[loading="lazy"]');
+        videos.forEach((source) => {
+          source.src = source.dataset.src;
         });
       } else {
-        const e = document.createElement("script");
-        (e.src = "js/lazysizes.min.js"), document.body.appendChild(e);
+        const script = document.createElement("script");
+        script.src = "js/lazysizes.min.js";
+        document.body.appendChild(script);
       }
     </script>
     <link rel="stylesheet" href="css/preloader.css" />
@@ -224,6 +228,7 @@
                         data-label="image"
                         alt="contact button 2"
                         class="contact-emoji"
+                        data-label=""
                       /></div
                   ></a>
                   <div class="yearnow">©2024</div>
@@ -285,7 +290,7 @@
     <script async src="js/multi-menu.js"></script>
     <section class="hero-image slide" data-columns="2">
       <div class="parallax-image parallax-hero">
-        <img src="assets/images/0412-2.webp" data-label="image " alt="introduction image" />
+        <img src="assets/images/0412-2.webp" data-label="" alt="introduction image" />
       </div>
     </section>
     <section class="introduction white-section">
@@ -368,8 +373,8 @@
             <div style="width: 100%; height: 100%" class="image">
               <img src="assets/images/mobile-design.webp" data-label class="lazyload" alt="web dev image" />
             </div>
-            <video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/mjobile.mp4" type="video/mp4" /></video
+            <video class="grid__item-video lozad" loop autoplay muted>
+              <source data-src="assets/videos/mjobile.mp4" type="video/mp4" /></video
           ></a>
           <p class="grid__item-label">
             Providing our art in creating a modern and scalable website apps, optimizing speed, integrating cloud-based
@@ -382,13 +387,13 @@
           <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
           <a class="grid__item-img grid-item-vid" aria-label="web design video" href="#trakexcel"
             ><div class="grid__item-img-deco"></div>
-            <img src="assets/images/website-design.webp" data-label class="lazyload" alt="Branding image" /><video
-              class="grid__item-video"
+            <img src="assets/images/website-design.webp" data-label alt="Branding image" /><video
+              class="grid__item-video lozad"
               loop
               autoplay
               muted
             >
-              <source src="assets/videos/home (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4" /></video
+              <source data-src="assets/videos/home (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4" /></video
           ></a>
           <p class="grid__item-label">
             We develop professional websites across all industries, focusing on user-friendly design and seamless
@@ -401,13 +406,13 @@
           <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
           <a class="grid__item-img grid-item-vid" aria-label="Branding video" href="#trakexcel"
             ><div class="grid__item-img-deco"></div>
-            <img src="assets/images/Fabric.webp" data-label class="lazyload" alt="brand this" /><video
-              class="grid__item-video"
+            <img src="assets/images/Fabric.webp" data-label alt="brand this" /><video
+              class="grid__item-video lozad"
               loop
               autoplay
               muted
             >
-              <source src="assets/videos/motion22.mp4" type="video/mp4" /></video
+              <source data-src="assets/videos/motion22.mp4" type="video/mp4" /></video
           ></a>
           <p class="grid__item-label">
             Transforming your brand into a compelling and unmistakably recognizable identity worldwide.
@@ -419,7 +424,7 @@
           <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
           <a class="grid__item-img" aria-label="Visionary video" href="#trakexcel"
             ><div class="grid__item-img-decox"></div>
-            <img src="assets/images/innovation1.webp" data-label class="lazyload" alt="Backend design image"
+            <img src="assets/images/innovation1.webp" data-label alt="Backend design image"
           /></a>
           <p class="grid__item-label">
             We are committed to fostering innovation, with a primary focus on creating intuitive data visualizations and
@@ -439,8 +444,9 @@
               data-label
               alt="Backend
             design image"
-              class="lazyload" /><video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/original-39fcceebe0cb5a1f113882e8060a6baf.mp4" type="video/mp4" /></video
+              class="lazyload" />
+            <video class="grid__item-video lozad" loop autoplay muted>
+              <source data-src="assets/videos/original-39fcceebe0cb5a1f113882e8060a6baf.mp4" type="video/mp4" /></video
           ></a>
           <p class="grid__item-label">
             Through intuitive data structures and efficient server-side logic, we pave the way for applications that not
@@ -469,26 +475,19 @@
     </section>
     <main class="elephant-boundary">
       <section class="global-video">
-        <video
-          id="video-background"
-          preload="none"
-          muted
-          loop
-          poster="assets/images/world-poster.webp"
-          class="lazyload"
-        >
-          <source src="assets/videos/world-480p.mp4" type="video/mp4" media="(max-width: 719px)" />
+        <video id="video-background" preload="none" class="lozad" muted loop poster="assets/images/world-poster.webp">
+          <source data-src="assets/videos/world-480p.mp4" type="video/mp4" media="(max-width: 719px)" />
           <source
-            src="assets/videos/world-720p.mp4"
+            data-src="assets/videos/world-720p.mp4"
             type="video/mp4"
             media="(min-width: 720px) and (max-width: 1079px)"
           />
           <source
-            src="assets/videos/world-1000p.mp4"
+            data-src="assets/videos/world-1000p.mp4"
             type="video/mp4"
             media="(min-width: 1080px) and (max-width: 1439px)"
           />
-          <source src="assets/videos/world-1400p.mp4" type="video/mp4" media="(min-width: 1440px)" />
+          <source data-src="assets/videos/world-1400p.mp4" type="video/mp4" media="(min-width: 1440px)" />
           Your browser does not support the video tag.
         </video>
         <div class="top-background">
@@ -608,8 +607,12 @@
           <div class="trailerimage">
             <div class="carousel">
               <div class="carouselimage"><img src="assets/images/innovation1.webp" alt="Image 3" /></div>
-              <div class="carouselimage"><img src="assets/images/uziport-multi-high.webp" alt="Image 1" /></div>
-              <div class="carouselimage"><img src="assets/images/lumina-mockall-high.webp" alt="Image 2" /></div>
+              <div class="carouselimage">
+                <img data-src="assets/images/uziport-multi-high.webp" class="lozad" alt="Image 1" />
+              </div>
+              <div class="carouselimage">
+                <img data-src="assets/images/lumina-mockall-high.webp" alt="Image 2" class="lozad" />
+              </div>
             </div>
           </div>
           <div class="trailer_controls center">
@@ -651,9 +654,9 @@
                 style="background-color: rgba(1, 1, 1, 0)"
                 ><img
                   src="https://assets-global.website-files.com/65418d587c283640ab4fbb64/655df79e742c1159c8236cef_instagram.png"
-                  loading="lazy"
                   alt="Instagram icon, png, black"
                   class="social-img"
+                  data-label=""
                   style="filter: invert(0%)" /></a
               ><a
                 target="_blank"
@@ -662,7 +665,7 @@
                 style="background-color: rgba(1, 1, 1, 0)"
                 ><img
                   src="assets/svg/icons8-github.svg"
-                  loading="lazy"
+                  data-label=""
                   alt=""
                   class="social-img"
                   style="filter: invert(0%)" /></a
@@ -671,7 +674,7 @@
                 class="social-networks w-inline-block linktree"
                 aria-label="linktree"
                 style="background-color: rgba(1, 1, 1, 0)"
-                ><img src="assets/svg/linktree.svg" loading="lazy" alt="" class="social-img" style="filter: invert(0%)"
+                ><img src="assets/svg/linktree.svg" alt="" class="social-img" data-label style="filter: invert(0%)"
               /></a>
             </div>
           </div>

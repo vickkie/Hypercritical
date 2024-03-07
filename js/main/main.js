@@ -1,15 +1,15 @@
 //Imports modules in file
-
 import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
-// import ScrollToPlugin from "gsap/ScrollToPlugin";
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
+
+// import gsap from "gsap";
+// import "splitting/dist/splitting.css";
+// import "splitting/dist/splitting-cells.css";
+// import Splitting from "splitting";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+// import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 //Group 1: menuUzi midmoon
 let midmoon = document.querySelector(".mid-moon");
@@ -117,22 +117,25 @@ requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(SplitText);
 
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
 
 const herolargelogo = select(".hero-largelogo");
-const heroText = Splitting({ target: herolargelogo, by: "words" });
+
+let herotext = new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
+
 const splitchars = selectAll(".split-chars");
 
 splitchars.forEach((splitchar) => {
-  Splitting({
-    target: splitchar,
-    by: "chars",
+  new SplitText(splitchar, {
+    type: "chars",
+    charsClass: "otherchars",
   });
 });
 
-let herowords = selectAll(".hero-largelogo [data-word]");
+let herowords = selectAll(".hero-words");
 
 // console.log(herowords);
 
@@ -143,7 +146,7 @@ let heroimageWrapper = select(".parallax-hero");
 const showHero = () => {
   gsap
     .timeline({ defaults: { ease: "expo.out", delay: 0.5 } })
-    .set(heroimageWrapper, { y: "-60vh" })
+    // .set(heroimageWrapper, { y: "-47.8vh" }, "=-1")
     .addLabel("start")
     .fromTo(
       heroSeparator,
@@ -336,6 +339,17 @@ elephant_wrapper.addEventListener("mouseenter", () => {
   });
 });
 
+let peanutWrapper = select(".ourservices");
+const peanutcursor = new MouseFollower();
+
+peanutWrapper.addEventListener("mouseenter", () => {
+  peanutcursor.setImg("./../../assets/images/peanut.webp");
+});
+
+peanutWrapper.addEventListener("mouseleave", () => {
+  peanutcursor.removeImg();
+});
+
 // Group 12: inverse the arrow colors using gsap
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -418,7 +432,7 @@ const playvideotl = gsap.timeline({
   scrollTrigger: {
     trigger: worldvideo,
     start: "top bottom",
-    end: "bottom bottom",
+    end: "bottom top",
     scrub: true,
     onEnter: () => {
       if (worldvideo.paused) {
@@ -454,6 +468,12 @@ const playvideotl = gsap.timeline({
     },
   },
 });
+
+var playPromise = worldvideo.play();
+
+if (playPromise !== undefined) {
+  playPromise.then((_) => {}).catch((error) => {});
+}
 
 //GRoup 14: animate button on portfolio work trailers
 
@@ -612,10 +632,77 @@ const changeColorr = (event) => {
   let radiotext = event.target.parentNode.querySelector(".radio-text");
   // Remove 'clicked' class from all .radio-text elements
   document.querySelectorAll(".radio-text").forEach((rb) => rb.parentElement.classList.remove("clicked"));
-  // Add 'clicked' class to the parent of the clicked .radio-text element
+
   radiotext.parentElement.classList.add("clicked");
 };
 
 checkradios.forEach((checkradio) => {
   checkradio.addEventListener("change", changeColorr);
+});
+
+// group 17: dropdown video
+
+function playVideo(element) {
+  var video = element.querySelector(".grid__item-video");
+  video.play();
+}
+
+function resetVideo(element) {
+  var video = element.querySelector(".grid__item-video");
+  video.pause();
+  video.currentTime = 0;
+}
+
+function toggleVideo(element) {
+  var video = element.querySelector(".grid__item-video");
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+const videoDown = (element) => {
+  gsap
+    .timeline({ defaults: { ease: "expo.out", delay: 0 } })
+    .fromTo(
+      element.querySelector(".grid__item-video"),
+      { y: "0%" },
+      { duration: 1.25, y: "101%", ease: "expo.inOut" },
+      0
+    );
+};
+
+const videoUp = (element) => {
+  gsap
+    .timeline({ defaults: { ease: "expo.out", delay: 0 } })
+    .fromTo(
+      element.querySelector(".grid__item-video"),
+      { y: "101%" },
+      { duration: 1.25, y: "0%", ease: "expo.inOut" },
+      0
+    );
+};
+
+let imgconts = document.querySelectorAll(".grid-item-vid");
+
+imgconts.forEach((imgcont) => {
+  imgcont.addEventListener("mouseenter", () => {
+    let gridItemVideo = imgcont.querySelector(".grid__item-video");
+    gridItemVideo.style.display = "block";
+    videoDown(imgcont); // Call videoDown on mouseenter
+  });
+});
+
+imgconts.forEach((imgcont) => {
+  imgcont.addEventListener("mouseout", () => {
+    let gridItemVideo = imgcont.querySelector(".grid__item-video");
+    videoUp(imgcont); // Call videoUp on mouseout
+
+    setTimeout(() => {
+      resetVideo(imgcont);
+      gridItemVideo.style.display = "none";
+    }, 2000);
+  });
 });

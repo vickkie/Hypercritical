@@ -147,4 +147,5 @@ main.flex__col {
   position: absolute;
   width: 3px;
   z-index: 6;
+  rotate: 180deg;
 }

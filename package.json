@@ -3,6 +3,7 @@
  "version": "1.0.0",
  "description": "",
  "main": "./js/main/main.js",
+
  "scripts": {
   "start": "node server.js",
   "build": "webpack --mode production",

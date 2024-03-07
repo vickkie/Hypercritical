@@ -3,6 +3,7 @@ import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
+import lozad from "lozad";
 
 // import gsap from "gsap";
 // import "splitting/dist/splitting.css";
@@ -10,6 +11,19 @@ import { getDatabase, ref, push, set } from "firebase/database";
 // import Splitting from "splitting";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 // import ScrollToPlugin from "gsap/ScrollToPlugin";
+
+// const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+// observer.observe();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = lozad(".lozad", {
+    rootMargin: "100px 0px",
+    loaded: function (el) {
+      console.log("Element loaded:", el);
+    },
+  });
+  observer.observe();
+});
 
 //Group 1: menuUzi midmoon
 let midmoon = document.querySelector(".mid-moon");
@@ -706,3 +720,5 @@ imgconts.forEach((imgcont) => {
     }, 2000);
   });
 });
+
+// group 18: service worker called

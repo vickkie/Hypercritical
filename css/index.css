@@ -202,8 +202,7 @@ a:focus-visible {
   height: 0.1875rem;
   width: 0.1875rem;
 }
-.menu_dot,
-.menu_line {
+.menu-dot-line {
   background-color: var(--color-black);
 }
 .menu_line {

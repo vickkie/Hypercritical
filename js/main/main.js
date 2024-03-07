@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "100px 0px",
     loaded: function (el) {
-      console.log("Element loaded:", el);
+      // console.log("Element loaded:", el);
     },
   });
   observer.observe();
@@ -384,15 +384,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const darkSections = gsap.utils.toArray(".white-section");
   var arrowWrapper = document.querySelector(".top-arrow-wrapper");
   var arrowpath = document.querySelector(".top-arrow-path");
+  var menuName = document.querySelector(".menu-name");
+  var menuDotline = document.querySelectorAll(".menu-dot-line");
 
   function makedark() {
     arrowpath.style.stroke = "var(--color-bg)";
     arrowWrapper.style.fill = "var(--color-black)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
   }
 
   function makewhite() {
     arrowpath.style.stroke = "var(--color-black)";
     arrowWrapper.style.fill = "var(--color-bg)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-bg)";
+    });
+    menuName.style.color = "var(--color-bg)";
   }
   darkSections.forEach((darkSection, i) => {
     //  let id = i;
@@ -401,9 +411,9 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
-        start: "top 40%",
+        start: "top top",
         endtrigger: darkSection,
-        end: "bottom 10%",
+        end: "bottom bottom",
         scrub: true,
         // markers: true,
         onEnter: () => makewhite(),

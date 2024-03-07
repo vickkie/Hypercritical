@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="menu-will-open" oncontextmenu="return true">
+<html lang="en" class="menu-will-open" oncontextmenu="return!0">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Hypercritical ✦ Studio</title>
     <meta name="description" content="Welcome to my Hypercritical discover our work and skills" />
     <meta name="keywords" content="Welcome ,uzitrake , Hypercritical" />
@@ -18,42 +18,31 @@
       type="font/woff"
       crossorigin
     />
-    <link fetchpriority="low" rel="preload" href="fonts/Blind-Krystal.woff" as="font" type="font/woff" crossorigin />
-
-    <link fetchpriority="high" rel="preload" href="assets/images/1.jpg" as="image" />
-    <link fetchpriority="low" rel="preload" href="assets/images/elephant-loop.png" as="image" />
-
-    <!-- <script src="includes/call-workers.js"></script> -->
+    <link fetchpriority="high" rel="preload" href="assets/images/0412-2.webp" as="image" />
+    <link fetchpriority="low" rel="preload" href="assets/images/elephant-loop.webp" as="image" />
     <link rel="manifest" href="includes/manifest.json" />
-
     <script src="js/lazysizes.min.js"></script>
     <script>
       if ("loading" in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach((img) => {
-          img.src = img.dataset.src;
+        document.querySelectorAll('img[loading="lazy"]').forEach((e) => {
+          e.src = e.dataset.src;
         });
-        const videos = document.querySelectorAll('source[loading="lazy"]');
-        videos.forEach((source) => {
-          source.src = source.dataset.src;
+        document.querySelectorAll('source[loading="lazy"]').forEach((e) => {
+          e.src = e.dataset.src;
         });
       } else {
-        const script = document.createElement("script");
-        script.src = "js/lazysizes.min.js";
-        document.body.appendChild(script);
+        const e = document.createElement("script");
+        (e.src = "js/lazysizes.min.js"), document.body.appendChild(e);
       }
     </script>
-
-    <link rel="stylesheet" type="text/css" href="css/preloader.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/vue.min.js"></script>
     <script src="js/gsap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
-
-  <body class="page-index light" id="index-body" oncontextmenu="return true;">
+  <body class="page-index light" id="index-body" oncontextmenu="return!0">
     <div id="overlay" style="scale: 0"></div>
-
     <div id="dialog" style="display: block; scale: 0">
       <div class="dialog-content">
         <h2>Hypercritical &copy;</h2>
@@ -64,12 +53,10 @@
         </button>
       </div>
     </div>
-    <!-- --------preloader------------- -->
-
     <main class="flex__col" id="preloaderdoc">
       <section class="intro preloader">
-        <span class="agency-box">
-          <svg
+        <span class="agency-box"
+          ><svg
             height="20px"
             width="20px"
             version="1.1"
@@ -94,35 +81,22 @@
             C17.523,1.94,14.328,1.906,11.394,2.883z"
               ></path>
               <circle style="fill: #fff" cx="15.979" cy="15.977" r="6.117"></circle>
-            </g>
-          </svg>
-          <!-- <p style="font-family: uzicute">Loading</p> -->
-        </span>
-
+            </g></svg
+        ></span>
         <div class="prelogo">Hypercritical</div>
-
         <div id="loader1">
-          <div class="percentage-wrapper">
-            <div status class="percentage">0%</div>
-          </div>
+          <div class="percentage-wrapper"><div status class="percentage">0%</div></div>
         </div>
-
         <div id="loader2">
-          <div class="percentage-wrapper">
-            <div status class="percentage">{{loaded}}%</div>
-          </div>
+          <div class="percentage-wrapper"><div status class="percentage">{{loaded}}%</div></div>
           <div class="preloader__status-loader">
             <div loader :style="loadStyle" class="preloader__status-bar"></div>
           </div>
         </div>
-
-        <div class="intro__red flex">
-          <div>Hypercritical</div>
-        </div>
+        <div class="intro__red flex"><div>Hypercritical</div></div>
       </section>
     </main>
     <script src="includes/preloader.js"></script>
-
     <div class="nav">
       <div class="padding_global nav_padding">
         <div class="nav_grid">
@@ -139,8 +113,7 @@
               />
             </svg>
           </div>
-          <link rel="stylesheet" type="text/css" href="css/multi-menu.css" />
-          <svg class="hidden">
+          <link rel="stylesheet" href="css/multi-menu.css" /><svg class="hidden">
             <symbol id="icon-arrow" viewBox="0 0 24 24">
               <title>arrow</title>
               <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
@@ -162,7 +135,6 @@
             </symbol>
             <symbol id="icon-close" viewBox="0 0 24 24">
               <title>close</title>
-
               <path
                 d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 7.425 2.717-2.718c.146-.146.339-.219.531-.219.404 0 .75.325.75.75 0 .193-.073.384-.219.531l-2.717 2.717 2.727 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.384-.073-.53-.219l-2.729-2.728-2.728 2.728c-.146.146-.338.219-.53.219-.401 0-.751-.323-.751-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"
                 fill-rule="nonzero"
@@ -191,14 +163,12 @@
               </g>
             </symbol>
           </svg>
-
           <main>
             <div class="hidcontent">
               <div class="background" style="background-image: var(--website-color)"></div>
               <h2 class="hidcontent__title">Hypercritical</h2>
               <p class="hidcontent__tagline">Hypercritical is the best experience website</p>
             </div>
-
             <nav class="menuUzi targeted">
               <div class="menuUzi__item menuUzi__item--1" data-direction="bt">
                 <div class="menuUzi__item-inner">
@@ -222,48 +192,40 @@
               <div class="menuUzi__item menuUzi__item--3" data-direction="bt">
                 <div class="menuUzi__item-inner">
                   <div class="sidemenuUzi">
-                    <a href="studio" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">The studio</span></a
+                    <a href="studio" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">The studio</span></a
                     >
-                    <a href="about" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">Insights</span></a
+                    <a href="about" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Insights</span></a
                     >
-                    <a href="policy" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">Policy</span></a
+                    <a href="policy" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Policy</span></a
                     >
-                    <a href="#" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">••••</span></a
+                    <a href="#" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">••••</span></a
                     >
-                    <a href="account/" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">Enter</span></a
+                    <a href="account/" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Enter</span></a
                     >
-                    <a href="account/membership_signup" class="sidemenuUzi__item" data-cursor="-medium -exclusion">
-                      <span class="sidemenuUzi__item-inner">Join</span></a
+                    <a href="account/membership_signup" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Join</span></a
                     >
-                    <a href="#" class="sidemenuUzi__item"> <span class="sidemenuUzi__item-inner">•••</span></a>
+                    <a href="#" class="sidemenuUzi__item"><span class="sidemenuUzi__item-inner">•••</span></a>
                   </div>
                 </div>
               </div>
               <div class="menuUzi__item menuUzi__item--4" data-direction="rl">
                 <div class="menuUzi__item-inner">
                   <p class="label label--topleft label--line">Reach us now</p>
-                  <a href="contact" class="menuUzi__item-link">
-                    <div class="reachussvg">
+                  <a href="contact" class="menuUzi__item-link"
+                    ><div class="reachussvg">
                       <img
-                        src="assets/svg/10.2b4ffb11.webp"
+                        src="assets/svg/9.b586fa93.webp"
                         data-label="image"
                         alt="contact button 2"
                         class="contact-emoji"
-                      />
-                      <img
-                        src="assets/svg/9.b586fa93.webp"
-                        alt="contact button 2"
-                        class="laugh-emoji"
-                        style="display: none"
-                        data-label="image"
-                      />
-                    </div>
-                  </a>
+                      /></div
+                  ></a>
                   <div class="yearnow">©2024</div>
                 </div>
               </div>
@@ -287,9 +249,6 @@
                 </div>
               </div>
               <button class="action action--menuUzi" aria-label="sidemenu button open">
-                <!-- <svg data-cursor="-enlarge -exclusion" class="icon icon-cursor icon--menuUzi">
-                <use xlink:href="#icon-menu"></use>
-              </svg> -->
                 <div class="both-icon-menu">
                   <div class="menu_button_wrapper">
                     <div class="menu_button_line">
@@ -305,17 +264,13 @@
                 </div>
               </button>
               <button class="action action--close" aria-label="sidemenu button close">
-                <svg class="icon icon-cursor icon--close" height="12px">
-                  <use xlink:href="#icon-close"></use>
-                </svg>
+                <svg class="icon icon-cursor icon--close" height="12px"><use xlink:href="#icon-close"></use></svg>
               </button>
             </nav>
           </main>
         </div>
       </div>
-      <div class="below-line">
-        <span></span>
-      </div>
+      <div class="below-line"><span></span></div>
     </div>
     <section class="hero-main">
       <div class="main-hero">
@@ -323,50 +278,41 @@
           <span class="hyper">HYPER</span><span class="critical">CRITICAL<sup>•</sup></span>
         </div>
       </div>
-      <div class="scrolldown-hero center">
-        <span>(◕‿◕) scroll</span>
-      </div>
+      <div class="scrolldown-hero center"><span>(◕‿◕) scroll</span></div>
     </section>
-
     <script async src="js/imagesloaded.pkgd.min.js"></script>
     <script async src="js/TweenMax.min.js"></script>
-
     <script async src="js/multi-menu.js"></script>
-
-    <!-- <script async src="js/main/main.js"></script> -->
-
     <section class="hero-image slide" data-columns="2">
       <div class="parallax-image parallax-hero">
-        <img src="assets/images/1.jpg" data-label="image " alt="introduction image" />
+        <img src="assets/images/0412-2.webp" data-label="image " alt="introduction image" />
       </div>
     </section>
     <section class="introduction white-section">
-      <div class="intro-title">
-        <span class="intro-title-inner">INTRODUCTION</span>
-      </div>
+      <div class="intro-title"><span class="intro-title-inner">INTRODUCTION</span></div>
       <div class="intro-description">
-        <span class="desc-wrapper">
-          HYpercritical, is a cutting edge digital design ● and tech studio based in Kenya which had its genesis in the
-          vision of its Founder Uzitrake.
-        </span>
+        <span class="desc-wrapper"
+          >Hypercritical, is a cutting edge digital design ● and tech studio based in Kenya which had its genesis in the
+          vision of its Founder Uzitrake.</span
+        >
       </div>
       <div class="intro-footer">
         <div class="divider-line" line-trigger=".intro-footer"></div>
-
         <div class="intro-studio">
           Founded in 2020, Hypercritical had a clear and noble mission—to empower and uplift businesses. Small or large,
           local or global, our focus was always on providing the tools and solutions necessary to drive growth,
           efficiency, and success for you.
         </div>
         <div class="morestudio">
-          <a href="studio" role="link">More about us</a>
+          <a href="studio" class="black" role="link"
+            >More about us
+            <span
+              ><svg role="button"><use xlink:href="#arrow-right"></use></svg></span
+          ></a>
         </div>
       </div>
     </section>
-
-    <!-- what we do animations-->
-
-    <link rel="stylesheet" type="text/css" href="css/animate-code.css" />
+    <link rel="stylesheet" href="css/animate-code.css" />
     <section class="innovation-services">
       <div class="title-inno">What we do</div>
       <div
@@ -376,13 +322,13 @@
         data-cursor="-exclusion"
         data-start="top 90%"
       >
-        <span class="content__title" data-splitting data-effect28>
-          <span class="font-12 font-medium">Services </span>
-        </span>
+        <span class="content__title" data-splitting data-effect28
+          ><span class="font-12 font-medium">Services</span></span
+        >
       </div>
     </section>
     <section id="coding">
-      <p class="label label--vert-mirror" style="left: 0px; transform: translateY(54px)">
+      <p class="label label--vert-mirror" style="left: 0; transform: translateY(54px)">
         <svg
           height="15px"
           width="15px"
@@ -413,31 +359,18 @@
         </svg>
         &nbsp;Our services
       </p>
-
       <div class="grid" data-cursor="-exclusion">
-        <div class="grid__item" ondblclick="videoUp(this);">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint uzijoint-bottom-left"></span>
-          <span class="uzijoint uzijoint-bottom-right"></span>
-
-          <a
-            class="grid__item-img grid-item-vid"
-            onmouseenter="videoDown(this);"
-            onmouseleave="videoUp(this);"
-            aria-label="web app dev video"
-            href="#trakexcel"
-          >
-            <div class="grid__item-img-deco"></div>
-
+        <div class="grid__item">
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint uzijoint-bottom-left"></span> <span class="uzijoint uzijoint-bottom-right"></span>
+          <a class="grid__item-img grid-item-vid" aria-label="web app dev video" href="#trakexcel"
+            ><div class="grid__item-img-deco"></div>
             <div style="width: 100%; height: 100%" class="image">
-              <img src="assets/images/mobile-design.jpg" data-label class="lazyload" alt="web dev image" />
+              <img src="assets/images/mobile-design.webp" data-label class="lazyload" alt="web dev image" />
             </div>
-
             <video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/mjobile.mp4" type="video/mp4" />
-            </video>
-          </a>
+              <source src="assets/videos/mjobile.mp4" type="video/mp4" /></video
+          ></a>
           <p class="grid__item-label">
             Providing our art in creating a modern and scalable website apps, optimizing speed, integrating cloud-based
             hosting solutions.
@@ -445,24 +378,18 @@
           <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Web App Development</span>
         </div>
         <div class="grid__item">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint-bottom-left"></span>
-          <span class="uzijoint-bottom-right"></span>
-
-          <a
-            class="grid__item-img grid-item-vid"
-            onmouseenter="videoDown(this);"
-            onmouseleave="videoUp(this);"
-            aria-label="web design video"
-            href="#trakexcel"
-          >
-            <div class="grid__item-img-deco"></div>
-            <img src="assets/images/website-design.jpg" data-label class="lazyload" alt="Branding image" />
-            <video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/home (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4" />
-            </video>
-          </a>
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
+          <a class="grid__item-img grid-item-vid" aria-label="web design video" href="#trakexcel"
+            ><div class="grid__item-img-deco"></div>
+            <img src="assets/images/website-design.webp" data-label class="lazyload" alt="Branding image" /><video
+              class="grid__item-video"
+              loop
+              autoplay
+              muted
+            >
+              <source src="assets/videos/home (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4" /></video
+          ></a>
           <p class="grid__item-label">
             We develop professional websites across all industries, focusing on user-friendly design and seamless
             navigation.
@@ -470,40 +397,30 @@
           <span class="grid__item-tag">Website Design</span>
         </div>
         <div class="grid__item">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint-bottom-left"></span>
-          <span class="uzijoint-bottom-right"></span>
-
-          <a
-            class="grid__item-img grid-item-vid"
-            onmouseenter="videoDown(this);"
-            onmouseleave="videoUp(this);"
-            aria-label="Branding video"
-            href="#trakexcel"
-          >
-            <div class="grid__item-img-deco"></div>
-            <img src="assets/images/Fabric.png" data-label class="lazyload" alt="brand this" />
-
-            <video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/motion22.mp4" type="video/mp4" />
-            </video>
-          </a>
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
+          <a class="grid__item-img grid-item-vid" aria-label="Branding video" href="#trakexcel"
+            ><div class="grid__item-img-deco"></div>
+            <img src="assets/images/Fabric.webp" data-label class="lazyload" alt="brand this" /><video
+              class="grid__item-video"
+              loop
+              autoplay
+              muted
+            >
+              <source src="assets/videos/motion22.mp4" type="video/mp4" /></video
+          ></a>
           <p class="grid__item-label">
             Transforming your brand into a compelling and unmistakably recognizable identity worldwide.
           </p>
           <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Branding</span>
         </div>
         <div class="grid__item grid-itemz">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint-bottom-left"></span>
-          <span class="uzijoint-bottom-right"></span>
-
-          <a class="grid__item-img" aria-label="Visionary video" href="#trakexcel">
-            <div class="grid__item-img-decox"></div>
-            <img src="assets/images/innovation.jpg" data-label class="lazyload" alt="Backend design image" />
-          </a>
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
+          <a class="grid__item-img" aria-label="Visionary video" href="#trakexcel"
+            ><div class="grid__item-img-decox"></div>
+            <img src="assets/images/innovation1.webp" data-label class="lazyload" alt="Backend design image"
+          /></a>
           <p class="grid__item-label">
             We are committed to fostering innovation, with a primary focus on creating intuitive data visualizations and
             delivering clear and impactful messaging.
@@ -511,55 +428,38 @@
           <span class="grid__item-tag">Visionary innovation</span>
         </div>
         <div class="grid__item">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint-bottom-left"></span>
-          <span class="uzijoint-bottom-right"></span>
-
-          <a
-            class="grid__item-img grid-item-vid"
-            onmouseenter="videoDown(this);"
-            onmouseleave="videoUp(this);"
-            aria-label="Backend design animate"
-            href="#trakexcel"
-          >
-            <div class="grid__item-img-deco"></div>
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
+          <a class="grid__item-img grid-item-vid" aria-label="Backend design animate" href="#trakexcel"
+            ><div class="grid__item-img-deco"></div>
             <img
-              src="assets/images/90b50417aaab2c8a758d63b28ae35fc4.jpg"
+              src="assets/images/90b50417aaab2c8a758d63b28ae35fc4.webp"
               border="0"
               alt="4"
               data-label
               alt="Backend
             design image"
-              class="lazyload"
-            />
-            <video class="grid__item-video" loop autoplay muted>
-              <source src="assets/videos/original-39fcceebe0cb5a1f113882e8060a6baf.mp4" type="video/mp4" />
-            </video>
-          </a>
+              class="lazyload" /><video class="grid__item-video" loop autoplay muted>
+              <source src="assets/videos/original-39fcceebe0cb5a1f113882e8060a6baf.mp4" type="video/mp4" /></video
+          ></a>
           <p class="grid__item-label">
             Through intuitive data structures and efficient server-side logic, we pave the way for applications that not
             only meet current needs but are adaptable to future challenges.
           </p>
           <span class="grid__item-tag" data-cursor="-enlarge -exclusion">Backend Design</span>
         </div>
-
         <div class="grid__item grid-itemz">
-          <span class="uzijoint"></span>
-          <span class="uzijoint uzijoint-left"></span>
-          <span class="uzijoint-bottom-left"></span>
-          <span class="uzijoint-bottom-right"></span>
-
-          <a class="grid__item-img" aria-label="web security animation" href="#trakexcel">
-            <div class="grid__item-img-decox"></div>
+          <span class="uzijoint"></span> <span class="uzijoint uzijoint-left"></span>
+          <span class="uzijoint-bottom-left"></span> <span class="uzijoint-bottom-right"></span>
+          <a class="grid__item-img" aria-label="web security animation" href="#trakexcel"
+            ><div class="grid__item-img-decox"></div>
             <img
-              src="assets/images/security.jpg"
+              src="assets/images/security.webp"
               style="object-position: center center"
               data-label
               class="lazyload"
               alt="web security"
-            />
-          </a>
+          /></a>
           <p class="grid__item-label">
             We provide a comprehensive website overhaul, implementing advanced security features and SSL encryption.
           </p>
@@ -567,133 +467,38 @@
         </div>
       </div>
     </section>
-
-    <script>
-      function playVideo(element) {
-        var video = element.querySelector(".grid__item-video");
-        video.play();
-      }
-
-      function resetVideo(element) {
-        var video = element.querySelector(".grid__item-video");
-        video.pause();
-        video.currentTime = 0;
-      }
-
-      function toggleVideo(element) {
-        var video = element.querySelector(".grid__item-video");
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }
-
-      let imgconts = document.querySelectorAll(".grid-item-vid");
-
-      imgconts.forEach((imgcont) => {
-        imgcont.addEventListener("mouseenter", () => {
-          let gridItemVideo = imgcont.querySelector(".grid__item-video");
-          gridItemVideo.style.display = "block";
-          // videoDown(imgcont);
-          // toggleVideo(imgcont);
-        });
-      });
-
-      imgconts.forEach((imgcont) => {
-        imgcont.addEventListener("mouseout", () => {
-          let gridItemVideo = imgcont.querySelector(".grid__item-video");
-          // videoUp();
-          // toggleVideo(imgcont);
-
-          // setTimeout(()=>{
-          // 	resetVideo(imgcont);
-          // 	// gridItemVideo.style.display = 'none';
-          // },2000);
-        });
-      });
-
-      const animateImage = () => {
-        gsap.timeline({ defaults: { ease: "expo.out", delay: 0 } }).fromTo(
-          ".grid__item .cell",
-          {
-            y: 0,
-          },
-          {
-            duration: 1.25,
-            y: "100%",
-            stagger: 0.025,
-            ease: "expo.inOut",
-          },
-          0.5
-        );
-      };
-
-      const reverseImage = () => {
-        gsap.timeline({ defaults: { ease: "expo.out", delay: 0 } }).Fromto(
-          ".grid__item .cell",
-          {
-            y: "200%",
-          },
-          {
-            duration: 1.25,
-            y: 0,
-            stagger: 0.025,
-            ease: "expo.inOut",
-          },
-          0.2
-        );
-      };
-
-      const videoDown = (element) => {
-        gsap
-          .timeline({ defaults: { ease: "expo.out", delay: 0 } })
-          .fromTo(
-            element.querySelector(".grid__item-video"),
-            { y: "0%" },
-            { duration: 1.25, y: "101%", ease: "expo.inOut" },
-            0
-          );
-      };
-
-      const videoUp = (element) => {
-        gsap
-          .timeline({ defaults: { ease: "expo.out", delay: 0 } })
-          .fromTo(
-            element.querySelector(".grid__item-video"),
-            { y: "101%" },
-            { duration: 1.25, y: "0%", ease: "expo.inOut" },
-            0
-          );
-      };
-    </script>
-
     <main class="elephant-boundary">
       <section class="global-video">
         <video
           id="video-background"
+          preload="none"
           muted
           loop
-          poster="assets/images/65baee591c3d847be314deac_Come-Final-1920-1.jpg"
+          poster="assets/images/world-poster.webp"
           class="lazyload"
         >
+          <source src="assets/videos/world-480p.mp4" type="video/mp4" media="(max-width: 719px)" />
           <source
-            src="https://raw.githubusercontent.com/vickkie/On-scroll-Filter/main/ACM-short.mp4"
+            src="assets/videos/world-720p.mp4"
             type="video/mp4"
+            media="(min-width: 720px) and (max-width: 1079px)"
           />
+          <source
+            src="assets/videos/world-1000p.mp4"
+            type="video/mp4"
+            media="(min-width: 1080px) and (max-width: 1439px)"
+          />
+          <source src="assets/videos/world-1400p.mp4" type="video/mp4" media="(min-width: 1440px)" />
           Your browser does not support the video tag.
         </video>
-
         <div class="top-background">
           <div class="div video-overlay center">
-            WORKING <span class="split-chars">WORLDWIDE</span>
+            WORKING <span class="split-chars"><br />WORLDWIDE</span>
             <div class="video-footer"><span class="bold">Unleash&nbsp;</span><span>➺ your potential</span></div>
           </div>
         </div>
       </section>
-
-      <section class="ourservices" data-cursor-img="assets/images/peanut.webp">
+      <section class="ourservices" data-cursor="-nosee">
         <div
           class="c-elephant_himself_wrap is-inview"
           data-scroll="item"
@@ -705,86 +510,73 @@
             <div class="c-sprite -elephant -loop is-inview is-lazy-loaded"></div>
           </div>
         </div>
-
-        <div class="services-head">
-          <span class="why-us">WHY CHOOSE US</span>
-        </div>
+        <div class="services-head"><span class="why-us">WHY CHOOSE US</span></div>
         <div class="accordion-right"></div>
         <div class="services-accordion">
           <details class="col__content-txt">
             <summary>
               &#10045;&nbsp;Brand-focused partner?
-              <div class="wrap-accordion-icon">
-                <i class="accordion-icon" data-cursor="-enlarge -exclusion"></i>
-              </div>
+              <div class="wrap-accordion-icon"><i class="accordion-icon" data-cursor="-enlarge -exclusion"></i></div>
             </summary>
-            <span>
-              We work with brand leaders to build motion identities, systems, and applications that deepen audience
-              relationships, strengthen brand affinity, and drive long-term growth.
-            </span>
+            <span
+              >We work with brand leaders to build motion identities, systems, and applications that deepen audience
+              relationships, strengthen brand affinity, and drive long-term growth.</span
+            >
           </details>
           <details class="col__content-txt">
             <summary>
               &#10045;&nbsp;Approach
-              <div class="wrap-accordion-icon">
-                <i class="accordion-icon" data-cursor="-enlarge -exclusion"></i>
-              </div>
+              <div class="wrap-accordion-icon"><i class="accordion-icon" data-cursor="-enlarge -exclusion"></i></div>
             </summary>
-            <span>
-              Our team draws on decades of experience, turning complex creative challenges into collaborative brand
+            <span
+              >Our team draws on decades of experience, turning complex creative challenges into collaborative brand
               partnerships. We integrate with your team to learn your business, adopt your brand, and create motion
-              identities, systems, and applications that transform how you communicate in today’s digital environment.
-            </span>
+              identities, systems, and applications that transform how you communicate in today’s digital
+              environment.</span
+            >
           </details>
           <details class="col__content-txt">
             <summary>
               &#10045;&nbsp;Seamless experience
-
-              <div class="wrap-accordion-icon">
-                <i class="accordion-icon" data-cursor="-enlarge -exclusion"></i>
-              </div>
+              <div class="wrap-accordion-icon"><i class="accordion-icon" data-cursor="-enlarge -exclusion"></i></div>
             </summary>
-            <span>
-              You bring the curiosity and drive, we bring the projects you’re proud to be a part of—from ambitious
+            <span
+              >You bring the curiosity and drive, we bring the projects you’re proud to be a part of—from ambitious
               startups to any advanced field.We adapt to your needs with ease, enabling efficient workflows, and
-              providing high-touch, high-quality partnerships for every client we work with.
-            </span>
+              providing high-touch, high-quality partnerships for every client we work with.</span
+            >
           </details>
           <details class="col__content-txt">
             <summary>
               &#10045;&nbsp;Innovative Design Solutions
-              <div class="wrap-accordion-icon">
-                <i class="accordion-icon" data-cursor="-enlarge -exclusion"></i>
-              </div>
+              <div class="wrap-accordion-icon"><i class="accordion-icon" data-cursor="-enlarge -exclusion"></i></div>
             </summary>
-            <span>
-              We specialize in creating unique, cutting-edge designs that stand out in the digital landscape. Our
-              innovative approach ensures your brand's identity is distinctively represented online.
-            </span>
+            <span
+              >We specialize in creating unique, cutting-edge designs that stand out in the digital landscape. Our
+              innovative approach ensures your brand's identity is distinctively represented online.</span
+            >
           </details>
           <details class="col__content-txt">
             <summary>
               &#10045;&nbsp;Timely Delivery
-              <div class="wrap-accordion-icon">
-                <i class="accordion-icon" data-cursor="-enlarge -exclusion"></i>
-              </div>
+              <div class="wrap-accordion-icon"><i class="accordion-icon" data-cursor="-enlarge -exclusion"></i></div>
             </summary>
-            <span>
-              Hypercritical understand the importance of meeting deadlines in the fast-paced digital world. Our
+            <span
+              >Hypercritical understand the importance of meeting deadlines in the fast-paced digital world. Our
               commitment to timely delivery ensures your project is completed on time, allowing you to launch your
-              website with confidence and on schedule. 👋.
-            </span>
+              website with confidence and on schedule. 👋.</span
+            >
           </details>
         </div>
       </section>
-      <section class="hero-portfolio white-section">
+      <section class="hero-portfolio white-section" data-cursor="-inverse">
         <div class="portfolio-head">
           <div class="port-header-label">WORKS</div>
           <div class="port-header-text">explore work</div>
         </div>
         <div class="explore-portfolio">
           <div class="total-trailers">
-            <span>10+ </span> <span class="total-trailers-text">Ground breaking Innovations</span>
+            <span>10+ </span><span class="total-trailers-text">Ground breaking Innovations</span>
           </div>
           <div class="trailer-expla-wrapper">
             <div class="trailer-expla">
@@ -798,11 +590,15 @@
           </div>
           <div class="trailer-view-buton">
             <div class="button margin-buttons">
-              <button class="btn-stack flex-withgap" type="button" onclick="window.location='/works'">
+              <button
+                class="btn-stack flex-withgap"
+                aria-label="view all"
+                type="button"
+                onclick='window.location="/works"'
+              >
                 <span>View all</span
                 ><span
-                  ><svg role="button">
-                    <use xlink:href="#arrow-right"></use></svg
+                  ><svg role="button"><use xlink:href="#arrow-right"></use></svg
                 ></span>
               </button>
             </div>
@@ -811,34 +607,23 @@
         <div class="portfolio-trailer">
           <div class="trailerimage">
             <div class="carousel">
-              <div class="carouselimage">
-                <img src="assets/images/innovation.jpg" alt="Image 3" />
-              </div>
-              <div class="carouselimage">
-                <img src="assets/images/uziport-multi-high.webp" alt="Image 1" />
-              </div>
-              <div class="carouselimage">
-                <img src="assets/images/lumina-mockall-high.webp" alt="Image 2" />
-              </div>
+              <div class="carouselimage"><img src="assets/images/innovation1.webp" alt="Image 3" /></div>
+              <div class="carouselimage"><img src="assets/images/uziport-multi-high.webp" alt="Image 1" /></div>
+              <div class="carouselimage"><img src="assets/images/lumina-mockall-high.webp" alt="Image 2" /></div>
             </div>
           </div>
           <div class="trailer_controls center">
-            <button class="trailer_button -prev" data-drinks="prev" type="button">
-              <svg role="button">
-                <use xlink:href="#arrow-left"></use>
-              </svg>
+            <button class="trailer_button -prev" aria-label="previous" type="button">
+              <svg role="button"><use xlink:href="#arrow-left"></use></svg>
             </button>
-            <button class="trailer_button -next" data-drinks="next" type="button">
-              <svg role="button">
-                <use xlink:href="#arrow-right"></use>
-              </svg>
+            <button class="trailer_button -next" aria-label="next" type="button">
+              <svg role="button"><use xlink:href="#arrow-right"></use></svg>
             </button>
           </div>
         </div>
         <div class="portfolio-footer"></div>
       </section>
     </main>
-
     <section class="getintouch">
       <div class="marquee-horizontal">
         <div class="marquee-css w-embed"></div>
@@ -853,30 +638,38 @@
       <div class="wrapper get-in-touch">
         <div class="socials-header">
           <span class="socials-brand">Socials and contact</span>
-          <h2 class="heading-2">Get in Touch</h2>
+          <h2 class="heading-2 split-chars" data-effect28="">Get in Touch</h2>
         </div>
         <div class="socials-left">
           <div class="social-network">
             <div class="title-upper">social<br />networks</div>
             <div class="socials-buttons">
-              <a target="_blank" class="social-networks instagram" style="background-color: rgba(1, 1, 1, 0)"
+              <a
+                target="_blank"
+                class="social-networks instagram"
+                aria-label="instagram"
+                style="background-color: rgba(1, 1, 1, 0)"
                 ><img
                   src="https://assets-global.website-files.com/65418d587c283640ab4fbb64/655df79e742c1159c8236cef_instagram.png"
                   loading="lazy"
                   alt="Instagram icon, png, black"
                   class="social-img"
                   style="filter: invert(0%)" /></a
-              ><a target="_blank" class="social-networks github" style="background-color: rgba(1, 1, 1, 0)"
+              ><a
+                target="_blank"
+                class="social-networks github"
+                aria-label="github"
+                style="background-color: rgba(1, 1, 1, 0)"
                 ><img
                   src="assets/svg/icons8-github.svg"
                   loading="lazy"
                   alt=""
                   class="social-img"
-                  style="filter: invert(0%)"
-              /></a>
-              <a
+                  style="filter: invert(0%)" /></a
+              ><a
                 target="_blank"
                 class="social-networks w-inline-block linktree"
+                aria-label="linktree"
                 style="background-color: rgba(1, 1, 1, 0)"
                 ><img src="assets/svg/linktree.svg" loading="lazy" alt="" class="social-img" style="filter: invert(0%)"
               /></a>
@@ -887,19 +680,17 @@
           <div class="all-social-wrapper">
             <form id="consultationForm">
               <div class="field-box">
-                <label for="yourname" class="field-label">Name:</label><br />
-                <input
+                <label for="yourname" class="field-label">Name:</label><br /><input
                   class="text-field"
-                  type="text"
                   id="yourname"
                   name="yourname"
                   placeholder="Enter your name"
+                  autocomplete="given-name"
                   maxlength="35"
                 /><br />
               </div>
               <div class="field-box">
-                <label for="email" class="field-label">Email:</label><br />
-                <input
+                <label for="email" class="field-label">Email:</label><br /><input
                   class="text-field"
                   type="email"
                   id="email"
@@ -907,6 +698,7 @@
                   placeholder="Enter email"
                   required
                   maxlength="50"
+                  autocomplete="off"
                 /><br />
               </div>
               <div class="field-box">
@@ -915,59 +707,52 @@
                   <div class="checkbox-wrapper">
                     <div class="checkbox-text">Web Design</div>
                     <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Web-Design" id="Web-Design" />
+                    <input type="checkbox" name="Web-Design" aria-label="Web-Design" id="Web-Design" />
                   </div>
-
                   <div class="checkbox-wrapper">
                     <div class="checkbox-text">SEO</div>
                     <div class="checkbox-input"></div>
-                    <input type="checkbox" name="SEO" id="SEO" />
+                    <input type="checkbox" name="SEO" aria-label="SEO" id="SEO" />
                   </div>
-
                   <div class="checkbox-wrapper">
                     <div class="checkbox-text">Development</div>
                     <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Development" id="Development" />
+                    <input type="checkbox" name="Development" aria-label="Development" id="Development" />
                   </div>
-
                   <div class="checkbox-wrapper">
                     <div class="checkbox-text">Other</div>
                     <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Other" id="Other" />
+                    <input type="checkbox" name="Other" aria-label="Other" id="Other" />
                   </div>
                 </div>
               </div>
-
               <div class="field-box">
                 <label for="budget" class="field-label">Budget:</label><br />
                 <div class="multicheck">
                   <div class="radio-wrapper">
                     <div class="radio-text">under $500</div>
-                    <input type="radio" name="priceGroup" id="under-500" />
+                    <input type="radio" name="priceGroup" aria-label="under $500" id="under-500" />
                     <label for="under-500" class="radio-input"></label>
                   </div>
-
                   <div class="radio-wrapper">
                     <div class="radio-text">$500-$2k</div>
-                    <input type="radio" name="priceGroup" id="500-2k" />
+                    <input type="radio" name="priceGroup" aria-label="$500-$2k" id="500-2k" />
                     <label for="500-2k" class="radio-input"></label>
                   </div>
-
                   <div class="radio-wrapper">
                     <div class="radio-text">$2k- $5k</div>
-                    <input type="radio" name="priceGroup" id="2-5k" />
+                    <input type="radio" name="priceGroup" aria-label="$2k- $5k" id="2-5k" />
                     <label for="2-5k" class="radio-input"></label>
                   </div>
                   <div class="radio-wrapper">
                     <div class="radio-text">Partnership</div>
-                    <input type="radio" name="priceGroup" id="4all" />
+                    <input type="radio" name="priceGroup" aria-label="Partnership" id="4all" />
                     <label for="4all" class="radio-input"></label>
                   </div>
                 </div>
               </div>
               <div class="field-box">
-                <label for="message" class="field-label">Message:</label><br />
-                <textarea
+                <label for="message" class="field-label">Message:</label><br /><textarea
                   class="text-field text-area"
                   placeholder="Enter message"
                   id="message"
@@ -1003,9 +788,10 @@
                     </g>
                   </svg> </i
                 >By submitting this form you have agreed to our
-                <a href="terms" class="website" aria-label="terms conditions">terms and services</a></label
-              ><br />
-              <input type="text" name="bait" id="bait" style="display: none" />
+                <a href="terms" class="website submit-info" aria-label="terms and services"
+                  >terms and services</a
+                ></label
+              ><br /><input name="bait" id="bait" style="display: none" />
             </form>
             <script></script>
           </div>
@@ -1013,20 +799,18 @@
         <div class="socials-footer"></div>
       </div>
     </section>
-
-    <section class="footer white-section">
+    <section class="footer white-section" data-cursor="-inverse">
       <div class="footer-right">
-        <span class="large-h">H</span>
-        <span class="large-c">C</span>
+        <span class="large-h">H</span> <span class="large-c">C <sup>◕</sup></span>
       </div>
       <div class="footer-left">
         <div class="sitemap">
           <div class="footer-map-header">SITEMAP</div>
           <ul>
-            <li><a href="home" class="footer-links">Home</a></li>
-            <li><a href="services" class="footer-links">Services</a></li>
-            <li><a href="works" class="footer-links">Works</a></li>
-            <li><a href="contact" class="footer-links">Contact</a></li>
+            <li><a href="home" class="footer-links" aria-label="home link">Home</a></li>
+            <li><a href="services" class="footer-links" aria-label="services link">Services</a></li>
+            <li><a href="works" class="footer-links" aria-label="works link">Works</a></li>
+            <li><a href="contact" class="footer-links" aria-label="contact-link">Contact</a></li>
           </ul>
         </div>
         <div class="office">
@@ -1040,19 +824,19 @@
         <div class="footer-social">
           <div class="footer-map-header">SOCIALS</div>
           <ul>
-            <li><a href="" aria-label="socials links" target="_blank" class="instagram">instagram </a></li>
-            <li><a href="" aria-label="socials links" target="_blank" class="linktree b">linktree </a></li>
-            <li><a href="" aria-label="socials links" target="_blank" class="behance"> behance </a></li>
-            <li><a href="" aria-label="socials links" target="_blank" class="twitter">twitter </a></li>
-            <li><a href="" aria-label="socials links" target="_blank" class="github">github</a></li>
+            <li><a href="" aria-label="instagram" target="_blank" class="instagram">instagram</a></li>
+            <li><a href="" aria-label="linktree" target="_blank" class="linktree b">linktree</a></li>
+            <li><a href="" aria-label="behance" target="_blank" class="behance">behance</a></li>
+            <li><a href="" aria-label="twitter" target="_blank" class="twitter">twitter</a></li>
+            <li><a href="" aria-label="github" target="_blank" class="github">github</a></li>
           </ul>
         </div>
         <div class="legal">
           <div class="footer-map-header">LEGAL</div>
           <ul>
-            <li><a href="" aria-label="legalink">Terms & policy</a></li>
-            <li><a href="" aria-label="legalink">cookies</a></li>
-            <li><a href="" aria-label="legalink">Privacy</a></li>
+            <li><a href="" aria-label="terms">Terms</a></li>
+            <li><a href="" aria-label="cookies">cookies</a></li>
+            <li><a href="" aria-label="Privacy policy">Privacy policy</a></li>
           </ul>
         </div>
         <div class="footer-contact">
@@ -1076,21 +860,16 @@
           <div>@2024 Hypercritical</div>
           <div class="span">All rights Reserved</div>
         </div>
-
         <div class="footer-footer-right">
-          <div>site by uzitrake</div>
+          <div>
+            <a href="" aria-label="site by &copy;uzitrake" class="developer-portfolio" target="_blank"
+              >site by &copy;uzitrake</a
+            >
+          </div>
           <div>back to top</div>
         </div>
       </div>
     </section>
-
-    <script src="js/Scroll-Smoother.js"></script>
-    <script src="js/scrolltrigger.js"></script>
-    <script src="js/scrolltoplugin.js"></script>
-    <link href="css/mf.css" rel="stylesheet" />
-    <!-- <script src="js/mf.js"></script> -->
-    <script src="js/magnetic-curberto.js"></script>
-
     <a
       class="footer__link-top"
       id="toTop"
@@ -1098,8 +877,7 @@
       aria-label="scroll to top"
       data-cursor="-hidden"
       style="display: block"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.510301 2.3982 121 127.1">
+      ><svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.510301 2.3982 121 127.1">
         <path
           d="M 60 129 Z M -0.002 63.356 A 1 1 0 0 0 119.96 61.777 A 1 1 0 0 0 0 64 Z "
           stroke="none"
@@ -1111,8 +889,14 @@
           class="top-arrow-path"
           stroke-width="5"
           fill="none"
-        />
-      </svg>
-    </a>
+        /></svg
+    ></a>
+
+    <link href="css/mf.css" rel="stylesheet" />
+    <script src="js/split-text.js"></script>
+    <script defer="defer" src="js/scrolltrigger.js"></script>
+    <script defer="defer" src="js/Scroll-Smoother.js"></script>
+    <script defer="defer" src="js/scrolltoplugin.js"></script>
+    <script defer="defer" src="js/magnetic-curberto.js"></script>
   </body>
 </html>

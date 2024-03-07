@@ -38,6 +38,7 @@ module.exports = {
       patterns: [
         { from: "includes", to: "includes" },
         { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
+        { from: "offline.html", to: "offline.html" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
         { from: ".barbelrc", to: ".barbelrc" },

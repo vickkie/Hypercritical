@@ -9,7 +9,7 @@
     <meta name="author" content="uzitrake" />
     <meta name="theme-color" content="#bfff0a" />
     <meta http-equiv="Cache-Control" content="max-age=31536000" />
-    <script src="call-worker.js"></script>
+    <!-- <script src="call-worker.js"></script> -->
     <link id="browser_favicon" rel="icon" href="assets/masks/hypercritical-main-logo.png" />
     <link
       fetchpriority="high"
@@ -22,23 +22,6 @@
     <link fetchpriority="high" rel="preload" href="assets/images/0412-2.webp" as="image" />
     <link fetchpriority="low" data-label rel="preload" href="assets/images/elephant-loop.webp" as="image" />
     <link rel="manifest" href="includes/manifest.json" />
-    <script src="js/lazysizes.min.js"></script>
-    <script>
-      if ("loading" in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach((img) => {
-          img.src = img.dataset.src;
-        });
-        const videos = document.querySelectorAll('source[loading="lazy"]');
-        videos.forEach((source) => {
-          source.src = source.dataset.src;
-        });
-      } else {
-        const script = document.createElement("script");
-        script.src = "js/lazysizes.min.js";
-        document.body.appendChild(script);
-      }
-    </script>
     <link rel="stylesheet" href="css/preloader.css" />
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/vue.min.js"></script>

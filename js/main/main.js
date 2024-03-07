@@ -12,8 +12,7 @@ import lozad from "lozad";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 // import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-// const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-// observer.observe();
+// Group 0: lazyload lodash
 
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
@@ -24,6 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   observer.observe();
 });
+
+// group 0.1 : register service worker
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("hypercritical-worker.js")
+      //  .then(reg=>
+      //   // console.log('serviceWorker')
+      //   )
+      .catch((err) => console.log("Error:", err));
+  });
+}
 
 //Group 1: menuUzi midmoon
 let midmoon = document.querySelector(".mid-moon");

@@ -1,0 +1,15 @@
+.transition {
+  position: fixed;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background-color: var(--color-black);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  scale: 0;
+  display: block;
+}

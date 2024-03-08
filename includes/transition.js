@@ -42,3 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// group 2: forced reload on back to ensure transition is done
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});

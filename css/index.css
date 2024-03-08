@@ -21,10 +21,10 @@
   --mid-font: 6vw;
   font-size: 15px;
 }
-html {
+/* html {
   overflow: hidden;
   scroll-behavior: unset;
-}
+} */
 ul {
   list-style: none;
 }
@@ -62,29 +62,6 @@ body {
   font-display: swap;
   font-family: Blind-Krystal;
   src: url(../fonts/Blind-Krystal.woff) format("woff");
-}
-
-/* <!--lenis--> */
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
 
 a {
@@ -1467,4 +1444,27 @@ input[type="radio"]:checked + .radio-input {
 }
 .split-chars {
   overflow: hidden;
+}
+
+/* <!--lenis--> */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

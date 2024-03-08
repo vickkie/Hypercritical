@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{let e=gsap.timeline({});document.querySelectorAll("a").forEach((t=>{t.addEventListener("click",(n=>{n.preventDefault(),e.fromTo(".transition",{scaleY:0},{scaleY:1,duration:1.2,ease:"power2.inOut"}),setTimeout((()=>{window.location.href=t.href}),1e3)}))}))}));

@@ -1,8 +1,5 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPLugin(ScrollTrigger);
-
 document.addEventListener("DOMContentLoaded", () => {
-  let transitionTimeline = gsap.timeline();
+  let transitionTimeline = gsap.timeline({});
 
   function animateTransition() {
     transitionTimeline.fromTo(
@@ -12,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         scaleY: 1,
+        duration: 1.2,
+        ease: "power2.inOut",
       }
     );
   }
@@ -19,6 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let allLinks = document.querySelectorAll("a");
 
   allLinks.forEach((link) => {
-    link.addEventListener("click", animateTransition);
+    link.addEventListener("click", (e) => {
+      // Added 'e' parameter here
+      e.preventDefault(); // Prevents the default link behavior
+      animateTransition();
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 1000);
+    });
   });
 });

@@ -1,0 +1,23 @@
+/*!
+ * Cuberto Mouse Follower
+ * https://cuberto.com/
+ *
+ * @version 1.1.2
+ * @author Cuberto, Artem Dordzhiev (Draft)
+ */
+
+/*! @studio-freight/lenis */
+
+/*! mouse-follower */
+
+/*!*****************************!*\
+  !*** ./js/main/services.js ***!
+  \*****************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
+  \**********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@studio-freight/lenis/dist/lenis.mjs ***!
+  \***********************************************************/

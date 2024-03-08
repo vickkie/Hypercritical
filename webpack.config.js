@@ -11,7 +11,8 @@ module.exports = {
   mode: "production",
   entry: {
     main: "./js/main/index.js",
-    contact: "./js/main/contact.js", // conatact js
+    contact: "./js/main/contact.js", // contact js
+    works: "./js/main/services.js", // contact js
   },
   output: {
     filename: "[name].bundle.js", // This will output main.bundle.js and contact.bundle.js
@@ -42,7 +43,6 @@ module.exports = {
         { from: "includes", to: "includes" },
         { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
         { from: "offline.html", to: "offline.html" },
-        // { from: "contact.html", to: "contact.html" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
         { from: ".barbelrc", to: ".barbelrc" },
@@ -71,6 +71,18 @@ module.exports = {
       filename: "contact.html",
       inject: "body",
       chunks: ["contact"], // Specify which chunks to include in the HTML
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./services.html",
+      filename: "services.html",
+      inject: "body",
+      chunks: ["services"], // Specify which chunks to include in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,

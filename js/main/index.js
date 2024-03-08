@@ -745,3 +745,12 @@ imgconts.forEach((imgcont) => {
 });
 
 // group 18: service worker called
+
+//group 19: scroll
+document.addEventListener("keydown", function (event) {
+  // Check if the key pressed is an arrow key
+  if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+    // Allow the default action (scrolling) to occur
+    event.preventDefault();
+  }
+});

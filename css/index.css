@@ -63,6 +63,30 @@ body {
   font-family: Blind-Krystal;
   src: url(../fonts/Blind-Krystal.woff) format("woff");
 }
+
+/* <!--lenis--> */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 a {
   color: var(--color-bg);
   text-decoration: none;

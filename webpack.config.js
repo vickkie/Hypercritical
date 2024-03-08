@@ -39,6 +39,7 @@ module.exports = {
         { from: "includes", to: "includes" },
         { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
         { from: "offline.html", to: "offline.html" },
+        { from: "contact.html", to: "contact.html" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
         { from: ".barbelrc", to: ".barbelrc" },

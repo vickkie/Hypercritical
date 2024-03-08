@@ -5,13 +5,16 @@ const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
-const Dotenv = require("dotenv-webpack"); // Updated to use dotenv-webpack
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "production",
-  entry: "./js/main/main.js",
+  entry: {
+    main: "./js/main/index.js",
+    contact: "./js/main/contact.js", // conatact js
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js", // This will output main.bundle.js and contact.bundle.js
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -39,7 +42,7 @@ module.exports = {
         { from: "includes", to: "includes" },
         { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
         { from: "offline.html", to: "offline.html" },
-        { from: "contact.html", to: "contact.html" },
+        // { from: "contact.html", to: "contact.html" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
         { from: ".barbelrc", to: ".barbelrc" },
@@ -50,10 +53,12 @@ module.exports = {
         { from: "README.md", to: "README.md" },
       ],
     }),
+    ,
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "index.html",
       inject: "body",
+      chunks: ["main"], // Specify which chunks to include in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -61,7 +66,19 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
-    new Dotenv(), // Using dotenv-webpack
+    new HtmlWebpackPlugin({
+      template: "./contact.html",
+      filename: "contact.html",
+      inject: "body",
+      chunks: ["contact"], // Specify which chunks to include in the HTML
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new Dotenv(),
     new HtmlMinimizerPlugin(),
     new CleanWebpackPlugin(),
   ],

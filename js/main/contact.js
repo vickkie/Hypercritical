@@ -7,6 +7,29 @@ import { getDatabase, ref, push, set } from "firebase/database";
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
 
+//   Group 0: smooth scroll
+
+let lenis = new Lenis({
+  duration: 3,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  direction: "vertical",
+  gestureDirection: "vertical",
+  smooth: true,
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+  autoResize: true,
+});
+
+lenis.on("scroll", (e) => {});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
 // Group 1: assign links
 
 let mouseFollower = new MouseFollower();
@@ -46,29 +69,6 @@ new Promise((resolve, reject) => {
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
   });
-
-//   Group 2: smooth scroll
-
-let lenis = new Lenis({
-  duration: 3,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: "vertical",
-  gestureDirection: "vertical",
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-  autoResize: true,
-});
-
-lenis.on("scroll", (e) => {});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
 //group 2 : overlay and succes button
 

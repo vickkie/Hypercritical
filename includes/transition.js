@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  let allLinks = document.querySelectorAll("a");
+  let allLinks = document.querySelectorAll(".transit");
 
   allLinks.forEach((link) => {
     link.addEventListener("click", (e) => {

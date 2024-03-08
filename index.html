@@ -27,11 +27,11 @@
     <script src="js/vue.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/transition.css" />
   </head>
   <body class="page-index light" id="index-body" oncontextmenu="return!0">
     <div id="overlay" style="scale: 0"></div>
     <div id="dialog" style="display: block; scale: 0">
-      <div class="transition"></div>
       <div class="dialog-content">
         <h2>Hypercritical &copy;</h2>
         <h3>Message sent successfuly</h3>
@@ -39,6 +39,14 @@
         <button class="close-dialog" aria-label="dialog close">
           <svg class="icon-close-dialog"><use xlink:href="#icon-close"></use></svg>
         </button>
+      </div>
+    </div>
+
+    <div class="transition">
+      <div class="mid-transition-wrapper">
+        <div class="mid-transition">
+          <span class="mid-transition-text">HM</span>
+        </div>
       </div>
     </div>
     <main class="flex__col" id="preloaderdoc">
@@ -882,6 +890,7 @@
     <link href="css/mf.css" rel="stylesheet" />
     <script src="js/split-text.js"></script>
     <script defer="defer" src="js/scrolltrigger.js"></script>
+    <script defer="defer" src="includes/transition.js"></script>
     <script defer="defer" src="js/Scroll-Smoother.js"></script>
     <script defer="defer" src="js/scrolltoplugin.js"></script>
     <script defer="defer" src="js/magnetic-curberto.js"></script>

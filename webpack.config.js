@@ -15,7 +15,7 @@ module.exports = {
     services: "./js/main/services.js", // contact js
   },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js", // This will output {file}.bundle.js
     path: path.resolve(__dirname, "public"),
   },
   module: {

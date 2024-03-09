@@ -2,6 +2,8 @@ import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
 import lozad from "lozad";
 import { ScrollTrigger } from "gsap/all";
+// import gsap from "gsap";
+// import { ScrollToPlugin } from "gsap/all";
 
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.to(window, {
       duration: 2,
       delay: 0,
-      scrollTo: {
+      ScrollTo: {
         y: ".hero-main",
       },
       ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -127,30 +129,5 @@ redifinetl.to(".hc-greeting-bg-media", {
 });
 
 //group 5: marquee direction
-gsap.registerPlugin(ScrollTrigger);
 
-const marqueeAnimation = () => {
-  const sections = document.querySelectorAll(".marquee");
-  sections.forEach((section) => {
-    const marqueeText = section.querySelector(".marquee-text");
-    const w = marqueeText;
-
-    const [x, xEnd] = ["0%", (w.scrollWidth - section.offsetWidth) * -0.6];
-
-    gsap.fromTo(
-      w,
-      {
-        x,
-      },
-      {
-        x: xEnd,
-        scrollTrigger: {
-          trigger: section,
-          scrub: 0.5,
-        },
-      }
-    );
-  });
-};
-
-marqueeAnimation();
+// Select the butto

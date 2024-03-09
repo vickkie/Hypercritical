@@ -13,7 +13,7 @@
   --stick-white: #fff;
   --main-color: #fc1234;
   --dark-green: #0d3026;
-  --font-1: grotesk-diamond;
+  --font-1: sohne-light;
   --font-2: MonumentExtended;
   --font-3: MonumentExtended-light;
   --font-4: Blind-Krystal;
@@ -21,10 +21,10 @@
   --mid-font: 6vw;
   font-size: 15px;
 }
-html {
+/* html {
   overflow: hidden;
   scroll-behavior: unset;
-}
+} */
 ul {
   list-style: none;
 }
@@ -55,14 +55,15 @@ body {
 }
 @font-face {
   font-display: swap;
-  font-family: grotesk-diamond;
-  src: url(../fonts/PPMori-Regular.woff) format("woff");
+  font-family: sohne-light;
+  src: url(../fonts/sohne-light.woff2) format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: Blind-Krystal;
   src: url(../fonts/Blind-Krystal.woff) format("woff");
 }
+
 a {
   color: var(--color-bg);
   text-decoration: none;
@@ -1199,7 +1200,7 @@ input[type="radio"]:checked + .radio-input {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1001;
+  z-index: 1002;
 }
 #dialog {
   background-color: #fff;
@@ -1442,5 +1443,35 @@ input[type="radio"]:checked + .radio-input {
   width: 100%;
 }
 .split-chars {
+  overflow: hidden;
+}
+
+/* <!--lenis--> */
+
+/* html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+} */
+
+html {
+  scroll-behavior: auto;
+}
+.footer {
   overflow: hidden;
 }

@@ -1,10 +1,13 @@
 from moviepy.editor import VideoFileClip
 
 # Load the video
-video = VideoFileClip("hypercritical.mp4")
+video = VideoFileClip("la-reel--min.mp4")
 
 # Cut the video from 10 seconds to 20 seconds
-cut_video = video.subclip(15, 17)
+cut_video = video.subclip(48.7, 49.9)
 
 # Save the cut video
-cut_video.write_videofile("hypercritical.mp4")
+cut_video.write_videofile("mid-hype.mp4")
+
+# environment python
+#source hyper-cut/bin/activate-use in cmd, 

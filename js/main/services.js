@@ -1,8 +1,22 @@
 import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
+import lozad from "lozad";
+import { ScrollTrigger } from "gsap/all";
 
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
+
+//group 0:: lozad lazyload ..
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = lozad(".lozad", {
+    rootMargin: "200px 0px",
+    loaded: function (el) {
+      // console.log("Element loaded:", el);
+    },
+  });
+  observer.observe();
+});
 
 //   Group 1: smooth scroll
 
@@ -70,3 +84,73 @@ document.addEventListener("DOMContentLoaded", function () {
   cursor();
   window.addEventListener("res", cursor);
 });
+
+//Group 5 : animate video
+
+gsap.registerPlugin(ScrollTrigger);
+
+let videotl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".cb-intro-figure",
+    start: "top 90%",
+    end: "top 10",
+    scrub: true,
+    markers: !1,
+    toggleActions: "play none none reverse",
+  },
+});
+
+videotl.to(".cb-intro-figure", {
+  width: "98%",
+  height: "98vh",
+  ease: "expo.inOut",
+});
+
+//Group 4 : animate background of redifing
+
+gsap.registerPlugin(ScrollTrigger);
+
+let redifinetl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".hc-greeting-bg",
+    start: "top 20%",
+    end: "bottom top",
+    scrub: 2,
+    markers: !1,
+    toggleActions: "play none none reverse",
+  },
+});
+
+redifinetl.to(".hc-greeting-bg-media", {
+  x: "-20%",
+  ease: "expo.inOut",
+});
+
+//group 5: marquee direction
+gsap.registerPlugin(ScrollTrigger);
+
+const marqueeAnimation = () => {
+  const sections = document.querySelectorAll(".marquee");
+  sections.forEach((section) => {
+    const marqueeText = section.querySelector(".marquee-text");
+    const w = marqueeText;
+
+    const [x, xEnd] = ["0%", (w.scrollWidth - section.offsetWidth) * -0.6];
+
+    gsap.fromTo(
+      w,
+      {
+        x,
+      },
+      {
+        x: xEnd,
+        scrollTrigger: {
+          trigger: section,
+          scrub: 0.5,
+        },
+      }
+    );
+  });
+};
+
+marqueeAnimation();

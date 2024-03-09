@@ -13,7 +13,7 @@
   --stick-white: #fff;
   --main-color: #fc1234;
   --dark-green: #0d3026;
-  --font-1: grotesk-diamond;
+  --font-1: sohne-light;
   --font-2: MonumentExtended;
   --font-3: MonumentExtended-light;
   --font-4: Blind-Krystal;
@@ -55,8 +55,8 @@ body {
 }
 @font-face {
   font-display: swap;
-  font-family: grotesk-diamond;
-  src: url(../fonts/PPMori-Regular.woff) format("woff");
+  font-family: sohne-light;
+  src: url(../fonts/sohne-light.woff2) format("woff2");
 }
 @font-face {
   font-display: swap;
@@ -1448,7 +1448,7 @@ input[type="radio"]:checked + .radio-input {
 
 /* <!--lenis--> */
 
-html.lenis,
+/* html.lenis,
 html.lenis body {
   height: auto;
 }
@@ -1467,4 +1467,11 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+} */
+
+html {
+  scroll-behavior: auto;
+}
+.footer {
+  overflow: hidden;
 }

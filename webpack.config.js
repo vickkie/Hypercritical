@@ -12,7 +12,7 @@ module.exports = {
   entry: {
     main: "./js/main/index.js",
     contact: "./js/main/contact.js", // contact js
-    works: "./js/main/services.js", // contact js
+    services: "./js/main/services.js", // contact js
   },
   output: {
     filename: "[name].bundle.js", // This will output main.bundle.js and contact.bundle.js

@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let cursorme = new MouseFollower();
     }
   }
-
   cursor();
   window.addEventListener("res", cursor);
 });

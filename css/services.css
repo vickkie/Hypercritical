@@ -1,0 +1,266 @@
+.hero-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "..."
+    "hero-service";
+  grid-template-rows: 60% 40%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-service {
+  grid-area: hero-service;
+  padding: 0;
+  font-size: clamp(2rem, 13.85vw, 3rem);
+  font-family: unset;
+  z-index: 4;
+  padding-bottom: 4rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.img_wrapper.studio_hero {
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+figure {
+  margin: 0;
+}
+
+.under-hero .intro-title::before {
+  content: "🚀";
+  rotate: 90deg;
+}
+
+.under-heross {
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+
+.introduction {
+  background-color: #222;
+  display: grid;
+  grid-template-areas:
+    "introtitle introexpla"
+    "... introfooter";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr 200px;
+  min-height: 100vh;
+  position: relative;
+  color: var(--color-bg);
+}
+.morestudio a {
+  color: var(--color-bg);
+  border: solid 0.0058vw var(--color-bg);
+}
+
+.divider-line {
+  background-color: var(--color-bg);
+}
+.morestudio svg {
+  fill: white;
+}
+
+.div-block-42 {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.marquee-horizontal {
+  overflow: hidden;
+}
+
+.service-welcome {
+  min-height: 30vh;
+  display: grid;
+  align-items: center;
+}
+
+.service-head {
+  align-items: center;
+  display: grid;
+  height: max-content;
+  padding: 40px 25px;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  background-color: var(--color-bg);
+  width: 100%;
+  position: relative;
+}
+
+.service-subtitle {
+  display: grid;
+  grid-column: 1/2;
+  padding-top: 0;
+  justify-content: center;
+  position: relative;
+}
+.service-subtitle::before {
+  align-items: center;
+  border: 0.0058vw solid;
+  border-radius: 100%;
+  content: "いち";
+  display: flex;
+  flex-flow: column;
+  height: 36px;
+  justify-content: center;
+  left: 35px;
+  position: absolute;
+  top: -7px;
+  width: 36px;
+}
+.service-discover-title {
+  grid-column: 2/3;
+  font-size: 3rem;
+  align-content: start;
+}
+
+.service-main {
+  background-color: var(--color-bg);
+  counter-reset: service 0;
+  display: grid;
+  grid-template-areas:
+    "servicetitle servicebody"
+    "serviceanimation servicebody";
+  grid-template-columns: 40% 60%;
+  min-height: 100vh;
+  position: relative;
+  padding: 60px 20px;
+}
+
+.service-title {
+  grid-area: servicetitle;
+  counter-increment: service;
+  position: relative;
+  font-size: 2rem;
+  font-family: var(--font-1);
+  justify-content: center;
+  display: flex;
+}
+.service-title:before {
+  border: 0.0058vw solid var(--color-black);
+  border-radius: 100%;
+  content: counter(service);
+  left: 0;
+  padding: 7px 14px;
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+}
+
+.service-body {
+  grid-area: servicebody;
+  grid-template-rows: 3fr 2fr;
+  display: grid;
+}
+
+.service-expla {
+  font-family: var(--font-1);
+  font-size: 1.9rem;
+}
+
+.service-animation {
+  grid-area: serviceanimation;
+  display: grid;
+  align-items: center;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.service-animation > svg,
+.cb-overview-icon.-rotating video {
+  animation: rotate360 5s infinite linear;
+  height: 5rem;
+}
+
+.service-tools {
+  padding-top: 20px;
+}
+.tools-tags {
+  padding-top: 10px;
+}
+.tool-tag {
+  padding: 0.8rem 1.5rem;
+  margin: 0.7rem;
+  font-size: 2.1rem;
+}
+.tool-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin: 0.4rem;
+  border: 1px solid;
+  border-radius: 49px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
+  font-family: var(--font-1);
+}
+.divider-service {
+  background-color: var(--color-black);
+  height: 0.052vw;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  shape-rendering: geometricprecision;
+}
+
+.rotter {
+  height: 76px;
+  width: 310px;
+}
+.stroka-icon svg > * {
+  stroke-dasharray: 148 10;
+  -webkit-animation: strokax 5s infinite linear;
+  animation: strokax 5s infinite linear;
+}
+
+@keyframes strokax {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 148 10;
+  }
+
+  50% {
+    stroke-dasharray: 135 30;
+  }
+  100% {
+    stroke-dashoffset: 157;
+    stroke-dasharray: 148 10;
+  }
+}
+.stroka-icon {
+  justify-content: center;
+  display: flex;
+  width: 70%;
+  height: 5rem;
+}

@@ -5,11 +5,15 @@ const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
-const Dotenv = require("dotenv-webpack"); // Updated to use dotenv-webpack
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "production",
-  entry: "./js/main/main.js",
+  entry: {
+    main: "./js/main/index.js",
+    contact: "./js/main/contact.js", // contact js
+    services: "./js/main/services.js", // contact js
+  },
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
@@ -49,10 +53,12 @@ module.exports = {
         { from: "README.md", to: "README.md" },
       ],
     }),
+    ,
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "index.html",
       inject: "body",
+      chunks: ["main"], // Specify which chunks to include in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -60,7 +66,31 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
-    new Dotenv(), // Using dotenv-webpack
+    new HtmlWebpackPlugin({
+      template: "./contact.html",
+      filename: "contact.html",
+      inject: "body",
+      chunks: ["contact"], // Specify which chunks to include in the HTML
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./services.html",
+      filename: "services.html",
+      inject: "body",
+      chunks: ["services"], // Specify which chunks to include in the HTML
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new Dotenv(),
     new HtmlMinimizerPlugin(),
     new CleanWebpackPlugin(),
   ],

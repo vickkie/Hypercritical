@@ -1,0 +1,35 @@
+{
+    "name": "Hypercritical",
+    "short_name":"Hypercritical",
+    "link":"/index",
+    "start_url":"/index",
+    "theme_color":"#e2ccff",
+    "background_color":"#fcfcfc",
+    "display":"fullscreen",
+    "orientation":"portrait",
+    "shortcuts":[],
+    "icons": [
+    
+    {
+      "src": "../assets/masks/hypercritical-192.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "../assets/masks/hypercritical-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+  ,
+  "prefer_related_applications": false,
+   "related_applications": [
+    {
+    "platform": "play",
+    "id": "index"
+    }
+]
+
+}

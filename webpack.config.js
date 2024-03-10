@@ -47,6 +47,7 @@ module.exports = {
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
         { from: ".babelrc", to: ".babelrc" },
+        { from: ".babel.config.json", to: ".babel.config.json" },
         { from: "tsconfig.json", to: "tsconfig.json" },
         { from: "fonts", to: "fonts" },
         { from: "js", to: "js" },

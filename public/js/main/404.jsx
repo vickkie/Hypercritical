@@ -1,19 +1,18 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+// import "../../css/404.css"; // Import CSS file
 
 const NotFound = () => {
   return (
     <React.Fragment>
       <div className="txt">
-        <h1 className="delay main404">
-          <span>4</span>
-          <div className="tr__page404__lion"></div>
-          <span>4</span>
-        </h1>
-        <p className="delay">Page not found. You are lost in the jungle.</p>
+        <h1 className="delay">404</h1>
+        <p className="delay">
+          The page you are looking for does not exist, you can either go back to homepage or stay here click and drag.
+        </p>
         <br />
         <br />
-        <a href="index" className="prj_btn" style={{ width: "fit-content", gap: "10px" }}>
+        <a href="index.html" className="prj_btn">
           <span>
             <span>
               <svg width="19" height="8" viewBox="0 0 19 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +20,7 @@ const NotFound = () => {
               </svg>
             </span>
           </span>
-          <p style={{ textAlign: "center" }}>Go back to homepage</p>
+          <p>Go back to homepage</p>
         </a>
       </div>
     </React.Fragment>

@@ -1,8 +1,14 @@
 {
+ "version": 2,
  "rewrites": [
     {
       "source": "/:path*",
       "destination": "/:path*.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/404"
     }
  ]
 }
+

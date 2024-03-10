@@ -13,6 +13,7 @@ module.exports = {
     main: "./js/main/index.js",
     contact: "./js/main/contact.js", // contact js
     services: "./js/main/services.js", // contact js
+    404: "./js/main/404.jsx",
   },
   output: {
     filename: "[name].bundle.js", // This will output {file}.bundle.js
@@ -25,7 +26,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/, //  match both .js and .jsx files
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -45,7 +46,7 @@ module.exports = {
         { from: "offline.html", to: "offline.html" },
         { from: "css", to: "css" },
         { from: "server.js", to: "server.js" },
-        { from: ".barbelrc", to: ".barbelrc" },
+        { from: ".babelrc", to: ".babelrc" },
         { from: "tsconfig.json", to: "tsconfig.json" },
         { from: "fonts", to: "fonts" },
         { from: "js", to: "js" },
@@ -90,6 +91,19 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
+    new HtmlWebpackPlugin({
+      template: "./404.html",
+      filename: "404.html",
+      inject: "body",
+      chunks: ["404"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+
     new Dotenv(),
     new HtmlMinimizerPlugin(),
     new CleanWebpackPlugin(),

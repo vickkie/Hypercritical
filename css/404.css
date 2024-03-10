@@ -149,19 +149,25 @@ ul li {
     width: 80%;
   }
 
-  h1 {
-    font-size: 5em;
-  }
-
   ul li {
     padding: 0 10px;
   }
 }
 
+@media (max-width: 768px) {
+  /* .tr__page404__lion,
+  h1 {
+    width: 25vw;
+  } */
+}
+.main404 {
+  margin-bottom: 70px;
+}
+
 @media (max-width: 1080px) {
   .tr__page404__lion {
     height: auto;
-    width: 11.1vw;
+    width: 17vw;
     background-size: 100% !important;
   }
 }
@@ -184,8 +190,8 @@ ul li {
   animation-iteration-count: infinite;
   animation-direction: alternate;
   margin: 0.5rem 0 -0.5rem;
-  height: 248px;
-  width: 210px;
+  /* height: 248px;
+  width: 210px; */
 }
 
 #not-found {

@@ -54,7 +54,7 @@ figure {
 }
 
 .introduction {
-  background-color: #222;
+  background-color: #222 !important;
   display: grid;
   grid-template-areas:
     "introtitle introexpla"
@@ -386,7 +386,7 @@ figure {
 }
 
 .intro-studio {
-  font-family: var(--font-1);
+  font-family: var(--font-1) !important;
 }
 
 .proof-experience {
@@ -473,9 +473,90 @@ figure {
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .marquee svg {
     width: var(--size-small);
+  }
+  .service-main {
+    background-color: var(--color-bg);
+    display: grid;
+    grid-template-areas:
+      "servicetitle"
+      "serviceanimation "
+      " servicebody";
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    padding: 60px 7%;
+    position: relative;
+    row-gap: 30px;
+  }
+  .service-expla {
+    font-family: var(--font-1);
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+  }
+  .tool-tag {
+    font-size: 1rem;
+  }
+  .service-head {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 40px;
+    text-align: center;
+  }
+  .service-discover-title {
+    font-size: 2.2rem;
+    grid-column: 1/2;
+  }
+  .inline-gif {
+    align-items: center;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+  }
+  .inline-gif img {
+    justify-self: center;
+  }
+  .proof-experience {
+    font-family: var(--font-1);
+  }
+  .language-names {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 5%;
+  }
+  .top-exit {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    margin-bottom: 20px;
+  }
+  .bottom-exit {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    row-gap: 30px;
+  }
+  .contact-service {
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
+  .top-exit h2 {
+    text-align: center;
+  }
+  .service-contact {
+    display: grid;
+  }
+  .contact-service {
+    justify-self: center;
+    display: grid;
+  }
+  .circle-arrow {
+    margin-left: 0;
+    width: 7.8em;
+  }
+  .service-title:before {
+    top: -34px;
   }
 }
 
@@ -610,7 +691,7 @@ figure {
 .top-exit {
   border-bottom: 0.0058vw solid var(--color-black);
   display: grid;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   grid-template-rows: 1fr;
   grid-template-columns: 65% 35%;
   align-items: center;
@@ -625,7 +706,6 @@ figure {
   border-radius: 60px;
   overflow: hidden;
   cursor: pointer;
-  transform: scaleX(1);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
 }
 

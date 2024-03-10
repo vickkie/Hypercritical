@@ -173,7 +173,7 @@ let heroimageWrapper = select(".parallax-hero");
 const showHero = () => {
   gsap
     .timeline({ defaults: { ease: "expo.out", delay: 0.5 } })
-    // .set(heroimageWrapper, { y: "-47.8vh" }, "=-1")
+    .set(heroimageWrapper, { y: "-47.8vh" }, "=-1")
     .addLabel("start")
     .fromTo(
       heroSeparator,

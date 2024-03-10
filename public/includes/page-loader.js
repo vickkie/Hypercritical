@@ -1,1 +1,1 @@
-function animateDone(){gsap.timeline({}).fromTo(".transition-in",{scaleY:1},{scaleY:0,duration:1.2,ease:"power2.inOut"})}$(document).ready((function(){$("body").imagesLoaded().done((function(){animateDone()}))}));
+function animateDone(){gsap.timeline({}).fromTo(".transition-in",{scaleY:1},{scaleY:0,duration:1.2,ease:"power2.inOut"})}$(document).ready((function(){$("body"),animateDone()}));

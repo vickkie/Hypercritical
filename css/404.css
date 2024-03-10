@@ -4,7 +4,7 @@
   }
 
   20% {
-    background: url(/assets/svg/lion-eye-404.svg);
+    background: url(../assets/svg/lion-eye-404.svg);
   }
   100% {
     background: url(../assets/svg/lion-eye-404.svg);
@@ -50,12 +50,13 @@ li {
 
 h1 {
   white-space: nowrap;
-  font-size: 8.1vw;
+  font-size: 17.1vw;
   color: #ffffff;
   font-family: monument, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0px;
   font-weight: normal;
+  display: inline-flex;
 }
 
 p {
@@ -92,9 +93,8 @@ canvas {
 
 .txt {
   text-align: center;
-  width: 30%;
+  width: 50%;
   margin: auto;
-  transform: translate(0, 56%);
   pointer-events: none;
 }
 
@@ -104,7 +104,6 @@ ul {
   position: fixed;
   bottom: 30px;
   left: 50%;
-  transform: translate(-50%, 0);
 }
 
 ul li {
@@ -148,7 +147,6 @@ ul li {
 @media only screen and (max-width: 900px) {
   .txt {
     width: 80%;
-    transform: translate(0, 55%);
   }
 
   h1 {
@@ -158,4 +156,40 @@ ul li {
   ul li {
     padding: 0 10px;
   }
+}
+
+@media (max-width: 1080px) {
+  .tr__page404__lion {
+    height: auto;
+    width: 11.1vw;
+    background-size: 100% !important;
+  }
+}
+.tr__page404__lion {
+  background-size: cover !important;
+  background-position: 50% !important;
+  background-repeat: no-repeat !important;
+}
+@media (min-width: 960px) {
+  .tr__page404__lion {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: 17vw;
+  }
+}
+.tr__page404__lion {
+  animation-name: example;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  margin: 0.5rem 0 -0.5rem;
+  height: 248px;
+  width: 210px;
+}
+
+#not-found {
+  height: 100vh;
+  display: flex;
+  pointer-events: none;
 }

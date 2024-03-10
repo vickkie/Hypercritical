@@ -7,7 +7,7 @@
     <title>404 - Lost?</title>
     <link rel="stylesheet" href="css/404.css" />
   </head>
-  <body>
+  <body oncontextmenu="return false">
     <span id="not-found"></span>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -44,7 +44,7 @@
         COLORFUL: true,
         COLOR_UPDATE_SPEED: 10,
         PAUSED: false,
-        BACK_COLOR: { r: 0, g: 0, b: 0 },
+        BACK_COLOR: { r: 18, g: 19, b: 21 },
         TRANSPARENT: false,
         BLOOM: true,
         BLOOM_ITERATIONS: 8,
@@ -219,7 +219,7 @@
           .add(
             {
               fun: () => {
-                window.open("https://github.com/PavelDoGreat/WebGL-Fluid-Simulation");
+                window.open("https://github.com/uzi");
                 ga("send", "event", "link button", "github");
               },
             },
@@ -1508,7 +1508,7 @@
         return radius;
       }
 
-      canvas.addEventListener("mousedown", (e) => {
+      canvas.addEventListener("mouseenter", (e) => {
         let posX = scaleByPixelRatio(e.offsetX);
         let posY = scaleByPixelRatio(e.offsetY);
         let pointer = pointers.find((p) => p.id == -1);
@@ -1524,7 +1524,7 @@
         updatePointerMoveData(pointer, posX, posY);
       });
 
-      window.addEventListener("mouseup", () => {
+      window.addEventListener("mouseleave", () => {
         updatePointerUpData(pointers[0]);
       });
 

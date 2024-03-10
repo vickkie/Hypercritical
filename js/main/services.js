@@ -128,6 +128,58 @@ redifinetl.to(".hc-greeting-bg-media", {
   ease: "expo.inOut",
 });
 
-//group 5: marquee direction
+//Group 5: menuUzi midmoon
+let midmoon = select(".mid-moon");
+let menuclose = select(".action--close");
+let menuopen = select(".action--menuUzi");
 
-// Select the butto
+function open() {
+  midmoon.classList.add("mid-moon--light");
+  midmoon.classList.remove("mid-moon--dark");
+}
+// Close the menuUzi.
+function close() {
+  midmoon.classList.add("mid-moon--dark");
+  midmoon.classList.remove("mid-moon--light");
+}
+
+menuopen.addEventListener("click", open);
+menuclose.addEventListener("click", close);
+
+// Group 6: assign links
+
+function assignLinks(config) {
+  for (const key in config) {
+    if (config.hasOwnProperty(key)) {
+      const elements = selectAll(key);
+      elements.forEach((element) => {
+        if (element) {
+          element.href = config[key];
+        } else {
+          console.error(`Elements matching selector ${key} not found.`);
+        }
+      });
+    }
+  }
+}
+
+new Promise((resolve, reject) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("includes/config.json")
+      .then((response) => response.json())
+      .then((data) => {
+        assignLinks(data);
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error loading config:", error);
+        reject(error); // Reject the promise if there's an error`
+      });
+  });
+})
+  .then(() => {
+    // console.log("Configuration loaded and links assigned.");
+  })
+  .catch((error) => {
+    console.error("Failed to load configuration or assign links:", error);
+  });

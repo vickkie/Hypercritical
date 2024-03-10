@@ -5,15 +5,15 @@ const NotFound = () => {
   return (
     <React.Fragment>
       <div className="txt">
-        <h1 className="delay">
+        <h1 className="delay main404">
           <span>4</span>
           <div className="tr__page404__lion"></div>
           <span>4</span>
         </h1>
-        <p className="delay">Page not found. You are in the jungle.</p>
+        <p className="delay">Page not found. You are lost in the jungle.</p>
         <br />
         <br />
-        <a href="index.html" className="prj_btn" style={{ width: "fit-content", gap: "10px" }}>
+        <a href="index" className="prj_btn" style={{ width: "fit-content", gap: "10px" }}>
           <span>
             <span>
               <svg width="19" height="8" viewBox="0 0 19 8" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,7 +1,7 @@
 import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
-import lozad from "lozad";
 import { ScrollTrigger } from "gsap/all";
+import lozad from "lozad";
 // import gsap from "gsap";
 // import { ScrollToPlugin } from "gsap/all";
 
@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.to(window, {
       duration: 2,
       delay: 0,
-      ScrollTo: {
-        y: ".hero-main",
+      scrollTo: {
+        y: 0,
       },
       ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });

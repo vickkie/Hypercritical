@@ -21,10 +21,9 @@
   --mid-font: 6vw;
   font-size: 15px;
 }
-/* html {
-  overflow: hidden;
-  scroll-behavior: unset;
-} */
+.nav_logo_parent {
+  cursor: pointer;
+}
 ul {
   list-style: none;
 }

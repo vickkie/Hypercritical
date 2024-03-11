@@ -1,0 +1,33 @@
+/*!
+ * Cuberto Mouse Follower
+ * https://cuberto.com/
+ *
+ * @version 1.1.2
+ * @author Cuberto, Artem Dordzhiev (Draft)
+ */
+
+/*! @studio-freight/lenis */
+
+/*! lozad */
+
+/*! lozad.js - v1.16.0 - 2020-09-06
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2020 Apoorv Saxena; Licensed MIT */
+
+/*! mouse-follower */
+
+/*!**************************!*\
+  !*** ./js/main/works.js ***!
+  \**************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/lozad/dist/lozad.min.js ***!
+  \**********************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
+  \**********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@studio-freight/lenis/dist/lenis.mjs ***!
+  \***********************************************************/

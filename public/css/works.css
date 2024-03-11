@@ -1,0 +1,1 @@
+.work-hero,body{background-color:var(--color-black);color:var(--color-bg)}.work-hero{display:grid;grid-template-areas:"..." "hero-title";grid-template-columns:1fr;grid-template-rows:repeat(2,1fr);min-height:70vh}.hero-title{font-size:calc(8vw + 10px);grid-area:hero-title;padding:25px}

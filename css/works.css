@@ -1,0 +1,20 @@
+body {
+  background-color: var(--color-black);
+  color: var(--color-bg);
+}
+.work-hero {
+  display: grid;
+  min-height: 70vh;
+  background-color: var(--color-black);
+  color: var(--color-bg);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "..."
+    "hero-title";
+}
+.hero-title {
+  padding: 25px;
+  font-size: calc(8vw + 10px);
+  grid-area: hero-title;
+}

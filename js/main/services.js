@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   cursor();
-  window.addEventListener("res", cursor);
+  window.addEventListener("resize", cursor);
 });
 
 //Group 5 : animate video

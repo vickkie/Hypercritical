@@ -13,7 +13,9 @@ module.exports = {
     main: "./js/main/index.js",
     contact: "./js/main/contact.js", // contact js
     services: "./js/main/services.js", // contact js
+    works: "./js/main/works.js", // works js
     404: "./js/main/404.jsx",
+    // callSlider: "./js/main/callSlider.jsx",
   },
   output: {
     filename: "[name].bundle.js", // This will output {file}.bundle.js
@@ -30,6 +32,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-react"], // Add this line
+          },
         },
       },
     ],
@@ -60,7 +65,7 @@ module.exports = {
       template: "./index.html",
       filename: "index.html",
       inject: "body",
-      chunks: ["main"], // Specify which chunks to include in the HTML
+      chunks: ["main"], // main js  chunks included in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -92,6 +97,22 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
+    new HtmlWebpackPlugin({
+      template: "./works.html",
+      filename: "works.html",
+      inject: "body",
+      chunks: [
+        "works",
+        // , "callSlider"
+      ], // Add the "callSlider" chunk here
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+
     new HtmlWebpackPlugin({
       template: "./404.html",
       filename: "404.html",

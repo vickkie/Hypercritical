@@ -632,9 +632,6 @@ video {
   transition-delay: 0.015s;
 }
 
-/* Add the rest of the transition-delay styles here */
-
-/* Add a new class to target the hovered element */
 .rolling-text.hover .letter {
   transform: translateY(-100%);
 }

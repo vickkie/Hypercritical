@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // Animate the transition-in element
-    TweenMax.to(
+    gsap.to(
       ".transition-in",
       {
         scaleY: 1,

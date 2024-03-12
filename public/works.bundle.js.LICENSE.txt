@@ -1,30 +1,10 @@
 /*!
- * CSSPlugin 3.12.5
- * https://gsap.com
- *
- * Copyright 2008-2024, GreenSock. All rights reserved.
- * Subject to the terms at https://gsap.com/standard-license or for
- * Club GSAP members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
-*/
-
-/*!
  * Cuberto Mouse Follower
  * https://cuberto.com/
  *
  * @version 1.1.2
  * @author Cuberto, Artem Dordzhiev (Draft)
  */
-
-/*!
- * GSAP 3.12.5
- * https://gsap.com
- *
- * @license Copyright 2008-2024, GreenSock. All rights reserved.
- * Subject to the terms at https://gsap.com/standard-license or for
- * Club GSAP members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
-*/
 
 /*!
  * Observer 3.12.5
@@ -46,15 +26,9 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
-/*! ./CSSPlugin.js */
-
 /*! ./Observer.js */
 
-/*! ./gsap-core.js */
-
 /*! @studio-freight/lenis */
-
-/*! gsap */
 
 /*! gsap/all */
 
@@ -72,21 +46,9 @@
   !*** ./js/main/works.js ***!
   \**************************/
 
-/*!************************************!*\
-  !*** ./node_modules/gsap/index.js ***!
-  \************************************/
-
 /*!***************************************!*\
   !*** ./node_modules/gsap/Observer.js ***!
   \***************************************/
-
-/*!****************************************!*\
-  !*** ./node_modules/gsap/CSSPlugin.js ***!
-  \****************************************/
-
-/*!****************************************!*\
-  !*** ./node_modules/gsap/gsap-core.js ***!
-  \****************************************/
 
 /*!********************************************!*\
   !*** ./node_modules/gsap/ScrollTrigger.js ***!

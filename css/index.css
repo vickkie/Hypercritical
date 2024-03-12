@@ -272,6 +272,9 @@ a:focus-visible {
   position: relative;
 }
 @media screen and (max-width: 767px) {
+  .nav_grid {
+    grid-template-columns: 1fr 25px 1fr;
+  }
   .introduction {
     grid-template-areas: "introtitle " "introexpla" "introfooter";
     grid-template-columns: 1fr;

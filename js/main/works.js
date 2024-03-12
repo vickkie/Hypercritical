@@ -1,10 +1,10 @@
 import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/all";
-
 import lozad from "lozad";
-import gsap from "gsap";
 import Reeller from "reeller";
+
+// import gsap from "gsap";
 
 // App.js using react
 
@@ -125,7 +125,7 @@ const reeller = new Reeller({
 
 //Group 6: rolling text
 
-let elements = document.querySelectorAll(".rolling-text");
+let elements = selectAll(".rolling-text");
 
 elements.forEach((element) => {
   let innerText = element.innerText;
@@ -161,3 +161,138 @@ setTimeout(() => {
     element.classList.add("play");
   });
 }, 600);
+
+//Group 7: cursor to view projects
+
+var mediaWrappers = selectAll(".media-wrapper");
+
+// Function to handle mousemove event
+function handleMouseMove(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+
+  gsap.to(".view-cursor", 0.5, { duration: 0, x: x, y: y });
+}
+
+// Function to handle mouseenter event
+function handleMouseEnter() {
+  gsap.to(".view-cursor", 0.5, { scale: 1, ease: "expo.inOut" });
+}
+
+// Function to handle mouseleave event
+function handleMouseLeave() {
+  gsap.to(".view-cursor", 0.5, { scale: 0, ease: "expo.inOut" });
+}
+
+// event listeners for each
+mediaWrappers.forEach(function (mediaWrapper) {
+  mediaWrapper.addEventListener("mousemove", handleMouseMove);
+  mediaWrapper.addEventListener("mouseenter", handleMouseEnter);
+  mediaWrapper.addEventListener("mouseleave", handleMouseLeave);
+});
+
+//Group 8: menuUzi midmoon
+let midmoon = select(".mid-moon");
+let menuclose = select(".action--close");
+let menuopen = select(".action--menuUzi");
+
+function open() {
+  midmoon.classList.add("mid-moon--light");
+  midmoon.classList.remove("mid-moon--dark");
+}
+// Close the menuUzi.
+function close() {
+  midmoon.classList.add("mid-moon--dark");
+  midmoon.classList.remove("mid-moon--light");
+}
+
+menuopen.addEventListener("click", open);
+menuclose.addEventListener("click", close);
+
+// Group 8: assign links for socials
+
+function assignLinks(config) {
+  for (const key in config) {
+    if (config.hasOwnProperty(key)) {
+      const elements = selectAll(key);
+      elements.forEach((element) => {
+        if (element) {
+          element.href = config[key];
+        } else {
+          console.error(`Elements matching selector ${key} not found.`);
+        }
+      });
+    }
+  }
+}
+
+new Promise((resolve, reject) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("includes/config.json")
+      .then((response) => response.json())
+      .then((data) => {
+        assignLinks(data);
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error loading config:", error);
+        reject(error); // Reject the promise if there's an error`
+      });
+  });
+})
+  .then(() => {
+    // console.log("Configuration loaded and links assigned.");
+  })
+  .catch((error) => {
+    console.error("Failed to load configuration or assign links:", error);
+  });
+
+// Group 10: inverse the arrow colors using gsap
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const darkSections = gsap.utils.toArray(".white-section");
+  var arrowWrapper = select(".top-arrow-wrapper");
+  var arrowpath = select(".top-arrow-path");
+  var menuName = select(".menu-name");
+  var menuDotline = selectAll(".menu-dot-line");
+
+  function makedark() {
+    arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
+  }
+
+  function makewhite() {
+    arrowpath.style.stroke = "var(--color-black)";
+    arrowWrapper.style.fill = "var(--color-bg)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-bg)";
+    });
+    menuName.style.color = "var(--color-bg)";
+  }
+  darkSections.forEach((darkSection, i) => {
+    //  let id = i;
+    //  console.log(id);
+
+    const darken = gsap.timeline({
+      scrollTrigger: {
+        trigger: darkSection,
+        id: i + 1,
+        start: "top top",
+        endtrigger: darkSection,
+        end: "bottom bottom",
+        scrub: true,
+        // markers: true,
+        onEnter: () => makewhite(),
+        onLeave: () => makedark(),
+        onEnterBack: () => makewhite(),
+        onLeaveBack: () => makedark(),
+      },
+    });
+  });
+});

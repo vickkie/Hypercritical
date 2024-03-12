@@ -28,7 +28,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.jsx?$/, //  match both .js and .jsx files
+        test: /\.jsx?$/, //  match both .js and .jsx files for react element
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -77,7 +77,7 @@ module.exports = {
       template: "./contact.html",
       filename: "contact.html",
       inject: "body",
-      chunks: ["contact"], // Specify which chunks to include in the HTML
+      chunks: ["contact"], // contact chunk to include in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -89,7 +89,7 @@ module.exports = {
       template: "./services.html",
       filename: "services.html",
       inject: "body",
-      chunks: ["services"], // Specify which chunks to include in the HTML
+      chunks: ["services"], // Service chunk to include in the HTML
       minify: {
         collapseWhitespace: true,
         removeComments: true,

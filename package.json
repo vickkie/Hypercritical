@@ -55,6 +55,7 @@
   "mouse-follower": "^1.1.2",
   "react": "^18.2.0",
   "react-dom": "^18.2.0",
+  "reeller": "^0.0.5",
   "splitting": "^1.0.6"
  }
 }

@@ -183,3 +183,53 @@ new Promise((resolve, reject) => {
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
   });
+
+// Group 7: inverse the arrow colors using gsap
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const darkSections = gsap.utils.toArray(".white-section");
+  var arrowWrapper = select(".top-arrow-wrapper");
+  var arrowpath = select(".top-arrow-path");
+  var menuName = select(".menu-name");
+  var menuDotline = selectAll(".menu-dot-line");
+
+  function makedark() {
+    arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
+  }
+
+  function makewhite() {
+    arrowpath.style.stroke = "var(--color-black)";
+    arrowWrapper.style.fill = "var(--color-bg)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-bg)";
+    });
+    menuName.style.color = "var(--color-bg)";
+  }
+  darkSections.forEach((darkSection, i) => {
+    //  let id = i;
+    //  console.log(id);
+
+    const darken = gsap.timeline({
+      scrollTrigger: {
+        trigger: darkSection,
+        id: i + 1,
+        start: "top top",
+        endtrigger: darkSection,
+        end: "bottom bottom",
+        scrub: true,
+        // markers: true,
+        onEnter: () => makewhite(),
+        onLeave: () => makedark(),
+        onEnterBack: () => makewhite(),
+        onLeaveBack: () => makedark(),
+      },
+    });
+  });
+});

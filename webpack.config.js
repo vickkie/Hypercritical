@@ -15,7 +15,7 @@ module.exports = {
     services: "./js/main/services.js", // contact js
     works: "./js/main/works.js", // works js
     404: "./js/main/404.jsx",
-    // callSlider: "./js/main/callSlider.jsx",
+    projectSlider: "./App.jsx",
   },
   output: {
     filename: "[name].bundle.js", // This will output {file}.bundle.js
@@ -101,10 +101,7 @@ module.exports = {
       template: "./works.html",
       filename: "works.html",
       inject: "body",
-      chunks: [
-        "works",
-        // , "callSlider"
-      ], // Add the "callSlider" chunk here
+      chunks: ["works", , "projectSlider"],
       minify: {
         collapseWhitespace: true,
         removeComments: true,

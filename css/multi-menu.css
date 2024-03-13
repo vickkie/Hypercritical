@@ -185,7 +185,7 @@ body {
   overflow: hidden;
   position: relative;
   transform: translate3d(100%, 0, 0);
-  width: 100%;
+  width: 100.2%;
 }
 .menuUzi__item--1 .menuUzi__item-inner {
   background: var(--color-bg-menu-item1);

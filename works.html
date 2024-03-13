@@ -28,6 +28,8 @@
   </head>
   <body>
     <div id="overlay" style="scale: 0"></div>
+
+    <div id="backdrop" class="backdrop"></div>
     <div id="dialog" style="display: block; scale: 0">
       <div class="dialog-content">
         <h2>Hypercritical &copy;</h2>
@@ -54,6 +56,10 @@
         </div>
       </div>
     </div>
+    <div id="projects-drawer"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
     <main>
       <div class="nav">
@@ -250,10 +256,10 @@
           <button
             class="work-tile bound"
             data-slug="plenaire"
-            data-heading="<h1><strong>P</strong>lenaire</h1>"
+            data-heading="<h1><strong>L</strong>umina</h1>"
             data-year="2018"
             data-text="Skincare on a mission of empathy and self-discovery."
-            data-media="https://strzok.cdn.prismic.io/strzok/d3438676-0286-48fa-993b-db17ed6543f8_1-plenaire-work-drawer.mp4 || https://images.prismic.io/strzok/1aa128e3-8f18-49ed-ab72-e414dcf0e721_2-plenaire-work-drawer-min.jpg?auto=compress,format || https://images.prismic.io/strzok/9321299f-b4d8-4436-8266-addc13f5e7fe_3-plenaire-work-drawer-min.jpg?auto=compress,format"
+            data-media="https://strzok.cdn.prismic.io/strzok/d3438676-0286-48fa-993b-db17ed6543f8_1-plenaire-work-drawer.mp4 || assets/images/works/lumina/lumina-mockall-low.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-product-mid.webp"
           >
             <div class="top">
               <div class="heading">
@@ -278,10 +284,10 @@
           <button
             class="work-tile bound"
             data-slug="art-direction"
-            data-heading="<h1><strong>B</strong>rightlane</h1>"
+            data-heading="<h1><strong>T</strong>rakexcel</h1>"
             data-year="2020"
             data-text="To build the future, forget the status-quo."
-            data-media="https://images.prismic.io/strzok/0723250a-c538-4681-8371-f5b6a9e247b7_brightlane-drawer-1-min+%281%29.jpg?auto=compress,format || https://images.prismic.io/strzok/03a21830-fe8c-4b1b-b2fb-0e893a6f81bd_brightlane-drawer-2-min.jpg?auto=compress,format || https://images.prismic.io/strzok/59725c39-3cce-48c8-941f-bb4ba70dc1d3_brightlane-drawer-3-min.jpg?auto=compress,format"
+            data-media="assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-high.webp?auto=compress,format"
           >
             <div class="top">
               <div class="heading">
@@ -314,16 +320,11 @@
           >
             <div class="top">
               <div class="heading">
-                <h1><strong>U</strong>zitrake</h1>
+                <h1><strong>Robin</strong>Golf</h1>
                 <span>2019</span>
               </div>
               <div class="media-wrapper" data-cursor="-hidden">
-                <img class="media" data-uid="" src="assets/images/works/portfolio/main-mockup-high.webp" />
-                <video preload="" muted="" loop="" playsinline="" class="media">
-                  <source
-                    src="https://strzok.cdn.prismic.io/strzok/9a3753a9-2467-424d-bfbc-3dac9825c085_robin-golf-logo-animation.mp4"
-                  />
-                </video>
+                <img class="media" data-uid="" src="assets/images/golf.webp" />
               </div>
             </div>
             <div class="tags">
@@ -338,7 +339,7 @@
             data-heading="<h1><strong>K</strong>izik</h1>"
             data-year="2022"
             data-text="Step in technology for all."
-            data-media="https://strzok.cdn.prismic.io/strzok/bffdca7f-62a6-4a3e-b4b4-fde7417e4fdc_kizik-1-work-drawer-660x425.mp4 || https://strzok.cdn.prismic.io/strzok/413b1b26-215f-4390-8f83-3b62adad5e90_kizik-2-work-drawer-660x425_1.mp4 || https://strzok.cdn.prismic.io/strzok/235bb365-2faf-4df9-ae99-d681379a8d52_kizik-3-work-drawer-660x425_1.mp4"
+            data-media="assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm"
           >
             <div class="top">
               <div class="heading">
@@ -346,17 +347,13 @@
                 <span>2022</span>
               </div>
               <div class="media-wrapper" data-cursor="-hidden">
-                <img class="media" data-uid="" src="assets/images/works/lumina/lumina-2.webp" />
-                <video preload="" muted="" loop="" playsinline="" class="media">
-                  <source
-                    src="https://strzok.cdn.prismic.io/strzok/78bd8cf9-4bac-47da-b223-1b314c1aa5df_1-kizik-hero.mp4"
-                  />
-                </video>
+                <img class="media" data-uid="" src="assets/images/works/kizik/kizik.webp" />
               </div>
             </div>
             <div class="tags">
               <p class="tag">Design Direction</p>
               <p class="tag">UX &amp; UI</p>
+              <p class="tag">Colab</p>
             </div>
           </button>
 
@@ -834,6 +831,7 @@
     <link href="css/mf.css" rel="stylesheet" />
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/gsap.min.js"></script>
+    <script src="js/Scroll-Smoother.js"></script>
 
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="includes/transition.js"></script>

@@ -3,7 +3,6 @@ import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
 import Reeller from "reeller";
-
 // import gsap from "gsap";
 
 // App.js using react
@@ -295,4 +294,119 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   });
+});
+
+//test
+
+function startLenis(i) {
+  let customWrapper = select(".work-drawer .inner");
+  let content = select(".scroll-wrapper");
+  let body = select("body");
+
+  let lenis = new Lenis({
+    // wrapper: customWrapper,
+    // content: content,
+    // eventsTarget: customWrapper,
+    eventsTarget: body,
+    duration: 3,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical",
+    smooth: true,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+    autoResize: true,
+  });
+
+  lenis.on("scroll", (e) => {});
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+}
+
+function killLenis() {
+  lenis.destroy();
+}
+
+let tileButtons = document.querySelectorAll(".work-tile");
+let thisDOM = select("html");
+
+tileButtons.forEach((button, i) => {
+  button.addEventListener("click", () => {
+    gsap
+      .timeline()
+      .addLabel("start", "+=0")
+      .to(
+        ".work-drawer",
+        {
+          duration: 1,
+          opacity: 1,
+          xPercent: -100,
+          ease: "power2.inOut",
+          onComplete: () => {},
+        },
+        "start"
+      )
+      .to(
+        ".backdrop",
+        {
+          opacity: 1,
+          duration: 0.01,
+          scale: 1,
+          onComplete: () => {
+            killLenis();
+            console.log(`killed lenis${i}`);
+          },
+        },
+        "start"
+      );
+
+    let closeDrawer = select(".closeDrawer");
+
+    closeDrawer.addEventListener("click", () => {
+      gsap
+        .timeline({ defaults: { ease: "power2.inOut" } })
+        .to(".work-drawer", {
+          duration: 1,
+          opacity: 0,
+          xPercent: 0,
+          ease: "power2.inOut",
+        })
+        .to(backdrop, {
+          opacity: 0,
+          duration: 0.01,
+          scale: 0,
+          onComplete: () => {
+            startLenis();
+          },
+        });
+    });
+
+    // Select the target element
+  });
+});
+
+let backdrop = select("#backdrop");
+backdrop.addEventListener("click", () => {
+  gsap
+    .timeline({ defaults: { ease: "power2.inOut" } })
+    .to(".work-drawer", {
+      duration: 1,
+      opacity: 0,
+      xPercent: 0,
+      ease: "power2.inOut",
+    })
+    .to(backdrop, {
+      opacity: 0,
+      duration: 0.01,
+      scale: 0,
+      onComplete: () => {
+        startLenis();
+      },
+    });
 });

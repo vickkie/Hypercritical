@@ -4,7 +4,7 @@
   grid-template-areas:
     "..."
     "hero-service";
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 40% 60%;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -12,7 +12,7 @@
 .hero-service {
   grid-area: hero-service;
   padding: 0;
-  font-size: clamp(2rem, 13.85vw, 3rem);
+  font-size: calc(8vw + 10px);
   font-family: unset;
   z-index: 4;
   padding-bottom: 4rem;

@@ -25,6 +25,7 @@ class App extends React.Component {
           media: mediaUrls,
         };
         // console.log("Project data:", projectData);
+
         this.setState({ isDrawerOpen: true, selectedProject: projectData });
       });
     });

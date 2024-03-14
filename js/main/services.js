@@ -233,3 +233,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+gsap.registerPlugin(SplitText);
+
+const herolargelogo = select(".hero-largelogo");
+
+let herotext = new SplitText(".innerservice", { type: "chars", charsClass: "inner-service2" });
+
+// const splitchars = selectAll(".split-chars");
+
+// splitchars.forEach((splitchar) => {
+//   new SplitText(splitchar, {
+//     type: "chars",
+//     charsClass: "otherchars",
+//   });
+// });

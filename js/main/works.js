@@ -307,7 +307,7 @@ function startLenis(i) {
     // wrapper: customWrapper,
     // content: content,
     // eventsTarget: customWrapper,
-    eventsTarget: body,
+    // eventsTarget: body,
     duration: 3,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: "vertical",
@@ -318,8 +318,6 @@ function startLenis(i) {
     infinite: false,
     autoResize: true,
   });
-
-  lenis.on("scroll", (e) => {});
 
   function raf(time) {
     lenis.raf(time);

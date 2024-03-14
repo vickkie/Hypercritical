@@ -1,18 +1,4 @@
 /* End basic CSS override */
-* {
-  scrollbar-width: 0 !important;
-}
-
-html::-webkit-scrollbar {
-  background-color: var(--color-bg) !important;
-  width: 9px !important;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 99px !important;
-  background-color: #5a5a5a !important;
-  border: 1px solid #f9f9f9 !important;
-}
 
 html.lenis {
   height: auto;
@@ -37,7 +23,6 @@ html.lenis {
 body {
   background-color: var(--color-black);
   color: var(--color-bg);
-  overflow-y: scroll !important;
 }
 
 main {

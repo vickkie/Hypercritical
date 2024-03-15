@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//test
+//Group 11: gsap show and hide sidebar for projects
 
 function startLenis(i) {
   let customWrapper = select(".work-drawer .inner");
@@ -307,7 +307,7 @@ function startLenis(i) {
     // wrapper: customWrapper,
     // content: content,
     // eventsTarget: customWrapper,
-    eventsTarget: body,
+    // eventsTarget: body,
     duration: 3,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: "vertical",
@@ -318,8 +318,6 @@ function startLenis(i) {
     infinite: false,
     autoResize: true,
   });
-
-  lenis.on("scroll", (e) => {});
 
   function raf(time) {
     lenis.raf(time);
@@ -345,7 +343,6 @@ tileButtons.forEach((button, i) => {
         ".work-drawer",
         {
           duration: 1,
-          opacity: 1,
           xPercent: -100,
           ease: "power2.inOut",
           onComplete: () => {},
@@ -371,9 +368,9 @@ tileButtons.forEach((button, i) => {
     closeDrawer.addEventListener("click", () => {
       gsap
         .timeline({ defaults: { ease: "power2.inOut" } })
+        .addLabel("start", "+=0")
         .to(".work-drawer", {
           duration: 1,
-          opacity: 0,
           xPercent: 0,
           ease: "power2.inOut",
         })
@@ -384,7 +381,16 @@ tileButtons.forEach((button, i) => {
           onComplete: () => {
             startLenis();
           },
-        });
+        })
+        .to(
+          ".drawer-wrapper",
+          {
+            scrollTop: 0,
+            duration: 0.5,
+            ease: "power2.inOut",
+          },
+          "start"
+        );
     });
 
     // Select the target element
@@ -395,18 +401,35 @@ let backdrop = select("#backdrop");
 backdrop.addEventListener("click", () => {
   gsap
     .timeline({ defaults: { ease: "power2.inOut" } })
-    .to(".work-drawer", {
-      duration: 1,
-      opacity: 0,
-      xPercent: 0,
-      ease: "power2.inOut",
-    })
-    .to(backdrop, {
-      opacity: 0,
-      duration: 0.01,
-      scale: 0,
-      onComplete: () => {
-        startLenis();
+    .addLabel("start=+0")
+    .to(
+      ".work-drawer",
+      {
+        duration: 1,
+        xPercent: 0,
+        ease: "power2.inOut",
       },
-    });
+      "start"
+    )
+    .to(
+      backdrop,
+      {
+        opacity: 0,
+        duration: 0.01,
+        scale: 0,
+        onComplete: () => {
+          startLenis();
+        },
+      },
+      "start"
+    )
+    .to(
+      ".drawer-wrapper",
+      {
+        scrollTop: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      },
+      "start"
+    );
 });

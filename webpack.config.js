@@ -14,11 +14,12 @@ module.exports = {
     contact: "./js/main/contact.js", // contact js
     services: "./js/main/services.js", // contact js
     works: "./js/main/works.js", // works js
+    studio: "./js/main/studio.js", // studio js
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
   },
   output: {
-    filename: "[name].bundle.js", // This will output {file}.bundle.js
+    filename: "[name].bundle.js", // outputs {file}.bundle.js
     path: path.resolve(__dirname, "public"),
   },
   module: {
@@ -115,6 +116,18 @@ module.exports = {
       filename: "404.html",
       inject: "body",
       chunks: ["404"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./studio.html",
+      filename: "studio.html",
+      inject: "body",
+      chunks: ["studio"],
       minify: {
         collapseWhitespace: true,
         removeComments: true,

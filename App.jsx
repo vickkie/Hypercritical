@@ -7,6 +7,8 @@ class App extends React.Component {
     this.state = {
       isDrawerOpen: false,
       selectedProject: null,
+      windowWidth: window.innerWidth,
+      drawerKey: 0,
     };
   }
 
@@ -23,15 +25,26 @@ class App extends React.Component {
           media: mediaUrls,
         };
         // console.log("Project data:", projectData);
+
         this.setState({ isDrawerOpen: true, selectedProject: projectData });
       });
     });
+    window.addEventListener("resize", this.handleResize);
   }
+
+  handleResize = () => {
+    // simple counter as the key
+    this.setState((prevState) => ({
+      windowWidth: window.innerWidth,
+      drawerKey: prevState.drawerKey + 1, // Increment the key
+    }));
+  };
 
   componentWillUnmount() {
     document.querySelectorAll(".work-tile").forEach((button) => {
       button.removeEventListener("click");
     });
+    window.removeEventListener("resize", this.handleResize);
   }
 
   toggleDrawer = () => {
@@ -40,7 +53,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={this.state.isDrawerOpen ? "work-drawer open" : "work-drawer"}>
+      <div key={this.state.drawerKey} className={this.state.isDrawerOpen ? "work-drawer open" : "work-drawer"}>
         <div className="drawer-wrapper" id="drawer-wrapper">
           <div id="close" className="closeDrawer" onClick={this.toggleDrawer}>
             {

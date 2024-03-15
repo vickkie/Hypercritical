@@ -10,7 +10,7 @@
 }
 
 .inner-service2:nth-last-of-type(3):before {
-  background-image: url(../assets/images/0775.webp);
+  background-image: url(../assets/images/0775-1.webp);
   background-position: 50% 43%;
   background-repeat: no-repeat;
   background-size: 81%;
@@ -383,8 +383,8 @@ figure {
   }
 }
 .circle-arrow {
-  width: 7.8em;
-  height: 7.8em;
+  width: 5.8em;
+  height: 5.8em;
   border: 1px solid rgba(241, 241, 241, 0.35);
   border-radius: 100%;
   justify-content: center;

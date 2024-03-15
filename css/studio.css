@@ -7,7 +7,9 @@ main {
 .below-line {
   background-color: var(--color-bg) !important;
 }
-
+.menu-name {
+  color: var(--color-bg);
+}
 .hero-studio {
   min-height: 100svh;
   background-color: var(--color-bg);
@@ -54,7 +56,7 @@ main {
 .nav svg {
   fill: var(--color-bg);
 }
-.menu_button_line {
+.menu-dot-line {
   background-color: var(--color-bg);
 }
 

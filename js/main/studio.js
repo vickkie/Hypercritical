@@ -194,3 +194,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Function to update progress bar
+function updateProgressBar() {
+  let progressBar = document.querySelector(".progress"),
+    progressValue = document.querySelector(".progress-value"),
+    progressColor = document.querySelector(".progress .color");
+
+  let progressStartValue = 0,
+    progressEndValue = 98;
+
+  let progressAnimation = gsap.to(progressColor, {
+    duration: 8,
+    width: "98%",
+    ease: "ease-in",
+  });
+
+  // Update the text content
+  function updateProgressText() {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`;
+
+    if (progressStartValue == progressEndValue) {
+      clearInterval(progress);
+    }
+  }
+
+  let progress = setInterval(updateProgressText, 80);
+}
+
+// Options for the Intersection Observer
+const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.0, // Change this threshold value as needed
+};
+
+// Create an Intersection Observer instance
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Element is in the viewport
+      updateProgressBar();
+      observer.unobserve(entry.target); // Stop observing once the element is visible
+    }
+  });
+}, options);
+
+// Target element to observe
+const targetElement = document.querySelector(".progress");
+
+// Start observing the target element
+observer.observe(targetElement);

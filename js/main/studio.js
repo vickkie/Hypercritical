@@ -2,8 +2,10 @@ import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
+import Reeller from "reeller";
 // import gsap from "gsap";
-// import { ScrollToPlugin } from "gsap/all";
+
+// App.js using react
 
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
@@ -87,48 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", cursor);
 });
 
-//Group 5 : animate video
-
-gsap.registerPlugin(ScrollTrigger);
-
-let videotl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".cb-intro-figure",
-    start: "top 90%",
-    end: "top 10",
-    scrub: true,
-    markers: !1,
-    toggleActions: "play none none reverse",
-  },
-});
-
-videotl.to(".cb-intro-figure", {
-  width: "98%",
-  height: "98vh",
-  ease: "expo.inOut",
-});
-
-//Group 4 : animate background of redifing
-
-gsap.registerPlugin(ScrollTrigger);
-
-let redifinetl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".hc-greeting-bg",
-    start: "top 20%",
-    end: "bottom top",
-    scrub: 2,
-    markers: !1,
-    toggleActions: "play none none reverse",
-  },
-});
-
-redifinetl.to(".hc-greeting-bg-media", {
-  x: "-20%",
-  ease: "expo.inOut",
-});
-
-//Group 5: menuUzi midmoon
+//Group 4: menuUzi midmoon
 let midmoon = select(".mid-moon");
 let menuclose = select(".action--close");
 let menuopen = select(".action--menuUzi");
@@ -146,7 +107,7 @@ function close() {
 menuopen.addEventListener("click", open);
 menuclose.addEventListener("click", close);
 
-// Group 6: assign links
+// Group 5: assign links for socials
 
 function assignLinks(config) {
   for (const key in config) {
@@ -184,7 +145,7 @@ new Promise((resolve, reject) => {
     console.error("Failed to load configuration or assign links:", error);
   });
 
-// Group 7: inverse the arrow colors using gsap
+// Group 6: inverse the arrow colors using gsap
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -233,18 +194,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-gsap.registerPlugin(SplitText);
-
-const herolargelogo = select(".hero-largelogo");
-
-let herotext = new SplitText(".innerservice", { type: "chars", charsClass: "inner-service2" });
-
-// const splitchars = selectAll(".split-chars");
-
-// splitchars.forEach((splitchar) => {
-//   new SplitText(splitchar, {
-//     type: "chars",
-//     charsClass: "otherchars",
-//   });
-// });

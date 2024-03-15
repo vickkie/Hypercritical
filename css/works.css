@@ -326,13 +326,6 @@ video {
   overflow: hidden;
 }
 
-@font-face {
-  font-family: "Uzi";
-  src: url("https://raw.githubusercontent.com/vickkie/uzitrake/main/fonts/MonumentExtended-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .sw-partner-marquee {
   display: -webkit-box;
   display: -webkit-flex;
@@ -524,7 +517,7 @@ video {
 .display-expla {
   font-size: 70px;
   color: white;
-  font-family: Uzi;
+  font-family: inherit;
 }
 
 .works-exit {

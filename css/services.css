@@ -1,16 +1,31 @@
 .hero-services {
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-areas:
     "..."
     "hero-service";
-  grid-template-rows: 40% 60%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30% 50% 20%;
   min-height: 100vh;
   overflow: hidden;
 }
 
+.inner-service2:nth-last-of-type(3):before {
+  background-image: url(../assets/images/0775.webp);
+  background-position: 50% 43%;
+  background-repeat: no-repeat;
+  background-size: 81%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
 .hero-service {
   grid-area: hero-service;
+  text-align: center;
   padding: 0;
   font-size: calc(8vw + 10px);
   font-family: unset;
@@ -802,4 +817,18 @@ figure {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: end;
+}
+
+.scroll-service-down {
+  align-items: center;
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  justify-content: center;
+  z-index: 3;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+}
+.scroll-service-down span {
+  width: fit-content;
 }

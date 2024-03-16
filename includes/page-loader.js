@@ -15,8 +15,7 @@ function animateDone() {
     }
   );
 }
-
-// Assuming you've included jQuery and the imagesLoaded plugin correctly
+//  uses Jquery plugin
 $(document).ready(function () {
   $("body");
   // .imagesLoaded()

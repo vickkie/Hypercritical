@@ -1514,3 +1514,27 @@ html {
 .footer {
   overflow: hidden;
 }
+@media screen and (max-width: 375px) {
+  .footer-left {
+    counter-reset: footerMapCounter;
+    display: grid;
+    grid-area: footer-left;
+    grid-template-columns: 1fr !important;
+    padding-left: 15px;
+    gap: 10px;
+  }
+  .footer li {
+    font-family: var(--font-1);
+    font-size: 1.2em;
+    padding-bottom: 10px;
+  }
+  .footer-map-header {
+    font-size: 1.6rem;
+  }
+  .flexme {
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 9px;
+  }
+}

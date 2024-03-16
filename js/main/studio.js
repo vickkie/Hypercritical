@@ -2,7 +2,8 @@ import MouseFollower from "mouse-follower";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
-import Reeller from "reeller";
+import Swiper from "swiper";
+import "swiper/css";
 // import gsap from "gsap";
 
 // App.js using react
@@ -173,10 +174,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     menuName.style.color = "var(--color-bg)";
   }
-  darkSections.forEach((darkSection, i) => {
-    //  let id = i;
-    //  console.log(id);
 
+  //maintain white for hero section
+
+  function maintainWhite() {
+    let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollPosition < 1.0 * window.innerHeight) {
+      makewhite();
+    } else if (scrollPosition >= 1.0 * window.innerHeight && scrollPosition < 1.8 * window.innerHeight) {
+      makedark();
+    }
+  }
+
+  maintainWhite();
+
+  window.addEventListener("scroll", maintainWhite);
+
+  darkSections.forEach((darkSection, i) => {
     const darken = gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
@@ -185,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         endtrigger: darkSection,
         end: "bottom bottom",
         scrub: true,
-        // markers: true,
+        markers: !true,
         onEnter: () => makewhite(),
         onLeave: () => makedark(),
         onEnterBack: () => makewhite(),
@@ -251,8 +266,6 @@ observer.observe(targetElement);
 
 //Group 8: eye catching magnetic
 
-// Group 10:  Magnetic effect for elements with class .viewall
-
 $(document).ready(function () {
   $(".magnetic").each(function () {
     new Magnetic(this, ".magnetic-parent", {
@@ -269,9 +282,7 @@ $("[data-magnetic]").each(function () {
   new Magnetic(this);
 });
 
-//SWipper js testimonials
-import Swiper from "swiper";
-import "swiper/css";
+//Group 9: SWipper js testimonials
 
 const swiper = new Swiper(".swiper", {
   loop: true,
@@ -283,4 +294,26 @@ swiperSlides.forEach(function (slide) {
   slide.addEventListener("click", function () {
     swiper.slideNext();
   });
+});
+
+// Group 10  : scrolltrigger to margin;
+
+gsap.registerPlugin(ScrollTrigger);
+
+let maintl = gsap.timeline();
+
+maintl.to("main", {
+  margin: 0,
+  ease: "none",
+  borderRadius: 0,
+});
+
+ScrollTrigger.create({
+  animation: maintl,
+  trigger: ".footer",
+  start: "top top",
+  end: "bottom bottom",
+  scrub: true,
+  markers: !true,
+  toggleActions: "play none none reverse",
 });

@@ -11,9 +11,9 @@ main {
 .below-line {
   background-color: var(--color-bg) !important;
 }
-.menu-name {
+/* .menu-name {
   color: var(--color-bg);
-}
+} */
 .hero-studio {
   min-height: 100svh;
   background-color: var(--color-bg);
@@ -49,7 +49,7 @@ main {
 .hero-circles {
   grid-column: 2 / 4;
   grid-row: 2 / 5;
-  background-image: url(../assets/images/works/Mask\ group.png);
+  background-image: url(../assets/images/works/Hypercritical-hero.webp);
   background-position: right;
   z-index: 2;
   background-repeat: no-repeat;
@@ -60,8 +60,14 @@ main {
 .nav svg {
   fill: var(--color-bg);
 }
-.menu-dot-line {
-  background-color: var(--color-bg);
+
+@media screen and (max-width: 400px) {
+  .est-hero {
+    padding: 20px 10px !important;
+  }
+  .div-svg svg {
+    height: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -69,6 +75,9 @@ main {
     width: 70%;
     justify-self: center;
     display: flex;
+  }
+  .message {
+    font-size: 30px;
   }
 }
 
@@ -312,6 +321,7 @@ main {
     grid-template-columns: 1fr !important;
   }
   .why-left {
+    flex-direction: column-reverse;
     align-items: center;
   }
   .story-left img {
@@ -451,6 +461,30 @@ html:focus-within {
   }
 }
 @media (max-width: 767px) {
+  .customer-says {
+    padding: 20px 9px 100px !important;
+  }
+  .swiperx-wrapper {
+    width: 90vw !important;
+    margin: unset !important;
+  }
+  .contact-boxes-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-image {
+    width: 50% !important;
+  }
+  .contact-box h4 {
+    max-width: 90% !important;
+  }
+  .contact-intro {
+    font-size: calc(2vw + 10px) !important;
+  }
+  .testimonial-image {
+    height: calc(2vw + 49px) !important;
+    transition: all 0.3s ease;
+    width: calc(2vw + 49px) !important;
+  }
   .main-cont {
     height: 100vh;
     overflow: hidden;
@@ -804,7 +838,6 @@ p.campaign-info.progress-value {
 .message {
   grid-area: message;
   color: var(--color-black);
-  font-size: 30px;
   font-family: var(--font-1);
 }
 .user {
@@ -973,7 +1006,6 @@ p.campaign-info.progress-value {
   min-height: 50vw;
   z-index: 2;
   margin: -50px 5px 10px;
-  max-width: 1700px;
   padding: 0 80px 80px;
   display: flex;
   flex-direction: column;
@@ -1001,6 +1033,8 @@ p.campaign-info.progress-value {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   gap: 10px;
+  width: 100%;
+  padding: 0 80px;
 }
 
 .contact-box {
@@ -1133,6 +1167,7 @@ p.campaign-info.progress-value {
   align-items: center;
   color: var(--color-black);
   outline: none;
+  transition: all 0.4s ease;
 }
 
 .Trake_tile_button:focus,
@@ -1195,4 +1230,16 @@ p.campaign-info.progress-value {
 }
 .contact-box:hover .Img_Img__73sGi {
   transform: scale(1.1);
+}
+.contact-box:hover .Button_Arrow__LawjV {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 930px) {
+  .contact-boxes-wrapper {
+    padding: 0 20px;
+  }
+  .customer-contact {
+    padding: 0 0px 80px;
+  }
 }

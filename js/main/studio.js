@@ -195,11 +195,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//Group 7: progress bar
+
 // Function to update progress bar
 function updateProgressBar() {
-  let progressBar = document.querySelector(".progress"),
-    progressValue = document.querySelector(".progress-value"),
-    progressColor = document.querySelector(".progress .color");
+  let progressBar = select(".progress"),
+    progressValue = select(".progress-value"),
+    progressColor = select(".progress .color");
 
   let progressStartValue = 0,
     progressEndValue = 98;
@@ -246,3 +248,23 @@ const targetElement = document.querySelector(".progress");
 
 // Start observing the target element
 observer.observe(targetElement);
+
+//Group 8: eye catching magnetic
+
+// Group 10:  Magnetic effect for elements with class .viewall
+
+$(document).ready(function () {
+  $(".magnetic").each(function () {
+    new Magnetic(this, ".magnetic-parent", {
+      y: 0.15, // horizontal delta
+      x: 0.15, // vertical delta
+      s: 0.2, // speed
+      rs: 0.7, // release speed
+    });
+  });
+});
+
+// Automatic handle magnetic elements through attribute
+$("[data-magnetic]").each(function () {
+  new Magnetic(this);
+});

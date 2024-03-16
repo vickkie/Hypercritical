@@ -670,6 +670,7 @@ p.campaign-info.progress-value {
   width: 124px;
   height: 1em;
   position: relative;
+  cursor: grab;
 }
 
 .why-footer-top {
@@ -687,10 +688,11 @@ p.campaign-info.progress-value {
   border-bottom: none;
 }
 .eye-el {
-  background-color: #397252;
+  background-color: var(--main-color);
   height: 0.6em;
   width: 0.6em;
 }
+
 .circle-radius {
   border-radius: 50%;
 }

@@ -268,3 +268,19 @@ $(document).ready(function () {
 $("[data-magnetic]").each(function () {
   new Magnetic(this);
 });
+
+//SWipper js testimonials
+import Swiper from "swiper";
+import "swiper/css";
+
+const swiper = new Swiper(".swiper", {
+  loop: true,
+});
+
+let swiperSlides = selectAll(".swiper-slide");
+
+swiperSlides.forEach(function (slide) {
+  slide.addEventListener("click", function () {
+    swiper.slideNext();
+  });
+});

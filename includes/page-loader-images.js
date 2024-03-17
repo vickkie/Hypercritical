@@ -16,11 +16,18 @@ function animateDone() {
   );
 }
 
-// Assuming you've included jQuery and the imagesLoaded plugin correctly
 $(document).ready(function () {
   $("body")
     .imagesLoaded()
-    .done(function () {
+    .progress(function (instance, img) {})
+    .done(function (instance) {
       animateDone();
+    })
+    .fail(function (instance) {
+      console.error("One or more images failed to load.");
+
+      setTimeout(() => {
+        animateDone();
+      }, 500);
     });
 });

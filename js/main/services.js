@@ -72,6 +72,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function scrollToPosition() {
+    gsap.to(window, {
+      duration: 2,
+      delay: 0,
+      scrollTo: {
+        y: ".service-welcome",
+      },
+      ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+  }
+
+  let triggerButton = select(".circle-arrow");
+  triggerButton.addEventListener("click", scrollToPosition);
   toTopbutton.addEventListener("click", scrollTop);
 });
 
@@ -178,7 +191,10 @@ new Promise((resolve, reject) => {
   });
 })
   .then(() => {
-    // console.log("Configuration loaded and links assigned.");
+    console.log(
+      "%c Greetings from Hypercritical",
+      "color:white;background:#c389e1; font-size: 26px;font-family:sans-serif"
+    );
   })
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
@@ -248,3 +264,38 @@ let herotext = new SplitText(".innerservice", { type: "chars", charsClass: "inne
 //     charsClass: "otherchars",
 //   });
 // });
+
+// Group 8: years of experience and data
+function assignExp(config) {
+  for (const key in config) {
+    if (config.hasOwnProperty(key)) {
+      const elements = selectAll(key);
+      elements.forEach((element) => {
+        if (element) {
+          element.innerHTML = config[key];
+        } else {
+          console.error(`Elements matching selector ${key} not found.`);
+        }
+      });
+    }
+  }
+}
+
+new Promise((resolve, reject) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("includes/config-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        assignExp(data);
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error loading config:", error);
+        reject(error);
+      });
+  });
+})
+  .then(() => {})
+  .catch((error) => {
+    console.error("Failed to load configuration or assign links:", error);
+  });

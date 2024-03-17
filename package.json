@@ -40,6 +40,7 @@
   "html-minimizer-webpack-plugin": "^5.0.0",
   "html-webpack-plugin": "^5.0.0",
   "mini-css-extract-plugin": "^2.8.1",
+  "purgecss": "^5.0.0",
   "style-loader": "^2.0.0",
   "terser-webpack-plugin": "^5.3.10",
   "ts-loader": "^9.5.1",
@@ -56,6 +57,7 @@
   "react": "^18.2.0",
   "react-dom": "^18.2.0",
   "reeller": "^0.0.5",
-  "splitting": "^1.0.6"
+  "splitting": "^1.0.6",
+  "swiper": "^11.0.7"
  }
 }

@@ -17,6 +17,7 @@ module.exports = {
     studio: "./js/main/studio.js", // studio js
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
+    partnerModal: "./modal.jsx",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js
@@ -29,7 +30,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.jsx?$/, //  match both .js and .jsx files for react element
+        test: /\.jsx?$/, //  match both .js and .jsx files for react Component
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -127,7 +128,7 @@ module.exports = {
       template: "./studio.html",
       filename: "studio.html",
       inject: "body",
-      chunks: ["studio"],
+      chunks: ["studio", "partnerModal"],
       minify: {
         collapseWhitespace: true,
         removeComments: true,

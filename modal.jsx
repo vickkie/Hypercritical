@@ -20,9 +20,24 @@ class App extends React.Component {
           intro: event.target.closest(".partner").dataset.intro,
           link: event.target.closest(".partner").dataset.link,
           logo: event.target.closest(".partner").dataset.logo,
+          status: event.target.closest(".partner").dataset.status,
         };
 
-        console.log("Project data:", partnerData);
+        // console.log("Project data:", partnerData);
+        this.setState({ isDrawerOpen: true, selectedPartner: partnerData });
+      });
+    });
+    document.querySelectorAll(".designer").forEach((button, i) => {
+      button.addEventListener("click", (event) => {
+        const partnerData = {
+          heading: event.target.closest(".designer").dataset.heading,
+          intro: event.target.closest(".designer").dataset.intro,
+          link: event.target.closest(".designer").dataset.link,
+          logo: event.target.closest(".designer").dataset.logo,
+          status: event.target.closest(".designer").dataset.status,
+        };
+
+        // console.log("Project data:", partnerData);
         this.setState({ isDrawerOpen: true, selectedPartner: partnerData });
       });
     });
@@ -92,10 +107,10 @@ class App extends React.Component {
             </div>
           </div>
           <div className="partner-right">
-            <div className="partner-pill">Our partner</div>
+            <div className="partner-pill">{selectedPartner.status}</div>
             <h3>{selectedPartner.heading}</h3>
             <div className="partner-intro">
-              <div className="more-explanation">{selectedPartner.intro}</div>
+              <div className="more-explanation" dangerouslySetInnerHTML={{ __html: selectedPartner.intro }}></div>
             </div>
             <a href={selectedPartner.link} className="view-parnerbutton" target="_blank" rel="noopener noreferrer">
               <span className="inline-flex">

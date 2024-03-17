@@ -339,7 +339,7 @@ function openModal() {
     );
 }
 
-// Function to close the modal
+// Function to close the modal --close is in react
 // function closeModal() {
 //   gsap
 //     .timeline({ defaults: { ease: "power4.inOut" } })
@@ -367,6 +367,47 @@ let partnerButtons = document.querySelectorAll(".partner-logo");
 partnerButtons.forEach((button, i) => {
   button.addEventListener("click", openModal);
 });
+let designerButtons = document.querySelectorAll(".designer");
+designerButtons.forEach((designer, i) => {
+  designer.addEventListener("click", (event) => {
+    event.preventDefault();
+    openModal();
+  });
+});
 
-// Add event listener to close button
-//Already done in react element during render
+// Group 12: years of experience and data
+function assignExp(config) {
+  for (const key in config) {
+    if (config.hasOwnProperty(key)) {
+      const elements = selectAll(key);
+      elements.forEach((element) => {
+        if (element) {
+          element.innerHTML = config[key];
+        } else {
+          console.error(`Elements matching selector ${key} not found.`);
+        }
+      });
+    }
+  }
+}
+
+new Promise((resolve, reject) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("includes/config-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        assignExp(data);
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error loading config:", error);
+        reject(error); // Reject the promise if there's an error`
+      });
+  });
+})
+  .then(() => {
+    // console.log("Configuration loaded and links assigned.");
+  })
+  .catch((error) => {
+    console.error("Failed to load configuration or assign links:", error);
+  });

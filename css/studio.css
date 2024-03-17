@@ -1,5 +1,28 @@
 :root {
-  --color-thistle: #131528;
+  --ff-style: "Unbounded", cursive;
+  --fs-d1: clamp(2.566rem, -0.1492rem + 10.8608vw, 5.96rem);
+  --fs-d2: clamp(2.281rem, 0.2914rem + 7.9584vw, 4.768rem);
+  --fs-d3: clamp(2.074rem, 0.5966rem + 5.7216vw, 3.815rem);
+  --fs-d4: clamp(1.728rem, 0.5966rem + 4.7216vw, 3.815rem);
+  --fs-1: clamp(1.802rem, 0.802rem + 4vw, 3.052rem);
+  --fs-2: clamp(1.602rem, 0.9308rem + 2.6848vw, 2.441rem);
+  --fs-3: clamp(1.424rem, 1.0008rem + 1.6928vw, 1.953rem);
+  --fs-4: clamp(1.266rem, 1.0284rem + 0.9504vw, 1.563rem);
+  --fs-5: clamp(1.125rem, 1.025rem + 0.4vw, 1.25rem);
+  --fs-6: clamp(1rem, 1rem + 0vw, 1rem);
+  --fs-regular: clamp(1rem, 1rem + 0vw, 1rem);
+  --fs-xsmall: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
+  --fs-xxsmall: clamp(0.5rem, 0.375rem + 0.5vw, 0.75rem);
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --gap-small: clamp(1rem, 2vw, 24px);
+  --gap-large: clamp(2rem, 1rem + 2.6667vw, 3rem);
+  --b-shadow-small: 0 0.125rem 0.25rem (var(--color-black), 0.075) !important;
+  --b-shadow-medium: 0 0.5rem 1rem (var(--color-black), 0.15) !important;
+  --b-shadow-large: 0 1rem 3rem (var(--color-black), 0.175) !important;
 }
 body {
   position: relative;
@@ -70,6 +93,9 @@ main {
   .div-svg svg {
     height: 60px;
   }
+  .why-workus-header {
+    font-size: 6vw;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -79,7 +105,14 @@ main {
     display: flex;
   }
   .message {
-    font-size: 30px;
+    font-size: 1.728rem;
+    padding: 0 1rem;
+  }
+  .why-workus-header {
+    font-size: var(--fs-d3);
+  }
+  .why-footer > div {
+    font-size: var(--fs-d3);
   }
 }
 
@@ -251,12 +284,12 @@ main {
   flex-direction: column;
 }
 .xp-head {
-  font-size: 13vw;
+  font-size: 7.5vw;
   text-align: center;
 }
 
 .xp-footer {
-  font-size: 2vw;
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -288,7 +321,7 @@ main {
 
 .genesis-story {
   font-family: var(--font-1);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
@@ -326,6 +359,9 @@ main {
     flex-direction: column-reverse;
     align-items: center;
   }
+  .why-footer > div {
+    font-size: 7vw;
+  }
   .story-left img {
     height: auto;
     max-width: 23vw;
@@ -356,38 +392,6 @@ main {
   }
 }
 
-:root {
-  --ff-style: "Unbounded", cursive;
-  --fs-d1: clamp(2.566rem, -0.1492rem + 10.8608vw, 5.96rem);
-  --fs-d2: clamp(2.281rem, 0.2914rem + 7.9584vw, 4.768rem);
-  --fs-d3: clamp(2.027rem, 0.5966rem + 5.7216vw, 3.815rem);
-  --fs-1: clamp(1.802rem, 0.802rem + 4vw, 3.052rem);
-  --fs-2: clamp(1.602rem, 0.9308rem + 2.6848vw, 2.441rem);
-  --fs-3: clamp(1.424rem, 1.0008rem + 1.6928vw, 1.953rem);
-  --fs-4: clamp(1.266rem, 1.0284rem + 0.9504vw, 1.563rem);
-  --fs-5: clamp(1.125rem, 1.025rem + 0.4vw, 1.25rem);
-  --fs-6: clamp(1rem, 1rem + 0vw, 1rem);
-  --fs-regular: clamp(1rem, 1rem + 0vw, 1rem);
-  --fs-xsmall: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
-  --fs-xxsmall: clamp(0.5rem, 0.375rem + 0.5vw, 0.75rem);
-  --fw-light: 300;
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-  --clr-pri-400: #fff;
-  --clr-dark-300: #404040;
-  --clr-dark-400: #1a1a1a;
-  --clr-light-300: #d9d9d9;
-  --clr-light-400: #fff;
-  --clr-heading: #fff;
-  --clr-paragraph: #fff;
-  --gap-small: clamp(1rem, 2vw, 24px);
-  --gap-large: clamp(2rem, 1rem + 2.6667vw, 3rem);
-  --b-shadow-small: 0 0.125rem 0.25rem (var(--clr-dark-400), 0.075) !important;
-  --b-shadow-medium: 0 0.5rem 1rem (var(--clr-dark-400), 0.15) !important;
-  --b-shadow-large: 0 1rem 3rem (var(--clr-dark-400), 0.175) !important;
-}
 .container-x {
   --max-width__screen: 100%;
   --max-width__laptops: 1400px;
@@ -416,7 +420,7 @@ html:focus-within {
   }
 }
 .display-1 {
-  color: var(--clr-heading);
+  color: var(--color-white);
   font-family: var(--font-1);
   font-weight: var(--fw-medium);
   font-size: var(--fs-d1);
@@ -427,7 +431,7 @@ html:focus-within {
 .container-x label,
 .container-x p,
 .container-x span {
-  color: var(--clr-paragraph);
+  color: var(--color-white);
   font-size: var(--fs-regular);
   font-weight: var(--fw-regular);
   font-family: var(--font-3);
@@ -442,7 +446,7 @@ html:focus-within {
 }
 
 .line {
-  border-bottom: 2px solid var(--clr-dark-400);
+  border-bottom: 2px solid var(--color-black);
   width: 100%;
 }
 .cont {
@@ -504,13 +508,13 @@ html:focus-within {
   }
 }
 .main-cont .cont-category {
-  border: 1px solid var(--clr-light-400);
+  border: 1px solid var(--color-white);
   border-radius: 100vw;
   padding: 0.2rem 0.8rem;
   width: fit-content;
 }
 .main-cont p {
-  color: var(--clr-light-400);
+  color: var(--color-white);
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
 }
@@ -539,7 +543,7 @@ html:focus-within {
   }
 }
 .sm-cont-21 {
-  background: var(--clr-pri-400);
+  background: var(--color-white);
   grid-area: sm-cont-21;
   padding: 3rem;
   display: flex;
@@ -549,17 +553,17 @@ html:focus-within {
 .m-cont-2 a,
 .m-cont-2 h1,
 .m-cont-2 p {
-  color: var(--clr-dark-400);
+  color: var(--color-black);
 }
 .m-cont-2 .cont-category {
-  border-color: var(--clr-dark-400);
+  border-color: var(--color-black);
 }
 
 .sm-cont-21 .line {
   position: relative;
 }
 .sm-cont-21 .line:after {
-  background-color: var(--clr-dark-400);
+  background-color: var(--color-black);
   border-radius: 100vw;
   content: "";
   height: 12px;
@@ -577,9 +581,9 @@ html:focus-within {
   padding-top: 1.8rem;
 }
 .ri-lightbulb-line {
-  border-right: 1px solid var(--clr-dark-400);
-  color: var(--clr-light-400);
-  color: var(--clr-dark-400);
+  border-right: 1px solid var(--color-black);
+  color: var(--color-white);
+  color: var(--color-black);
   display: grid;
   font-size: var(--fs-3);
   place-content: center;
@@ -593,7 +597,7 @@ html:focus-within {
   position: relative;
 }
 .campaign-line {
-  border-bottom: 1px solid var(--clr-dark-400);
+  border-bottom: 1px solid var(--color-black);
 }
 
 p.campaign-info.progress-value {
@@ -601,7 +605,7 @@ p.campaign-info.progress-value {
   font-weight: var(--fw-bold);
 }
 .progress {
-  border: 1px solid var(--clr-dark-400);
+  border: 1px solid var(--color-black);
   border-radius: 100vw;
   height: 15px;
   overflow: hidden;
@@ -609,7 +613,7 @@ p.campaign-info.progress-value {
   width: 100%;
 }
 .progress .color {
-  background-color: var(--clr-dark-300);
+  background-color: var(--color-black);
   border-radius: 15px;
   height: 13px;
   left: 0;
@@ -644,11 +648,11 @@ p.campaign-info.progress-value {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 }
+
 .why-workus-header {
   color: var(--color-bg);
   display: grid;
   font-family: var(--font-3);
-  font-size: 6vw;
   height: fit-content;
   padding: 4rem 0;
   text-align: left;
@@ -696,14 +700,16 @@ p.campaign-info.progress-value {
   border-radius: 45px;
   display: flex;
   margin: 7px;
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 .why-footer > div {
-  font-size: 7vw;
   width: 85vw;
   margin: auto;
 }
 .eye-wrapper {
-  background-color: var(--clr-heading);
+  background-color: var(--color-white);
   border-radius: 45px;
   display: inline-flex;
   justify-content: center;
@@ -755,7 +761,7 @@ p.campaign-info.progress-value {
   width: 0.2em;
 }
 .customer-says {
-  background-color: var(--clr-heading);
+  background-color: var(--color-white);
   /* border-radius: 45px; */
   display: grid;
   grid-area: testimonials;
@@ -777,15 +783,15 @@ p.campaign-info.progress-value {
 .swiper-header {
   display: grid;
   font-family: var(--font-3);
-  font-size: 4vw;
-  /* overflow: hidden; */
+  font-size: var(--fs-1);
+  height: fit-content;
+  line-height: 1.1;
   position: relative;
   text-align: center;
-  height: fit-content;
-  line-height: 3.1;
+  padding: 3rem 0;
 }
 .swiper-header:before {
-  background-color: #fc5c0f;
+  background-color: var(--main-color);
   border: 3px solid #fff;
   border-radius: 50%;
   bottom: -6px;
@@ -798,7 +804,7 @@ p.campaign-info.progress-value {
   position: absolute;
 }
 .swiper-header:after {
-  background-color: rgba(252, 92, 15, 0.46);
+  background-color: var(--main-color);
   content: "";
   height: 2px;
   left: 25%;
@@ -916,7 +922,7 @@ p.campaign-info.progress-value {
   grid-template-areas:
     "clientel-head"
     "clientel-body";
-  padding: 0 10px;
+  padding: 75px 10px;
 }
 .clientel-head {
   display: grid;
@@ -926,8 +932,8 @@ p.campaign-info.progress-value {
   grid-area: clientel-head;
 }
 .clientel-head-inner {
-  background-color: #d9db4d;
-  border-color: #d9db4d;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
   margin: 0 0 20px;
   color: var(--color-black);
   display: inline-flex;
@@ -1003,7 +1009,7 @@ p.campaign-info.progress-value {
 }
 
 .customer-contact {
-  background-color: var(--color-thistle);
+  background-color: var(--color-forth);
   border-radius: 45px;
   grid-area: now-contact;
   min-height: 50vw;
@@ -1025,9 +1031,9 @@ p.campaign-info.progress-value {
   max-width: 900px;
   text-align: center;
   color: var(--color-bg);
-  padding-top: 56px;
+  padding-top: 4rem;
   font-family: var(--font-3);
-  font-size: 2rem;
+  font-size: var(--fs-1);
 }
 
 .contact-boxes-wrapper {
@@ -1126,7 +1132,7 @@ p.campaign-info.progress-value {
 }
 
 .Button_ArrowCont__WrhN_ {
-  background-color: var(--color-thistle);
+  background-color: var(--color-forth);
   padding: 10px;
   border-radius: 50% 0 0 0;
   margin: 0 -10px -10px 0;
@@ -1162,13 +1168,13 @@ p.campaign-info.progress-value {
 .Button_Arrow__LawjV {
   width: 50px;
   height: 50px;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-bg);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-white);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-black);
+  color: var(--stick-black);
   outline: none;
   transition: all 0.4s ease;
 }
@@ -1191,7 +1197,7 @@ p.campaign-info.progress-value {
   fill: none !important;
 }
 .Button_ArrowCont__WrhN_ path {
-  fill: var(--color-thistle);
+  fill: var(--color-forth);
 }
 .Button_ArrowCont__WrhN_ > svg:last-of-type {
   border: none;
@@ -1289,6 +1295,9 @@ p.campaign-info.progress-value {
   place-items: center;
 }
 
+.partner-close svg {
+  transform: scale(0.8);
+}
 .partner-divide {
   max-width: 1200px;
   display: flex;
@@ -1310,7 +1319,7 @@ p.campaign-info.progress-value {
 }
 .partner-right {
   width: 70%;
-  background: #d9db4d;
+  background: var(--color-third);
   border-radius: 30px;
   padding: 50px;
 }
@@ -1321,7 +1330,7 @@ p.campaign-info.progress-value {
   display: inline-flex;
   border-radius: 20px;
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: var(--font-3);
 }
 
@@ -1338,7 +1347,7 @@ p.campaign-info.progress-value {
 }
 .partner-intro {
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-family: var(--font-1);
 }
 
@@ -1393,4 +1402,11 @@ p.campaign-info.progress-value {
 .more-explanation {
   font-size: 1.2rem;
   font-family: var(--font-1);
+}
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
 }

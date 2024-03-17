@@ -317,3 +317,56 @@ ScrollTrigger.create({
   markers: !true,
   toggleActions: "play none none reverse",
 });
+
+//Group 11: partners modal
+
+// Function to open the modal
+function openModal() {
+  gsap
+    .timeline()
+    .addLabel("start", "+=0")
+    .to(
+      ".partner-modal",
+      {
+        duration: 0.3,
+        scale: 1,
+        ease: "power4.inOut",
+        onComplete: () => {
+          document.querySelector(".partner-modal").style.opacity = "1";
+        },
+      },
+      "start"
+    );
+}
+
+// Function to close the modal
+// function closeModal() {
+//   gsap
+//     .timeline({ defaults: { ease: "power4.inOut" } })
+//     .addLabel("start", "+=0")
+//     .to(
+//       ".partner-modal",
+//       {
+//         duration: 0.001,
+//         opacity: 0,
+//       },
+//       "start"
+//     )
+//     .to(
+//       ".partner-modal",
+//       {
+//         duration: 0.3,
+//         scale: 0,
+//       },
+//       "start"
+//     );
+// }
+
+// Add event listeners to partner buttons
+let partnerButtons = document.querySelectorAll(".partner-logo");
+partnerButtons.forEach((button, i) => {
+  button.addEventListener("click", openModal);
+});
+
+// Add event listener to close button
+//Already done in react element during render

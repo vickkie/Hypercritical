@@ -140,7 +140,10 @@ new Promise((resolve, reject) => {
   });
 })
   .then(() => {
-    // console.log("Configuration loaded and links assigned.");
+    console.log(
+      "%c Greetings from Hypercritical",
+      "color:white;background:#c389e1; font-size: 26px;font-family:sans-serif"
+    );
   })
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
@@ -244,10 +247,10 @@ function updateProgressBar() {
 const options = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.0, // Change this threshold value as needed
+  threshold: 0.0,
 };
 
-// Create an Intersection Observer instance
+// Intersection Observer instance
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -319,7 +322,18 @@ ScrollTrigger.create({
 });
 
 //Group 11: partners modal
-
+function scaleModal() {
+  gsap.timeline().addLabel("start", "+=0").to(
+    ".partner-modal",
+    {
+      duration: 0.3,
+      opacity: 1,
+      scale: 1,
+      ease: "power4.inOut",
+    },
+    "start"
+  );
+}
 // Function to open the modal
 function openModal() {
   gsap
@@ -328,11 +342,11 @@ function openModal() {
     .to(
       ".partner-modal",
       {
-        duration: 0.3,
-        scale: 1,
+        duration: 0.001,
+        scale: 1.2,
         ease: "power4.inOut",
         onComplete: () => {
-          document.querySelector(".partner-modal").style.opacity = "1";
+          scaleModal();
         },
       },
       "start"
@@ -340,27 +354,6 @@ function openModal() {
 }
 
 // Function to close the modal --close is in react
-// function closeModal() {
-//   gsap
-//     .timeline({ defaults: { ease: "power4.inOut" } })
-//     .addLabel("start", "+=0")
-//     .to(
-//       ".partner-modal",
-//       {
-//         duration: 0.001,
-//         opacity: 0,
-//       },
-//       "start"
-//     )
-//     .to(
-//       ".partner-modal",
-//       {
-//         duration: 0.3,
-//         scale: 0,
-//       },
-//       "start"
-//     );
-// }
 
 // Add event listeners to partner buttons
 let partnerButtons = document.querySelectorAll(".partner-logo");
@@ -411,3 +404,19 @@ new Promise((resolve, reject) => {
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
   });
+
+//Group 13: scroll to
+
+function scrollToPosition() {
+  gsap.to(window, {
+    duration: 2,
+    delay: 0,
+    scrollTo: {
+      y: ".below-studio-inner-wrapper",
+    },
+    ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+}
+
+let triggerButton = select(".div-svg");
+triggerButton.addEventListener("click", scrollToPosition);

@@ -141,6 +141,9 @@ main {
   .hero-circles {
     background-size: 46vw;
   }
+  .partner-logo {
+    scale: 0.7;
+  }
 }
 .est-hero {
   padding: 20px 40px;
@@ -154,6 +157,9 @@ main {
 }
 .div-svg svg {
   rotate: 90deg;
+}
+.div-svg {
+  cursor: pointer;
 }
 
 .arrow-pathy {
@@ -218,7 +224,7 @@ main {
   font-size: 7.5vw;
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 0.9;
+  line-height: 1.1;
   margin-bottom: 0;
   margin-top: 0;
   height: fit-content;
@@ -950,9 +956,10 @@ p.campaign-info.progress-value {
   width: 100%;
 }
 .partner-logo {
-  height: 60px;
+  height: 45px;
   position: relative;
   display: flex;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
 }
 .partner-logo img {
   height: 100%;
@@ -991,8 +998,8 @@ p.campaign-info.progress-value {
   justify-self: center;
 }
 .vicstatelogo-large {
-  height: 100px !important;
-  margin-top: -15px;
+  height: 80px !important;
+  margin-top: -20%;
 }
 .clientel-body {
   padding: 68px 0;
@@ -1409,4 +1416,39 @@ p.campaign-info.progress-value {
   gap: 2rem;
   flex-wrap: wrap;
   padding: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .partner-divide {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: auto !important;
+  }
+  .partner-left {
+    min-height: 120px !important;
+    max-height: 150px !important;
+    width: 95% !important;
+    margin: auto !important;
+  }
+  .partner-left-inner {
+    max-width: 68% !important;
+  }
+  .partner-right {
+    padding: 1rem !important;
+    width: 95% !important;
+    margin: auto !important;
+  }
+  .partner-right h3 {
+    font-size: 1.3rem;
+  }
+  .partner-pill {
+    font-size: 1rem !important;
+    margin: 0 0 1rem !important;
+  }
+  .partner-intro {
+    margin-top: 1rem !important;
+  }
+  .view-parnerbutton {
+    margin: 1.5rem 0 0 !important;
+  }
 }

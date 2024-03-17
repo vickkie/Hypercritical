@@ -383,6 +383,7 @@ figure {
   }
 }
 .circle-arrow {
+  cursor: pointer;
   width: 5.8em;
   height: 5.8em;
   border: 1px solid rgba(241, 241, 241, 0.35);
@@ -568,7 +569,7 @@ figure {
   }
   .circle-arrow {
     margin-left: 0;
-    width: 7.8em;
+    width: 5.8em;
   }
   .service-title:before {
     top: -34px;

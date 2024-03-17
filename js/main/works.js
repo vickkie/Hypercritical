@@ -240,7 +240,10 @@ new Promise((resolve, reject) => {
   });
 })
   .then(() => {
-    // console.log("Configuration loaded and links assigned.");
+    console.log(
+      "%c Greetings from Hypercritical",
+      "color:white;background:#c389e1; font-size: 26px;font-family:sans-serif"
+    );
   })
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);

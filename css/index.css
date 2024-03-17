@@ -17,6 +17,7 @@
   --font-1: sohne-light;
   --font-2: MonumentExtended;
   --font-3: MonumentExtended-light;
+  --font-4: Blind-Krystal; /*important for marquee*/
   --mid-largefont: 1.8rem;
   --mid-font: 6vw;
   font-size: 15px;
@@ -142,7 +143,7 @@ a.website {
   color: var(--color-title);
 }
 a.website:hover {
-  color: var(--dark-green);
+  color: var(--main-color);
 }
 a.black {
   color: var(--color-black);
@@ -577,7 +578,8 @@ details[open] .accordion-icon:after {
   display: none;
 }
 .col__content-txt span {
-  font-family: var(--font-3);
+  font-family: var(--font-1);
+  font-size: 1.1rem;
 }
 .services-head :before {
   align-items: center;
@@ -979,7 +981,7 @@ details[open] .accordion-icon:after {
   align-items: center;
   color: var(--black);
   display: flex;
-  font-family: var(--font-2);
+  font-family: var(--font-4), var(--font-2);
   font-size: 200em;
   height: 100%;
   line-height: 0.6;
@@ -1156,15 +1158,16 @@ input[type="radio"] {
   font-size: 0.8rem;
   opacity: 0.6;
 }
+
 .clicked-color {
-  background-color: var(--dark-green) !important;
+  background-color: var(--main-color) !important;
 }
 .clicked-text {
   color: var(--color-bg) !important;
 }
 input[type="radio"]:checked + .radio-input {
-  background-color: var(--dark-green);
-  border-color: var(--dark-green);
+  background-color: var(--main-color);
+  border-color: var(--main-color);
 }
 .clicked {
   color: var(--color-bg);

@@ -160,6 +160,7 @@ main {
 }
 .div-svg {
   cursor: pointer;
+  z-index: 3;
 }
 
 .arrow-pathy {
@@ -1451,4 +1452,7 @@ p.campaign-info.progress-value {
   .view-parnerbutton {
     margin: 1.5rem 0 0 !important;
   }
+}
+.lineChild {
+  overflow: hidden;
 }

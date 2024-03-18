@@ -420,3 +420,34 @@ function scrollToPosition() {
 
 let triggerButton = select(".div-svg");
 triggerButton.addEventListener("click", scrollToPosition);
+
+// Group 12: split and animate
+
+let splitText = new SplitText(".split-text", {
+  type: "lines,words",
+  linesClass: "lineChild",
+  wordsClass: "wordsChild",
+});
+
+function splitShow() {
+  let linestl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".studio-intro",
+      start: "top bottom",
+      markers: !true,
+      toggleActions: "play none none none",
+    },
+  });
+
+  linestl.from(".wordsChild", {
+    delay: 0.5,
+    duration: 1,
+    y: 100,
+    stagger: 0.1,
+    ease: "expo3.inOut",
+  });
+}
+
+window.onload = () => {
+  splitShow();
+};

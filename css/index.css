@@ -432,8 +432,9 @@ a:focus-visible {
   }
 }
 .intro-studio {
-  font-family: var(--font-3);
+  font-family: var(--font-1);
   grid-area: intro-studio;
+  font-size: 1.2rem;
 }
 .morestudio a {
   border: 0.0058vw solid var(--color-black);

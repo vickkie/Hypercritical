@@ -1,11 +1,11 @@
 // Start of preloader vue and jquery
 
 function animateDone() {
-  var introTL = gsap.timeline({ delay: 0 }).addLabel("start:0");
+  var introTL = gsap.timeline({ delay: 0 }).addLabel("start=+0");
   introTL.to("#loader2", 1, { scaleY: 0, ease: "none" }, "start");
   introTL.to("#loader1", 1, { scaleY: 0, ease: "none" }, "start");
-  introTL.to(".intro__red", 1.4, { scaleY: 0, ease: "none" }, "start=+0.6");
-  introTL.to(".intro", 1.4, { scaleY: 0, ease: "none" }, "start=+0.6");
+  // introTL.to(".intro__red", 1.4, { scaleY: 0, ease: "none" }, "start=+0.6");
+  introTL.to(".intro", 1.2, { scaleY: 0, ease: "none" }, "start=+0.6");
 }
 
 function animatingNow() {

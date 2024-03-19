@@ -50,7 +50,7 @@ main.flex__col {
 .intro__red {
   background: var(--p-black);
   /* background-position: 50%; */
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
   /* background-color: #ffffff5c; */
   background-size: cover;
   bottom: 0;

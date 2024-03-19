@@ -171,13 +171,13 @@ let herowords = selectAll(".hero-words");
 // console.log(herowords);
 
 let heroSeparator = select(".below-line"),
-  heroMedia = select(".hero-image");
-let heroimageWrapper = select(".parallax-hero");
+  heroMedia = select(".parallax-hero");
+let heroimageWrapper = select(".hero-image");
 
 const showHero = () => {
   gsap
     .timeline({ defaults: { ease: "expo.out", delay: 0.5 } })
-    .set(heroimageWrapper, { y: "-47.8vh" }, "=-1")
+    // .set(heroMedia, { y: "-47.8vh" }, "=-1")
     .addLabel("start")
     .fromTo(
       heroSeparator,
@@ -204,7 +204,7 @@ const showHero = () => {
     )
 
     .fromTo(
-      heroMedia,
+      heroimageWrapper,
       { width: 0 },
 
       { width: "100%", duration: 1.5, ease: "expo.inOut", transformOrigin: "50% 50% 0" },
@@ -252,8 +252,8 @@ function scrollTop() {
 
 document.addEventListener("DOMContentLoaded", function () {
   showHero();
+  initParallax();
   setTimeout(() => {
-    initParallax();
     scrollTop();
   }, 3000);
 });

@@ -25,8 +25,6 @@
     <link rel="stylesheet" href="css/preloader.css" />
     <link rel="stylesheet" href="css/transition.css" />
     <link rel="stylesheet" href="css/multi-menu.css" />
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/gsap.min.js"></script>
   </head>
   <body>
     <div id="overlay" style="scale: 0"></div>
@@ -155,11 +153,11 @@
                     <a href="studio" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
                       ><span class="sidemenuUzi__item-inner">The studio</span></a
                     >
-                    <a href="works" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
-                      ><span class="sidemenuUzi__item-inner">Insights</span></a
+                    <a href="privacy" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Privacy</span></a
                     >
-                    <a href="policy" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
-                      ><span class="sidemenuUzi__item-inner">Policy</span></a
+                    <a href="terms" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
+                      ><span class="sidemenuUzi__item-inner">Terms</span></a
                     >
                     <a href="#" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
                       ><span class="sidemenuUzi__item-inner">••••</span></a
@@ -237,7 +235,7 @@
       <div class="below-line"><span></span></div>
     </div>
 
-    <section class="getintouch">
+    <div class="all-background">
       <div class="marquee-horizontal">
         <div class="marquee-css w-embed"></div>
         <div class="track-horizontal-alt">
@@ -248,242 +246,249 @@
         </div>
       </div>
       <div class="glass-bg"></div>
-      <div class="wrapper get-in-touch">
-        <div class="socials-header">
-          <span class="socials-brand">Idea? Get in touch</span>
-          <h2 class="heading-2 split-chars" data-effect28="">Contact</h2>
-        </div>
-        <div class="socials-left">
-          <div class="social-network">
-            <div class="title-upper">social<br />networks</div>
-            <div class="socials-buttons">
-              <a
-                target="_blank"
-                class="social-networks instagram transit"
-                aria-label="instagram"
-                style="background-color: rgba(1, 1, 1, 0)"
-                ><img
-                  src="assets/svg/g_instagram.png"
-                  alt="Instagram icon, png, black"
-                  class="social-img"
-                  data-label=""
-                  style="filter: invert(0%)" /></a
-              ><a
-                target="_blank"
-                class="social-networks github transit"
-                aria-label="github"
-                style="background-color: rgba(1, 1, 1, 0)"
-                ><img
-                  src="assets/svg/icons8-github.svg"
-                  data-label=""
-                  alt=""
-                  class="social-img"
-                  style="filter: invert(0%)" /></a
-              ><a
-                target="_blank"
-                class="social-networks w-inline-block linktree transit"
-                aria-label="linktree"
-                style="background-color: rgba(1, 1, 1, 0)"
-                ><img src="assets/svg/linktree.svg" alt="" class="social-img" data-label style="filter: invert(0%)"
-              /></a>
+    </div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <section class="getintouch">
+          <div class="wrapper get-in-touch">
+            <div class="socials-header">
+              <span class="socials-brand">Idea? Get in touch</span>
+              <h2 class="heading-2 split-chars" data-effect28="">Contact</h2>
+            </div>
+            <div class="socials-left">
+              <div class="social-network">
+                <div class="title-upper">social<br />networks</div>
+                <div class="socials-buttons">
+                  <a
+                    target="_blank"
+                    class="social-networks instagram transit"
+                    aria-label="instagram"
+                    style="background-color: rgba(1, 1, 1, 0)"
+                    ><img
+                      src="assets/svg/g_instagram.png"
+                      alt="Instagram icon, png, black"
+                      class="social-img"
+                      data-label=""
+                      style="filter: invert(0%)" /></a
+                  ><a
+                    target="_blank"
+                    class="social-networks github transit"
+                    aria-label="github"
+                    style="background-color: rgba(1, 1, 1, 0)"
+                    ><img
+                      src="assets/svg/icons8-github.svg"
+                      data-label=""
+                      alt=""
+                      class="social-img"
+                      style="filter: invert(0%)" /></a
+                  ><a
+                    target="_blank"
+                    class="social-networks w-inline-block linktree transit"
+                    aria-label="linktree"
+                    style="background-color: rgba(1, 1, 1, 0)"
+                    ><img src="assets/svg/linktree.svg" alt="" class="social-img" data-label style="filter: invert(0%)"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="socials-right">
+              <div class="all-social-wrapper">
+                <form id="consultationForm">
+                  <div class="field-box">
+                    <label for="yourname" class="field-label">Name:</label><br /><input
+                      class="text-field"
+                      id="yourname"
+                      name="yourname"
+                      placeholder="Enter your name"
+                      autocomplete="given-name"
+                      maxlength="35"
+                    /><br />
+                  </div>
+                  <div class="field-box">
+                    <label for="email" class="field-label">Email:</label><br /><input
+                      class="text-field"
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Enter email"
+                      required
+                      maxlength="50"
+                      autocomplete="off"
+                    /><br />
+                  </div>
+                  <div class="field-box">
+                    <label class="field-label">type of inquiry:</label>
+                    <div class="multicheck">
+                      <div class="checkbox-wrapper">
+                        <div class="checkbox-text">Web Design</div>
+                        <div class="checkbox-input"></div>
+                        <input type="checkbox" name="Web-Design" aria-label="Web-Design" id="Web-Design" />
+                      </div>
+                      <div class="checkbox-wrapper">
+                        <div class="checkbox-text">SEO</div>
+                        <div class="checkbox-input"></div>
+                        <input type="checkbox" name="SEO" aria-label="SEO" id="SEO" />
+                      </div>
+                      <div class="checkbox-wrapper">
+                        <div class="checkbox-text">Development</div>
+                        <div class="checkbox-input"></div>
+                        <input type="checkbox" name="Development" aria-label="Development" id="Development" />
+                      </div>
+                      <div class="checkbox-wrapper">
+                        <div class="checkbox-text">Other</div>
+                        <div class="checkbox-input"></div>
+                        <input type="checkbox" name="Other" aria-label="Other" id="Other" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field-box">
+                    <label class="field-label">Budget:</label><br />
+                    <div class="multicheck">
+                      <div class="radio-wrapper">
+                        <div class="radio-text">under $500</div>
+                        <input type="radio" name="priceGroup" aria-label="under $500" id="under-500" />
+                        <label for="under-500" class="radio-input"></label>
+                      </div>
+                      <div class="radio-wrapper">
+                        <div class="radio-text">$500-$2k</div>
+                        <input type="radio" name="priceGroup" aria-label="$500-$2k" id="500-2k" />
+                        <label for="500-2k" class="radio-input"></label>
+                      </div>
+                      <div class="radio-wrapper">
+                        <div class="radio-text">$2k- $5k</div>
+                        <input type="radio" name="priceGroup" aria-label="$2k- $5k" id="2-5k" />
+                        <label for="2-5k" class="radio-input"></label>
+                      </div>
+                      <div class="radio-wrapper">
+                        <div class="radio-text">Partnership</div>
+                        <input type="radio" name="priceGroup" aria-label="Partnership" id="4all" />
+                        <label for="4all" class="radio-input"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field-box">
+                    <label for="message" class="field-label">Message:</label><br /><textarea
+                      class="text-field text-area"
+                      placeholder="Enter message"
+                      id="message"
+                      name="message"
+                      required
+                      maxlength="400"
+                    ></textarea
+                    ><br />
+                  </div>
+                  <div class="submit-box">
+                    <input class="text-field" type="submit" value="Submit" />
+                    <div class="arrow-wrapper">
+                      <div class="arrow-submit">
+                        <svg role="button"><use xlink:href="#arrow-right"></use></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <label for="bait" class="field-label center bot-bait"
+                    ><i class="icon-info size-16" aria-hidden="true"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        class="align-middle"
+                      >
+                        <title>terms</title>
+                        <g fill="none">
+                          <path
+                            d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                            fill="#212121"
+                          ></path>
+                        </g>
+                      </svg> </i
+                    >By submitting this form you have agreed to our
+                    <a href="terms" class="website submit-info transit" aria-label="terms and services"
+                      >terms and services</a
+                    ></label
+                  ><br /><input name="bait" id="bait" style="display: none" />
+                </form>
+                <script></script>
+              </div>
+            </div>
+            <div class="socials-footer"></div>
+          </div>
+        </section>
+        <section class="footer white-section" id="footer" data-cursor="-inverse">
+          <div class="footer-right">
+            <span class="large-h">H</span> <span class="large-c">C <sup>◕</sup></span>
+          </div>
+          <div class="footer-left">
+            <div class="sitemap">
+              <div class="footer-map-header">SITEMAP</div>
+              <ul class="flexme">
+                <li><a href="home" class="footer-links transit" aria-label="home link">Home</a></li>
+                <li><a href="services" class="footer-links transit" aria-label="services link">Services</a></li>
+                <li><a href="works" class="footer-links transit" aria-label="works link">Works</a></li>
+                <li><a href="studio" class="footer-links transit" aria-label="works link">Studio</a></li>
+                <li><a href="contact" class="footer-links transit" aria-label="contact-link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="office">
+              <div class="footer-map-header">OFFICE</div>
+              <ul>
+                <li>Nairobi, Kenya<br />Moi avenue</li>
+                <li class="br"></li>
+                <li class="li">+254 706-676-569</li>
+              </ul>
+            </div>
+            <div class="footer-social">
+              <div class="footer-map-header">SOCIALS</div>
+              <ul class="flexme">
+                <li><a href="" aria-label="instagram" target="_blank" class="instagram transit">instagram</a></li>
+                <li><a href="" aria-label="linktree" target="_blank" class="linktree transit">linktree</a></li>
+                <li><a href="" aria-label="behance" target="_blank" class="behance transit">behance</a></li>
+                <li><a href="" aria-label="twitter" target="_blank" class="twitter transit">twitter</a></li>
+                <li><a href="" aria-label="github" target="_blank" class="github transit">github</a></li>
+              </ul>
+            </div>
+            <div class="legal">
+              <div class="footer-map-header">LEGAL</div>
+              <ul class="flexme">
+                <li><a href="" class="transit" aria-label="terms">Terms</a></li>
+                <li><a href="" class="transit" aria-label="cookies">cookies</a></li>
+                <li><a href="" class="transit" aria-label="Privacy policy">Privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-contact">
+              <div class="footer-map-header">CONTACT</div>
+              <ul>
+                <li>Hypercritical@info.com</li>
+                <li>+254 706-676-569</li>
+                <li>vickkietrake@gmail.com</li>
+              </ul>
+            </div>
+            <div class="footer-career">
+              <div class="footer-map-header">CAREER</div>
+              <ul>
+                <li>info@hypercritical.io</li>
+                <li>vickkie.github.io</li>
+              </ul>
             </div>
           </div>
-        </div>
-        <div class="socials-right">
-          <div class="all-social-wrapper">
-            <form id="consultationForm">
-              <div class="field-box">
-                <label for="yourname" class="field-label">Name:</label><br /><input
-                  class="text-field"
-                  id="yourname"
-                  name="yourname"
-                  placeholder="Enter your name"
-                  autocomplete="given-name"
-                  maxlength="35"
-                /><br />
+          <div class="footer-footer">
+            <div class="footer-footer-left">
+              <div>@2024 Hypercritical</div>
+              <div class="span">All rights Reserved</div>
+            </div>
+            <div class="footer-footer-right">
+              <div>
+                <a href="" aria-label="site by &copy;uzitrake" class="developer-portfolio transit" target="_blank"
+                  >site by &copy;uzitrake</a
+                >
               </div>
-              <div class="field-box">
-                <label for="email" class="field-label">Email:</label><br /><input
-                  class="text-field"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Enter email"
-                  required
-                  maxlength="50"
-                  autocomplete="off"
-                /><br />
-              </div>
-              <div class="field-box">
-                <label class="field-label">type of inquiry:</label>
-                <div class="multicheck">
-                  <div class="checkbox-wrapper">
-                    <div class="checkbox-text">Web Design</div>
-                    <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Web-Design" aria-label="Web-Design" id="Web-Design" />
-                  </div>
-                  <div class="checkbox-wrapper">
-                    <div class="checkbox-text">SEO</div>
-                    <div class="checkbox-input"></div>
-                    <input type="checkbox" name="SEO" aria-label="SEO" id="SEO" />
-                  </div>
-                  <div class="checkbox-wrapper">
-                    <div class="checkbox-text">Development</div>
-                    <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Development" aria-label="Development" id="Development" />
-                  </div>
-                  <div class="checkbox-wrapper">
-                    <div class="checkbox-text">Other</div>
-                    <div class="checkbox-input"></div>
-                    <input type="checkbox" name="Other" aria-label="Other" id="Other" />
-                  </div>
-                </div>
-              </div>
-              <div class="field-box">
-                <label class="field-label">Budget:</label><br />
-                <div class="multicheck">
-                  <div class="radio-wrapper">
-                    <div class="radio-text">under $500</div>
-                    <input type="radio" name="priceGroup" aria-label="under $500" id="under-500" />
-                    <label for="under-500" class="radio-input"></label>
-                  </div>
-                  <div class="radio-wrapper">
-                    <div class="radio-text">$500-$2k</div>
-                    <input type="radio" name="priceGroup" aria-label="$500-$2k" id="500-2k" />
-                    <label for="500-2k" class="radio-input"></label>
-                  </div>
-                  <div class="radio-wrapper">
-                    <div class="radio-text">$2k- $5k</div>
-                    <input type="radio" name="priceGroup" aria-label="$2k- $5k" id="2-5k" />
-                    <label for="2-5k" class="radio-input"></label>
-                  </div>
-                  <div class="radio-wrapper">
-                    <div class="radio-text">Partnership</div>
-                    <input type="radio" name="priceGroup" aria-label="Partnership" id="4all" />
-                    <label for="4all" class="radio-input"></label>
-                  </div>
-                </div>
-              </div>
-              <div class="field-box">
-                <label for="message" class="field-label">Message:</label><br /><textarea
-                  class="text-field text-area"
-                  placeholder="Enter message"
-                  id="message"
-                  name="message"
-                  required
-                  maxlength="400"
-                ></textarea
-                ><br />
-              </div>
-              <div class="submit-box">
-                <input class="text-field" type="submit" value="Submit" />
-                <div class="arrow-wrapper">
-                  <div class="arrow-submit">
-                    <svg role="button"><use xlink:href="#arrow-right"></use></svg>
-                  </div>
-                </div>
-              </div>
-              <label for="bait" class="field-label center bot-bait"
-                ><i class="icon-info size-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    class="align-middle"
-                  >
-                    <title>terms</title>
-                    <g fill="none">
-                      <path
-                        d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        fill="#212121"
-                      ></path>
-                    </g>
-                  </svg> </i
-                >By submitting this form you have agreed to our
-                <a href="terms" class="website submit-info transit" aria-label="terms and services"
-                  >terms and services</a
-                ></label
-              ><br /><input name="bait" id="bait" style="display: none" />
-            </form>
-            <script></script>
+              <div>back to top</div>
+            </div>
           </div>
-        </div>
-        <div class="socials-footer"></div>
+        </section>
       </div>
-    </section>
-    <section class="footer white-section" id="footer" data-cursor="-inverse">
-      <div class="footer-right">
-        <span class="large-h">H</span> <span class="large-c">C <sup>◕</sup></span>
-      </div>
-      <div class="footer-left">
-        <div class="sitemap">
-          <div class="footer-map-header">SITEMAP</div>
-          <ul class="flexme">
-            <li><a href="home" class="footer-links transit" aria-label="home link">Home</a></li>
-            <li><a href="services" class="footer-links transit" aria-label="services link">Services</a></li>
-            <li><a href="works" class="footer-links transit" aria-label="works link">Works</a></li>
-            <li><a href="studio" class="footer-links transit" aria-label="works link">Studio</a></li>
-            <li><a href="contact" class="footer-links transit" aria-label="contact-link">Contact</a></li>
-          </ul>
-        </div>
-        <div class="office">
-          <div class="footer-map-header">OFFICE</div>
-          <ul>
-            <li>Nairobi, Kenya<br />Moi avenue</li>
-            <li class="br"></li>
-            <li class="li">+254 706-676-569</li>
-          </ul>
-        </div>
-        <div class="footer-social">
-          <div class="footer-map-header">SOCIALS</div>
-          <ul class="flexme">
-            <li><a href="" aria-label="instagram" target="_blank" class="instagram transit">instagram</a></li>
-            <li><a href="" aria-label="linktree" target="_blank" class="linktree transit">linktree</a></li>
-            <li><a href="" aria-label="behance" target="_blank" class="behance transit">behance</a></li>
-            <li><a href="" aria-label="twitter" target="_blank" class="twitter transit">twitter</a></li>
-            <li><a href="" aria-label="github" target="_blank" class="github transit">github</a></li>
-          </ul>
-        </div>
-        <div class="legal">
-          <div class="footer-map-header">LEGAL</div>
-          <ul class="flexme">
-            <li><a href="" class="transit" aria-label="terms">Terms</a></li>
-            <li><a href="" class="transit" aria-label="cookies">cookies</a></li>
-            <li><a href="" class="transit" aria-label="Privacy policy">Privacy policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <div class="footer-map-header">CONTACT</div>
-          <ul>
-            <li>Hypercritical@info.com</li>
-            <li>+254 706-676-569</li>
-            <li>vickkietrake@gmail.com</li>
-          </ul>
-        </div>
-        <div class="footer-career">
-          <div class="footer-map-header">CAREER</div>
-          <ul>
-            <li>info@hypercritical.io</li>
-            <li>vickkie.github.io</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-footer">
-        <div class="footer-footer-left">
-          <div>@2024 Hypercritical</div>
-          <div class="span">All rights Reserved</div>
-        </div>
-        <div class="footer-footer-right">
-          <div>
-            <a href="" aria-label="site by &copy;uzitrake" class="developer-portfolio transit" target="_blank"
-              >site by &copy;uzitrake</a
-            >
-          </div>
-          <div>back to top</div>
-        </div>
-      </div>
-    </section>
+    </div>
     <a
       class="footer__link-top"
       id="toTop"
@@ -506,6 +511,12 @@
         /></svg
     ></a>
     <link href="css/mf.css" rel="stylesheet" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/scrolltrigger.js"></script>
+    <script src="js/split-text.js"></script>
+    <script src="js/Scroll-Smoother.js"></script>
+
     <script src="includes/transition.js"></script>
     <script src="includes/page-loader.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>

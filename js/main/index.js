@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //group 7 : animate divider lines using gsap and scrollTrigger
-// Group 5: Line Animation
+
 function lineTimeline(element) {
   const afterPseudotl = gsap.timeline({
     defaults: {

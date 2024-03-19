@@ -16,6 +16,8 @@ module.exports = {
     services: "./js/main/services.js", // contact js
     works: "./js/main/works.js", // works js
     studio: "./js/main/studio.js", // studio js
+    terms: "./js/main/terms.js",
+    privacy: "./js/main/privacy.js",
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
@@ -134,6 +136,30 @@ module.exports = {
       filename: "studio.html",
       inject: "body",
       chunks: ["studio", "partnerModal"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./terms.html",
+      filename: "terms.html",
+      inject: "body",
+      chunks: ["terms"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./privacy.html",
+      filename: "privacy.html",
+      inject: "body",
+      chunks: ["privacy"],
       minify: {
         collapseWhitespace: true,
         removeComments: true,

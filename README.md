@@ -1,3 +1,3 @@
 ## Hypercritical studio
 
-![HYpercritical-homedesign](https://github.com/vickkie/Hypercritical/assets/43224578/9704e639-0609-4477-973e-f467930c0285)
+![HYpercritical-homedesign](https://github.com/vickkie/Hypercritical/assets/43224578/f7175aa1-872b-4c9b-8d23-ead0cb8dbe94)

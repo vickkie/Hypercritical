@@ -1,5 +1,5 @@
 import MouseFollower from "mouse-follower";
-import Lenis from "@studio-freight/lenis";
+// import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
 //global
@@ -9,26 +9,13 @@ let selectAll = (e) => document.querySelectorAll(e);
 
 //   Group 0: smooth scroll
 
-let lenis = new Lenis({
-  duration: 3,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: "vertical",
-  gestureDirection: "vertical",
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-  autoResize: true,
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ScrollSmoother.create({
+  smooth: 1,
+  effects: true,
+  smoothTouch: 0.1,
 });
-
-lenis.on("scroll", (e) => {});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
 // Group 1: assign links
 
@@ -251,3 +238,99 @@ document.addEventListener("DOMContentLoaded", function () {
   cursor();
   window.addEventListener("res", cursor);
 });
+
+// Group 7: blur header
+
+let headertl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".socials-header",
+    start: "center top",
+  },
+});
+
+headertl.addLabel("start").fromTo(
+  ".nav",
+  {
+    backdropFilter: "blur(0px)",
+  },
+  {
+    backdropFilter: "blur(5px)",
+    duration: 0.2,
+    ease: "power3.out",
+  }
+);
+
+//Group 9: split using  gsap splitetext
+
+gsap.registerPlugin(SplitText);
+
+const herolargelogo = select(".heading-2.split-chars");
+let herotext = new SplitText(herolargelogo, { type: "chars", charsClass: "splitted" });
+
+let splittext = gsap.utils.toArray(".splitted");
+
+function animatehero() {
+  let herotl = gsap.timeline();
+  herotl
+    .addLabel("start")
+    .from(
+      splittext,
+      {
+        delay: 0.6,
+        duration: 1.2,
+        // ease: "power1.inOut",
+        y: 120,
+      },
+      "start"
+    )
+    .from(
+      ".get-in-touch",
+      {
+        y: "5%",
+        duration: 1.2,
+      },
+      "start"
+    );
+}
+
+function changeColors() {
+  let navtl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".footer",
+      start: "top top",
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  navtl
+    .addLabel("start")
+    .fromTo(
+      ".nav_logo_parent",
+      {
+        color: "var(--color-black)",
+      },
+      {
+        color: "var(--color-bg)",
+        duration: 0.1,
+        ease: "power4.out",
+      }
+    )
+    .fromTo(
+      ".est_nav svg",
+      {
+        fill: "var(--color-black)",
+      },
+      {
+        fill: "var(--color-bg)",
+        duration: 0.1,
+        ease: "power4.out",
+      }
+    );
+}
+
+window.onload = () => {
+  animatehero();
+  setTimeout(() => {
+    changeColors();
+  }, 4000);
+};

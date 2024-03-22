@@ -59,6 +59,22 @@ html::-webkit-scrollbar {
   width: 9px !important;
 }
 
+html#indexpage {
+  overflow-y: scroll !important;
+  overflow-x: hidden;
+}
+#indexpage .all-background {
+  background-color: var(--color-bg);
+  bottom: 0;
+  display: grid;
+  left: 0;
+  min-height: 100svh;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
 *::-webkit-scrollbar-thumb {
   border-radius: 99px !important;
   background-color: #5a5a5a !important;
@@ -432,8 +448,9 @@ a:focus-visible {
   }
 }
 .intro-studio {
-  font-family: var(--font-3);
+  font-family: var(--font-1);
   grid-area: intro-studio;
+  font-size: 1.2rem;
 }
 .morestudio a {
   border: 0.0058vw solid var(--color-black);

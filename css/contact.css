@@ -9,3 +9,26 @@
   content: "✺";
   font-size: 30px;
 }
+.nav {
+  bottom: auto;
+  left: 0;
+  position: fixed !important;
+  top: 0;
+  z-index: 200;
+  width: 100vw;
+}
+html {
+  overflow-y: scroll;
+}
+
+.all-background {
+  background-color: var(--color-bg);
+  display: grid;
+  min-height: 100svh;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 100vw;
+}

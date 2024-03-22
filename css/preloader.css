@@ -43,10 +43,15 @@ main.flex__col {
   transform-origin: top;
   width: 100vw;
   z-index: 100000;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 .intro__red {
   background: var(--p-black);
-  background-position: 50%;
+  /* background-position: 50%; */
+  /* backdrop-filter: blur(4px); */
+  /* background-color: #ffffff5c; */
   background-size: cover;
   bottom: 0;
   color: transparent;
@@ -61,24 +66,17 @@ main.flex__col {
   text-align: center;
   width: 100%;
   -webkit-text-stroke: 1px #fff;
-  transform: scaleY(0);
-  transform-origin: bottom;
+  transform-origin: top;
+  z-index: 1;
 }
-.intro__red div {
-  letter-spacing: -1vw;
-  transform: scaleX(0.5) scaleY(1.5);
-}
+
 @media (min-width: 1550px) {
   :root {
     --fontSizeMenu: 16px;
     --fontSizeP: 16px;
   }
 }
-@media (max-width: 1000px) {
-  .intro__red div {
-    transform: scaleY(4);
-  }
-}
+
 @media (max-width: 600px) {
   :root {
     --fontSizeMenu: 11px;
@@ -121,6 +119,8 @@ main.flex__col {
   grid-template-columns: repeat(3, 1fr);
   margin-top: 25px;
   width: 100%;
+  position: absolute;
+  z-index: 4;
 }
 .agency-box svg {
   grid-area: dot;
@@ -129,9 +129,19 @@ main.flex__col {
 }
 #loader1 {
   display: block;
+  background: var(--p-white);
+  grid-column: 1/2;
+  grid-row: 1/2;
+  z-index: 2;
+  transform-origin: top;
 }
 #loader2 {
   display: none;
+  background: var(--p-white);
+  grid-column: 1/2;
+  grid-row: 1/2;
+  z-index: 3;
+  transform-origin: top;
 }
 .prelogo {
   font-size: 18px;
@@ -139,6 +149,7 @@ main.flex__col {
   text-align: center;
   top: 10%;
   width: 100%;
+  z-index: 4;
 }
 .preloader__status-loader {
   bottom: 0;

@@ -353,6 +353,19 @@ a:focus-visible {
   position: relative;
 }
 @media screen and (max-width: 767px) {
+  .hero-image {
+    height: 50vh;
+  }
+
+  .parallax-me-image {
+    width: 200%;
+    position: relative;
+    left: -50%;
+  }
+  .hero-largelogo {
+    font-size: 8vw;
+  }
+
   .nav_grid {
     grid-template-columns: 1fr 25px 1fr;
   }
@@ -696,6 +709,7 @@ details[open] .accordion-icon:after {
 .parallax-image {
   will-change: transform;
 }
+
 .top-background {
   display: grid;
   grid-template-areas: "... " "video-overlay" "video-footer";

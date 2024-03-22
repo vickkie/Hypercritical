@@ -72,6 +72,47 @@ new Promise((resolve, reject) => {
     console.error("Failed to load configuration or assign links:", error);
   });
 
+//Assign data inside
+
+function assignExp(config) {
+  for (const key in config) {
+    if (config.hasOwnProperty(key)) {
+      const elements = selectAll(key);
+      elements.forEach((element) => {
+        if (element) {
+          element.innerHTML = config[key];
+        } else {
+          console.error(`Elements matching selector ${key} not found.`);
+        }
+      });
+    }
+  }
+}
+
+new Promise((resolve, reject) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("includes/config-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        assignExp(data);
+        console.log(data);
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error loading config:", error);
+        reject(error); // Reject the promise if there's an error`
+      });
+  });
+})
+  .then(() => {
+    // console.log("Configuration loaded and links assigned.");
+  })
+  .catch((error) => {
+    console.error("Failed to load configuration or assign links:", error);
+  });
+
+assignExp();
+
 // Group 3: Line Animation
 function lineTimeline(element) {
   const afterPseudotl = gsap.timeline({

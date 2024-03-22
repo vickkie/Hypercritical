@@ -360,7 +360,7 @@ tileButtons.forEach((button, i) => {
           scale: 1,
           onComplete: () => {
             killLenis();
-            console.log(`killed lenis${i}`);
+            // console.log(`killed lenis${i}`);
           },
         },
         "start"

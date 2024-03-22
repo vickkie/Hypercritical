@@ -1,3 +1,13 @@
+/**
+ * Magnetic Effect Plugin
+ * Author: Uzitrake
+ * Studio: Hypercritical Studio
+ * Date: january 2024
+ * Description: This plugin creates a magnetic effect on elements within a parent container.
+ * It uses jQuery for DOM manipulation and GSAP for animations.
+ * Dependencies: jQuery, GSAP
+ */
+
 (function ($) {
   function Magnetic(el, parent, options) {
     this.el = $(el);

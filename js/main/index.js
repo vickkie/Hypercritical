@@ -213,24 +213,28 @@ function initParallax() {
   let slideId = 0;
   slides.forEach((slide, i) => {
     let imageWrapper = slide.querySelector(".parallax-image");
-
-    gsap.fromTo(
-      imageWrapper,
-      {
-        y: "-60vh",
-      },
-      {
-        y: "60vh",
-        scrollTrigger: {
-          trigger: slide,
-          scrub: true,
-          start: "top bottom", // position of trigger meets the scroller position
-          end: "bottom top",
-          markers: !1,
+    function heroParallax() {
+      gsap.fromTo(
+        imageWrapper,
+        {
+          y: innerWidth > 767 ? "-60vh" : "-30vh",
         },
-        ease: "none",
-      }
-    );
+        {
+          y: innerWidth > 767 ? "60vh" : "30vh",
+          scrollTrigger: {
+            trigger: slide,
+            scrub: true,
+            start: "top bottom", // position of trigger meets the scroller position
+            end: "bottom top",
+            markers: !1,
+          },
+          ease: "none",
+        }
+      );
+    }
+
+    heroParallax();
+    window.addEventListener("resize", heroParallax);
   });
 }
 

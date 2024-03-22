@@ -95,7 +95,6 @@ new Promise((resolve, reject) => {
       .then((response) => response.json())
       .then((data) => {
         assignExp(data);
-        console.log(data);
         resolve();
       })
       .catch((error) => {

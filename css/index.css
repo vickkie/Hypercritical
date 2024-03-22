@@ -441,6 +441,12 @@ a:focus-visible {
   width: 80%;
 }
 @media screen and (min-width: 768px) {
+  .parallax-me-image {
+    height: 100%;
+  }
+  .parallax-hero {
+    height: 130vh;
+  }
   .intro-footer {
     display: grid;
     grid-area: introfooter;
@@ -1237,10 +1243,7 @@ input[type="radio"]:checked + .radio-input {
   color: var(--color-bg);
   transition-delay: 0.7s;
 }
-.submit-box:hover .arrow-submit svg {
-  fill: var(--color-bg);
-  transition-delay: 0.45s;
-}
+
 .submit-box .text-field {
   border-bottom: none !important;
   cursor: pointer;
@@ -1249,6 +1252,7 @@ input[type="radio"]:checked + .radio-input {
   text-align: left;
   width: 100%;
   z-index: 3;
+  height: 100%;
 }
 .bot-bait {
   padding: 17px 0;
@@ -1258,6 +1262,10 @@ input[type="radio"]:checked + .radio-input {
 }
 .arrow-wrapper {
   z-index: 3;
+}
+
+.arrow-submit {
+  rotate: 180deg;
 }
 .arrow-submit svg {
   height: 39px;
@@ -1552,29 +1560,6 @@ input[type="radio"]:checked + .radio-input {
   overflow: hidden;
 }
 
-/* <!--lenis--> */
-
-/* html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-} */
-
 html {
   scroll-behavior: auto;
 }
@@ -1603,5 +1588,15 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 9px;
+  }
+}
+
+@media screen and (min-width: 1660px) {
+  :root,
+  html {
+    font-size: 1.4vw;
+  }
+  .introduction {
+    grid-template-rows: auto !important;
   }
 }

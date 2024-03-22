@@ -493,6 +493,9 @@ figure {
   .marquee svg {
     width: var(--size-small);
   }
+  .language-expla {
+    font-size: 1.02rem !important;
+  }
   .service-main {
     background-color: var(--color-bg);
     display: grid;
@@ -813,6 +816,10 @@ figure {
     font-size: 1.2rem;
     font-family: var(--font-1);
   }
+  .language-expla {
+    font-size: 1.32rem;
+    padding: 0 15px;
+  }
 }
 .bottom-exit {
   display: grid;
@@ -832,4 +839,5 @@ figure {
 }
 .scroll-service-down span {
   width: fit-content;
+  text-align: center;
 }

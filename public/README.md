@@ -1,2 +1,3 @@
 ## Hypercritical studio
-![Hypercritical-✦-Studio (1)](https://github.com/vickkie/Hypercritical/assets/43224578/ec03f4af-18c2-41a3-b88c-c903e0ad28df)
+
+![HYpercritical-homedesign](https://github.com/vickkie/Hypercritical/assets/43224578/f7175aa1-872b-4c9b-8d23-ead0cb8dbe94)

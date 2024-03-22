@@ -1,6 +1,5 @@
 //Imports modules in file
 import MouseFollower from "mouse-follower";
-import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
 import lozad from "lozad";
@@ -126,26 +125,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //group 4: smooth scrolling
 
-const lenis = new Lenis({
-  duration: 3,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: "vertical",
-  gestureDirection: "vertical",
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-  autoResize: true,
-});
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-lenis.on("scroll", (e) => {});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+function smoother() {
+  ScrollSmoother.create({
+    smooth: 1,
+    effects: true,
+    smoothTouch: 0.1,
+  });
 }
 
-requestAnimationFrame(raf);
+if (window.innerWidth > 767) {
+  smoother();
+}
+
+window.addEventListener("resize", smoother);
 
 //Group 5: Animating into into place
 

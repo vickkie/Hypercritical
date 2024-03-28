@@ -440,10 +440,8 @@ a:focus-visible {
   font-family: var(--font-3);
   width: 80%;
 }
+
 @media screen and (min-width: 768px) {
-  .parallax-me-image {
-    height: 100%;
-  }
   .parallax-hero {
     height: 130vh;
   }
@@ -1604,4 +1602,14 @@ html {
 
 .tidio-5hhiig {
   display: none !important;
+}
+@media screen and (min-width: 1024px) {
+  .parallax-me-image {
+    height: 110%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .parallax-me-image {
+    height: 85%;
+  }
 }

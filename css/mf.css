@@ -143,7 +143,7 @@
 }
 .mf-cursor.-text:before {
   opacity: 1;
-  transform: scale(1.7);
+  transform: scale(5.7);
 }
 .mf-cursor.-text.-active:before {
   transform: scale(1.6);

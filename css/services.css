@@ -8,6 +8,10 @@
   min-height: 100vh;
   overflow: hidden;
 }
+.animate {
+  overflow: hidden;
+  line-height: 1;
+}
 
 .inner-service2:nth-last-of-type(3):before {
   background-image: url(../assets/images/0775-1.webp);

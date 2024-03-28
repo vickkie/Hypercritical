@@ -12,7 +12,7 @@ while True:
 
     # Save the frame as a WebP image
     frame_filename = f'{frame_count:04d}.webp'
-    cv2.imwrite(frame_filename, frame, [cv2.IMWRITE_WEBP_QUALITY, 100])  #  WebP quality (0-100)
+    cv2.imwrite(frame_filename, frame, [cv2.IMWRITE_WEBP_QUALITY, 100])  # Set WebP quality (0-100)
 
     frame_count += 1
 

@@ -328,6 +328,31 @@ function changeColors() {
     );
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  setInterval(() => {
+    let chatIframe = document.getElementById("tidio-chat-iframe");
+    let chatIframeid = chatIframe ? chatIframe.id : null;
+
+    if (chatIframe) {
+      function hideShit() {
+        const chatWindow = chatIframe.contentWindow;
+        const iframeDocument = chatWindow.document;
+
+        let blockLink = iframeDocument.querySelector(".tidio-5hhiig");
+
+        if (blockLink) {
+          blockLink.style.display = "none";
+        } else {
+          // console.log("block link not found");
+        }
+      }
+      hideShit();
+    } else {
+      // console.log("chat button not found");
+    }
+  }, 1000);
+});
+
 window.onload = () => {
   animatehero();
   setTimeout(() => {

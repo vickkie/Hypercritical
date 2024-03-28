@@ -299,3 +299,38 @@ new Promise((resolve, reject) => {
   .catch((error) => {
     console.error("Failed to load configuration or assign links:", error);
   });
+
+//Group 9: Lets scan document page
+
+let rightScan = select(".right-scan");
+let leftScan = select(".left-scan");
+
+function animatehero() {
+  let scantl = gsap.timeline();
+  scantl
+    .addLabel("start")
+    .from(
+      rightScan,
+      {
+        delay: 0.6,
+        duration: 2,
+        // ease: "power1.inOut",
+        x: 100,
+      },
+      "start"
+    )
+    .from(
+      leftScan,
+      {
+        delay: 0.6,
+        duration: 2,
+        // ease: "power1.inOut",
+        x: -100,
+      },
+      "start"
+    );
+}
+
+window.onload = () => {
+  animatehero();
+};

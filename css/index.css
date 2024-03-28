@@ -1056,6 +1056,7 @@ details[open] .accordion-icon:after {
 }
 .heading-2 {
   font-size: var(--mid-font);
+  cursor: pointer;
 }
 .socials-left {
   grid-area: socials-left;

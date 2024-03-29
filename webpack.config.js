@@ -18,6 +18,7 @@ module.exports = {
     studio: "./js/main/studio.js", // studio js
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
+    process: "./js/main/process.js",
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
@@ -160,6 +161,18 @@ module.exports = {
       filename: "privacy.html",
       inject: "body",
       chunks: ["privacy"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./process.html",
+      filename: "process.html",
+      inject: "body",
+      chunks: ["process"],
       minify: {
         collapseWhitespace: true,
         removeComments: true,

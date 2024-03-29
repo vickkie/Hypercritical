@@ -229,9 +229,25 @@ document.addEventListener("DOMContentLoaded", () => {
   var arrowpath = select(".top-arrow-path");
   var menuName = select(".menu-name");
   var menuDotline = selectAll(".menu-dot-line");
+  let navBelowline = select(".nav .below-line");
+  let mainloogo = select(".nav_logo_parent");
+  let midloogo = select(".est_nav");
 
   function makedark() {
     arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
+
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
+  }
+
+  function makedarker() {
+    arrowpath.style.stroke = "var(--color-black)";
+    midloogo.style.fill = "var(--color-black)";
+    navBelowline.style.background = "var(--color-black)";
+    mainloogo.style.color = "var(--color-black)";
     arrowWrapper.style.fill = "var(--color-black)";
     menuDotline.forEach((menuDotline) => {
       menuDotline.style.background = "var(--color-black)";
@@ -240,8 +256,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function makewhite() {
-    arrowpath.style.stroke = "var(--color-black)";
-    arrowWrapper.style.fill = "var(--color-bg)";
+    midloogo.style.fill = "var(--color-bg)";
+    navBelowline.style.background = "var(--color-bg)";
+    mainloogo.style.color = "var(--color-bg)";
     menuDotline.forEach((menuDotline) => {
       menuDotline.style.background = "var(--color-bg)";
     });
@@ -256,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrollPosition < 1.0 * window.innerHeight) {
       makewhite();
     } else if (scrollPosition >= 1.0 * window.innerHeight && scrollPosition < 1.8 * window.innerHeight) {
-      makedark();
+      makedarker();
     }
   }
 
@@ -273,11 +290,11 @@ document.addEventListener("DOMContentLoaded", () => {
         endtrigger: darkSection,
         end: "bottom bottom",
         scrub: true,
-        markers: !true,
-        onEnter: () => makewhite(),
-        onLeave: () => makedark(),
-        onEnterBack: () => makewhite(),
-        onLeaveBack: () => makedark(),
+        markers: true,
+        onEnter: () => makedark(),
+        onLeave: () => makewhite(),
+        onEnterBack: () => makedark(),
+        onLeaveBack: () => makewhite(),
       },
     });
   });

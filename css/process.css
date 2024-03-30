@@ -121,6 +121,11 @@ html {
   display: inline-flex;
   gap: 12px;
   align-items: center;
+  transform: translateX(0);
+  transition: transform 1s ease-in-out;
+}
+.process-a:hover .process-svg {
+  transform: translateX(-15px);
 }
 
 .collab {
@@ -196,7 +201,7 @@ html {
   grid-area: process-explain-head;
   padding: 30px 0;
   margin-bottom: 60px;
-  border-bottom: solid 1px var(--color-bg);
+  position: relative;
 }
 
 .details-content span {
@@ -435,5 +440,40 @@ summary {
   .service-contact {
     cursor: pointer;
     justify-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services-process {
+    grid-template-areas: "service-process" " service-itself";
+  }
+  .principle-body,
+  .services-process {
+    grid-template-columns: 1fr;
+  }
+  .service-list {
+    padding: 0;
+  }
+  .col__content-txt {
+    margin-left: 0 !important;
+  }
+  .process-footer {
+    align-items: center;
+    display: grid;
+    font-family: var(--font-1);
+    grid-template-areas:
+      "empower-head "
+      "right-colab";
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 1fr;
+    height: 100%;
+    justify-content: start;
+    padding-top: 30px;
+    width: 100%;
+  }
+  .bottom-process,
+  .top-process {
+    font-size: calc(3vw + 21px);
+    text-align: center;
   }
 }

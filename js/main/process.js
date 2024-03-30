@@ -1,8 +1,21 @@
 import MouseFollower from "mouse-follower";
+import lozad from "lozad";
 
 //global
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
+
+// Group 0: lazyload lodash
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = lozad(".lozad", {
+    rootMargin: "100px 0px",
+    loaded: function (el) {
+      // console.log("Element loaded:", el);
+    },
+  });
+  observer.observe();
+});
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -270,9 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function maintainWhite() {
     let scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollPosition < 1.0 * window.innerHeight) {
+    if (scrollPosition < 0.8 * window.innerHeight) {
       makewhite();
-    } else if (scrollPosition >= 1.0 * window.innerHeight && scrollPosition < 1.8 * window.innerHeight) {
+    } else if (scrollPosition >= 0.8 * window.innerHeight && scrollPosition < 1.8 * window.innerHeight) {
       makedarker();
     }
   }
@@ -290,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
         endtrigger: darkSection,
         end: "bottom bottom",
         scrub: true,
-        markers: true,
+        markers: !true,
         onEnter: () => makedark(),
         onLeave: () => makewhite(),
         onEnterBack: () => makedark(),
@@ -304,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initParallax() {
   let slides = selectAll(".slide");
-  let slideId = 0;
+
   slides.forEach((slide, i) => {
     let imageWrapper = slide.querySelector(".parallax-process");
     function heroParallax() {
@@ -329,10 +342,6 @@ function initParallax() {
     heroParallax();
   });
 }
-
-window.onload = () => {
-  initParallax();
-};
 
 //Group 10: control opening and closing of accordion
 
@@ -397,3 +406,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//Group 11: SplitText
+
+gsap.registerPlugin(SplitText);
+
+const splitchars = selectAll(".split-chars");
+
+splitchars.forEach((splitchar) => {
+  new SplitText(splitchar, {
+    type: "words",
+    wordsClass: "otherchars",
+  });
+});
+
+let herowords = selectAll(".otherchars");
+let navBelowline = selectAll(".nav .below-line");
+
+const showHero = () => {
+  gsap
+    .timeline({ defaults: { ease: "expo.out", delay: 0.1 } })
+    .set(splitchars, { overflow: "hidden" })
+    .addLabel("start")
+    .fromTo(
+      navBelowline,
+      { width: 0 },
+      {
+        duration: 1.75,
+        width: "100%",
+        stagger: 0.095,
+      },
+      "start"
+    )
+    .fromTo(
+      herowords,
+      { y: "102%" },
+
+      {
+        duration: 2.3,
+        y: "0",
+        ease: "power2.inOut",
+      },
+      "start+=0.28"
+    );
+};
+
+window.onload = () => {
+  showHero();
+  initParallax();
+};

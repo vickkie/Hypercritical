@@ -474,6 +474,6 @@ summary {
   .bottom-process,
   .top-process {
     font-size: calc(3vw + 21px);
-    text-align: center;
+    /* text-align: center; */
   }
 }

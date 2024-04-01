@@ -460,6 +460,10 @@ body {
   height: auto;
   width: 100%;
 }
+.yearnow {
+  color: var(--color-bg);
+  font-size: 2rem;
+}
 @media screen and (max-width: 767px) {
   .action--menuUzi {
     pointer-events: auto;
@@ -467,8 +471,17 @@ body {
     right: 0.5rem;
     top: 1.3rem;
   }
-}
-.yearnow {
-  color: var(--color-bg);
-  font-size: 2rem;
+  .menuUzi {
+    grid-template-rows: 65% 35% !important;
+  }
+  .mainmenuUzi__item,
+  .sidemenuUzi__item {
+    margin: 0.45rem 0 !important;
+  }
+  .menuUzi__item--2 {
+    display: none;
+  }
+  .action--close {
+    right: 0.5rem !important;
+  }
 }

@@ -425,19 +425,9 @@ let navBelowline = selectAll(".nav .below-line");
 
 const showHero = () => {
   gsap
-    .timeline({ defaults: { ease: "expo.out", delay: 0.1 } })
+    .timeline({ defaults: { ease: "expo.out", delay: 0 } })
     .set(splitchars, { overflow: "hidden" })
     .addLabel("start")
-    .fromTo(
-      navBelowline,
-      { width: 0 },
-      {
-        duration: 1.75,
-        width: "100%",
-        stagger: 0.095,
-      },
-      "start"
-    )
     .fromTo(
       herowords,
       { y: "102%" },
@@ -447,7 +437,7 @@ const showHero = () => {
         y: "0",
         ease: "power2.inOut",
       },
-      "start+=0.28"
+      "start+=0"
     );
 };
 

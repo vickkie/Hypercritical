@@ -18,15 +18,31 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // Animate the transition-in element
-    gsap.to(
-      ".transition-in",
-      {
-        scaleY: 1,
-        duration: 1.1, // Adjusted duration to match the timeline
-        ease: "power2.inOut", // Added ease for consistency
-      },
-      "start+=1.0"
-    );
+
+    if (document.querySelector(".transition-in")) {
+      gsap.to(
+        ".transition-in",
+        {
+          scaleY: 1,
+          duration: 1.1, // Adjusted duration to match the timeline
+          ease: "power2.inOut", // Added ease for consistency
+        },
+        "start+=1.0"
+      );
+    } else {
+      //escape the loop if not found
+
+      gsap.to(
+        ".transition-out",
+        {
+          scaleY: 0,
+          duration: 1.1, // Adjusted duration to match the timeline
+          ease: "power2.inOut", // Added ease for consistency
+        },
+        "start+=1.0"
+      );
+      console.warn("transition not found");
+    }
   }
 
   let allLinks = document.querySelectorAll(".transit");

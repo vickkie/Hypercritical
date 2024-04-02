@@ -317,7 +317,7 @@ let maintl = gsap.timeline({
     start: "top top",
     end: "bottom bottom",
     scrub: true,
-    markers: true,
+    markers: !1,
     toggleActions: "play none none reverse",
   },
 });

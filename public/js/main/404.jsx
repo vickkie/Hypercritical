@@ -10,7 +10,7 @@ const NotFound = () => {
           <div className="tr__page404__lion"></div>
           <span>4</span>
         </h1>
-        <p className="delay">Page not found. You are lost in Kenyan jungle.</p>
+        <p className="delay">Page not found. You are lost in the Kenyan jungle.</p>
         <br />
         <br />
         <a href="index" className="prj_btn" style={{ width: "fit-content", gap: "10px" }}>

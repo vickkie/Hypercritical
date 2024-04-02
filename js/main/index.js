@@ -343,14 +343,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Group 10: control opening and closing of accordion
 
-const accordionItems = selectAll("details");
+//Group 10: control opening and closing of accordion
 
-accordionItems.forEach((accordionItem) => {
-  accordionItem.addEventListener("click", (event) => {
-    accordionItems.forEach((sibling) => {
-      if (sibling != accordionItem) {
-        sibling.removeAttribute("open");
+document.addEventListener("DOMContentLoaded", function () {
+  const detailsElements = document.querySelectorAll(".col__content-txt");
+
+  detailsElements.forEach((details) => {
+    const content = details.querySelector(".details-content");
+    const summary = details.querySelector("summary");
+
+    // Initially hide the content
+    gsap.set(content, { height: 0, overflow: "hidden" });
+
+    function openDetails() {
+      // Calculate the height of the content
+      const height = content.scrollHeight;
+
+      details.setAttribute("open", "");
+      gsap.fromTo(
+        content,
+        { height: 0 },
+        {
+          height: height,
+          duration: 0.5,
+        }
+      );
+    }
+
+    function closeDetails() {
+      // Animate back to height 0
+      gsap.to(content, {
+        height: 0,
+        duration: 0.5,
+        onComplete: () => {
+          details.removeAttribute("open");
+        },
+      });
+    }
+
+    // Event listener for the summary click
+    summary.addEventListener("click", function (event) {
+      if (details.hasAttribute("open")) {
+        // If the details are open, close them
+        closeDetails();
+      } else {
+        openDetails();
       }
+
+      // Prevent the default action to avoid the default toggle behavior
+      event.preventDefault();
+    });
+  });
+
+  const accordionItems = document.querySelectorAll("details");
+  accordionItems.forEach((accordionItem) => {
+    accordionItem.addEventListener("click", (event) => {
+      accordionItems.forEach((sibling) => {
+        if (sibling != accordionItem) {
+          sibling.removeAttribute("open");
+        }
+      });
     });
   });
 });
@@ -358,15 +410,17 @@ accordionItems.forEach((accordionItem) => {
 // Group 11: elephant fun mouse
 
 let elephant = select(".c-elephant_himself");
-// let elephant_wrapper = select(".c-elephant_himself_wrap");
 let elephant_wrapper = select(".elephant-boundary");
-elephant_wrapper.addEventListener("mouseenter", () => {
-  const elephantcursor = new MouseFollower({
-    el: elephant,
-    container: elephant_wrapper,
-    speed: 22.5,
-  });
+// elephant_wrapper.addEventListener("mouseenter", () => {
+
+const elephantcursor = new MouseFollower({
+  el: elephant,
+  container: elephant_wrapper,
+  speed: 22.5,
+  hideTimeout: 30000,
 });
+
+// });
 
 let peanutWrapper = select(".ourservices");
 const peanutcursor = new MouseFollower();

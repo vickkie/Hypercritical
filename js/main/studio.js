@@ -1,5 +1,5 @@
 import MouseFollower from "mouse-follower";
-import Lenis from "@studio-freight/lenis";
+// import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
 import Swiper from "swiper";
@@ -25,26 +25,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //   Group 1: smooth scroll
 
-let lenis = new Lenis({
-  duration: 3,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: "vertical",
-  gestureDirection: "vertical",
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-  autoResize: true,
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ScrollSmoother.create({
+  smooth: 1,
+  effects: true,
+  smoothTouch: 0.1,
 });
 
-lenis.on("scroll", (e) => {});
+// let lenis = new Lenis({
+//   duration: 3,
+//   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//   direction: "vertical",
+//   gestureDirection: "vertical",
+//   smooth: true,
+//   smoothTouch: false,
+//   touchMultiplier: 2,
+//   infinite: false,
+//   autoResize: true,
+// });
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
+// lenis.on("scroll", (e) => {});
 
-requestAnimationFrame(raf);
+// function raf(time) {
+//   lenis.raf(time);
+//   requestAnimationFrame(raf);
+// }
+
+// requestAnimationFrame(raf);
 
 //group 2: show and hide the scroll top button and scroll to top
 
@@ -303,22 +311,21 @@ swiperSlides.forEach(function (slide) {
 
 gsap.registerPlugin(ScrollTrigger);
 
-let maintl = gsap.timeline();
+let maintl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    markers: true,
+    toggleActions: "play none none reverse",
+  },
+});
 
 maintl.to("main", {
   margin: 0,
   ease: "none",
   borderRadius: 0,
-});
-
-ScrollTrigger.create({
-  animation: maintl,
-  trigger: ".footer",
-  start: "top top",
-  end: "bottom bottom",
-  scrub: true,
-  markers: !true,
-  toggleActions: "play none none reverse",
 });
 
 //Group 11: partners modal

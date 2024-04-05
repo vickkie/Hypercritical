@@ -22,7 +22,7 @@
  },
  "devDependencies": {
   "@babel/core": "^7.24.0",
-  "@babel/preset-env": "^7.24.0",
+  "@babel/preset-env": "^7.24.4",
   "@babel/preset-react": "^7.23.3",
   "@types/gsap": "^3.0.0",
   "@types/lozad": "^1.16.4",

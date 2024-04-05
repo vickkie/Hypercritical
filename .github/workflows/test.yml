@@ -1,0 +1,14 @@
+name: Test Dependabot Updates
+on:
+   pull_request:
+     branches: [ main ]
+     types: [opened, synchronize]
+jobs:
+   test:
+     runs-on: ubuntu-latest
+     steps:
+     - uses: actions/checkout@v2
+     - name: Install Dependencies
+       run: npm ci
+     - name: Run Tests
+       run: npm test

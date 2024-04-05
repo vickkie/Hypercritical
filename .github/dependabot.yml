@@ -10,4 +10,4 @@ updates:
     open-pull-requests-limit: 2
     ignore:
       - dependency-name: "@builder.io/partytown"
-        versions: ["^1.x"]
+        versions: ["^0.10.x"]

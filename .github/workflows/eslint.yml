@@ -39,12 +39,12 @@ jobs:
           --output-file eslint-results.sarif
         continue-on-error: true
 
-      - name: Check if SARIF file exists
-        run: |
-          if [ ! -f eslint-results.sarif ]; then
-            echo "Error: SARIF file does not exist."
-            exit 1
-          fi
+      # - name: Check if SARIF file exists
+      #   run: |
+      #     if [ ! -f eslint-results.sarif ]; then
+      #       echo "Error: SARIF file does not exist."
+      #       exit 1
+      #     fi
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3

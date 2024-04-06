@@ -1,0 +1,1 @@
+const lerp=(t,e,o)=>(1-o)*t+o*e,getMousePos=t=>({x:t.clientX,y:t.clientY}),getRandomString=t=>{let e="",o="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(let r=0;r<t;r++)e+=o.charAt(Math.floor(62*Math.random()));return e};export{lerp,getMousePos,getRandomString};

@@ -23,9 +23,6 @@ module.exports = {
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
   },
-  resolve: {
-    extensions: [".tsx", ".ts", ".jsx"],
-  },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js
     path: path.resolve(__dirname, "public"),
@@ -52,6 +49,9 @@ module.exports = {
         exclude: /node_modules/,
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
   optimization: {
     minimize: true,

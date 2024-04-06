@@ -23,6 +23,9 @@ module.exports = {
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx"],
+  },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js
     path: path.resolve(__dirname, "public"),
@@ -42,6 +45,11 @@ module.exports = {
             presets: ["@babel/preset-react"], // Add this line
           },
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },

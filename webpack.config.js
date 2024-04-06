@@ -13,10 +13,10 @@ module.exports = {
   mode: "production",
   entry: {
     main: "./js/main/index.js",
-    contact: "./js/main/contact.js", // contact js
-    services: "./js/main/services.js", // contact js
-    works: "./js/main/works.js", // works js
-    studio: "./js/main/studio.js", // studio js
+    contact: "./js/main/contact.js",
+    services: "./js/main/services.js",
+    works: "./js/main/works.js",
+    studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
     process: "./js/main/process.js",

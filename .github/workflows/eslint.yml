@@ -1,4 +1,3 @@
-
 # ESLint is a tool for identifying and reporting on patterns
 # found in ECMAScript/JavaScript code.
 # More details at https://github.com/eslint/eslint
@@ -7,16 +6,16 @@
 name: ESLint
 
 on:
-  push:
+ push:
     branches: [ "main" ]
-  pull_request:
+ pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
-  schedule:
+ schedule:
     - cron: '13 13 * * 6'
 
 jobs:
-  eslint:
+ eslint:
     name: Run eslint scanning
     runs-on: ubuntu-latest
     permissions:
@@ -37,11 +36,18 @@ jobs:
           --config .eslintrc.js \
           --ext .js,.jsx,.ts,.tsx \
           --format @microsoft/eslint-formatter-sarif \
-          --output-file eslint-results.sarif 
+          --output-file eslint-results.sarif
         continue-on-error: true
 
+      - name: Check if SARIF file exists
+        run: |
+          if [ ! -f eslint-results.sarif ]; then
+            echo "Error: SARIF file does not exist."
+            exit 1
+          fi
+
       - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true

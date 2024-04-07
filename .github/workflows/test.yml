@@ -1,8 +1,16 @@
-name: Test Dependabot Updates
+name: Dependabot Tests
+
 on:
   pull_request:
-    branches: [main]
+    branches: [main] # Adjust this to match your default branch
     types: [opened, synchronize]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "yarn.lock" # If you use Yarn
+      # This condition checks if the PR is created by Dependabot
+      - "**/dependabot/**"
+
 jobs:
   test:
     runs-on: ubuntu-latest

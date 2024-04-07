@@ -1,14 +1,24 @@
 name: Test Dependabot Updates
 on:
-   pull_request:
-     branches: [ main ]
-     types: [opened, synchronize]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 jobs:
-   test:
-     runs-on: ubuntu-latest
-     steps:
-     - uses: actions/checkout@v2
-     - name: Install Dependencies
-       run: npm ci
-     - name: Run Tests
-       run: npm test
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test

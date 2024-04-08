@@ -15,7 +15,7 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["./jest.setup.js"],
 
   // The test environment that will be used for testing
   testEnvironment: "node",

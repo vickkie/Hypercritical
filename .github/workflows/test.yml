@@ -1,21 +1,48 @@
 name: Dependabot Tests
 
 on:
-  pull_request:
-    branches: [main] # Adjust this to match your default branch
+ pull_request:
+    branches: [main]
     types: [opened, synchronize]
     paths:
       - "package.json"
       - "package-lock.json"
-      - "yarn.lock" # If you use Yarn
-      # This condition checks if the PR is created by Dependabot
-      - "**/dependabot/**"
+      - "yarn.lock"
+      - "src/**"
+    paths-ignore:
+      - '**/node_modules/**'
+      - '**/dist/**'
+      - '**/build/**'
 
 jobs:
-  test:
+ test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
     steps:
       - uses: actions/checkout@v2
+
+      - name: Label Dependabot PRs
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr_number = context.issue.number;
+            const pr = await github.pulls.get({ owner, repo, pull_number });
+            if (pr.data.user.login === 'dependabot[bot]') {
+              await github.issues.addLabels({
+                owner,
+                repo,
+                issue_number: pr_number,
+                labels: ['dependencies']
+              });
+            }
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Cache Node.js modules
         uses: actions/cache@v2
@@ -30,3 +57,31 @@ jobs:
 
       - name: Run Tests
         run: npm test
+
+      - name: Comment on failed tests
+        if: failure()
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const message = 'Tests failed! Please check the logs for more details.';
+            await github.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: message
+            });
+
+      - name: Run npm audit
+        run: npm audit
+
+      - name: Rebase and merge
+        if: success()
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr_number = context.issue.number;
+            await github.pulls.rebase({ owner, repo, pull_number });
+            await github.pulls.merge({ owner, repo, pull_number });

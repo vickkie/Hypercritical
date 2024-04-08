@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "13:00"
+      timezone: "Africa/Nairobi"
+    open-pull-requests-limit: 6
+    ignore:
+      - dependency-name: "@builder.io/partytown"
+        versions: ["^0.10.x"]

@@ -21,8 +21,9 @@ jobs:
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.TEST_KEY }}
-          console.log(`Pull Request Number: ${context.issue.number}`);
           script: |
+            const core = require('@actions/core')
+            core.debug(`Pull Request Number: ${context.issue.number}`);
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
             const pr = await github.rest.pulls.get({ owner, repo });

@@ -7,7 +7,7 @@ updates:
       day: "saturday"
       time: "13:00"
       timezone: "Africa/Nairobi"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
       - dependency-name: "@builder.io/partytown"
         versions: ["^0.10.x"]

@@ -60,7 +60,7 @@ jobs:
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const message = 'Tests failed! Please check the logs for more details.';
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
@@ -90,7 +90,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
             if (pr.data.merged) {
               await github.git.deleteRef({
                 owner,

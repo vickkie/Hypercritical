@@ -77,8 +77,8 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            await github.pulls.rebase({ owner, repo, pull_number });
-            await github.pulls.merge({ owner, repo, pull_number });
+            await github.rest.pulls.rebase({ owner, repo, pull_number });
+            await github.rest.pulls.merge({ owner, repo, pull_number });
 
  delete-branch:
     runs-on: ubuntu-latest

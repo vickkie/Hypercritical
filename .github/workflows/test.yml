@@ -1,21 +1,15 @@
 name: Dependabot Tests
 
 on:
- pull_request:
+  pull_request:
     branches: [main]
     types: [opened, synchronize]
     paths:
       - "package.json"
       - "package-lock.json"
-      - "yarn.lock"
-      - "src/**"
-    paths-ignore:
-      - '**/node_modules/**'
-      - '**/dist/**'
-      - '**/build/**'
 
 jobs:
- test:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -24,7 +24,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, context.issue.number });
             if (pr.data.user.login === 'dependabot[bot]') {
               await github.rest.issues.addLabels({
                 owner,
@@ -80,8 +80,8 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            await github.rest.pulls.rebase({ owner, repo, pull_number });
-            await github.rest.pulls.merge({ owner, repo, pull_number });
+            await github.rest.pulls.rebase({ owner, repo, context.issue.number });
+            await github.rest.pulls.merge({ owner, repo, context.issue.number });
 
  delete-branch:
     runs-on: ubuntu-latest
@@ -94,7 +94,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, context.issue.number });
             if (pr.data.merged) {
               await github.rest.git.deleteRef({
                 owner,

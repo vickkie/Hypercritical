@@ -3,7 +3,7 @@ name: Dependabot Tests
 on:
   pull_request:
     branches: [main]
-    types: [opened, synchronize]
+    types: [opened, synchronize, closed]
     paths:
       - "package.json"
       - "package-lock.json"
@@ -79,3 +79,22 @@ jobs:
             const pr_number = context.issue.number;
             await github.pulls.rebase({ owner, repo, pull_number });
             await github.pulls.merge({ owner, repo, pull_number });
+
+  delete-branch:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Delete branch
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr_number = context.issue.number;
+            const pr = await github.pulls.get({ owner, repo, pull_number });
+            if (pr.data.merged) {
+              await github.git.deleteRef({
+                owner,
+                repo,
+                ref: `heads/${pr.data.head.ref}`
+              });
+            }

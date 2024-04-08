@@ -20,7 +20,7 @@ jobs:
       - name: Label Dependabot PRs
         uses: actions/github-script@v5
         with:
-          token: ${{ secrets.TEST_KEY }}
+          github_token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
@@ -57,7 +57,7 @@ jobs:
         if: failure()
         uses: actions/github-script@v5
         with:
-          token: ${{ secrets.TEST_KEY }}
+          github_token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
@@ -76,7 +76,7 @@ jobs:
         if: success()
         uses: actions/github-script@v5
         with:
-          token: ${{ secrets.TEST_KEY }}
+          github_token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
@@ -90,7 +90,7 @@ jobs:
       - name: Delete branch
         uses: actions/github-script@v5
         with:
-          token: ${{ secrets.TEST_KEY }}
+          github_token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;

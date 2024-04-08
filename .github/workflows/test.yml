@@ -24,7 +24,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, context.issue.number });
+            const pr = await github.rest.pulls.get({ owner, repo });
             if (pr.data.user.login === 'dependabot[bot]') {
               await github.rest.issues.addLabels({
                 owner,

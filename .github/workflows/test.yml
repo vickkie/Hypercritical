@@ -1,7 +1,7 @@
 name: Dependabot Tests
 
 on:
- pull_request:
+  pull_request:
     branches: [main]
     types: [opened, synchronize, closed]
     paths:
@@ -9,7 +9,7 @@ on:
       - "package-lock.json"
 
 jobs:
- test:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,7 +34,6 @@ jobs:
                 labels: ['dependencies']
               });
             }
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -47,23 +46,14 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install Dependencies
         run: npm ci
 
-      - name: Check if PR is for @types/
-        id: check-types
-        run: |
-          if [[ "${{ github.event.pull_request.title }}" == *"@types/"* ]]; then
-            echo "::set-output name=skip::true"
-          fi
-
       - name: Run Tests
-        if: steps.check-types.outputs.skip != 'true'
         run: npm test
 
       - name: Comment on failed tests
-        if: failure() && steps.check-types.outputs.skip != 'true'
+        if: failure()
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.TEST_KEY }}
@@ -77,13 +67,11 @@ jobs:
               issue_number,
               body: message
             });
-
       - name: Run npm audit
-        if: steps.check-types.outputs.skip != 'true'
         run: npm audit
 
       - name: Rebase and merge
-        if: success() && steps.check-types.outputs.skip != 'true'
+        if: success()
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.TEST_KEY }}
@@ -92,8 +80,7 @@ jobs:
             const pr_number = context.issue.number;
             await github.rest.pulls.rebase({ owner, repo, pull_number });
             await github.rest.pulls.merge({ owner, repo, pull_number });
-
- delete-branch:
+  delete-branch:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
@@ -111,4 +98,4 @@ jobs:
                 repo,
                 ref: `heads/${pr.data.head.ref}`
               });
-            }
+            }]

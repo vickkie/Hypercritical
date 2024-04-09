@@ -95,7 +95,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, pull_number: pr_number });
             if (pr.data.merged) {
               await github.rest.git.deleteRef({
                 owner,

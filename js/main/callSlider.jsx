@@ -1,6 +1,7 @@
 // React slider component
 
 // making simple things harder
+//not in use
 
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";

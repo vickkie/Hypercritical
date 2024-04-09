@@ -1,4 +1,6 @@
 // ProjectSlider module to show tiny slides
+//file deplcated and not in use
+
 
 import React, { useEffect, useRef } from "react";
 import tns from "tiny-slider/src/tiny-slider";

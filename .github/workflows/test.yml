@@ -13,26 +13,27 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 16.x]
     steps:
       - uses: actions/checkout@v2
 
       - name: Label Dependabot PRs
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.TEST_KEY }}
           script: |
+            console.log(`Pull Request Number: ${context.issue.number}`);
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, pull_number: pr_number });
             if (pr.data.user.login === 'dependabot[bot]') {
-              await github.issues.addLabels({
+              await github.rest.issues.addLabels({
                 owner,
                 repo,
                 issue_number: pr_number,
                 labels: ['dependencies']
               });
             }
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -45,7 +46,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install Dependencies
         run: npm ci
 
@@ -56,17 +56,17 @@ jobs:
         if: failure()
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const message = 'Tests failed! Please check the logs for more details.';
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
               body: message
             });
-
       - name: Run npm audit
         run: npm audit
 
@@ -74,12 +74,12 @@ jobs:
         if: success()
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            await github.pulls.rebase({ owner, repo, pull_number });
-            await github.pulls.merge({ owner, repo, pull_number });
-
+            await github.rest.pulls.rebase({ owner, repo, pull_number });
+            await github.rest.pulls.merge({ owner, repo, pull_number });
   delete-branch:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
@@ -87,12 +87,13 @@ jobs:
       - name: Delete branch
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.TEST_KEY }}
           script: |
             const { owner, repo } = context.repo;
             const pr_number = context.issue.number;
-            const pr = await github.pulls.get({ owner, repo, pull_number });
+            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
             if (pr.data.merged) {
-              await github.git.deleteRef({
+              await github.rest.git.deleteRef({
                 owner,
                 repo,
                 ref: `heads/${pr.data.head.ref}`

@@ -1,0 +1,493 @@
+<style>
+  @font-face {
+    font-family: "Uzi";
+    src: url("https://raw.githubusercontent.com/vickkie/uzitrake/main/fonts/MonumentExtended-Regular.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @media (max-width: 767px) {
+    .sw-partner-caption br {
+      display: none;
+    }
+  }
+
+  .sw-partner-marquee {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 16px;
+    margin-top: 52px;
+    max-width: 100vw;
+    /* overflow: hidden; */
+  }
+
+  @media (min-width: 768px) {
+    .sw-partner-marquee {
+      padding: 0 40px;
+      margin-top: 80px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sw-partner-marquee {
+      padding: 0 60px;
+      margin-top: 100px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .sw-partner-marquee {
+      padding: 0 80px;
+      margin-top: 120px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .sw-partner-marquee {
+      padding: 0 120px;
+    }
+  }
+
+  @media (min-width: 1440px) and (min-height: 1000px) {
+    .sw-partner-marquee {
+      margin-top: 15vh;
+    }
+  }
+
+  .sw-partner-marquee-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .sw-partner-marquee-row-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    gap: 4rem;
+  }
+
+  .sw-partner-logo {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    display: inline-flex;
+    gap: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .sw-partner-logo {
+      -webkit-transform: scale(0.75);
+      -moz-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+      -o-transform: scale(0.75);
+      transform: scale(0.75);
+      /* margin-right: 60px; */
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .sw-partner-logo {
+      -webkit-transform: scale(0.85);
+      -moz-transform: scale(0.85);
+      -ms-transform: scale(0.85);
+      -o-transform: scale(0.85);
+      transform: scale(0.85);
+      margin-right: 70px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .sw-partner-logo {
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+      margin-right: 95px;
+    }
+  }
+
+  .sw-partner-info {
+    margin-top: 10px;
+    margin-bottom: 55px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #fff;
+    opacity: 0.3;
+  }
+
+  @media (max-width: 767px) {
+    .sw-partner-info {
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .sw-partner-info {
+      margin-top: 20px;
+      margin-bottom: 90px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sw-partner-info {
+      margin-top: 30px;
+      margin-bottom: 110px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .sw-partner-info {
+      margin-top: 35px;
+      margin-bottom: 135px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .sw-partner-info {
+      margin-top: 40px;
+      margin-bottom: 112px;
+    }
+  }
+
+  .sw-unique {
+    margin-top: 112px;
+    position: relative;
+  }
+  body {
+    background: black;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .display-video {
+    border-radius: 300px;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    height: 160px;
+    width: 200px;
+  }
+  .display-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    object-fit: cover;
+  }
+  .display-expla {
+    font-size: 70px;
+    color: white;
+    font-family: Uzi;
+  }
+</style>
+
+<div class="sw-partner-marquee">
+  <div class="sw-partner-marquee-row" style="transform: translate3d(-1976.67px, 0px, 0px)">
+    <div class="sw-partner-marquee-row-item">
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/1.mp4"
+            autoplay=""
+            playsinline=""
+            loop=""
+            muted=""
+            poster="https://i.postimg.cc/Z5zTypN3/videoframe-2436.png"
+          ></video>
+        </div>
+      </div>
+      <div class="sw-partner-logo">
+        <div class="display-expla">
+          <span>
+            DESIGN <br />
+            STUDIO
+          </span>
+        </div>
+        <div class="display-video">
+          <video
+            src="https://cdn.cuberto.com/cb/hello/overview/3.webm"
+            autoplay=""
+            poster="https://i.postimg.cc/nhKnKrKW/videoframe-6866.png"
+            playsinline=""
+            loop=""
+            muted=""
+          ></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://unpkg.com/reeller@0/dist/reeller.min.js"></script>
+<script>
+  var reeller = new Reeller.Reeller({
+    container: ".sw-partner-marquee",
+    wrapper: ".sw-partner-marquee-row",
+    itemSelector: ".sw-partner-marquee-row-item",
+    speed: 40,
+  });
+</script>

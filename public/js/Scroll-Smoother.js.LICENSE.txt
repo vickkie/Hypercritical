@@ -1,0 +1,10 @@
+/*!
+ * ScrollSmoother 3.10.2
+ * https://greensock.com
+ * 
+ * @license Copyright 2022, GreenSock. All rights reserved.
+ * This plugin is a membership benefit of Club GreenSock and is only authorized for use in sites/apps/products developed by individuals/companies with an active Club GreenSock membership. See https://greensock.com/club
+ * @author: @uzitrake 
+ * ensured workin well on resize
+ * 
+ */

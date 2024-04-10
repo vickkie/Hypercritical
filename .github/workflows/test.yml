@@ -18,13 +18,13 @@ jobs:
       - name: Install Vercel CLI
         run: npm i -g vercel
         env:
-          TEST_KEY: ${{ secrets.TEST_KEY }}
+          TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
         continue-on-error: true
 
       - name: Comment on Vercel CLI Installation
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.TEST_KEY }}
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
@@ -35,6 +35,7 @@ jobs:
               issue_number,
               body: message
             });
+        continue-on-error: true        
 
       - name: Deploy to Vercel Preview
         env:
@@ -45,7 +46,7 @@ jobs:
       - name: Comment on Deployment
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.TEST_KEY }}
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
@@ -56,6 +57,8 @@ jobs:
               issue_number,
               body: message
             });
+        continue-on-error: true
+
 
  label-and-manage:
     runs-on: ubuntu-latest
@@ -78,31 +81,7 @@ jobs:
                 issue_number: pr_number,
                 labels: ['dependencies']
               });
-              const message = 'PR labeled as dependencies.';
-              await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: pr_number,
-                body: message
-              });
-            }
-
-      - name: Delete branch
-        if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
-          script: |
-            const { owner, repo } = context.repo;
-            const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number: pr_number });
-            if (pr.data.merged) {
-              await github.rest.git.deleteRef({
-                owner,
-                repo,
-                ref: `heads/${pr.data.head.ref}`
-              });
-              const message = 'Branch deleted after merge.';
+              const message = `PR #${pr_number} labeled as dependency on ${new Date().toISOString()}.`;
               await github.rest.issues.createComment({
                 owner,
                 repo,
@@ -119,7 +98,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
-            const message = 'PR successfully merged!';
+            const message = 'PR successfully merged! Branch been deleted by Dependabot.';
             await github.rest.issues.createComment({
               owner,
               repo,

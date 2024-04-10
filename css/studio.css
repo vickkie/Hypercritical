@@ -355,6 +355,7 @@ main {
 
 .story-left img {
   height: auto;
+  position: relative;
   width: 100%;
 }
 

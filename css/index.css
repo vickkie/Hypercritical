@@ -1614,3 +1614,8 @@ html {
     height: 85%;
   }
 }
+
+::selection {
+  background: var(--main-color);
+  color: inherit;
+}

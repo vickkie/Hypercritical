@@ -8,6 +8,7 @@ const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const partytown = require("@builder.io/partytown/utils");
 const webpack = require("webpack");
+const UpdateDeploymentDatePlugin = require("./js/main/updateDeployment");
 
 // Check if the build is for production
 const isProduction = process.env.NODE_ENV === "production";
@@ -41,7 +42,7 @@ const plugins = [
     chunks: ["main"], // main js  chunks included in the HTML
     minify: {
       collapseWhitespace: true,
-      removeComments: true,
+      removeComments: false,
       removeRedundantAttributes: true,
       useShortDoctype: true,
     },
@@ -147,6 +148,7 @@ const plugins = [
   }),
   new HtmlMinimizerPlugin(),
   new CleanWebpackPlugin(),
+  new UpdateDeploymentDatePlugin(),
 ];
 
 if (isProduction) {
@@ -215,5 +217,5 @@ module.exports = {
   },
 
   plugins: plugins,
-  devtool: isProduction ? false : "source-map",
+  devtool: false,
 };

@@ -1,13 +1,13 @@
 name: NodeJS with Webpack
 
 on:
- push:
+  push:
     branches: ["main"]
- pull_request:
+  pull_request:
     branches: ["main"]
 
 jobs:
- build:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -46,4 +46,4 @@ jobs:
         with:
           github_token: ${{ secrets.HYPERCRITICAL_SECRET }}
           publish_branch: gh-pages
-          publish_dir: ./
+          publish_dir: ./public

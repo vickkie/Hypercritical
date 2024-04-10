@@ -115,11 +115,16 @@ let videotl = gsap.timeline({
   },
 });
 
-videotl.to(".cb-intro-figure", {
-  width: "98%",
-  height: "98vh",
-  ease: "expo.inOut",
-});
+function adjustHeight() {
+  videotl.to(".cb-intro-figure", {
+    width: "98%",
+    height: window.matchMedia("(max-width: 767px)").matches ? "50vh" : "98vh",
+    ease: "expo.inOut",
+  });
+}
+
+window.addEventListener("resize", adjustHeight);
+adjustHeight();
 
 //Group 4 : animate background of redifing
 

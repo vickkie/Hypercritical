@@ -647,6 +647,9 @@ video {
 }
 
 @media screen and (max-width: 767px) {
+  main {
+    margin: 5px 4px;
+  }
   .work-section .work-tile {
     width: 100%;
   }

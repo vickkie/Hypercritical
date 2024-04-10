@@ -361,6 +361,7 @@ main {
 @media screen and (max-width: 767px) {
   .why-box {
     grid-template-columns: 1fr !important;
+    padding: 4rem 8px !important;
   }
   .why-left {
     flex-direction: column-reverse;
@@ -474,6 +475,15 @@ html:focus-within {
   }
 }
 @media (max-width: 767px) {
+  .below-studio-hero {
+    min-height: calc(50vh + 20px) !important;
+  }
+  .xp-footer {
+    font-size: 1rem;
+  }
+  .story-wrapper {
+    height: 130vh !important;
+  }
   .customer-says {
     padding: 20px 9px 100px !important;
   }
@@ -481,6 +491,7 @@ html:focus-within {
     width: 90vw !important;
     margin: unset !important;
   }
+
   .contact-boxes-wrapper {
     grid-template-columns: 1fr !important;
   }

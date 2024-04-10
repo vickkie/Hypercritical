@@ -483,6 +483,7 @@ figure {
   /* --size: clamp(10rem, 1rem + 40vmin, 30rem); */
   --size: clamp(10rem, 1rem + 35vmin, 30rem);
   --gap: calc(var(--size) / 14);
+
   --duration: 60s;
   --scroll-start: 0;
   --scroll-end: calc(-100% - var(--gap));
@@ -494,8 +495,11 @@ figure {
 }
 
 @media (max-width: 767px) {
+  :root {
+    --gap: calc(var(--size) / 30);
+  }
   .marquee svg {
-    width: var(--size-small);
+    scale: 0.6;
   }
   .language-expla {
     font-size: 1.02rem !important;

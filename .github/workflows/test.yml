@@ -1,26 +1,73 @@
-name: Dependabot Tests
+name: Dependabot Deployments and Comments
 
 on:
  pull_request:
     branches: [main]
-    types: [opened, synchronize, closed]
+    types: [opened, synchronize, closed, push]
     paths:
       - "package.json"
       - "package-lock.json"
 
 jobs:
- test:
+ deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 16.x]
+    if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+        env:
+          TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
+        continue-on-error: true
+
+      - name: Comment on Vercel CLI Installation
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const message = 'Vercel CLI installed successfully.';
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: message
+            });
+        continue-on-error: true        
+
+      - name: Deploy to Vercel Preview
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_BOT_DEPLOY }}
+        run: vercel --token $VERCEL_TOKEN --preview
+
+
+      - name: Comment on Deployment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const message = 'Deployment to Vercel preview started.';
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: message
+            });
+
+
+ label-and-manage:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Label Dependabot PRs
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.TEST_KEY }}
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
           script: |
             console.log(`Pull Request Number: ${context.issue.number}`);
             const { owner, repo } = context.repo;
@@ -33,69 +80,27 @@ jobs:
                 issue_number: pr_number,
                 labels: ['dependencies']
               });
+              const message = `PR #${pr_number} labeled as dependency on ${new Date().toISOString()}.`;
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pr_number,
+                body: message
+              });
             }
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Run Tests
-        run: npm test
-
-      - name: Comment on failed tests
-        if: failure()
+      - name: Comment on Merge
+        if: github.event.pull_request.merged == true
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.TEST_KEY }}
+          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
           script: |
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
-            const message = 'Tests failed! Please check the logs for more details.';
+            const message = 'PR successfully merged! Branch been deleted by Dependabot.';
             await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
               body: message
             });
-      - name: Run npm audit
-        run: npm audit
-
-      - name: Rebase and merge
-        if: success()
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.TEST_KEY }}
-          script: |
-            const { owner, repo } = context.repo;
-            const pr_number = context.issue.number;
-            await github.rest.pulls.rebase({ owner, repo, pull_number });
-            await github.rest.pulls.merge({ owner, repo, pull_number });
- delete-branch:
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
-    steps:
-      - name: Delete branch
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.TEST_KEY }}
-          script: |
-            const { owner, repo } = context.repo;
-            const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number });
-            if (pr.data.merged) {
-              await github.rest.git.deleteRef({
-                owner,
-                repo,
-                ref: `heads/${pr.data.head.ref}`
-              });
-            }

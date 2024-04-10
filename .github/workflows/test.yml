@@ -19,7 +19,7 @@ jobs:
         run: npm i -g vercel
         env:
           TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
-        continue-on-error: true
+      
 
       - name: Comment on Vercel CLI Installation
         uses: actions/github-script@v5

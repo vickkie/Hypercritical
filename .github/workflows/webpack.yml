@@ -1,106 +1,49 @@
-name: Dependabot Deployments and Comments
+name: NodeJS with Webpack
 
 on:
+ push:
+    branches: ["main"]
  pull_request:
-    branches: [main]
-    types: [opened, synchronize, closed]
-    paths:
-      - "package.json"
-      - "package-lock.json"
+    branches: ["main"]
 
 jobs:
- deploy:
+ build:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+
+    strategy:
+      matrix:
+        node-version: [20.9]
+
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Vercel CLI
-        run: npm i -g vercel
-        env:
-          TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
-      
-
-      - name: Comment on Vercel CLI Installation
-        uses: actions/github-script@v5
+      - uses: actions/checkout@v3
         with:
-          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
-          script: |
-            const { owner, repo } = context.repo;
-            const issue_number = context.issue.number;
-            const message = 'Vercel CLI installed successfully.';
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: message
-            });       
+          persist-credentials: false
 
-      - name: Deploy to Vercel Preview
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_BOT_DEPLOY }}
-        run: vercel --token $VERCEL_TOKEN --preview
-      
-
-      - name: Comment on Deployment
-        uses: actions/github-script@v5
+      - name: Set up .env
+        run: |
+          echo FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }} > .env
+          echo FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }} >> .env
+          echo FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }} >> .env
+          echo FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }} >> .env
+          echo FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }} >> .env
+          echo FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }} >> .env
+          echo FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }} >> .env
+          echo FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }} >> .env
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
-          script: |
-            const { owner, repo } = context.repo;
-            const issue_number = context.issue.number;
-            const message = 'Deployment to Vercel preview started.';
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: message
-            });
-        continue-on-error: true
-
-
- label-and-manage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Label Dependabot PRs
-        uses: actions/github-script@v5
+          node-version: ${{ matrix.node-version }}
+      - name: Build
+        run: |
+          npm install
+          npx webpack
+      - name: Set up Git user
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
-          script: |
-            console.log(`Pull Request Number: ${context.issue.number}`);
-            const { owner, repo } = context.repo;
-            const pr_number = context.issue.number;
-            const pr = await github.rest.pulls.get({ owner, repo, pull_number: pr_number });
-            if (pr.data.user.login === 'dependabot[bot]') {
-              await github.rest.issues.addLabels({
-                owner,
-                repo,
-                issue_number: pr_number,
-                labels: ['dependencies']
-              });
-              const message = `PR #${pr_number} labeled as dependency on ${new Date().toISOString()}.`;
-              await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: pr_number,
-                body: message
-              });
-            }
-
-      - name: Comment on Merge
-        if: github.event.pull_request.merged == true
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.HYPERCRITICAL_SECRET }}
-          script: |
-            const { owner, repo } = context.repo;
-            const issue_number = context.issue.number;
-            const message = 'PR successfully merged! Branch been deleted by Dependabot.';
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: message
-            });
+          github_token: ${{ secrets.HYPERCRITICAL_SECRET }}
+          publish_branch: gh-pages
+          publish_dir: ./

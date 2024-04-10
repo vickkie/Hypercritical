@@ -19,7 +19,6 @@ jobs:
         run: npm i -g vercel
         env:
           TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
-        continue-on-error: true
 
       - name: Comment on Vercel CLI Installation
         uses: actions/github-script@v5
@@ -35,6 +34,7 @@ jobs:
               issue_number,
               body: message
             });
+        continue-on-error: true        
 
       - name: Deploy to Vercel Preview
         env:
@@ -56,6 +56,8 @@ jobs:
               issue_number,
               body: message
             });
+        continue-on-error: true
+
 
  label-and-manage:
     runs-on: ubuntu-latest
@@ -78,7 +80,9 @@ jobs:
                 issue_number: pr_number,
                 labels: ['dependencies']
               });
-              const message = 'PR labeled as dependency.';
+              
+              const message = `PR #${pr_number} labeled as dependency on ${new Date().toISOString()}.`;
+
               await github.rest.issues.createComment({
                 owner,
                 repo,

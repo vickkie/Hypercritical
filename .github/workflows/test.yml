@@ -19,7 +19,7 @@ jobs:
         run: npm i -g vercel
         env:
           TEST_KEY: ${{ secrets.HYPERCRITICAL_SECRET }}
-        continue-on-error: true
+
 
       - name: Comment on Vercel CLI Installation
         uses: actions/github-script@v5
@@ -34,14 +34,15 @@ jobs:
               repo,
               issue_number,
               body: message
-            });
-        continue-on-error: true        
+
+            });       
+
 
       - name: Deploy to Vercel Preview
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_BOT_DEPLOY }}
         run: vercel --token $VERCEL_TOKEN --preview
-        continue-on-error: true
+      
 
       - name: Comment on Deployment
         uses: actions/github-script@v5
@@ -81,7 +82,10 @@ jobs:
                 issue_number: pr_number,
                 labels: ['dependencies']
               });
+
+              
               const message = `PR #${pr_number} labeled as dependency on ${new Date().toISOString()}.`;
+
               await github.rest.issues.createComment({
                 owner,
                 repo,

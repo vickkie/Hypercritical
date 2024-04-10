@@ -6,6 +6,22 @@
  * @author Cuberto, Artem Dordzhiev (Draft)
  */
 
+/*! lozad */
+
 /*! lozad.js - v1.16.0 - 2020-09-06
 * https://github.com/ApoorvSaxena/lozad.js
 * Copyright (c) 2020 Apoorv Saxena; Licensed MIT */
+
+/*! mouse-follower */
+
+/*!****************************!*\
+  !*** ./js/main/process.js ***!
+  \****************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/lozad/dist/lozad.min.js ***!
+  \**********************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
+  \**********************************************************/

@@ -52,7 +52,7 @@
  },
  "dependencies": {
   "@builder.io/partytown": "^0.10.0",
-  "@studio-freight/lenis": "^1.0.39",
+  "@studio-freight/lenis": "^1.0.42",
   "firebase": "^10.8.1",
   "gsap": "^3.12.5",
   "lozad": "^1.16.0",

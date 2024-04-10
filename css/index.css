@@ -1340,6 +1340,7 @@ input[type="radio"]:checked + .radio-input {
 }
 .footer {
   background-color: var(--color-black);
+  position: relative;
   color: #fff;
   display: grid;
   grid-template-areas: "... ..." "footer-left footer-right" "footer-footer footer-footer";

@@ -4,10 +4,10 @@
  "description": "Hypercritical is a cutting-edge digital design and tech studio based in Kenya, specializing in crafting functional digital experiences through web app design",
  "main": "./js/main/main.js",
  "scripts": {
-  "start": "node server.js",
-  "build": "webpack --mode production",
-  "watch": "webpack --mode development --watch",
-  "test": "jest"
+  "start": "cross-env NODE_ENV=development node server.js",
+  "build": "cross-env NODE_ENV=production webpack --mode production",
+  "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+  "test": "cross-env NODE_ENV=test jest"
  },
  "repository": {
   "type": "git",
@@ -35,6 +35,7 @@
   "babel-loader": "^9.1.3",
   "clean-webpack-plugin": "^4.0.0",
   "copy-webpack-plugin": "^6.0.0",
+  "cross-env": "^7.0.3",
   "css-loader": "^5.0.0",
   "css-minimizer-webpack-plugin": "^6.0.0",
   "dotenv-webpack": "^8.0.1",

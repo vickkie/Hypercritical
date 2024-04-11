@@ -802,57 +802,27 @@ imgconts.forEach((imgcont) => {
 
 // group 18: create gsap amation on arrows on hover back and forth they move together
 
+// Selecting elements
 let thirtyWrapper = select(".thirtyworks");
 let thirtyArrowLeft = selectAll(".thirty-left svg");
-let thirtyArrowright = selectAll(".thirty-right svg");
+let thirtyArrowRight = selectAll(".thirty-right svg");
 
-let thirtytimeline = false;
-let thirtytl = gsap.timeline({ repeat: -1 });
+// GSAP timeline
+let thirtytl = gsap.timeline({ repeat: -1, paused: true });
 
+// Define the animation sequence
+thirtytl
+  .addLabel("start", 0)
+  .to(thirtyArrowLeft, { duration: 2, x: -30, ease: "none" }, "start")
+  .to(thirtyArrowRight, { duration: 2, x: 30, ease: "none" }, "start")
+  .to(thirtyArrowLeft, { duration: 2, x: 0, ease: "none" }, "start+=2")
+  .to(thirtyArrowRight, { duration: 2, x: 0, ease: "none" }, "start+=2");
+
+// Event listeners
 thirtyWrapper.addEventListener("mouseenter", () => {
-  thirtytimeline = true;
-  if (thirtytimeline == true) {
-    thirtytl
-      .addLabel("start", "+=0")
-      .to(
-        thirtyArrowLeft,
-        {
-          duration: 2,
-          x: -30,
-          ease: "none",
-        },
-        "start"
-      )
-      .to(
-        thirtyArrowright,
-        {
-          duration: 2,
-          x: 30,
-          ease: "none",
-        },
-        "start"
-      )
-      .to(
-        thirtyArrowLeft,
-        {
-          duration: 2,
-          x: 0,
-          ease: "none",
-        },
-        "start=+2"
-      )
-      .to(
-        thirtyArrowright,
-        {
-          duration: 2,
-          x: 0,
-          ease: "none",
-        },
-        "start=+2"
-      );
-  }
+  thirtytl.play();
 });
 
 thirtyWrapper.addEventListener("mouseleave", () => {
-  thirtytimeline = false;
+  thirtytl.pause();
 });

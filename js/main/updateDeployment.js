@@ -15,8 +15,8 @@ class UpdateDeploymentDatePlugin {
         const author = "uzitrake";
 
         const currentDate = new Date().toUTCString();
-        const deploymentDateCommentRegex = /<!--\s*Hypercritical Last deployed: .* -->\n?/;
-        const deploymentDateComment = `<!-- Hypercritical Last deployed: ${currentDate} by ${author} -->\n`;
+        const deploymentDateCommentRegex = /<!--\s*Hypercritical Last Published: .* -->\n?/;
+        const deploymentDateComment = `<!-- Hypercritical Last Published: ${currentDate} by ${author} -->\n`;
 
         if (deploymentDateCommentRegex.test(data)) {
           const updatedData = data.replace(deploymentDateCommentRegex, deploymentDateComment);

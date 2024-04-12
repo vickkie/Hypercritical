@@ -26,7 +26,8 @@ body {
 }
 
 main {
-  margin: 10px 9px 10px 12px;
+  /* margin: 10px 9px 10px 12px; */
+  margin: 4px 2px 0 4px;
   border-radius: 12px;
   overflow: hidden;
   position: relative;

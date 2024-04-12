@@ -24,6 +24,16 @@
   --mid-font: 6vw;
   font-size: 15px;
 }
+:root {
+  --hc-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
+  --hc-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
+  --hc-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
+  --hc-lg: clamp(1.37rem, 1.35vi + 1.03rem, 2.11rem);
+  --hc-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
+  --hc-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
+  --hc-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
+  --feature-height: 22.5em;
+}
 
 * {
   scrollbar-width: 0 !important;
@@ -444,7 +454,8 @@ a:focus-visible {
 }
 .desc-wrapper {
   display: flex;
-  font-family: var(--font-3);
+  font-family: var(--font-1);
+  font-size: var(--hc-lg);
   width: 80%;
 }
 
@@ -937,11 +948,25 @@ details[open] .accordion-icon:after {
   letter-spacing: -0.16px;
   line-height: 26px;
   margin-right: 1.75rem;
-  padding: 0.25rem 1rem;
+  padding: 0.75rem 1rem;
   position: relative;
   transition-duration: 0.1s;
   transition-timing-function: linear;
+  background: var(--main-color);
 }
+
+.btn-stack:hover {
+  color: var(--color-bg);
+}
+.btn-stack:hover .margin-svgg {
+  fill: var(--color-bg);
+}
+
+.margin-buttons .btn-text {
+  font-size: 1rem;
+  font-family: var(--font-1);
+}
+
 .btn-stack:after {
   content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='17' fill='none'%3E%3Cpath fill='%23fff' stroke='var(--color-bg)' d='M8.874.462c.073 1.106.146 2.22.46 3.292.313 1.07.884 2.105 1.803 2.819a6.9 6.9 0 0 0 2.4 1.11 25 25 0 0 0 3.659.7c-2.08.434-1.677.324-2.608.584-1.122.312-2.315.698-3.262 1.384-1.113.804-1.55 1.93-1.96 3.131-.294.868-.37.972-.615 2.672-.087-1.494-.25-2.106-.679-3.097-.349-.802-.707-1.626-1.365-2.251a6.5 6.5 0 0 0-1.671-1.065A15 15 0 0 0 .75 8.321c1.266-.14 2.541-.293 3.741-.681s2.341-1.041 3.065-2.004C8.624 4.228 8.669 2.392 8.874.462Z'/%3E%3C/svg%3E");
   position: absolute;
@@ -953,7 +978,7 @@ details[open] .accordion-icon:after {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-stack:hover {
-  background-color: #d0f224;
+  background-color: var(--color-black);
   box-shadow: -4px 3px 0 0 var(--color-bg);
 }
 .btn-stack:hover:after {
@@ -965,9 +990,9 @@ details[open] .accordion-icon:after {
   align-items: center;
 }
 .btn-stack svg {
-  height: 32px;
+  height: 1.6rem;
   justify-self: center;
-  width: 32px;
+  width: 1.6rem;
 }
 .margin-buttons {
   margin: 0 0 0 40px;
@@ -1725,16 +1750,6 @@ html {
   font-family: GT-Alpine, sans-serif;
 }
 
-:root {
-  --hc-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
-  --hc-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
-  --hc-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
-  --hc-lg: clamp(1.37rem, 1.35vi + 1.03rem, 2.11rem);
-  --hc-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
-  --hc-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
-  --hc-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
-  --feature-height: 22.5em;
-}
 .feature-work {
   background-color: var(--color-black);
   color: var(--main-color);

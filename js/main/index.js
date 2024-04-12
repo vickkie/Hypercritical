@@ -571,35 +571,35 @@ if (playPromise !== undefined) {
 //GRoup 14: animate button on portfolio work trailers
 
 // script.js
-document.addEventListener("DOMContentLoaded", function () {
-  const carouselItems = select(".carousel");
-  const backButton = select(".-prev");
-  const nextButton = select(".-next");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const carouselItems = select(".carousel");
+//   const backButton = select(".-prev");
+//   const nextButton = select(".-next");
 
-  let currentIndex = 0;
+//   let currentIndex = 0;
 
-  function moveCarousel(direction) {
-    const itemWidth = carouselItems.children[0].offsetWidth;
-    const carouselWidth = carouselItems.offsetWidth;
-    const totalItems = carouselItems.children.length;
+//   function moveCarousel(direction) {
+//     const itemWidth = carouselItems.children[0].offsetWidth;
+//     const carouselWidth = carouselItems.offsetWidth;
+//     const totalItems = carouselItems.children.length;
 
-    if (direction === "next") {
-      currentIndex = (currentIndex + 1) % totalItems;
-    } else if (direction === "back") {
-      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-    }
+//     if (direction === "next") {
+//       currentIndex = (currentIndex + 1) % totalItems;
+//     } else if (direction === "back") {
+//       currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+//     }
 
-    carouselItems.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-  }
+//     carouselItems.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+//   }
 
-  backButton.addEventListener("click", function () {
-    moveCarousel("back");
-  });
+//   backButton.addEventListener("click", function () {
+//     moveCarousel("back");
+//   });
 
-  nextButton.addEventListener("click", function () {
-    moveCarousel("next");
-  });
-});
+//   nextButton.addEventListener("click", function () {
+//     moveCarousel("next");
+//   });
+// });
 //group 15 : overlay and succes button
 
 function showDialog() {
@@ -825,4 +825,53 @@ thirtyWrapper.addEventListener("mouseenter", () => {
 
 thirtyWrapper.addEventListener("mouseleave", () => {
   thirtytl.pause();
+});
+
+// group 20: create gsap amation for hover on projects whth fading color from --main-color to --color-black
+
+// Selecting elements
+// Assuming you have already selected your projects and created the timeline
+let projects = selectAll(".feature-inner-wrapper");
+
+projects.forEach((project) => {
+  let projectTexts = selectAll(".feature-expla-info", project);
+
+  // Function to convert RGB values to CSS rgb() format
+  function rgbToCss(rgb) {
+    return `rgb(${rgb.join(", ")})`;
+  }
+
+  // Dynamically generate the backgroundColor property value
+  let fadeBlack = rgbToCss([0, 0, 0]); // Black color
+  let fadeMain = rgbToCss([252, 18, 52]); // Main color
+  let fadeWhite = rgbToCss([255, 255, 255]); // White color
+
+  let projectstl = gsap.timeline({ paused: true });
+
+  projectstl.addLabel("start", 0).fromTo(
+    project,
+    { duration: 0.5, backgroundColor: fadeBlack, ease: "none" },
+    {
+      duration: 0.5,
+      backgroundColor: fadeMain,
+      ease: "none",
+    },
+    "start"
+  );
+
+  projectTexts.forEach((text) => {
+    projectstl.fromTo(
+      text,
+      { duration: 0.5, color: fadeWhite, ease: "none" },
+      { duration: 0.5, color: fadeBlack, ease: "none" },
+      "start"
+    );
+  });
+
+  project.addEventListener("mouseenter", () => {
+    projectstl.play();
+  });
+  project.addEventListener("mouseleave", () => {
+    projectstl.reverse();
+  });
 });

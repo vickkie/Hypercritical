@@ -406,11 +406,11 @@ a:focus-visible {
     display: flex;
     grid-area: morestudio;
     justify-content: center;
-    padding: 30px 0;
+    padding: 2rem 0;
   }
   .intro-title {
     grid-area: introtitle;
-    padding: 100px 100px 30px;
+    padding: 6.2rem 6.2rem 2rem;
   }
   .ourservices {
     grid-template-areas: "servicehead" "serviceaccordion" !important;
@@ -430,8 +430,8 @@ a:focus-visible {
 }
 .intro-title {
   grid-area: introtitle;
-  padding-left: 100px;
-  padding-top: 100px;
+  padding-left: 6.2rem;
+  padding-top: 6.2rem;
 }
 .intro-title:before {
   align-items: center;
@@ -468,7 +468,7 @@ a:focus-visible {
     grid-area: introfooter;
     grid-template-areas: "intro-studio morestudio";
     grid-template-columns: 60% 40%;
-    padding-top: 30px;
+    padding-top: 2rem;
     position: relative;
     text-align: left;
   }
@@ -479,7 +479,7 @@ a:focus-visible {
     justify-content: flex-end;
   }
   .intro-description {
-    padding-top: 100px;
+    padding-top: 6.2rem;
   }
 }
 .intro-studio {
@@ -541,10 +541,10 @@ a:focus-visible {
   display: grid;
   grid-template-areas: "servicehead  serviceaccordion" "accordion-right  serviceaccordion";
   grid-template-columns: 40% 60%;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 6.2rem 1fr;
   max-height: max-content;
   min-height: 100svh;
-  padding: 70px 30px;
+  padding: 70px 2rem;
   position: relative;
   z-index: 2;
 }
@@ -564,8 +564,8 @@ a:focus-visible {
 }
 .services-head {
   grid-area: servicehead;
-  padding-left: 100px;
-  padding-top: 30px;
+  padding-left: 6.2rem;
+  padding-top: 2rem;
   position: relative;
 }
 .accordion-right {
@@ -695,7 +695,7 @@ details[open] .accordion-icon:after {
     height: 169px;
     margin-left: -112.5px;
     margin-top: -148.5px;
-    width: 100px;
+    width: 6.2rem;
   }
 }
 .c-sprite {
@@ -776,8 +776,8 @@ details[open] .accordion-icon:after {
 
 .port-header-label {
   font-size: inherit;
-  padding-left: 100px;
-  padding-top: 30px;
+  padding-left: 6.2rem;
+  padding-top: 2rem;
   position: relative;
   text-align: left;
 }
@@ -1072,7 +1072,7 @@ details[open] .accordion-icon:after {
 }
 .socials-header {
   align-items: center;
-  column-gap: 30px;
+  column-gap: 2rem;
   display: grid;
   grid-area: socials-head;
   grid-template-columns: 30% 70%;
@@ -1094,7 +1094,7 @@ details[open] .accordion-icon:after {
   grid-area: socials-footer;
 }
 .socials-brand {
-  padding-left: 100px;
+  padding-left: 6.2rem;
   position: relative;
 }
 .socials-brand:before {
@@ -1275,7 +1275,7 @@ input[type="radio"]:checked + .radio-input {
   border-bottom: none !important;
   cursor: pointer;
   margin: 0;
-  padding-left: 30px;
+  padding-left: 2rem;
   text-align: left;
   width: 100%;
   z-index: 3;
@@ -1393,7 +1393,7 @@ input[type="radio"]:checked + .radio-input {
   border-top: 0.0058vw solid var(--main-color);
   display: flex;
   grid-area: footer-footer;
-  min-height: 100px;
+  min-height: 6.2rem;
 }
 .footer-footer-left,
 .footer-footer-right {
@@ -1401,7 +1401,7 @@ input[type="radio"]:checked + .radio-input {
   display: flex;
   font-size: 0.7rem;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 2rem;
   width: 100%;
 }
 .footer-map-header {
@@ -1464,7 +1464,7 @@ input[type="radio"]:checked + .radio-input {
     grid-template-areas: "... " "footer-left " "footer-right" " footer-footer" "...";
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    padding-top: 100px;
+    padding-top: 6.2rem;
   }
   .footer-footer {
     flex-direction: column;
@@ -1546,7 +1546,7 @@ input[type="radio"]:checked + .radio-input {
 }
 @media screen and (max-width: 425px) {
   .footer-left ul {
-    padding-left: 30px;
+    padding-left: 2rem;
   }
   .field-box {
     flex-direction: column;
@@ -1757,14 +1757,11 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 100px 2rem;
+  padding: 6.2rem 1rem 50px;
   height: fit-content;
 }
 
 @media screen and (max-width: 625px) {
-  .feature-work {
-    padding: 100px 1rem;
-  }
   .feature-wrapper {
     grid-template-areas: "feature-header" "feature-expla" "feature-image" "feature-expla-2" "feature-image-2" !important;
     grid-template-columns: 1fr !important;
@@ -1949,4 +1946,23 @@ html {
   rotate: 45deg;
   width: var(--hc-xxl);
   height: var(--hc-xl);
+}
+
+.feature_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  color: var(--main-color);
+  padding: 3rem 1.5rem;
+}
+.feature_footer_inner {
+  font-size: var(--hc-xxxl);
+  max-width: 6em;
+  font-family: "sohne-light";
+  height: 100%;
+  background-color: var(--color-black);
+  color: var(--color-bg);
 }

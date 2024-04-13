@@ -52,7 +52,7 @@
   "webpack-cli": "^5.1.4"
  },
  "dependencies": {
-  "@builder.io/partytown": "^0.10.0",
+  "@builder.io/partytown": "^0.10.1",
   "@studio-freight/lenis": "^1.0.39",
   "firebase": "^10.11.0",
   "gsap": "^3.12.5",

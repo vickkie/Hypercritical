@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "13:00"
+      time: "15:00"
       timezone: "Africa/Nairobi"
     open-pull-requests-limit: 12
     ignore:

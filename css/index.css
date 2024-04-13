@@ -1769,6 +1769,9 @@ html {
   :root {
     --feature-height: 80vw;
   }
+  .checkbox-text {
+    font-size: var(--hc-base);
+  }
 }
 
 @media screen and (max-width: 767px) and (min-width: 626px) {

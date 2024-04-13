@@ -677,11 +677,11 @@ video {
   }
 
   .make-top {
-    font-size: 18.12vw;
+    font-size: var(--hc-xxxl);
   }
   .make-bottom {
     align-items: start;
-    font-size: 18.12vw;
+    font-size: var(--hc-xxxl);
     gap: 30px;
     display: flex;
     flex-direction: column-reverse;
@@ -982,7 +982,10 @@ video {
 
 @media screen and (max-width: 768px) {
   .work-drawer .tile p {
-    font-size: 32px;
+    font-size: var(--hc-sm);
+  }
+  .heading h1 {
+    font-size: var(--hc-xxl);
   }
 }
 .work-drawer .tile p {

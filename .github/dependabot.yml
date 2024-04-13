@@ -5,9 +5,9 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "15:12"
+      time: "15:25"
       timezone: "Africa/Nairobi"
-    open-pull-requests-limit: 12
+    open-pull-requests-limit: 13
     # ignore:
     #   - dependency-name: "@builder.io/partytown"
     #     versions: ["^0.10.x"]

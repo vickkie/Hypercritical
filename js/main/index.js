@@ -493,6 +493,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menuName.style.color = "var(--color-black)";
   }
 
+  /**
+   * Set elements to white color scheme.
+   */
   function makewhite() {
     arrowpath.style.stroke = "var(--color-black)";
     arrowWrapper.style.fill = "var(--color-bg)";
@@ -775,6 +778,13 @@ checkradios.forEach((checkradio) => {
 
 // group 17: dropdown video
 
+/**
+ * Play the video element.
+ *
+ * @param {Element} element - The element containing the video to be played
+ * @return {void}
+ */
+
 function playVideo(element) {
   var video = element.querySelector(".grid__item-video");
   video.play();
@@ -825,6 +835,7 @@ imgconts.forEach((imgcont) => {
     let gridItemVideo = imgcont.querySelector(".grid__item-video");
     gridItemVideo.style.display = "block";
     videoDown(imgcont); // Call videoDown on mouseenter
+    toggleVideo(imgcont);
   });
 });
 
@@ -832,7 +843,6 @@ imgconts.forEach((imgcont) => {
   imgcont.addEventListener("mouseout", () => {
     let gridItemVideo = imgcont.querySelector(".grid__item-video");
     videoUp(imgcont); // Call videoUp on mouseout
-
     setTimeout(() => {
       resetVideo(imgcont);
       gridItemVideo.style.display = "none";
@@ -873,8 +883,8 @@ thirtyWrapper.addEventListener("mouseleave", () => {
 // Assuming you have already selected your projects and created the timeline
 let projects = selectAll(".feature-inner-wrapper");
 
-projects.forEach((project) => {
-  let projectTexts = selectAll(".feature-expla-info", project);
+projects.forEach((project, i) => {
+  let projectText = select(`.feature-expla-info`, project);
 
   // Function to convert RGB values to CSS rgb() format
   function rgbToCss(rgb) {
@@ -899,14 +909,12 @@ projects.forEach((project) => {
     "start"
   );
 
-  projectTexts.forEach((text) => {
-    projectstl.fromTo(
-      text,
-      { duration: 0.5, color: fadeWhite, ease: "none" },
-      { duration: 0.5, color: fadeBlack, ease: "none" },
-      "start"
-    );
-  });
+  projectstl.fromTo(
+    projectText,
+    { duration: 0.5, color: fadeWhite, ease: "none" },
+    { duration: 0.5, color: fadeBlack, ease: "none" },
+    "start"
+  );
 
   project.addEventListener("mouseenter", () => {
     projectstl.play();

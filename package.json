@@ -54,7 +54,7 @@
  "dependencies": {
   "@builder.io/partytown": "^0.10.0",
   "@studio-freight/lenis": "^1.0.39",
-  "firebase": "^10.8.1",
+  "firebase": "^10.11.0",
   "gsap": "^3.12.5",
   "lozad": "^1.16.0",
   "mouse-follower": "^1.1.2",

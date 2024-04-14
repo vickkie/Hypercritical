@@ -878,14 +878,9 @@ thirtyWrapper.addEventListener("mouseleave", () => {
 });
 
 // group 20: create gsap amation for hover on projects whth fading color from --main-color to --color-black
-
-// Selecting elements
-// Assuming you have already selected your projects and created the timeline
 let projects = selectAll(".feature-inner-wrapper");
 
 projects.forEach((project, i) => {
-  let projectText = select(`.feature-expla-info`, project);
-
   // Function to convert RGB values to CSS rgb() format
   function rgbToCss(rgb) {
     return `rgb(${rgb.join(", ")})`;
@@ -909,14 +904,17 @@ projects.forEach((project, i) => {
     "start"
   );
 
-  projectstl.fromTo(
-    projectText,
-    { duration: 0.5, color: fadeWhite, ease: "none" },
-    { duration: 0.5, color: fadeBlack, ease: "none" },
-    "start"
-  );
-
   project.addEventListener("mouseenter", () => {
+    let projectTexts = project.querySelectorAll(".feature-expla-info");
+    projectTexts.forEach((projectText) => {
+      projectstl.fromTo(
+        projectText,
+        { duration: 0.5, color: fadeWhite, ease: "none" },
+        { duration: 0.5, color: fadeBlack, ease: "none" },
+        "start"
+      );
+    });
+
     projectstl.play();
   });
   project.addEventListener("mouseleave", () => {

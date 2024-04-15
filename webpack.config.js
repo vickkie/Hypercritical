@@ -183,12 +183,15 @@ module.exports = {
   },
   resolve: {
     fallback: {
-      util: require.resolve("util/"),
-      net: false, // Ignore 'net' module
-      tls: false, // Ignore 'tls' module
-      dns: false,
-      timers: false,
-      cryptoBrowserify: false,
+      crypto: require.resolve("crypto-browserify"),
+      stream: require.resolve("stream-browserify"),
+      http: require.resolve("stream-http"),
+      https: require.resolve("https-browserify"),
+      os: require.resolve("os-browserify/browser"),
+      url: require.resolve("url/"),
+      process: require.resolve("process/browser"),
+      zlib: require.resolve("browserify-zlib"),
+      timers: require.resolve("timers-browserify"),
     },
   },
   output: {

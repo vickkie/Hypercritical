@@ -54,17 +54,26 @@
  "dependencies": {
   "@builder.io/partytown": "^0.10.0",
   "@studio-freight/lenis": "^1.0.39",
+  "browserify-zlib": "^0.2.0",
+  "crypto-browserify": "^3.12.0",
   "firebase": "^10.11.0",
   "gsap": "^3.12.5",
+  "https-browserify": "^1.0.0",
   "lozad": "^1.16.0",
   "mongodb": "^6.5.0",
   "mongoose": "^8.3.1",
   "mouse-follower": "^1.1.2",
+  "os-browserify": "^0.3.0",
+  "process": "^0.11.10",
   "react": "^18.2.0",
   "react-dom": "^18.2.0",
   "reeller": "^0.0.5",
   "splitting": "^1.0.6",
+  "stream-browserify": "^3.0.0",
+  "stream-http": "^3.2.0",
   "swiper": "^11.1.1",
+  "timers-browserify": "^2.0.12",
+  "url": "^0.11.3",
   "util": "^0.12.5"
  }
 }

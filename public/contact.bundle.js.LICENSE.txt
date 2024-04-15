@@ -6,168 +6,1314 @@
  * @author Cuberto, Artem Dordzhiev (Draft)
  */
 
-/*! ./wrap-idb-value.js */
+/*! ../../../error */
 
-/*! @firebase/app */
+/*! ../../../package.json */
 
-/*! @firebase/component */
+/*! ../../../utils */
 
-/*! @firebase/database */
+/*! ../../bson */
 
-/*! @firebase/logger */
+/*! ../../constants */
 
-/*! @firebase/util */
+/*! ../../deps */
 
-/*! firebase/app */
+/*! ../../error */
 
-/*! firebase/database */
+/*! ../../read_preference */
 
-/*! idb */
+/*! ../../sdam/common */
+
+/*! ../../sdam/topology_description */
+
+/*! ../../utils */
+
+/*! .././utils */
+
+/*! ../bson */
+
+/*! ../change_stream */
+
+/*! ../cmap/connect */
+
+/*! ../cmap/connection */
+
+/*! ../cmap/connection_pool */
+
+/*! ../cmap/errors */
+
+/*! ../cmap/handshake/client_metadata */
+
+/*! ../cmap/wire_protocol/constants */
+
+/*! ../collection */
+
+/*! ../commands */
+
+/*! ../connection_string */
+
+/*! ../constants */
+
+/*! ../deps */
+
+/*! ../error */
+
+/*! ../errors */
+
+/*! ../explain */
+
+/*! ../mongo_client */
+
+/*! ../mongo_logger */
+
+/*! ../mongo_types */
+
+/*! ../operation */
+
+/*! ../operations/aggregate */
+
+/*! ../operations/common_functions */
+
+/*! ../operations/count */
+
+/*! ../operations/delete */
+
+/*! ../operations/execute_operation */
+
+/*! ../operations/find */
+
+/*! ../operations/get_more */
+
+/*! ../operations/indexes */
+
+/*! ../operations/insert */
+
+/*! ../operations/kill_cursors */
+
+/*! ../operations/list_collections */
+
+/*! ../operations/operation */
+
+/*! ../operations/run_command */
+
+/*! ../operations/update */
+
+/*! ../providers */
+
+/*! ../read_concern */
+
+/*! ../read_preference */
+
+/*! ../sdam/common */
+
+/*! ../sdam/server_description */
+
+/*! ../sdam/server_selection */
+
+/*! ../sessions */
+
+/*! ../sort */
+
+/*! ../transactions */
+
+/*! ../utils */
+
+/*! ../write_concern */
+
+/*! ./ */
+
+/*! ./../write_concern */
+
+/*! ./Function.js */
+
+/*! ./URL-impl.js */
+
+/*! ./URLSearchParams */
+
+/*! ./URLSearchParams-impl.js */
+
+/*! ./abstract_cursor */
+
+/*! ./admin */
+
+/*! ./aggregate */
+
+/*! ./aggregation_cursor */
+
+/*! ./auth/auth_provider */
+
+/*! ./auth/providers */
+
+/*! ./auth_provider */
+
+/*! ./aws */
+
+/*! ./azure */
+
+/*! ./azure_token_cache */
+
+/*! ./bson */
+
+/*! ./bulk/common */
+
+/*! ./bulk/ordered */
+
+/*! ./bulk/unordered */
+
+/*! ./bulk_write */
+
+/*! ./cache */
+
+/*! ./callback_lock_cache */
+
+/*! ./change_stream */
+
+/*! ./client-side-encryption/auto_encrypter */
+
+/*! ./client-side-encryption/client_encryption */
+
+/*! ./client-side-encryption/errors */
+
+/*! ./cmap/auth/gssapi */
+
+/*! ./cmap/auth/mongo_credentials */
+
+/*! ./cmap/auth/mongocr */
+
+/*! ./cmap/auth/mongodb_aws */
+
+/*! ./cmap/auth/mongodb_oidc */
+
+/*! ./cmap/auth/plain */
+
+/*! ./cmap/auth/providers */
+
+/*! ./cmap/auth/scram */
+
+/*! ./cmap/auth/x509 */
+
+/*! ./cmap/command_monitoring_events */
+
+/*! ./cmap/connection_pool_events */
+
+/*! ./cmap/handshake/client_metadata */
+
+/*! ./cmap/metrics */
+
+/*! ./cmap/wire_protocol/compression */
+
+/*! ./cmap/wire_protocol/constants */
+
+/*! ./cmap/wire_protocol/shared */
+
+/*! ./code-points-data-browser */
+
+/*! ./collection */
+
+/*! ./command */
+
+/*! ./command_monitoring_events */
+
+/*! ./commands */
+
+/*! ./common */
+
+/*! ./common_functions */
+
+/*! ./connect */
+
+/*! ./connection */
+
+/*! ./connection_pool_events */
+
+/*! ./connection_string */
+
+/*! ./constants */
+
+/*! ./crypto_callbacks */
+
+/*! ./cursor/abstract_cursor */
+
+/*! ./cursor/aggregation_cursor */
+
+/*! ./cursor/change_stream_cursor */
+
+/*! ./cursor/find_cursor */
+
+/*! ./cursor/list_collections_cursor */
+
+/*! ./cursor/list_indexes_cursor */
+
+/*! ./cursor/list_search_indexes_cursor */
+
+/*! ./cursor/run_command_cursor */
+
+/*! ./db */
+
+/*! ./deps */
+
+/*! ./download */
+
+/*! ./encoding */
+
+/*! ./encrypter */
+
+/*! ./error */
+
+/*! ./errors */
+
+/*! ./events */
+
+/*! ./explain */
+
+/*! ./gcp */
+
+/*! ./gridfs */
+
+/*! ./gridfs/download */
+
+/*! ./gridfs/upload */
+
+/*! ./gssapi */
+
+/*! ./implementation */
+
+/*! ./index */
+
+/*! ./indexes */
+
+/*! ./infra */
+
+/*! ./lib/URL */
+
+/*! ./lib/URLSearchParams */
+
+/*! ./lib/mappingTable.json */
+
+/*! ./lib/percent-encoding */
+
+/*! ./lib/regexes.js */
+
+/*! ./lib/statusMapping.js */
+
+/*! ./lib/url-state-machine */
+
+/*! ./memory-code-points */
+
+/*! ./metrics */
+
+/*! ./mongo_client */
+
+/*! ./mongo_client_auth_providers */
+
+/*! ./mongo_credentials */
+
+/*! ./mongo_logger */
+
+/*! ./mongo_types */
+
+/*! ./mongocryptd_manager */
+
+/*! ./mongodb_oidc/aws_service_workflow */
+
+/*! ./mongodb_oidc/azure_service_workflow */
+
+/*! ./mongodb_oidc/callback_workflow */
+
+/*! ./monitor */
+
+/*! ./operation */
+
+/*! ./operations/bulk_write */
+
+/*! ./operations/collections */
+
+/*! ./operations/count */
+
+/*! ./operations/count_documents */
+
+/*! ./operations/create_collection */
+
+/*! ./operations/delete */
+
+/*! ./operations/distinct */
+
+/*! ./operations/drop */
+
+/*! ./operations/estimated_document_count */
+
+/*! ./operations/execute_operation */
+
+/*! ./operations/find_and_modify */
+
+/*! ./operations/indexes */
+
+/*! ./operations/insert */
+
+/*! ./operations/is_capped */
+
+/*! ./operations/list_databases */
+
+/*! ./operations/options_operation */
+
+/*! ./operations/profiling_level */
+
+/*! ./operations/remove_user */
+
+/*! ./operations/rename */
+
+/*! ./operations/run_command */
+
+/*! ./operations/search_indexes/create */
+
+/*! ./operations/search_indexes/drop */
+
+/*! ./operations/search_indexes/update */
+
+/*! ./operations/set_profiling_level */
+
+/*! ./operations/stats */
+
+/*! ./operations/update */
+
+/*! ./operations/validate_collection */
+
+/*! ./percent-encoding */
+
+/*! ./providers */
+
+/*! ./providers/index */
+
+/*! ./read_concern */
+
+/*! ./read_preference */
+
+/*! ./redact */
+
+/*! ./sdam/common */
+
+/*! ./sdam/events */
+
+/*! ./sdam/monitor */
+
+/*! ./sdam/server_selection */
+
+/*! ./sdam/server_selection_events */
+
+/*! ./sdam/srv_polling */
+
+/*! ./sdam/topology */
+
+/*! ./server */
+
+/*! ./server_description */
+
+/*! ./server_selection */
+
+/*! ./server_selection_events */
+
+/*! ./service_workflow */
+
+/*! ./sessions */
+
+/*! ./shams */
+
+/*! ./srv_polling */
+
+/*! ./state_machine */
+
+/*! ./stream_description */
+
+/*! ./support/isBuffer */
+
+/*! ./support/types */
+
+/*! ./token_entry_cache */
+
+/*! ./topology_description */
+
+/*! ./transactions */
+
+/*! ./upload */
+
+/*! ./url-state-machine */
+
+/*! ./urlencoded */
+
+/*! ./utils */
+
+/*! ./utils.js */
+
+/*! ./webidl2js-wrapper */
+
+/*! ./wire_protocol/compression */
+
+/*! ./wire_protocol/constants */
+
+/*! ./wire_protocol/on_data */
+
+/*! ./wire_protocol/shared */
+
+/*! ./write_concern */
+
+/*! @mongodb-js/saslprep */
+
+/*! available-typed-arrays */
+
+/*! bson */
+
+/*! call-bind */
+
+/*! call-bind/callBound */
+
+/*! define-data-property */
+
+/*! es-define-property */
+
+/*! es-errors */
+
+/*! es-errors/eval */
+
+/*! es-errors/range */
+
+/*! es-errors/ref */
+
+/*! es-errors/syntax */
+
+/*! es-errors/type */
+
+/*! es-errors/uri */
+
+/*! events */
+
+/*! for-each */
+
+/*! function-bind */
+
+/*! get-intrinsic */
+
+/*! gopd */
+
+/*! has-property-descriptors */
+
+/*! has-proto */
+
+/*! has-symbols */
+
+/*! has-symbols/shams */
+
+/*! has-tostringtag/shams */
+
+/*! hasown */
+
+/*! inherits */
+
+/*! is-arguments */
+
+/*! is-callable */
+
+/*! is-generator-function */
+
+/*! is-typed-array */
+
+/*! memory-pager */
+
+/*! mongodb */
+
+/*! mongodb-connection-string-url */
+
+/*! mongoose */
 
 /*! mouse-follower */
+
+/*! possible-typed-array-names */
+
+/*! punycode/ */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+/*! set-function-length */
+
+/*! sparse-bitfield */
+
+/*! tr46 */
+
+/*! util */
+
+/*! webidl-conversions */
+
+/*! whatwg-url */
+
+/*! which-typed-array */
+
+/*!***********************!*\
+  !*** ./js/main/db.js ***!
+  \***********************/
 
 /*!****************************!*\
   !*** ./js/main/contact.js ***!
   \****************************/
 
+/*!***********************************!*\
+  !*** ./node_modules/util/util.js ***!
+  \***********************************/
+
+/*!************************************!*\
+  !*** ./node_modules/gopd/index.js ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./node_modules/tr46/index.js ***!
+  \************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/hasown/index.js ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/es-errors/ref.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/es-errors/uri.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/events/events.js ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/bson/lib/bson.cjs ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/es-errors/eval.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/es-errors/type.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/for-each/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/mongodb/lib/db.js ***!
+  \****************************************/
+
 /*!*****************************************!*\
-  !*** ./node_modules/idb/build/index.js ***!
+  !*** ./node_modules/call-bind/index.js ***!
   \*****************************************/
 
+/*!*****************************************!*\
+  !*** ./node_modules/es-errors/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/es-errors/range.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/has-proto/index.js ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/es-errors/syntax.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/mongodb/lib/bson.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/mongodb/lib/deps.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/mongodb/lib/sort.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/tr46/lib/regexes.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/whatwg-url/index.js ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/shams.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/is-callable/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/mongodb/lib/admin.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/mongodb/lib/error.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/mongodb/lib/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/mongodb/lib/utils.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/mongodb/package.json ***!
+  \*******************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/is-arguments/index.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/memory-pager/index.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/util/support/types.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/whatwg-url/lib/URL.js ***!
+  \********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/call-bind/callBound.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/get-intrinsic/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/mongodb/lib/explain.js ***!
+  \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/is-typed-array/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/mongodb/lib/sessions.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/whatwg-url/lib/infra.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/whatwg-url/lib/utils.js ***!
+  \**********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/has-tostringtag/shams.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/mongodb/lib/constants.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/mongodb/lib/encrypter.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/punycode/punycode.es6.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/sparse-bitfield/index.js ***!
+  \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/mongodb/lib/collection.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/tr46/lib/statusMapping.js ***!
+  \************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/bulk/common.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/errors.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/mongo_types.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/common.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/events.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/server.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/tr46/lib/mappingTable.json ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/Function.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/URL-impl.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/encoding.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/which-typed-array/index.js ***!
+  \*************************************************/
+
 /*!**************************************************!*\
-  !*** ./node_modules/idb/build/wrap-idb-value.js ***!
+  !*** ./node_modules/es-define-property/index.js ***!
   \**************************************************/
 
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/bulk/ordered.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/connect.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/metrics.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/gridfs/index.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/mongo_client.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/mongo_logger.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/read_concern.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/monitor.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/mongodb/lib/transactions.js ***!
+  \**************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/inherits/inherits_browser.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongodb/lib/change_stream.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/commands.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongodb/lib/gridfs/upload.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/topology.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongodb/lib/write_concern.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/mongoose/dist/browser.umd.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/set-function-length/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/urlencoded.js ***!
+  \***************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/define-data-property/index.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/mongodb/lib/bulk/unordered.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/x509.js ***!
+  \****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/is-generator-function/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/plain.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/scram.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/connection.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/gridfs/download.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/drop.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/find.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/mongodb/lib/read_preference.js ***!
+  \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/available-typed-arrays/index.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/gssapi.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/count.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/stats.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/srv_polling.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/util/support/isBufferBrowser.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/webidl-conversions/lib/index.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/whatwg-url/webidl2js-wrapper.js ***!
+  \******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongocr.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/connection_string.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/delete.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/insert.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/rename.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/update.js ***!
+  \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/has-property-descriptors/index.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/find_cursor.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/command.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/indexes.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/URLSearchParams.js ***!
+  \********************************************************/
+
 /*!*********************************************************!*\
-  !*** ./node_modules/firebase/app/dist/esm/index.esm.js ***!
+  !*** ./node_modules/@mongodb-js/saslprep/dist/index.js ***!
   \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/providers.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/distinct.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/get_more.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/percent-encoding.js ***!
+  \*********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/connection_pool.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/aggregate.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/is_capped.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/operation.js ***!
+  \**********************************************************/
 
 /*!**********************************************************!*\
   !*** ./node_modules/mouse-follower/dist/index.module.js ***!
   \**********************************************************/
 
+/*!**********************************************************!*\
+  !*** ./node_modules/possible-typed-array-names/index.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/url-state-machine.js ***!
+  \**********************************************************/
+
 /*!***********************************************************!*\
-  !*** ./node_modules/@firebase/util/dist/index.esm2017.js ***!
+  !*** ./node_modules/@mongodb-js/saslprep/dist/browser.js ***!
   \***********************************************************/
 
-/*!**************************************************************!*\
-  !*** ./node_modules/@firebase/app/dist/esm/index.esm2017.js ***!
-  \**************************************************************/
+/*!***********************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_aws.js ***!
+  \***********************************************************/
 
-/*!**************************************************************!*\
-  !*** ./node_modules/firebase/database/dist/esm/index.esm.js ***!
-  \**************************************************************/
+/*!***********************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/bulk_write.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/server_selection.js ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/abstract_cursor.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/collections.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/remove_user.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/run_command.js ***!
+  \************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/auth_provider.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/stream_description.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/kill_cursors.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/server_description.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/whatwg-url/lib/URLSearchParams-impl.js ***!
+  \*************************************************************/
 
 /*!***************************************************************!*\
-  !*** ./node_modules/@firebase/database/dist/index.esm2017.js ***!
+  !*** ./node_modules/mongodb/lib/cmap/wire_protocol/shared.js ***!
   \***************************************************************/
 
+/*!***************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/aggregation_cursor.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/run_command_cursor.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/list_databases.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/topology_description.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/wire_protocol/on_data.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/list_indexes_cursor.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/count_documents.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/find_and_modify.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/profiling_level.js ***!
+  \****************************************************************/
+
 /*!*****************************************************************!*\
-  !*** ./node_modules/@firebase/logger/dist/esm/index.esm2017.js ***!
+  !*** ./node_modules/mongodb-connection-string-url/lib/index.js ***!
   \*****************************************************************/
 
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongo_credentials.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/connection_pool_events.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/change_stream_cursor.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/mongo_client_auth_providers.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/common_functions.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/list_collections.js ***!
+  \*****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb-connection-string-url/lib/redact.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/cache.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/wire_protocol/constants.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/create_collection.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/execute_operation.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/options_operation.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/sdam/server_selection_events.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/errors.js ***!
+  \*******************************************************************/
+
 /*!********************************************************************!*\
-  !*** ./node_modules/@firebase/component/dist/esm/index.esm2017.js ***!
+  !*** ./node_modules/mongodb/lib/cmap/command_monitoring_events.js ***!
   \********************************************************************/
 
-/**
- * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/handshake/client_metadata.js ***!
+  \********************************************************************/
 
-/**
- * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/wire_protocol/compression.js ***!
+  \********************************************************************/
 
-/**
- * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/list_collections_cursor.js ***!
+  \********************************************************************/
 
-/**
- * @license
- * Copyright 2021 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/search_indexes/drop.js ***!
+  \********************************************************************/
 
-/**
- * @license
- * Copyright 2022 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/set_profiling_level.js ***!
+  \********************************************************************/
 
-/**
- * @license
- * Copyright 2023 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*!********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/validate_collection.js ***!
+  \********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@mongodb-js/saslprep/dist/memory-code-points.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/search_indexes/create.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/search_indexes/update.js ***!
+  \**********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cursor/list_search_indexes_cursor.js ***!
+  \***********************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/operations/estimated_document_count.js ***!
+  \*************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/providers/aws.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/providers/gcp.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/state_machine.js ***!
+  \**************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/auto_encrypter.js ***!
+  \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@mongodb-js/saslprep/dist/code-points-data-browser.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/providers/azure.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/providers/index.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/providers/utils.js ***!
+  \****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/crypto_callbacks.js ***!
+  \*****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/service_workflow.js ***!
+  \*****************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/client_encryption.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/azure_token_cache.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/callback_workflow.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/token_entry_cache.js ***!
+  \******************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/client-side-encryption/mongocryptd_manager.js ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/callback_lock_cache.js ***!
+  \********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/aws_service_workflow.js ***!
+  \*********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/mongodb/lib/cmap/auth/mongodb_oidc/azure_service_workflow.js ***!
+  \***********************************************************************************/

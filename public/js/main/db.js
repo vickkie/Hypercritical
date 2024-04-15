@@ -1,0 +1,1 @@
+const{MongoClient}=require("mongodb"),uri=process.env.MONGODB_URI,client=new MongoClient(uri,{useNewUrlParser:!0,useUnifiedTopology:!0});async function connectDB(){return client.isConnected()||await client.connect(),client.db(process.env.MONGODB_DB_NAME)}module.exports=connectDB;

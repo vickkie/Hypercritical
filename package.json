@@ -48,8 +48,8 @@
   "terser-webpack-plugin": "^5.3.10",
   "ts-loader": "^9.5.1",
   "typescript": "^5.4.5",
-  "webpack": "^5.91.0",
-  "webpack-cli": "^5.1.4"
+  "webpack": "^5.90.3",
+  "webpack-cli": "^4.10.0"
  },
  "dependencies": {
   "@builder.io/partytown": "^0.10.0",
@@ -57,11 +57,14 @@
   "firebase": "^10.11.0",
   "gsap": "^3.12.5",
   "lozad": "^1.16.0",
+  "mongodb": "^6.5.0",
+  "mongoose": "^8.3.1",
   "mouse-follower": "^1.1.2",
   "react": "^18.2.0",
   "react-dom": "^18.2.0",
   "reeller": "^0.0.5",
   "splitting": "^1.0.6",
-  "swiper": "^11.1.1"
+  "swiper": "^11.1.1",
+  "util": "^0.12.5"
  }
 }

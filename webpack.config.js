@@ -181,6 +181,16 @@ module.exports = {
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
   },
+  resolve: {
+    fallback: {
+      util: require.resolve("util/"),
+      net: false, // Ignore 'net' module
+      tls: false, // Ignore 'tls' module
+      dns: false,
+      timers: false,
+      cryptoBrowserify: false,
+    },
+  },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js
     path: path.resolve(__dirname, "public"),

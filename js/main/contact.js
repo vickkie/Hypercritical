@@ -1,7 +1,7 @@
 import MouseFollower from "mouse-follower";
-// import Lenis from "@studio-freight/lenis";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set } from "firebase/database";
+const connectDB = require("./db");
+const mongoose = require("mongoose");
+
 //global
 
 let select = (e) => document.querySelector(e);
@@ -96,25 +96,19 @@ function hideDialog() {
   });
 }
 
-// Group 3: firebase
-
-// Initialize Firebase API
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.FIREBASE_DATABASE_URL, //databaseURL here
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+// Group 3: firebase sub with mongodb
 
 // Function to handle form submission
+const consultationSchema = new mongoose.Schema({
+  name: String,
+  message: String,
+  budget: String,
+  consultationType: String,
+  email: String,
+  date: Date,
+});
+const Consultation = mongoose.model("Consultation", consultationSchema);
+
 document.getElementById("consultationForm").addEventListener("submit", function (e) {
   e.preventDefault();
   var message = document.getElementById("message").value;
@@ -146,20 +140,35 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     }
   }
 
-  // Generate a unique ID for the new entry
-  var newConsultationRef = push(ref(database, "consultations"));
-  set(newConsultationRef, {
-    name: name,
-    message: message,
-    budget: budget,
-    consultationType: consultationType,
-    email: email,
-    date: new Date().toISOString(),
-  });
+  // Connect to MongoDB and get the database
+  connectDB()
+    .then((db) => {
+      const consultationsCollection = db.collection("consultations");
 
-  showDialog();
+      // Create a new entry in the database
+      var newConsultation = new Consultation({
+        name: name,
+        message: message,
+        budget: budget,
+        consultationType: consultationType,
+        email: email,
+        date: new Date(),
+      });
+      newConsultation
+        .save()
+        .then((result) => {
+          console.log("Data inserted with ID:", result._id);
 
-  document.getElementById("consultationForm").reset();
+          showDialog();
+          document.getElementById("consultationForm").reset();
+        })
+        .catch((error) => {
+          console.error("Error inserting data:", error);
+        });
+    })
+    .catch((error) => {
+      console.error("Error connecting to database:", error);
+    });
 });
 
 select(".close-dialog").addEventListener("click", hideDialog);

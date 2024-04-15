@@ -96,7 +96,7 @@ function hideDialog() {
   });
 }
 
-// Group 3: firebase sub with mongodb
+// Group 6:  Data collection with mongodb
 
 // Function to handle form submission
 const consultationSchema = new mongoose.Schema({
@@ -157,10 +157,14 @@ document.getElementById("consultationForm").addEventListener("submit", function 
       newConsultation
         .save()
         .then((result) => {
-          console.log("Data inserted with ID:", result._id);
+          if (result) {
+            console.log("Data inserted with ID:", result._id);
 
-          showDialog();
-          document.getElementById("consultationForm").reset();
+            showDialog();
+            document.getElementById("consultationForm").reset();
+          } else {
+            console.error("Could not insert data");
+          }
         })
         .catch((error) => {
           console.error("Error inserting data:", error);

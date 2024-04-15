@@ -4,7 +4,7 @@ const cacheName = "Hypercritical-offline";
 // }
 
 let offlineUrl = "offline.html";
-let offlineFont = "fonts/MonumentExtended-Regular.woff";
+let offlineFont = "fonts/SpaceGrotesk.woff2";
 let offlineMask = "assets/masks/hypercritical-main-logo.png";
 
 const cacheAssets = [offlineUrl, offlineFont, offlineMask];

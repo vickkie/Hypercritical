@@ -1,7 +1,7 @@
 import MouseFollower from "mouse-follower";
-// import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
+// import Lenis from "@studio-freight/lenis";
 //global
 
 let select = (e) => document.querySelector(e);

@@ -1,10 +1,7 @@
 const cacheName = "Hypercritical-offline";
-// var cacheName = {
-//     offline: 'uzitrake-offline' + cacheVersion,
-// }
 
 let offlineUrl = "offline.html";
-let offlineFont = "fonts/SpaceGrotesk.woff2";
+let offlineFont = "fonts/SpaceGrotesk.woff";
 let offlineMask = "assets/masks/hypercritical-main-logo.png";
 
 const cacheAssets = [offlineUrl, offlineFont, offlineMask];

@@ -921,3 +921,32 @@ projects.forEach((project, i) => {
     projectstl.reverse();
   });
 });
+
+//dozing off
+
+document.addEventListener("DOMContentLoaded", function () {
+  const originalTitle = document.title;
+  let titleInterval;
+  let dotCount = 1;
+  const maxDotCount = 5;
+
+  const startDozing = () => {
+    titleInterval = setInterval(() => {
+      // Increment dotCount, resetting to 1 if it exceeds maxDotCount
+      dotCount = dotCount < maxDotCount ? dotCount + 1 : 1;
+      // Construct the new title with the current dotCount
+      const newTitle = "Zzzz" + ".".repeat(dotCount);
+      document.title = newTitle;
+    }, 500); // Change the title every 500ms
+  };
+
+  const stopDozing = () => {
+    clearInterval(titleInterval);
+    document.title = originalTitle;
+  };
+
+  const dozeLater = () => setTimeout(startDozing, 120000); // Start dozing after 2 minutes
+
+  window.addEventListener("blur", dozeLater);
+  window.addEventListener("focus", stopDozing);
+});

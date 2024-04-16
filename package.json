@@ -54,6 +54,7 @@
  "dependencies": {
   "@builder.io/partytown": "^0.10.0",
   "@studio-freight/lenis": "^1.0.39",
+  "body-parser": "^1.20.2",
   "cors": "^2.8.5",
   "express": "^4.19.2",
   "firebase": "^10.11.0",

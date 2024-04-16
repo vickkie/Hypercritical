@@ -1,9 +1,11 @@
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hypercritical - offline</title>
   <link id="browser_favicon" rel="icon" href="hypercritical-main-logo.png" />
 </head>
 <main class="site-offline" data-router-wrapper="">
   <div class="logo">
-    <!-- <img src="../assets/svg/DAYBREAKS.svg" width="238" height="90" alt="Trakexcel"> -->
     <h1 class="header-logo">Hypercritical</h1>
   </div>
   <div data-router-view="defaultRouter" class="page-default">
@@ -15,9 +17,10 @@
 </main>
 <style>
   @font-face {
-    font-display: swap;
-    font-family: "Space-Grotesk";
-    src: url("SpaceGrotesk.woff2") format("woff2");
+    font-family: "SpaceGrotesk";
+    src: url("SpaceGrotesk.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
   }
 
   .site-offline {
@@ -38,7 +41,7 @@
 
   .header-logo {
     font-size: 6vw;
-    font-family: "Space-Grotesk", Arial, Helvetica, sans-serif;
+    font-family: "SpaceGrotesk", sans-serif;
   }
 
   body {

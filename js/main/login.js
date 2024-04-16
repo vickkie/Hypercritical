@@ -30,7 +30,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       });
     } else {
       console.error("Login failed");
-      // Handle login failure (e.g., show an error message)
+      // Handle login failure
     }
   } catch (error) {
     console.error("Error:", error);

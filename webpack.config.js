@@ -143,6 +143,18 @@ const plugins = [
       useShortDoctype: true,
     },
   }),
+  new HtmlWebpackPlugin({
+    template: "./login.html",
+    filename: "login.html",
+    inject: "body",
+    chunks: ["login", "loginpage"],
+    minify: {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+    },
+  }),
   new Dotenv({
     allowEmptyValues: true,
   }),
@@ -177,9 +189,11 @@ module.exports = {
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
     process: "./js/main/process.js",
+    login: "./js/main/login.js",
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
+    loginpage: "./js/main/components/LoginMain.jsx",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js

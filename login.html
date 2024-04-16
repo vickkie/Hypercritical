@@ -11,11 +11,17 @@
     <meta http-equiv="Cache-Control" content="max-age=31536000" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/multi-menu.css" />
+    <link rel="stylesheet" href="css/transition.css" />
     <link id="browser_favicon" rel="icon" href="assets/masks/hypercritical-main-logo.png" />
     <link fetchpriority="high" rel="preload" href="fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin />
-    <link fetchpriority="high" rel="preload" href="assets/images/0412-2.webp" as="image" />
+    <link fetchpriority="high" rel="preload" href="assets/images/fond.jpg" as="image" />
   </head>
   <body>
+    <div class="transition-in">
+      <div class="mid-transition-wrapper">
+        <div class="mid-transition"><span class="mid-transition-text">HC</span></div>
+      </div>
+    </div>
     <div class="nav">
       <div class="padding_global nav_padding">
         <div class="nav_grid">
@@ -124,7 +130,7 @@
                     <a href="#" class="sidemenuUzi__item" data-cursor="-medium -exclusion"
                       ><span class="sidemenuUzi__item-inner">••••</span></a
                     >
-                    <a href="account" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
+                    <a href="login" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
                       ><span class="sidemenuUzi__item-inner">Enter</span></a
                     >
                     <a href="membership_signup" class="sidemenuUzi__item transit" data-cursor="-medium -exclusion"
@@ -195,8 +201,10 @@
     </div>
     <div id="loginpage"></div>
     <script src="js/gsap.min.js"></script>
+    <script src="js/split-text.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="includes/page-loader-images.js"></script>
     <script src="js/multi-menu.js"></script>
-    <script src="login.js"></script>
   </body>
 </html>

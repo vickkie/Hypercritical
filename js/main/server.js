@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const serviceAccount = require("../../includes/serviceAccountKey.json");
+const serviceAccount = require("../../secure/serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

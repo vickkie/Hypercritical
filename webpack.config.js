@@ -16,7 +16,10 @@ const isProduction = process.env.NODE_ENV === "production";
 const plugins = [
   new CopyWebpackPlugin({
     patterns: [
-      { from: "includes", to: "includes" },
+      {
+        from: "includes",
+        to: "includes",
+      },
       { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
       { from: "offline.html", to: "offline.html" },
       { from: "css", to: "css" },
@@ -147,7 +150,7 @@ const plugins = [
     template: "./login.html",
     filename: "login.html",
     inject: "body",
-    chunks: ["login", "loginpage"],
+    chunks: ["loginpage", "login"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -189,11 +192,11 @@ module.exports = {
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
     process: "./js/main/process.js",
-    login: "./js/main/login.js",
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
     loginpage: "./js/main/components/LoginMain.jsx",
+    login: "./js/main/login.js",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js

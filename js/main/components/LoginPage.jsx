@@ -1,66 +1,100 @@
-// src/Login.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import 'firebase/auth';
+import { app, auth } from './Firebase/auth';
+import { useAuth } from './AuthContext';
+
+gsap.registerPlugin(SplitText);
+
+const MessageDiv = ({ message, type }) => {
+ const [showMessage, setShowMessage] = useState(false);
+
+ useEffect(() => {
+    
+    setShowMessage(false);
+    if (message) {
+      setShowMessage(true);
+      const timer = setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+ }, [message]); 
+
+ return showMessage ? <div className={`message ${type}`}>{message}</div> : null;
+};
+
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+ const [email, setEmail] = useState('');
+ const [password, setPassword] = useState('');
+ const [message, setMessage] = useState({ text: '', type: '' });
+ const [messageKey, setMessageKey] = useState(0);
+  const { setCurrentUser } = useAuth();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = await response.json();
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setError('');
-        window.location.href = '/';
-      }
-    } catch (err) {
-      setError('Could not connect to server, please try again later.');
+ const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      setMessage({ text: "Please fill in both fields", type: 'error' });
+      setMessageKey(prevKey => prevKey + 1);
+      return;
     }
-  };
 
-  return (
+    try {
+     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      setMessage({ text: 'Login Success. Welcome uzi !', type: 'success' });
+      setEmail('');
+      setPassword('');
+      setCurrentUser(userCredential.user);
+    } catch (error) {
+      setMessage({ text: `Login failed: Try again`, type: 'error' });
+      setMessageKey(prevKey => prevKey + 1);
+      // console.log(error.message);
+    }
+ };
+
+ useEffect(() => {
+    let herotext = new SplitText(".titleLogin", { type: "chars", charsClass: "titleLogin" });
+    if (herotext.chars.length > 0) {
+      gsap.from(herotext.chars, { delay: 0.7, y: 100, duration: 0.8, stagger: false, ease: "power3.out" });
+    } else {
+      gsap.from(".titleLogin", { delay: 0.7, y: 100, duration: 0.8, stagger: false, ease: "power3.out" });
+    }
+ }, []);
+
+ return (
     <React.Fragment>
       <div className="loginwrapper">
         <div className="logincanvas">
           <img className="canvasimage" src="assets/images/fond.jpg" alt="Login Background" />
         </div>
         <div className="loginform">
-          <form onSubmit={handleSubmit}>
-            <h2 className='titleLogin'>Log-in</h2>
-       
-              <input
-                className='inputLogin1'
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="mail@mail.com"
-              />
-              <input
-                className='inputLogin2'
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-              />
-       
+          <form onSubmit={handleLogin} className='form-login'>
+            <MessageDiv key={messageKey} message={message.text} type={message.type} />
+            <h2 className="titleLogin" style={{ overflow: "hidden" }}>Log-in</h2>
+            <input
+              className="inputLogin1"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="mail@mail.com"
+            />
+            <input
+              className="inputLogin2"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
             <br />
-            <button className='submitButton' type="submit">Enter</button>
-            {error && <p className="error">{error}</p>}
+            <button className="submitButton" type="submit">Enter</button>
           </form>
         </div>
       </div>
     </React.Fragment>
-  );
+ );
 };
 
 export default Login;

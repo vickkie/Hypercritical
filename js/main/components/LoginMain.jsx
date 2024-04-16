@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Login from './LoginPage';
 import Dashboard from './Dashboard'; // a Dashboard component
@@ -14,9 +14,14 @@ const App = () => {
       <ErrorBoundary>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/dashboard" 
+          element={
+                   <PrivateRoute>
+                     <Dashboard />
+                   </PrivateRoute>
+                  } />
           {/* Redirect to login if not logged in */}
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </ErrorBoundary>
     </Router>

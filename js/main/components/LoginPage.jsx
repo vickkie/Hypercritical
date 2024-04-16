@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import 'firebase/auth';
-import { app, auth } from './Firebase/auth';
+import {auth } from './Firebase/auth';
 import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+
 
 gsap.registerPlugin(SplitText);
 
@@ -32,6 +35,7 @@ const Login = () => {
  const [message, setMessage] = useState({ text: '', type: '' });
  const [messageKey, setMessageKey] = useState(0);
   const { setCurrentUser } = useAuth();
+  const navigate = useNavigate();
 
  const handleLogin = async (e) => {
     e.preventDefault();
@@ -48,10 +52,11 @@ const Login = () => {
       setEmail('');
       setPassword('');
       setCurrentUser(userCredential.user);
+       navigate('/dashboard');
     } catch (error) {
       setMessage({ text: `Login failed: Try again`, type: 'error' });
       setMessageKey(prevKey => prevKey + 1);
-      // console.log(error.message);
+      console.log(error.message);
     }
  };
 

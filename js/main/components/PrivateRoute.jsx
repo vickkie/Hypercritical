@@ -1,16 +1,14 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
-import { useAuth } from './AuthContext';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from './AuthContext'; // Adjust the import path as necessary
 
-const PrivateRoute = ({ element, ...rest }) => {
+const PrivateRoute = ({ children }) => {
  const { currentUser } = useAuth();
 
- return (
-    <Route
-      {...rest}
-      element={currentUser ? element : <Navigate to="/login" />}
-    />
- );
+ if (!currentUser) {
+    return <Navigate to="/login" />;
+ }
+ return children;
 };
 
 export default PrivateRoute;

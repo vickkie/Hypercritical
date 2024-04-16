@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import 'firebase/auth';
 import {auth } from './Firebase/auth';
 import { useAuth } from './AuthContext';
@@ -47,12 +47,17 @@ const Login = () => {
     }
 
     try {
+
+    // Persistence to LOCAL storage to persist the user's session across page reloads
+      await setPersistence(auth, browserLocalPersistence);
+
      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setMessage({ text: 'Login Success. Welcome uzi !', type: 'success' });
-      setEmail('');
-      setPassword('');
+      // setEmail('');
+      // setPassword('');
       setCurrentUser(userCredential.user);
        navigate('/dashboard');
+
     } catch (error) {
       setMessage({ text: `Login failed: Try again`, type: 'error' });
       setMessageKey(prevKey => prevKey + 1);

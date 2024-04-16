@@ -1,7 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import Login from './LoginPage';
 import Dashboard from './Dashboard'; // a Dashboard component
 import ErrorBoundary from './ErrorBoundary';
@@ -14,12 +13,11 @@ const App = () => {
       <ErrorBoundary>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" 
-          element={
-                   <PrivateRoute>
-                     <Dashboard />
-                   </PrivateRoute>
-                  } />
+          <Route path="/dashboard" element={
+            <PrivateRoute>
+              <Dashboard />
+           </PrivateRoute>
+          } />
           {/* Redirect to login if not logged in */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
@@ -27,15 +25,16 @@ const App = () => {
     </Router>
  );
 };
-
 const renderApp = () => {
  const container = document.getElementById("loginpage");
  if (container) {
     const root = createRoot(container);
     root.render(
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+       <React.StrictMode>
+        <AuthProvider>
+         <App />
+        </AuthProvider>
+      </React.StrictMode>
     );
  } else {
     console.error("Element with id 'loginpage' not found");

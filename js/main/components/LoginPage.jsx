@@ -6,8 +6,6 @@ import {auth } from './Firebase/auth';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-
-
 gsap.registerPlugin(SplitText);
 
 const MessageDiv = ({ message, type }) => {

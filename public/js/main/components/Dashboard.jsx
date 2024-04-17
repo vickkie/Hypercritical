@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext'; // Ensure this path is correct
 import { getAuth, signOut } from 'firebase/auth'; // Import signOut from Firebase
@@ -8,10 +8,26 @@ const Dashboard = () => {
  const auth = getAuth();
  const navigate = useNavigate();
 
- // Check if the user is not logged in and redirect to the login page
+ // Prevent reload functionality
+ useEffect(() => {
+    if (currentUser) {
+      const handleBeforeUnload = (event) => {
+        event.preventDefault();
+        event.returnValue = '';
+      };
+
+      window.addEventListener('beforeunload', handleBeforeUnload);
+
+      return () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+      };
+    }
+ }, [currentUser]); // Depend on currentUser to re-run the effect when it changes
+
+ 
  if (!currentUser) {
     navigate('/login');
-    return null; // Return null or a loading indicator if you prefer
+    return null;
  }
 
  const handleLogout = async () => {

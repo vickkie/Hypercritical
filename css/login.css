@@ -349,3 +349,30 @@ input::placeholder {
     grid-template-columns: 1fr;
   }
 }
+.consultations-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.consultation-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-card h3 {
+  margin: 0 0 8px;
+}
+
+.consultation-card p {
+  margin: 0 0 8px;
+}
+
+.margintop {
+  margin-top: 50px;
+}

@@ -1,14 +1,4 @@
 /*!
- * CSSPlugin 3.12.5
- * https://gsap.com
- *
- * Copyright 2008-2024, GreenSock. All rights reserved.
- * Subject to the terms at https://gsap.com/standard-license or for
- * Club GSAP members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
-*/
-
-/*!
  * GSAP 3.12.5
  * https://gsap.com
  *
@@ -18,491 +8,7 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
-/*! ../../../helpers/AxiosURLSearchParams.js */
-
-/*! ../adapters/adapters.js */
-
-/*! ../cancel/CanceledError.js */
-
-/*! ../cancel/isCancel.js */
-
-/*! ../core/AxiosError.js */
-
-/*! ../core/AxiosHeaders.js */
-
-/*! ../core/buildFullPath.js */
-
-/*! ../defaults/index.js */
-
-/*! ../defaults/transitional.js */
-
-/*! ../env/data.js */
-
-/*! ../helpers/AxiosURLSearchParams.js */
-
-/*! ../helpers/buildURL.js */
-
-/*! ../helpers/combineURLs.js */
-
-/*! ../helpers/formDataToJSON.js */
-
-/*! ../helpers/isAbsoluteURL.js */
-
-/*! ../helpers/parseHeaders.js */
-
-/*! ../helpers/parseProtocol.js */
-
-/*! ../helpers/speedometer.js */
-
-/*! ../helpers/toFormData.js */
-
-/*! ../helpers/toURLEncodedForm.js */
-
-/*! ../helpers/validator.js */
-
-/*! ../platform/index.js */
-
-/*! ../platform/node/classes/FormData.js */
-
-/*! ../utils.js */
-
-/*! ./../core/settle.js */
-
-/*! ./../helpers/buildURL.js */
-
-/*! ./../helpers/cookies.js */
-
-/*! ./../helpers/isURLSameOrigin.js */
-
-/*! ./../utils.js */
-
-/*! ./AuthContext */
-
-/*! ./AxiosError.js */
-
-/*! ./AxiosHeaders.js */
-
-/*! ./CSSPlugin.js */
-
-/*! ./CanceledError.js */
-
-/*! ./Dashboard */
-
-/*! ./ErrorBoundary */
-
-/*! ./Firebase/auth */
-
-/*! ./InterceptorManager.js */
-
-/*! ./LoginPage */
-
-/*! ./PrivateRoute */
-
-/*! ./adapters/adapters.js */
-
-/*! ./buildFullPath.js */
-
-/*! ./cancel/CancelToken.js */
-
-/*! ./cancel/CanceledError.js */
-
-/*! ./cancel/isCancel.js */
-
-/*! ./cjs/react-dom.development.js */
-
-/*! ./cjs/react.development.js */
-
-/*! ./cjs/scheduler.development.js */
-
-/*! ./classes/Blob.js */
-
-/*! ./classes/FormData.js */
-
-/*! ./classes/URLSearchParams.js */
-
-/*! ./common/utils.js */
-
-/*! ./core/Axios.js */
-
-/*! ./core/AxiosError.js */
-
-/*! ./core/AxiosHeaders.js */
-
-/*! ./core/mergeConfig.js */
-
-/*! ./defaults/index.js */
-
-/*! ./dispatchRequest.js */
-
-/*! ./env/data.js */
-
-/*! ./gsap-core.js */
-
-/*! ./helpers/HttpStatusCode.js */
-
-/*! ./helpers/bind.js */
-
-/*! ./helpers/formDataToJSON.js */
-
-/*! ./helpers/isAxiosError.js */
-
-/*! ./helpers/spread.js */
-
-/*! ./helpers/toFormData.js */
-
-/*! ./http.js */
-
-/*! ./index-219c3cac.js */
-
-/*! ./mergeConfig.js */
-
-/*! ./node/index.js */
-
-/*! ./toFormData.js */
-
-/*! ./transformData.js */
-
-/*! ./transitional.js */
-
-/*! ./utils.js */
-
-/*! ./wrap-idb-value.js */
-
-/*! ./xhr.js */
-
-/*! @firebase/app */
-
-/*! @firebase/auth */
-
-/*! @firebase/component */
-
-/*! @firebase/logger */
-
-/*! @firebase/util */
-
-/*! @remix-run/router */
-
-/*! axios */
-
-/*! firebase/app */
-
-/*! firebase/auth */
-
-/*! gsap */
-
-/*! idb */
-
-/*! react */
-
-/*! react-dom */
-
-/*! react-dom/client */
-
-/*! react-router */
-
-/*! react-router-dom */
-
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-
-/*! scheduler */
-
-/*! tslib */
-
-/*!************************************!*\
-  !*** ./node_modules/gsap/index.js ***!
-  \************************************/
-
-/*!*************************************!*\
-  !*** ./node_modules/react/index.js ***!
-  \*************************************/
-
-/*!****************************************!*\
-  !*** ./node_modules/gsap/CSSPlugin.js ***!
-  \****************************************/
-
-/*!****************************************!*\
-  !*** ./node_modules/gsap/gsap-core.js ***!
-  \****************************************/
-
-/*!*****************************************!*\
-  !*** ./node_modules/axios/lib/axios.js ***!
-  \*****************************************/
-
-/*!*****************************************!*\
-  !*** ./node_modules/axios/lib/utils.js ***!
-  \*****************************************/
-
-/*!*****************************************!*\
-  !*** ./node_modules/idb/build/index.js ***!
-  \*****************************************/
-
-/*!*****************************************!*\
-  !*** ./node_modules/react-dom/index.js ***!
-  \*****************************************/
-
-/*!*****************************************!*\
-  !*** ./node_modules/scheduler/index.js ***!
-  \*****************************************/
-
-/*!******************************************!*\
-  !*** ./js/main/components/Dashboard.jsx ***!
-  \******************************************/
-
-/*!******************************************!*\
-  !*** ./js/main/components/LoginMain.jsx ***!
-  \******************************************/
-
-/*!******************************************!*\
-  !*** ./js/main/components/LoginPage.jsx ***!
-  \******************************************/
-
-/*!******************************************!*\
-  !*** ./node_modules/react-dom/client.js ***!
-  \******************************************/
-
-/*!******************************************!*\
-  !*** ./node_modules/tslib/tslib.es6.mjs ***!
-  \******************************************/
-
-/*!********************************************!*\
-  !*** ./js/main/components/AuthContext.jsx ***!
-  \********************************************/
-
-/*!********************************************!*\
-  !*** ./node_modules/axios/lib/env/data.js ***!
-  \********************************************/
-
-/*!*********************************************!*\
-  !*** ./js/main/components/PrivateRoute.jsx ***!
-  \*********************************************/
-
-/*!**********************************************!*\
-  !*** ./js/main/components/ErrorBoundary.jsx ***!
-  \**********************************************/
-
-/*!**********************************************!*\
-  !*** ./js/main/components/Firebase/auth.jsx ***!
-  \**********************************************/
-
-/*!**********************************************!*\
-  !*** ./node_modules/axios/lib/core/Axios.js ***!
-  \**********************************************/
-
-/*!***********************************************!*\
-  !*** ./node_modules/axios/lib/core/settle.js ***!
-  \***********************************************/
-
-/*!************************************************!*\
-  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
-  \************************************************/
-
-/*!************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/bind.js ***!
-  \************************************************/
-
-/*!************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/null.js ***!
-  \************************************************/
-
-/*!*************************************************!*\
-  !*** ./node_modules/react-router/dist/index.js ***!
-  \*************************************************/
-
-/*!**************************************************!*\
-  !*** ./node_modules/axios/lib/defaults/index.js ***!
-  \**************************************************/
-
-/*!**************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/spread.js ***!
-  \**************************************************/
-
-/*!**************************************************!*\
-  !*** ./node_modules/axios/lib/platform/index.js ***!
-  \**************************************************/
-
-/*!**************************************************!*\
-  !*** ./node_modules/idb/build/wrap-idb-value.js ***!
-  \**************************************************/
-
-/*!***************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
-  \***************************************************/
-
-/*!***************************************************!*\
-  !*** ./node_modules/axios/lib/core/AxiosError.js ***!
-  \***************************************************/
-
-/*!***************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
-  \***************************************************/
-
-/*!****************************************************!*\
-  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
-  \****************************************************/
-
-/*!****************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
-  \****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/axios/lib/adapters/adapters.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/axios/lib/core/AxiosHeaders.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/validator.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/react-router-dom/dist/index.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/react/cjs/react.development.js ***!
-  \*****************************************************/
-
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
-  \******************************************************/
-
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
-  \******************************************************/
-
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/core/transformData.js ***!
-  \******************************************************/
-
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/toFormData.js ***!
-  \******************************************************/
-
-/*!*******************************************************!*\
-  !*** ./node_modules/@remix-run/router/dist/router.js ***!
-  \*******************************************************/
-
-/*!*******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
-  \*******************************************************/
-
-/*!*******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/speedometer.js ***!
-  \*******************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/CanceledError.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/axios/lib/defaults/transitional.js ***!
-  \*********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \*********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/parseProtocol.js ***!
-  \*********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/axios/lib/platform/common/utils.js ***!
-  \*********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/firebase/app/dist/esm/index.esm.js ***!
-  \*********************************************************/
-
-/*!**********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/HttpStatusCode.js ***!
-  \**********************************************************/
-
-/*!**********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/formDataToJSON.js ***!
-  \**********************************************************/
-
-/*!**********************************************************!*\
-  !*** ./node_modules/axios/lib/platform/browser/index.js ***!
-  \**********************************************************/
-
-/*!**********************************************************!*\
-  !*** ./node_modules/firebase/auth/dist/esm/index.esm.js ***!
-  \**********************************************************/
-
-/*!***********************************************************!*\
-  !*** ./node_modules/@firebase/auth/dist/esm2017/index.js ***!
-  \***********************************************************/
-
-/*!***********************************************************!*\
-  !*** ./node_modules/@firebase/util/dist/index.esm2017.js ***!
-  \***********************************************************/
-
-/*!***********************************************************!*\
-  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
-  \***********************************************************/
-
-/*!***********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \***********************************************************/
-
-/*!************************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/toURLEncodedForm.js ***!
-  \************************************************************/
-
-/*!*************************************************************!*\
-  !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
-  \*************************************************************/
-
-/*!*************************************************************!*\
-  !*** ./node_modules/scheduler/cjs/scheduler.development.js ***!
-  \*************************************************************/
-
-/*!**************************************************************!*\
-  !*** ./node_modules/@firebase/app/dist/esm/index.esm2017.js ***!
-  \**************************************************************/
-
-/*!****************************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/AxiosURLSearchParams.js ***!
-  \****************************************************************/
-
-/*!*****************************************************************!*\
-  !*** ./node_modules/@firebase/logger/dist/esm/index.esm2017.js ***!
-  \*****************************************************************/
-
-/*!*****************************************************************!*\
-  !*** ./node_modules/axios/lib/platform/browser/classes/Blob.js ***!
-  \*****************************************************************/
-
-/*!********************************************************************!*\
-  !*** ./node_modules/@firebase/auth/dist/esm2017/index-219c3cac.js ***!
-  \********************************************************************/
-
-/*!********************************************************************!*\
-  !*** ./node_modules/@firebase/component/dist/esm/index.esm2017.js ***!
-  \********************************************************************/
-
-/*!*********************************************************************!*\
-  !*** ./node_modules/axios/lib/platform/browser/classes/FormData.js ***!
-  \*********************************************************************/
-
-/*!****************************************************************************!*\
-  !*** ./node_modules/axios/lib/platform/browser/classes/URLSearchParams.js ***!
-  \****************************************************************************/
 
 /**
  * @license
@@ -624,32 +130,57 @@
  */
 
 /**
- * @remix-run/router v1.15.3
+ * @license React
+ * react-dom.production.min.js
  *
- * Copyright (c) Remix Software Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
+ * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * Checks if an event is supported in the current execution environment.
+ * @license React
+ * react-is.production.min.js
  *
- * NOTE: This will not work correctly for non-generic events such as `change`,
- * `reset`, `load`, `error`, and `select`.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * Borrows from Modernizr.
- *
- * @param {string} eventNameSuffix Event name, e.g. "click".
- * @return {boolean} True if the event is supported.
- * @internal
- * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * React Router DOM v6.22.3
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @remix-run/router v1.15.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -668,4 +199,13 @@
  * LICENSE.md file in the root directory of this source tree.
  *
  * @license MIT
+ */
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */

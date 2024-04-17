@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./LoginPage";
-import Dashboard from "./Dashboard";
+const Dashboard = React.lazy(() => import("./Dashboard"));
 import ErrorBoundary from "./ErrorBoundary";
 import { AuthProvider } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
@@ -18,7 +18,9 @@ const App = () => {
               path="/dashboard"
               element={
                 <PrivateRoute>
-                  <Dashboard />
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Dashboard />
+                  </Suspense>
                 </PrivateRoute>
               }
             />

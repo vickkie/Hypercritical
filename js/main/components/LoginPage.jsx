@@ -51,8 +51,8 @@ const Login = () => {
 
      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setMessage({ text: 'Login Success. Welcome uzi !', type: 'success' });
-      // setEmail('');
-      // setPassword('');
+      setEmail('');
+      setPassword('');
       setCurrentUser(userCredential.user);
        navigate('/dashboard');
 

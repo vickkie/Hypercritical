@@ -415,17 +415,15 @@ summary {
     row-gap: 30px;
   }
   .contact-service {
-    transform: scale(1);
+    transform: scale(0.6);
     transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
+    justify-self: center;
+    display: grid;
   }
   .top-exit h2 {
     text-align: center;
   }
   .service-contact {
-    display: grid;
-  }
-  .contact-service {
-    justify-self: center;
     display: grid;
   }
   .circle-arrow {

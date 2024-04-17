@@ -1,38 +1,12 @@
-document.querySelector(".form-login").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+let select = (e) => document.querySelector(e);
+let selectAll = (e) => document.querySelectorAll(e);
 
-  try {
-    const response = await fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const titlePage = select(".nav_logo_parent");
+  const email = select(".inputLogin1");
+  const password = select(".inputLogin2");
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-      // Handle successful login (e.g., redirect to another page)
-
-      app.get("/login", async (req, res) => {
-        try {
-          const database = admin.database();
-          const consultationsRef = database.ref("consultations");
-          const snapshot = await consultationsRef.once("value");
-          const consultations = snapshot.val();
-          res.status(200).send(consultations);
-        } catch (error) {
-          res.status(500).send({ message: "Error fetching consultations", error: error.message });
-        }
-      });
-    } else {
-      console.error("Login failed");
-      // Handle login failure
-    }
-  } catch (error) {
-    console.error("Error:", error);
+  if (matchMedia("screen and (max-width: 768px)").matches) {
+    titlePage.innerHTML = "H.C";
   }
 });

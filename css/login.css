@@ -343,3 +343,9 @@ input::placeholder {
   color: var(--color-black);
   font-weight: 700;
 }
+
+@media (max-width: 767px) {
+  .loginwrapper {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './LoginPage';
 import Dashboard from './Dashboard'; // a Dashboard component
 import ErrorBoundary from './ErrorBoundary';

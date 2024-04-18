@@ -34,6 +34,14 @@ function ResponsiveAppBar({ onLogout }) {
     setAnchorElUser(null);
   };
 
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   const handleMenuItemClick = (setting) => {
     switch (setting) {
       case "Profile":
@@ -58,7 +66,7 @@ function ResponsiveAppBar({ onLogout }) {
   };
 
   return (
-    <AppBar position="static" className="margintop">
+    <AppBar position="static" className="margintop" open={open}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -69,6 +77,18 @@ function ResponsiveAppBar({ onLogout }) {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
+              }}
             >
               <MenuIcon />
             </IconButton>

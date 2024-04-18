@@ -36,10 +36,6 @@ object-assign
 
 /*! ../ButtonBase */
 
-/*! ../ButtonGroup/ButtonGroupButtonContext */
-
-/*! ../ButtonGroup/ButtonGroupContext */
-
 /*! ../ClassNameGenerator */
 
 /*! ../Divider */
@@ -72,7 +68,11 @@ object-assign
 
 /*! ../List/ListContext */
 
+/*! ../ListItemButton */
+
 /*! ../ListItemIcon */
+
+/*! ../ListItemSecondaryAction */
 
 /*! ../ListItemText */
 
@@ -98,6 +98,8 @@ object-assign
 
 /*! ../Select */
 
+/*! ../Slide */
+
 /*! ../SvgIcon */
 
 /*! ../Table/TableContext */
@@ -107,6 +109,8 @@ object-assign
 /*! ../TableCell */
 
 /*! ../Toolbar */
+
+/*! ../Typography */
 
 /*! ../Unstable_TrapFocus */
 
@@ -264,6 +268,8 @@ object-assign
 
 /*! ../utils/getVariation.js */
 
+/*! ../utils/isMuiElement */
+
 /*! ../utils/math.js */
 
 /*! ../utils/mergePaddingObject.js */
@@ -362,8 +368,6 @@ object-assign
 
 /*! ./buttonBaseClasses */
 
-/*! ./buttonClasses */
-
 /*! ./capitalize */
 
 /*! ./checkPropTypes */
@@ -426,6 +430,8 @@ object-assign
 
 /*! ./detectOverflow.js */
 
+/*! ./dividerClasses */
+
 /*! ./dom-utils/getCompositeRect.js */
 
 /*! ./dom-utils/getLayoutRect.js */
@@ -436,7 +442,9 @@ object-assign
 
 /*! ./dom-utils/listScrollParents.js */
 
-/*! ./elements/Header */
+/*! ./drawerClasses */
+
+/*! ./elements/Drawer */
 
 /*! ./emotion-element-43c6fea0.browser.esm.js */
 
@@ -527,6 +535,16 @@ object-assign
 /*! ./lib/has */
 
 /*! ./listClasses */
+
+/*! ./listItemButtonClasses */
+
+/*! ./listItemClasses */
+
+/*! ./listItemIconClasses */
+
+/*! ./listItemSecondaryActionClasses */
+
+/*! ./listItemTextClasses */
 
 /*! ./listScrollParents.js */
 
@@ -744,11 +762,19 @@ object-assign
 
 /*! @mui/base/utils */
 
+/*! @mui/icons-material/ChevronLeft */
+
+/*! @mui/icons-material/ChevronRight */
+
+/*! @mui/icons-material/EventNote */
+
 /*! @mui/icons-material/ExpandLess */
 
 /*! @mui/icons-material/ExpandMore */
 
 /*! @mui/icons-material/Menu */
+
+/*! @mui/icons-material/MoveToInbox */
 
 /*! @mui/material/AppBar */
 
@@ -756,13 +782,27 @@ object-assign
 
 /*! @mui/material/Box */
 
-/*! @mui/material/Button */
-
 /*! @mui/material/Collapse */
 
 /*! @mui/material/Container */
 
+/*! @mui/material/CssBaseline */
+
+/*! @mui/material/Divider */
+
+/*! @mui/material/Drawer */
+
 /*! @mui/material/IconButton */
+
+/*! @mui/material/List */
+
+/*! @mui/material/ListItem */
+
+/*! @mui/material/ListItemButton */
+
+/*! @mui/material/ListItemIcon */
+
+/*! @mui/material/ListItemText */
 
 /*! @mui/material/Menu */
 
@@ -789,6 +829,8 @@ object-assign
 /*! @mui/material/Tooltip */
 
 /*! @mui/material/Typography */
+
+/*! @mui/material/styles */
 
 /*! @mui/material/utils */
 
@@ -1055,7 +1097,7 @@ object-assign
   \***********************************************/
 
 /*!************************************************!*\
-  !*** ./js/main/components/elements/Header.jsx ***!
+  !*** ./js/main/components/elements/Drawer.jsx ***!
   \************************************************/
 
 /*!************************************************!*\
@@ -1175,6 +1217,10 @@ object-assign
   \***************************************************/
 
 /*!***************************************************!*\
+  !*** ./node_modules/@mui/material/Slide/Slide.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
   !*** ./node_modules/@mui/material/Table/Table.js ***!
   \***************************************************/
 
@@ -1231,7 +1277,7 @@ object-assign
   \*****************************************************/
 
 /*!*****************************************************!*\
-  !*** ./node_modules/@mui/material/Button/Button.js ***!
+  !*** ./node_modules/@mui/material/Drawer/Drawer.js ***!
   \*****************************************************/
 
 /*!*****************************************************!*\
@@ -1316,6 +1362,14 @@ object-assign
 
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/base/FocusTrap/FocusTrap.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@mui/icons-material/EventNote.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@mui/material/Divider/Divider.js ***!
   \*******************************************************/
 
 /*!*******************************************************!*\
@@ -1411,6 +1465,14 @@ object-assign
   \*********************************************************/
 
 /*!*********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/ChevronLeft.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/MoveToInbox.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
   !*** ./node_modules/@mui/material/Backdrop/Backdrop.js ***!
   \*********************************************************/
 
@@ -1420,6 +1482,10 @@ object-assign
 
 /*!*********************************************************!*\
   !*** ./node_modules/@mui/material/Collapse/Collapse.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@mui/material/ListItem/ListItem.js ***!
   \*********************************************************/
 
 /*!*********************************************************!*\
@@ -1468,6 +1534,10 @@ object-assign
 
 /*!**********************************************************!*\
   !*** ./node_modules/@mui/base/utils/appendOwnerState.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/ChevronRight.js ***!
   \**********************************************************/
 
 /*!**********************************************************!*\
@@ -1623,7 +1693,7 @@ object-assign
   \************************************************************/
 
 /*!************************************************************!*\
-  !*** ./node_modules/@mui/material/Button/buttonClasses.js ***!
+  !*** ./node_modules/@mui/material/Drawer/drawerClasses.js ***!
   \************************************************************/
 
 /*!************************************************************!*\
@@ -1791,6 +1861,10 @@ object-assign
   \***************************************************************/
 
 /*!***************************************************************!*\
+  !*** ./node_modules/@mui/material/CssBaseline/CssBaseline.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
   !*** ./node_modules/@mui/material/FilledInput/FilledInput.js ***!
   \***************************************************************/
 
@@ -1832,6 +1906,10 @@ object-assign
 
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/material/Collapse/collapseClasses.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItem/listItemClasses.js ***!
   \****************************************************************/
 
 /*!****************************************************************!*\
@@ -1888,6 +1966,14 @@ object-assign
 
 /*!*****************************************************************!*\
   !*** ./node_modules/@mui/material/GlobalStyles/GlobalStyles.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItemIcon/ListItemIcon.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItemText/ListItemText.js ***!
   \*****************************************************************/
 
 /*!*****************************************************************!*\
@@ -2111,6 +2197,10 @@ object-assign
   \*********************************************************************/
 
 /*!*********************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItemButton/ListItemButton.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
   !*** ./node_modules/@mui/material/TableContainer/TableContainer.js ***!
   \*********************************************************************/
 
@@ -2144,10 +2234,6 @@ object-assign
 
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-
-/*!**********************************************************************!*\
-  !*** ./node_modules/@mui/material/ButtonGroup/ButtonGroupContext.js ***!
   \**********************************************************************/
 
 /*!**********************************************************************!*\
@@ -2335,7 +2421,7 @@ object-assign
   \***************************************************************************/
 
 /*!****************************************************************************!*\
-  !*** ./node_modules/@mui/material/ButtonGroup/ButtonGroupButtonContext.js ***!
+  !*** ./node_modules/@mui/material/ListItemButton/listItemButtonClasses.js ***!
   \****************************************************************************/
 
 /*!****************************************************************************!*\
@@ -2441,6 +2527,14 @@ object-assign
 /*!**************************************************************************************!*\
   !*** ./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js ***!
   \**************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItemSecondaryAction/ListItemSecondaryAction.js ***!
+  \***************************************************************************************/
+
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/@mui/material/ListItemSecondaryAction/listItemSecondaryActionClasses.js ***!
+  \**********************************************************************************************/
 
 /*!************************************************************************************************!*\
   !*** ./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js ***!

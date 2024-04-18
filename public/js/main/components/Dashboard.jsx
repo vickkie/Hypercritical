@@ -19,7 +19,8 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import ResponsiveAppBar from "./elements/Header";
+// import ResponsiveAppBar from "./elements/Header";
+import MiniDrawer from "./elements/Drawer";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -133,46 +134,47 @@ const Dashboard = () => {
 
   return (
     <div>
-      <ResponsiveAppBar onLogout={handleLogout} />
-      <Container maxWidth="lg">
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="data table">
-            <TableHead>
-              <TableRow className="table-header">
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Budget</TableCell>
-                <TableCell>Consultation Type</TableCell>
-                <TableCell>
-                  Date
-                  <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
-                    {sortOrder === "asc" ? "▲" : "▼"}
-                  </button>
-                </TableCell>
-                <TableCell>Message</TableCell>
-                <TableCell>
-                  <input
-                    className="searchbyname"
-                    type="text"
-                    placeholder="Search name"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>{consultationRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}</TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={consultationRows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+      <Container maxWidth="lg" style={{ margin: "0px", padding: "0px" }}>
+        <MiniDrawer onLogout={handleLogout}>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="data table">
+              <TableHead>
+                <TableRow className="table-header">
+                  <TableCell>Name</TableCell>
+                  <TableCell>Email</TableCell>
+                  <TableCell>Budget</TableCell>
+                  <TableCell>Consultation Type</TableCell>
+                  <TableCell>
+                    Date
+                    <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+                      {sortOrder === "asc" ? "▲" : "▼"}
+                    </button>
+                  </TableCell>
+                  <TableCell>Message</TableCell>
+                  <TableCell>
+                    <input
+                      className="searchbyname"
+                      type="text"
+                      placeholder="Search name"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>{consultationRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}</TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={consultationRows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </MiniDrawer>
       </Container>
     </div>
   );

@@ -2,10 +2,29 @@ import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./LoginPage";
-const Dashboard = React.lazy(() => import("./Dashboard"));
+// import Dashboard from "./Dashboard";
 import ErrorBoundary from "./ErrorBoundary";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider, useAuth } from "./AuthContext"; // Ensure useAuth is exported from AuthContext
 import PrivateRoute from "./PrivateRoute";
+import styles from "./styles.module.css";
+const isProduction = process.env.NODE_ENV === "production";
+const Dashboard = isProduction ? require("./Dashboard").default : React.lazy(() => import("./Dashboard"));
+
+const DashboardRoute = () => {
+  const { currentUser } = useAuth();
+  return currentUser ? (
+    <div>
+      {/* Use Suspense only if Dashboard is lazy-loaded */}
+      {isProduction ? (
+        <Dashboard />
+      ) : (
+        <Suspense fallback={<div className="spinner"></div>}>
+          <Dashboard />
+        </Suspense>
+      )}
+    </div>
+  ) : null;
+};
 
 const App = () => {
   return (
@@ -18,9 +37,7 @@ const App = () => {
               path="/dashboard"
               element={
                 <PrivateRoute>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Dashboard />
-                  </Suspense>
+                  <DashboardRoute />
                 </PrivateRoute>
               }
             />
@@ -32,6 +49,7 @@ const App = () => {
     </Router>
   );
 };
+
 const renderApp = () => {
   const container = document.getElementById("loginpage");
   if (container) {

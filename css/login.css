@@ -376,3 +376,25 @@ input::placeholder {
 .margintop {
   margin-top: 50px;
 }
+.table-header TableCell {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: var(--color-black);
+}
+.sort {
+  background-color: var(--main-color);
+  border: none;
+  opacity: 0.5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.searchbyname {
+  border: 0.0058vw solid;
+  text-align: center;
+  font-size: 0.6rem;
+  height: 30px;
+  border-radius: 30px;
+}
+.searchbyname::placeholder {
+  font-size: 0.7rem;
+}

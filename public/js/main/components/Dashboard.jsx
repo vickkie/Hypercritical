@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import { getAuth, signOut } from "firebase/auth"; // Import signOut from Firebase
+import { getAuth, signOut } from "firebase/auth";
 import { getDatabase, ref, onValue, off } from "firebase/database";
 import Container from "@mui/material/Container";
 import TableBody from "@mui/material/TableBody";
@@ -12,6 +12,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
 import Table from "@mui/material/Table";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import ResponsiveAppBar from "./elements/Header";
 
@@ -23,6 +29,9 @@ const Dashboard = () => {
   const [consultations, setConsultations] = useState({});
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [expandedMessage, setExpandedMessage] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const db = getDatabase();
@@ -44,6 +53,19 @@ const Dashboard = () => {
 
     return () => {
       off(consultationRef, "value", handleData);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      event.returnValue = ""; // Chrome requires returnValue to be set
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
 
@@ -70,31 +92,73 @@ const Dashboard = () => {
     }
   };
 
-  const consultationRows = Object.values(consultations).map((consultation, index) => (
-    <TableRow key={index}>
-      <TableCell>{consultation.name}</TableCell>
-      <TableCell>{consultation.email}</TableCell>
-      <TableCell>{consultation.budget}</TableCell>
-      <TableCell>{consultation.consultationType}</TableCell>
-      <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
-      <TableCell>{consultation.message}</TableCell>
-    </TableRow>
-  ));
+  const toggleMessage = (index) => {
+    setExpandedMessage(expandedMessage === index ? null : index);
+  };
+
+  const consultationRows = Object.values(consultations)
+    .filter((consultation) => consultation.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    .sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+    })
+    .map((consultation, index) => (
+      <React.Fragment key={index}>
+        <TableRow>
+          <TableCell>{consultation.name}</TableCell>
+          <TableCell>{consultation.email}</TableCell>
+          <TableCell>{consultation.budget}</TableCell>
+          <TableCell>{consultation.consultationType}</TableCell>
+          <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
+          <TableCell>
+            <IconButton size="small" onClick={() => toggleMessage(index)}>
+              {expandedMessage === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </IconButton>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+            <Collapse in={expandedMessage === index} timeout="auto" unmountOnExit>
+              <Box margin={1}>
+                <Typography variant="body2" color="text.secondary">
+                  {consultation.message}
+                </Typography>
+              </Box>
+            </Collapse>
+          </TableCell>
+        </TableRow>
+      </React.Fragment>
+    ));
 
   return (
     <div>
       <ResponsiveAppBar onLogout={handleLogout} />
       <Container maxWidth="lg">
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 650 }} aria-label="data table">
             <TableHead>
-              <TableRow>
+              <TableRow className="table-header">
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Budget</TableCell>
                 <TableCell>Consultation Type</TableCell>
-                <TableCell>Date</TableCell>
+                <TableCell>
+                  Date
+                  <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+                    {sortOrder === "asc" ? "▲" : "▼"}
+                  </button>
+                </TableCell>
                 <TableCell>Message</TableCell>
+                <TableCell>
+                  <input
+                    className="searchbyname"
+                    type="text"
+                    placeholder="Search name"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>{consultationRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}</TableBody>

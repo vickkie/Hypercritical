@@ -36,7 +36,15 @@ object-assign
 
 /*! ../ButtonBase */
 
+/*! ../ButtonGroup/ButtonGroupButtonContext */
+
+/*! ../ButtonGroup/ButtonGroupContext */
+
 /*! ../ClassNameGenerator */
+
+/*! ../Dialog/DialogContext */
+
+/*! ../DialogTitle/dialogTitleClasses */
 
 /*! ../Divider */
 
@@ -308,6 +316,8 @@ object-assign
 
 /*! ./Dashboard */
 
+/*! ./DialogContext */
+
 /*! ./Enum.js */
 
 /*! ./ErrorBoundary */
@@ -369,6 +379,8 @@ object-assign
 /*! ./breakpoints */
 
 /*! ./buttonBaseClasses */
+
+/*! ./buttonClasses */
 
 /*! ./capitalize */
 
@@ -432,6 +444,16 @@ object-assign
 
 /*! ./detectOverflow.js */
 
+/*! ./dialogActionsClasses */
+
+/*! ./dialogClasses */
+
+/*! ./dialogContentClasses */
+
+/*! ./dialogContentTextClasses */
+
+/*! ./dialogTitleClasses */
+
 /*! ./dividerClasses */
 
 /*! ./dom-utils/getCompositeRect.js */
@@ -445,6 +467,8 @@ object-assign
 /*! ./dom-utils/listScrollParents.js */
 
 /*! ./drawerClasses */
+
+/*! ./elements/ConfirmDialog */
 
 /*! ./elements/Drawer */
 
@@ -768,6 +792,8 @@ object-assign
 
 /*! @mui/icons-material/CancelScheduleSendOutlined */
 
+/*! @mui/icons-material/Delete */
+
 /*! @mui/icons-material/EventNote */
 
 /*! @mui/icons-material/ExpandLess */
@@ -779,6 +805,8 @@ object-assign
 /*! @mui/icons-material/HighlightOff */
 
 /*! @mui/icons-material/MarkChatRead */
+
+/*! @mui/icons-material/ModeEdit */
 
 /*! @mui/icons-material/OfflineBolt */
 
@@ -792,11 +820,23 @@ object-assign
 
 /*! @mui/material/Box */
 
+/*! @mui/material/Button */
+
 /*! @mui/material/Collapse */
 
 /*! @mui/material/Container */
 
 /*! @mui/material/CssBaseline */
+
+/*! @mui/material/Dialog */
+
+/*! @mui/material/DialogActions */
+
+/*! @mui/material/DialogContent */
+
+/*! @mui/material/DialogContentText */
+
+/*! @mui/material/DialogTitle */
 
 /*! @mui/material/Divider */
 
@@ -819,6 +859,8 @@ object-assign
 /*! @mui/material/MenuItem */
 
 /*! @mui/material/Paper */
+
+/*! @mui/material/Slide */
 
 /*! @mui/material/Table */
 
@@ -1263,6 +1305,10 @@ object-assign
   \***************************************************/
 
 /*!****************************************************!*\
+  !*** ./node_modules/@mui/icons-material/Delete.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
   !*** ./node_modules/@mui/material/colors/green.js ***!
   \****************************************************/
 
@@ -1284,6 +1330,14 @@ object-assign
 
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/Avatar/Avatar.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@mui/material/Button/Button.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@mui/material/Dialog/Dialog.js ***!
   \*****************************************************/
 
 /*!*****************************************************!*\
@@ -1347,6 +1401,10 @@ object-assign
   \******************************************************/
 
 /*!******************************************************!*\
+  !*** ./node_modules/@mui/icons-material/ModeEdit.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
   !*** ./node_modules/@mui/icons-material/Telegram.js ***!
   \******************************************************/
 
@@ -1373,6 +1431,10 @@ object-assign
 /*!******************************************************!*\
   !*** ./node_modules/@mui/utils/debounce/debounce.js ***!
   \******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./js/main/components/elements/ConfirmDialog.jsx ***!
+  \*******************************************************/
 
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/base/FocusTrap/FocusTrap.js ***!
@@ -1711,6 +1773,18 @@ object-assign
   \************************************************************/
 
 /*!************************************************************!*\
+  !*** ./node_modules/@mui/material/Button/buttonClasses.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@mui/material/Dialog/DialogContext.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@mui/material/Dialog/dialogClasses.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
   !*** ./node_modules/@mui/material/Drawer/drawerClasses.js ***!
   \************************************************************/
 
@@ -1880,6 +1954,10 @@ object-assign
 
 /*!***************************************************************!*\
   !*** ./node_modules/@mui/material/CssBaseline/CssBaseline.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogTitle/DialogTitle.js ***!
   \***************************************************************/
 
 /*!***************************************************************!*\
@@ -2095,6 +2173,14 @@ object-assign
   \*******************************************************************/
 
 /*!*******************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogActions/DialogActions.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogContent/DialogContent.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
   !*** ./node_modules/@mui/material/OutlinedInput/OutlinedInput.js ***!
   \*******************************************************************/
 
@@ -2259,6 +2345,14 @@ object-assign
   \**********************************************************************/
 
 /*!**********************************************************************!*\
+  !*** ./node_modules/@mui/material/ButtonGroup/ButtonGroupContext.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogTitle/dialogTitleClasses.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
   !*** ./node_modules/@mui/material/FilledInput/filledInputClasses.js ***!
   \**********************************************************************/
 
@@ -2415,6 +2509,14 @@ object-assign
   \**************************************************************************/
 
 /*!**************************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogActions/dialogActionsClasses.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogContent/dialogContentClasses.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
   !*** ./node_modules/@mui/material/OutlinedInput/outlinedInputClasses.js ***!
   \**************************************************************************/
 
@@ -2435,6 +2537,10 @@ object-assign
   \**************************************************************************/
 
 /*!***************************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogContentText/DialogContentText.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js ***!
   \***************************************************************************/
 
@@ -2445,6 +2551,10 @@ object-assign
 /*!***************************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/TransitionGroupContext.js ***!
   \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@mui/material/ButtonGroup/ButtonGroupButtonContext.js ***!
+  \****************************************************************************/
 
 /*!****************************************************************************!*\
   !*** ./node_modules/@mui/material/ListItemButton/listItemButtonClasses.js ***!
@@ -2524,6 +2634,10 @@ object-assign
 
 /*!**********************************************************************************!*\
   !*** ./node_modules/@emotion/react/dist/emotion-element-43c6fea0.browser.esm.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@mui/material/DialogContentText/dialogContentTextClasses.js ***!
   \**********************************************************************************/
 
 /*!**********************************************************************************!*\

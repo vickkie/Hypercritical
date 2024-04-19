@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { getAuth, signOut } from "firebase/auth";
-import { getDatabase, ref, onValue, off, update } from "firebase/database";
+import { getDatabase, ref, onValue, off, update, remove } from "firebase/database";
 import Container from "@mui/material/Container";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -22,10 +22,14 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import DeleteIcon from "@mui/icons-material/Delete";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 import Styles from "./styles.module.css";
 // import ResponsiveAppBar from "./elements/Header";
 import DrawerXDashTable from "./elements/Drawer";
+import AlertDelete from "./elements/ConfirmDialog";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -42,6 +46,17 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [dataState, setDataState] = useState("LOADING");
   const [errorMessage, setErrorMessage] = useState("");
+  const [consultationToDelete, setConsultationToDelete] = useState(null);
+
+  const [openAlertDelete, setOpenAlertDelete] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenAlertDelete(true);
+  };
+
+  const handleClose = () => {
+    setOpenAlertDelete(false);
+  };
 
   useEffect(() => {
     const db = getDatabase();
@@ -89,6 +104,19 @@ const Dashboard = () => {
       console.log("Consultation status updated successfully");
     } catch (error) {
       console.error("Error updating consultation status:", error);
+    }
+  };
+
+  const deleteConsultation = async (consultationUuid) => {
+    const db = getDatabase();
+    // Ensure the path correctly references the consultation using its UUID
+    const consultationRef = ref(db, `consultations/${consultationUuid}`);
+
+    try {
+      await remove(consultationRef);
+      console.log("Consultation deleted successfully");
+    } catch (error) {
+      console.error("Error deleting consultation:", error);
     }
   };
 
@@ -167,12 +195,28 @@ const Dashboard = () => {
               </IconButton>
             </TableCell>
             <TableCell>{consultation.status}</TableCell>
-            <TableCell>
-              <button onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}>Update Status</button>
+            <TableCell className={Styles.dashActions} style={{ display: "flex" }}>
+              <ModeEditIcon
+                titleAccess="Edit"
+                className="pointHere"
+                onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}
+              ></ModeEditIcon>
+
+              <IconButton
+                aria-label="delete"
+                color="primary"
+                onClick={() => {
+                  setConsultationToDelete(consultation.uuid);
+                  handleClickOpen();
+                }}
+                className="pointHere"
+              >
+                <DeleteIcon />
+              </IconButton>
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
               <Collapse in={expandedMessage === consultation.uuid} timeout="auto" unmountOnExit>
                 <Box margin={1} className={Styles.messageBoxWrapper}>
                   <TelegramIcon style={{ fill: "blue" }} />
@@ -190,6 +234,13 @@ const Dashboard = () => {
   return (
     <div>
       <Container maxWidth="lg" className={Styles.dashInnerWrapper}>
+        <AlertDelete
+          handleDelete={() => deleteConsultation(consultationToDelete)}
+          handleClickOpen={handleClickOpen}
+          open={openAlertDelete}
+          handleClose={handleClose}
+        />
+
         <DrawerXDashTable onLogout={handleLogout}>
           <Box sx={{ minWidth: 650, height: "40px" }} className={Styles.dashTopbar}>
             <div className={Styles.dashTopbarLeft}>

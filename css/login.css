@@ -445,3 +445,7 @@ th {
     transform: rotate(1turn);
   }
 }
+.pointHere {
+  cursor: pointer;
+  pointer-events: all;
+}

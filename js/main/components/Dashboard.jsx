@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { getAuth, signOut } from "firebase/auth";
@@ -18,9 +18,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
+import Styles from "./styles.module.css";
 // import ResponsiveAppBar from "./elements/Header";
-import MiniDrawer from "./elements/Drawer";
+import DrawerXDashTable from "./elements/Drawer";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -33,6 +38,10 @@ const Dashboard = () => {
   const [expandedMessage, setExpandedMessage] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
   const [searchQuery, setSearchQuery] = useState("");
+  const [filteredConsultations, setFilteredConsultations] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [dataState, setDataState] = useState("LOADING");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const db = getDatabase();
@@ -42,14 +51,20 @@ const Dashboard = () => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         setConsultations(data);
+        setIsLoading(false);
+        setDataState("SUCCESS");
       } else {
         console.log("No data available");
         setConsultations({});
+        setIsLoading(false);
+        setDataState("ERROR");
+        setErrorMessage("No data available");
       }
     };
 
     onValue(consultationRef, handleData, (error) => {
-      console.error("Error fetching data:", error);
+      setDataState("ERROR");
+      setErrorMessage("Error fetching data: " + error.message);
     });
 
     return () => {
@@ -60,7 +75,7 @@ const Dashboard = () => {
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       event.preventDefault();
-      event.returnValue = ""; // Chrome requires returnValue to be set
+      event.returnValue = ""; // browser requires returnValue to be set
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
@@ -79,10 +94,11 @@ const Dashboard = () => {
     setPage(0);
   };
 
-  if (!currentUser) {
-    navigate("/login");
-    return null;
-  }
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser, navigate]); // only if Auth changes
 
   const handleLogout = async () => {
     try {
@@ -97,84 +113,121 @@ const Dashboard = () => {
     setExpandedMessage(expandedMessage === index ? null : index);
   };
 
-  const consultationRows = Object.values(consultations)
-    .filter((consultation) => consultation.name.toLowerCase().includes(searchQuery.toLowerCase()))
-    .sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
-    })
-    .map((consultation, index) => (
-      <React.Fragment key={index}>
-        <TableRow>
-          <TableCell>{consultation.name}</TableCell>
-          <TableCell>{consultation.email}</TableCell>
-          <TableCell>{consultation.budget}</TableCell>
-          <TableCell>{consultation.consultationType}</TableCell>
-          <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
-          <TableCell>
-            <IconButton size="small" onClick={() => toggleMessage(index)}>
-              {expandedMessage === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-            <Collapse in={expandedMessage === index} timeout="auto" unmountOnExit>
-              <Box margin={1}>
-                <Typography variant="body2" color="text.secondary">
-                  {consultation.message}
-                </Typography>
-              </Box>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      </React.Fragment>
-    ));
+  // Use of useMemo for filtering and sorting
+  const consultationRows = useMemo(() => {
+    return Object.values(consultations)
+      .filter((consultation) => consultation.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      .sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      })
+      .map((consultation, index) => (
+        <React.Fragment key={index}>
+          <TableRow>
+            <TableCell>{consultation.name}</TableCell>
+            <TableCell>{consultation.email}</TableCell>
+            <TableCell>{consultation.budget}</TableCell>
+            <TableCell>{consultation.consultationType}</TableCell>
+            <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
+            <TableCell>
+              <IconButton size="small" onClick={() => toggleMessage(index)}>
+                {expandedMessage === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+              <Collapse in={expandedMessage === index} timeout="auto" unmountOnExit>
+                <Box margin={1} className={Styles.messageBoxWrapper}>
+                  <TelegramIcon style={{ fill: "blue" }} />
+                  <Typography variant="body2" color="text.secondary" className={Styles.messageBoxDash}>
+                    {consultation.message}
+                  </Typography>
+                </Box>
+              </Collapse>
+            </TableCell>
+          </TableRow>
+        </React.Fragment>
+      ));
+  }, [consultations, searchQuery, sortOrder, expandedMessage]);
 
   return (
     <div>
-      <Container maxWidth="lg" style={{ margin: "0px", padding: "0px" }}>
-        <MiniDrawer onLogout={handleLogout}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="data table">
-              <TableHead>
-                <TableRow className="table-header">
-                  <TableCell>Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Budget</TableCell>
-                  <TableCell>Consultation Type</TableCell>
-                  <TableCell>
-                    Date
-                    <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
-                      {sortOrder === "asc" ? "▲" : "▼"}
-                    </button>
-                  </TableCell>
-                  <TableCell>Message</TableCell>
-                  <TableCell>
-                    <input
-                      className="searchbyname"
-                      type="text"
-                      placeholder="Search name"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>{consultationRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}</TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={consultationRows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </MiniDrawer>
+      <Container maxWidth="lg" className={Styles.dashInnerWrapper}>
+        <DrawerXDashTable onLogout={handleLogout}>
+          <Box sx={{ minWidth: 650, height: "40px" }} className={Styles.dashTopbar}>
+            <div className={Styles.dashTopbarLeft}>
+              <div>
+                <input
+                  className="searchbyname"
+                  type="text"
+                  placeholder="Search name"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <div className={Styles.dashTopbarFilter}>
+                <FilterListIcon />
+                <div>Filter</div>
+              </div>
+            </div>
+            <div className={Styles.dashTopbarRight}>
+              <div className={Styles.addFloatTop}>
+                <div className={Styles.addOrderFloat}>
+                  <div className={Styles.addFloatBtn} aria-label="add">
+                    <AddIcon />
+                  </div>
+                  <div className={Styles.addFloatText}>Add Order</div>
+                </div>
+              </div>
+            </div>
+          </Box>
+
+          {dataState === "LOADING" && (
+            <div className="loaderContainer">
+              <div className="loader"></div>
+            </div>
+          )}
+          {dataState === "ERROR" && <div className="errorContainer">{errorMessage}</div>}
+          {dataState === "SUCCESS" && (
+            <>
+              <TableContainer component={Paper} style={{ borderRadius: "22px" }}>
+                <Table sx={{ minWidth: 650 }} aria-label="data table">
+                  <TableHead className={Styles.tableheader}>
+                    <TableRow className="table-header">
+                      <TableCell>Name</TableCell>
+                      <TableCell>Email</TableCell>
+                      <TableCell>Budget</TableCell>
+                      <TableCell>Consultation Type</TableCell>
+                      <TableCell>
+                        Date
+                        <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+                          {sortOrder === "asc" ? "▲" : "▼"}
+                        </button>
+                      </TableCell>
+                      <TableCell>Message</TableCell>
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody className={Styles.tablebody}>
+                    {consultationRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TablePagination
+                className={[Styles.pagination, Styles.defaultFont].join(" ")}
+                rowsPerPageOptions={[5, 10, 25]}
+                component="div"
+                count={consultationRows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </>
+          )}
+        </DrawerXDashTable>
       </Container>
     </div>
   );

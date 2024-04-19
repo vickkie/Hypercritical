@@ -10,21 +10,24 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import MarkChatReadIcon from "@mui/icons-material/MarkChatRead";
+import CancelScheduleSendOutlinedIcon from "@mui/icons-material/CancelScheduleSendOutlined";
+import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 
-const drawerWidth = 240;
+import Styles from "../styles.module.css";
+
+const drawerWidth = 180;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -33,6 +36,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
+  backgroundColor: "var(--main-color) !important",
 });
 
 const closedMixin = (theme) => ({
@@ -41,6 +45,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
+  backgroundColor: "var(--main-color) !important",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -89,7 +94,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   }),
 }));
 
-export default function MiniDrawer({ onLogout, children }) {
+export default function DrawerXDashTable({ onLogout, children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -148,7 +153,7 @@ export default function MiniDrawer({ onLogout, children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} style={{ backgroundColor: "black" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -160,7 +165,7 @@ export default function MiniDrawer({ onLogout, children }) {
               ...(open && { display: "none" }),
             }}
           >
-            <MenuIcon />
+            <OfflineBoltIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
             Hypercritical
@@ -195,15 +200,15 @@ export default function MiniDrawer({ onLogout, children }) {
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" className="drawerLeft" open={open} style={{ backgroundColor: "black" }}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === "rtl" ? <HighlightOffIcon /> : <HighlightOffIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          {["Appointments", "Inbox"].map((text, index) => (
+          {["Appointments", "Inbox", "Replied", "Missed "].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -219,7 +224,14 @@ export default function MiniDrawer({ onLogout, children }) {
                     justifyContent: "center",
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <EventNoteIcon />}
+                  {
+                    [
+                      <ShoppingBagRoundedIcon />,
+                      <EventNoteIcon />,
+                      <MarkChatReadIcon />,
+                      <CancelScheduleSendOutlinedIcon />,
+                    ][index]
+                  }
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -227,7 +239,7 @@ export default function MiniDrawer({ onLogout, children }) {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} style={{ padding: "79px 6px 0px" }}>
+      <Box component="main" sx={{ flexGrow: 1 }} className={Styles.mainDashboardContent}>
         {/*I Rendered the children here A.K.A main dashboard content */}
         {children}
       </Box>

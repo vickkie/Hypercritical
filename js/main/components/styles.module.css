@@ -16,3 +16,136 @@
     transform: rotate(360deg);
   }
 }
+
+.defaultFont {
+  font-family: "var(--font-1)";
+}
+
+.secondaryFont {
+  font-family: "var(--font-3)";
+}
+
+.th {
+  font-family: "var(--font-3)";
+}
+.td {
+  font-family: "var(--font-1)";
+}
+
+.tableheader {
+  background-color: #ffeae9;
+}
+.tablebody {
+  background: rgb(248, 247, 250);
+  background: linear-gradient(90deg, rgba(248, 247, 250, 1) 30%, rgba(224, 238, 250, 1) 100%);
+}
+.pagination {
+  background: rgb(248, 247, 250);
+  background: linear-gradient(90deg, rgba(248, 247, 250, 1) 30%, rgba(224, 238, 250, 1) 100%);
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  border-radius: 22px;
+}
+
+.dashTopbar {
+  margin: 0;
+  margin-bottom: 5px;
+  border: none !important;
+  margin: 6px 2px;
+  border-radius: 35px;
+  display: grid !important;
+  grid-template-columns: auto auto;
+  align-items: center;
+  width: 100%;
+  min-width: 200px !important;
+}
+.drawerLeft {
+  border-right: 1px solid rgb(158 158 158 / 12%);
+  background-color: var(--main-color) !important;
+}
+
+.mainDashboardContent {
+  padding: 68px 6px 0px !important;
+  min-width: calc(100vw - 78px);
+}
+.addFloatTop {
+  float: right;
+  justify-self: center;
+}
+.addFloatBtn {
+  scale: 0.4;
+  background: var(--color-bg);
+  color: var(--color-black);
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  align-items: center;
+}
+
+.addOrderFloat {
+  cursor: pointer;
+  height: 37px;
+  border: none;
+  border-radius: 45px;
+  background: var(--main-color);
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+.addFloatText {
+  color: var(--color-bg);
+  padding: 0 12px;
+  font-size: 0.8rem;
+}
+.dashTopbarRight {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.messageBoxDash {
+  font-family: var(--font-1) !important;
+  padding: 20px 5px;
+  font-weight: 900 !important;
+}
+.messageBoxWrapper {
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+}
+.dashInnerWrapper {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.dashTopbarLeft {
+  display: flex;
+  gap: 1rem;
+}
+
+.dashTopbarFilter {
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  justify-content: start;
+  padding: 0px 24px;
+  background: #edecfa;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.6rem;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .dashTopbarFilter {
+    display: none;
+  }
+}

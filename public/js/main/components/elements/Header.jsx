@@ -1,3 +1,5 @@
+//duplacted and not in use currently
+
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,6 +13,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Styles from "./styles.module.css";
 
 const pages = ["Dashboard"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -32,14 +35,6 @@ function ResponsiveAppBar({ onLogout }) {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
   };
 
   const handleMenuItemClick = (setting) => {

@@ -38,12 +38,10 @@ const Dashboard = () => {
 
   const [consultations, setConsultations] = useState({});
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(7);
   const [expandedMessage, setExpandedMessage] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredConsultations, setFilteredConsultations] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [dataState, setDataState] = useState("LOADING");
   const [errorMessage, setErrorMessage] = useState("");
   const [consultationToDelete, setConsultationToDelete] = useState(null);
@@ -72,8 +70,6 @@ const Dashboard = () => {
             data[key].paymentStatus = "Due soon";
           }
         }
-
-        setIsLoading(false);
         setDataState("SUCCESS");
       } else {
         console.log("No data available");
@@ -184,18 +180,18 @@ const Dashboard = () => {
       .map((consultation) => (
         <React.Fragment key={consultation.uuid}>
           <TableRow>
-            <TableCell>{consultation.name}</TableCell>
-            <TableCell>{consultation.email}</TableCell>
-            <TableCell>{consultation.budget}</TableCell>
-            <TableCell>{consultation.consultationType}</TableCell>
-            <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
-            <TableCell>
+            <TableCell className={`${Styles.cellStyle} ${Styles.bold}`}>{consultation.name}</TableCell>
+            <TableCell className={Styles.cellStyle}>{consultation.email}</TableCell>
+            <TableCell className={Styles.cellStyle}>{consultation.budget}</TableCell>
+            <TableCell className={Styles.cellStyle}>{consultation.consultationType}</TableCell>
+            <TableCell className={Styles.cellStyle}>{new Date(consultation.date).toLocaleDateString()}</TableCell>
+            <TableCell className={Styles.cellStyle}>
               <IconButton size="small" onClick={() => toggleMessage(consultation.uuid)}>
                 {expandedMessage === consultation.uuid ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </IconButton>
             </TableCell>
-            <TableCell>{consultation.status}</TableCell>
-            <TableCell className={Styles.dashActions} style={{ display: "flex" }}>
+            <TableCell className={Styles.cellStyle}>{consultation.status}</TableCell>
+            <TableCell className={Styles.cellStyle} style={{ display: "flex", alignContent: "center" }}>
               <ModeEditIcon
                 titleAccess="Edit"
                 className="pointHere"
@@ -216,7 +212,7 @@ const Dashboard = () => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
+            <TableCell colSpan={8} style={{ paddingBottom: 0, paddingTop: 0 }}>
               <Collapse in={expandedMessage === consultation.uuid} timeout="auto" unmountOnExit>
                 <Box margin={1} className={Styles.messageBoxWrapper}>
                   <TelegramIcon style={{ fill: "blue" }} />
@@ -305,13 +301,14 @@ const Dashboard = () => {
               </TableContainer>
               <TablePagination
                 className={[Styles.pagination, Styles.defaultFont].join(" ")}
-                rowsPerPageOptions={[5, 10, 25]}
+                rowsPerPageOptions={[7, 14, 21, 28]}
                 component="div"
                 count={consultationRows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
+                sx={{ display: "flex", justifyContent: "center", maxHeight: "41px" }}
               />
             </>
           )}

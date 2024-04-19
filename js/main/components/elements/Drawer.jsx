@@ -24,6 +24,7 @@ import MarkChatReadIcon from "@mui/icons-material/MarkChatRead";
 import CancelScheduleSendOutlinedIcon from "@mui/icons-material/CancelScheduleSendOutlined";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 
 import Styles from "../styles.module.css";
 
@@ -208,7 +209,7 @@ export default function DrawerXDashTable({ onLogout, children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Appointments", "Inbox", "Replied", "Missed "].map((text, index) => (
+          {["Dashboard ", "Appointments", "Inbox", "Replied", "Missed "].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -226,6 +227,7 @@ export default function DrawerXDashTable({ onLogout, children }) {
                 >
                   {
                     [
+                      <SpaceDashboardIcon />,
                       <ShoppingBagRoundedIcon />,
                       <EventNoteIcon />,
                       <MarkChatReadIcon />,

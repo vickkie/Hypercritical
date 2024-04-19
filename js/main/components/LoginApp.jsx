@@ -10,6 +10,8 @@ import styles from "./styles.module.css";
 const isProduction = process.env.NODE_ENV === "production";
 const Dashboard = isProduction ? require("./Dashboard").default : React.lazy(() => import("./Dashboard"));
 
+import EditConsultation from "./elements/EditConsultations";
+
 const DashboardRoute = () => {
   const { currentUser } = useAuth();
   return currentUser ? (
@@ -33,6 +35,7 @@ const App = () => {
         <AuthProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/edit/:uuid" element={<EditConsultation />} />
             <Route
               path="/dashboard"
               element={

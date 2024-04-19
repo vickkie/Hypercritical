@@ -126,6 +126,7 @@
 .dashInnerWrapper {
   margin: 0px !important;
   padding: 0px !important;
+  max-width: unset !important;
 }
 .dashTopbarLeft {
   display: flex;
@@ -161,4 +162,58 @@
 }
 .bold {
   font-weight: 900;
+}
+
+.editForm {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+.dashEditWrapper {
+  background: "#f4f7f8";
+  max-width: unset;
+}
+
+.editSave {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 30px;
+}
+.editLabel {
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .editFormWrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.editFormWrapper {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: auto;
+}
+.editLargeWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 30px 0;
+}
+.editMessage {
+  min-height: 130px;
 }

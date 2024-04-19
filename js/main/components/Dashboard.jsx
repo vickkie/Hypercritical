@@ -27,9 +27,8 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 import Styles from "./styles.module.css";
-// import ResponsiveAppBar from "./elements/Header";
 import DrawerXDashTable from "./elements/Drawer";
-import AlertDelete from "./elements/ConfirmDialog";
+import AlertDelete from "./elements/AlertDelete";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -195,8 +194,14 @@ const Dashboard = () => {
               <ModeEditIcon
                 titleAccess="Edit"
                 className="pointHere"
-                onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}
+                onClick={() => navigate(`/edit/${consultation.uuid}`)}
               ></ModeEditIcon>
+
+              {/* <ModeEditIcon
+                titleAccess="Edit"
+                className="pointHere"
+                onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}
+              ></ModeEditIcon> */}
 
               <IconButton
                 aria-label="delete"

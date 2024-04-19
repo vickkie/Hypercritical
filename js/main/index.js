@@ -3,6 +3,7 @@ import MouseFollower from "mouse-follower";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
 import lozad from "lozad";
+import { v4 as uuidv4 } from "uuid";
 
 // import gsap from "gsap";
 // import "splitting/dist/splitting.css";
@@ -697,12 +698,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+function generateInvoiceNumber() {
+  // Generate a UUID
+  const uuid = uuidv4();
+  const uniquePart = uuid.substring(0, 6);
+  const invoiceNumber = `INV-${uniquePart}`;
+  return invoiceNumber;
+}
+
 // Function to handle form submission
 document.getElementById("consultationForm").addEventListener("submit", function (e) {
   e.preventDefault();
   var message = document.getElementById("message").value;
   var email = document.getElementById("email").value;
   var name = document.getElementById("yourname").value;
+  const uuid = generateInvoiceNumber();
+  var status = "Pending";
 
   // Collect checkbox values
   var webDesign = document.getElementById("Web-Design").checked;
@@ -732,11 +743,13 @@ document.getElementById("consultationForm").addEventListener("submit", function 
   // Generate a unique ID for the new entry
   var newConsultationRef = push(ref(database, "consultations"));
   set(newConsultationRef, {
+    uuid: uuid,
     name: name,
     message: message,
     budget: budget,
     consultationType: consultationType,
     email: email,
+    status: status,
     date: new Date().toISOString(),
   });
 

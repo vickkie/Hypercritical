@@ -698,8 +698,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+// Generate a UUID
 function generateInvoiceNumber() {
-  // Generate a UUID
   const uuid = uuidv4();
   const uniquePart = uuid.substring(0, 6);
   const invoiceNumber = `INV-${uniquePart}`;
@@ -741,7 +741,8 @@ document.getElementById("consultationForm").addEventListener("submit", function 
   }
 
   // Generate a unique ID for the new entry
-  var newConsultationRef = push(ref(database, "consultations"));
+  // Assuming `uuid` is the UUID for the new consultation
+  var newConsultationRef = ref(database, `consultations/${uuid}`);
   set(newConsultationRef, {
     uuid: uuid,
     name: name,

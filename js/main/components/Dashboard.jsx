@@ -81,23 +81,15 @@ const Dashboard = () => {
 
   const updateConsultationStatus = async (consultationUuid, newStatus) => {
     const db = getDatabase();
-    let consultationRef;
+    // Ensure the path correctly references the consultation using its UUID
+    const consultationRef = ref(db, `consultations/${consultationUuid}`);
 
-    // Step 1: Find the correct path
-    const consultationsRef = ref(db, "consultations");
-    onValue(consultationsRef, (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        const consultation = childSnapshot.val();
-        if (consultation.uuid === consultationUuid) {
-          // Construct the correct path using the unique identifier (UUID) of the consultation object
-          consultationRef = ref(db, `consultations/${childSnapshot.key}`);
-          // Step 2: Update the status
-          update(consultationRef, { status: newStatus })
-            .then(() => console.log("Consultation status updated successfully"))
-            .catch((error) => console.error("Error updating consultation status:", error));
-        }
-      });
-    });
+    try {
+      await update(consultationRef, { status: newStatus });
+      console.log("Consultation status updated successfully");
+    } catch (error) {
+      console.error("Error updating consultation status:", error);
+    }
   };
 
   useEffect(() => {
@@ -141,49 +133,58 @@ const Dashboard = () => {
     setExpandedMessage(expandedMessage === index ? null : index);
   };
 
+  function getNestedProperty(obj, path) {
+    return path.split(".").reduce((prev, curr) => {
+      return prev ? prev[curr] : undefined;
+    }, obj);
+  }
+
   // Use of useMemo for filtering and sorting
   const consultationRows = useMemo(() => {
-    return (
-      Object.values(consultations)
-        // .filter((consultation) => consultation.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        .sort((a, b) => {
-          const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-          return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
-        })
-        .map((consultation) => (
-          <React.Fragment key={consultation.uuid}>
-            <TableRow>
-              <TableCell>{consultation.name}</TableCell>
-              <TableCell>{consultation.email}</TableCell>
-              <TableCell>{consultation.budget}</TableCell>
-              <TableCell>{consultation.consultationType}</TableCell>
-              <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
-              <TableCell>
-                <IconButton size="small" onClick={() => toggleMessage(consultation.uuid)}>
-                  {expandedMessage === consultation.uuid ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </IconButton>
-              </TableCell>
-              <TableCell>{consultation.status}</TableCell>
-              <TableCell>
-                <button onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}>Update Status</button>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                <Collapse in={expandedMessage === consultation.uuid} timeout="auto" unmountOnExit>
-                  <Box margin={1} className={Styles.messageBoxWrapper}>
-                    <TelegramIcon style={{ fill: "blue" }} />
-                    <Typography variant="body2" color="text.secondary" className={Styles.messageBoxDash}>
-                      {consultation.message}
-                    </Typography>
-                  </Box>
-                </Collapse>
-              </TableCell>
-            </TableRow>
-          </React.Fragment>
-        ))
-    );
+    return Object.values(consultations)
+      .filter(
+        (consultation) =>
+          getNestedProperty(consultation, "name") && // Safely access consultation.name
+          getNestedProperty(consultation, "name").toLowerCase().includes(searchQuery.toLowerCase())
+      )
+
+      .sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      })
+      .map((consultation) => (
+        <React.Fragment key={consultation.uuid}>
+          <TableRow>
+            <TableCell>{consultation.name}</TableCell>
+            <TableCell>{consultation.email}</TableCell>
+            <TableCell>{consultation.budget}</TableCell>
+            <TableCell>{consultation.consultationType}</TableCell>
+            <TableCell>{new Date(consultation.date).toLocaleDateString()}</TableCell>
+            <TableCell>
+              <IconButton size="small" onClick={() => toggleMessage(consultation.uuid)}>
+                {expandedMessage === consultation.uuid ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+            </TableCell>
+            <TableCell>{consultation.status}</TableCell>
+            <TableCell>
+              <button onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}>Update Status</button>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+              <Collapse in={expandedMessage === consultation.uuid} timeout="auto" unmountOnExit>
+                <Box margin={1} className={Styles.messageBoxWrapper}>
+                  <TelegramIcon style={{ fill: "blue" }} />
+                  <Typography variant="body2" color="text.secondary" className={Styles.messageBoxDash}>
+                    {consultation.message}
+                  </Typography>
+                </Box>
+              </Collapse>
+            </TableCell>
+          </TableRow>
+        </React.Fragment>
+      ));
   }, [consultations, searchQuery, sortOrder, expandedMessage, updateConsultationStatus]);
 
   return (

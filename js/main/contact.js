@@ -160,7 +160,8 @@ document.getElementById("consultationForm").addEventListener("submit", function 
   // Generate a unique ID for the new entry
 
   // Generate a unique ID for the new entry
-  var newConsultationRef = push(ref(database, "consultations"));
+  // Assuming `uuid` is the UUID for the new consultation
+  var newConsultationRef = ref(database, `consultations/${uuid}`);
   set(newConsultationRef, {
     uuid: uuid,
     name: name,

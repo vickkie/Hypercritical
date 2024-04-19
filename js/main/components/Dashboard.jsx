@@ -308,7 +308,7 @@ const Dashboard = () => {
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-                sx={{ display: "flex", justifyContent: "center", maxHeight: "41px" }}
+                style={{ display: "flex", justifyContent: "center", maxHeight: "41px", overflow: "hidden" }}
               />
             </>
           )}

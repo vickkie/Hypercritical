@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import Login from "./LoginPage";
 // import Dashboard from "./Dashboard";
 import ErrorBoundary from "./ErrorBoundary";

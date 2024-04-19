@@ -196,7 +196,7 @@ module.exports = {
     404: "./js/main/404.jsx",
     projectSlider: "./App.jsx",
     partnerModal: "./modal.jsx",
-    loginpage: "./js/main/components/LoginMain.jsx",
+    loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",
   },
   output: {

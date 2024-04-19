@@ -47,9 +47,9 @@ const Login = () => {
       await setPersistence(auth, browserLocalPersistence);
 
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      setMessage({ text: "Login Success. Welcome uzi !", type: "success" });
       setEmail("");
       setPassword("");
+      setMessage({ text: "Login Success. Welcome uzi !", type: "success" });
       setCurrentUser(userCredential.user);
       navigate("/dashboard");
     } catch (error) {

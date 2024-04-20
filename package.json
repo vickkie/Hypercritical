@@ -42,7 +42,7 @@
   "html-minimizer-webpack-plugin": "^5.0.0",
   "html-webpack-plugin": "^5.0.0",
   "jest": "^29.7.0",
-  "mini-css-extract-plugin": "^2.8.1",
+  "mini-css-extract-plugin": "^2.9.0",
   "purgecss": "^6.0.0",
   "style-loader": "^2.0.0",
   "terser-webpack-plugin": "^5.3.10",

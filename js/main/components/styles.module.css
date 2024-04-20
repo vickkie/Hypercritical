@@ -220,3 +220,19 @@
 .mainColor {
   background-color: var(--main-color) !important;
 }
+
+@media (min-width: 768px) {
+  .editFormWrapper,
+  .editLargeWrapper {
+    padding: 0 2rem;
+  }
+}
+.searchIconWrapper {
+  padding: 0 16px;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

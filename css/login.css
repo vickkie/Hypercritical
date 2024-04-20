@@ -449,3 +449,39 @@ th {
   cursor: pointer;
   pointer-events: all;
 }
+
+.pending,
+.canceled,
+.delivered,
+.approved,
+.declined {
+  padding: 2px 9px;
+  border-radius: 300px;
+  font-weight: 800;
+  justify-content: center;
+  display: flex;
+  width: fit-content;
+}
+
+.delivered {
+  background: #caceeb78;
+  color: #dc38e7;
+}
+
+.approved {
+  color: #26a532;
+  background-color: #cbfccd;
+}
+.pending {
+  background: #c0daff;
+  color: #317ce7;
+}
+
+.canceled {
+  color: #b75454;
+  background-color: #f3d0ce;
+}
+.declined {
+  color: #ee6d19;
+  background-color: #ffd8c4;
+}

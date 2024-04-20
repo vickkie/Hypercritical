@@ -5,18 +5,19 @@ import Login from "./LoginPage";
 import ErrorBoundary from "./ErrorBoundary";
 import { AuthProvider, useAuth } from "./AuthContext"; // Ensure useAuth is exported from AuthContext
 import PrivateRoute from "./PrivateRoute";
+import { ContextProviders } from "./Fragments/ContextProviders";
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const Dashboard = isProduction ? require("./Dashboard").default : React.lazy(() => import("./Dashboard"));
 
 const EditConsultation = isProduction
-  ? require("./elements/EditConsultations").default
-  : React.lazy(() => import("./elements/EditConsultations"));
+  ? require("./Fragments/EditConsultations").default
+  : React.lazy(() => import("./Fragments/EditConsultations"));
 
 const AddConsultation = isProduction
-  ? require("./elements/AddConsultations").default
-  : React.lazy(() => import("./elements/AddConsultations"));
+  ? require("./Fragments/AddConsultations").default
+  : React.lazy(() => import("./Fragments/AddConsultations"));
 
 const DashboardRoute = () => {
   const { currentUser } = useAuth();
@@ -38,39 +39,50 @@ const App = () => {
     <Router>
       <ErrorBoundary>
         <AuthProvider>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/edit/:uuid"
-              element={
-                <PrivateRoute>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <EditConsultation />
-                  </Suspense>
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/newConsultation"
-              element={
-                <PrivateRoute>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <AddConsultation />
-                  </Suspense>
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <DashboardRoute />
-                </PrivateRoute>
-              }
-            />
-            {/* Redirect to login if not logged in */}
-            <Route path="*" element={<Navigate to="/login" />} />
-          </Routes>
+          <ContextProviders>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/edit/:uuid"
+                element={
+                  <PrivateRoute>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <EditConsultation />
+                    </Suspense>
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="/newConsultation"
+                element={
+                  <PrivateRoute>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AddConsultation />
+                    </Suspense>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/dashboard/:status?"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              {/* Redirect to login if not logged in */}
+              <Route path="*" element={<Navigate to="/login" />} />
+            </Routes>
+          </ContextProviders>
         </AuthProvider>
       </ErrorBoundary>
     </Router>

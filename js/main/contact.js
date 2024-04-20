@@ -172,6 +172,7 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     status: status,
     date: new Date().toISOString(),
     comment: `Added From  website registration`,
+    seen: "Unread",
   });
 
   showDialog();

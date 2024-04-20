@@ -2,21 +2,26 @@ import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import Login from "./LoginPage";
-// import Dashboard from "./Dashboard";
 import ErrorBoundary from "./ErrorBoundary";
 import { AuthProvider, useAuth } from "./AuthContext"; // Ensure useAuth is exported from AuthContext
 import PrivateRoute from "./PrivateRoute";
-import styles from "./styles.module.css";
+
 const isProduction = process.env.NODE_ENV === "production";
+
 const Dashboard = isProduction ? require("./Dashboard").default : React.lazy(() => import("./Dashboard"));
 
-import EditConsultation from "./elements/EditConsultations";
+const EditConsultation = isProduction
+  ? require("./elements/EditConsultations").default
+  : React.lazy(() => import("./elements/EditConsultations"));
+
+const AddConsultation = isProduction
+  ? require("./elements/AddConsultations").default
+  : React.lazy(() => import("./elements/AddConsultations"));
 
 const DashboardRoute = () => {
   const { currentUser } = useAuth();
   return currentUser ? (
     <div>
-      {/* Use Suspense only if Dashboard is lazy-loaded */}
       {isProduction ? (
         <Dashboard />
       ) : (
@@ -35,7 +40,26 @@ const App = () => {
         <AuthProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/edit/:uuid" element={<EditConsultation />} />
+            <Route
+              path="/edit/:uuid"
+              element={
+                <PrivateRoute>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <EditConsultation />
+                  </Suspense>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/newConsultation"
+              element={
+                <PrivateRoute>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <AddConsultation />
+                  </Suspense>
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/dashboard"
               element={

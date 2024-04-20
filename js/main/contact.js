@@ -171,6 +171,7 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     email: email,
     status: status,
     date: new Date().toISOString(),
+    comment: `Added From  website registration`,
   });
 
   showDialog();

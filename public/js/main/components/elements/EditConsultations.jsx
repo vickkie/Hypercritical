@@ -186,6 +186,9 @@ const EditConsultation = () => {
                 <option value="Canceled" style={{ color: "red" }}>
                   Canceled
                 </option>
+                <option value="Declined" style={{ color: "red" }}>
+                  Declined
+                </option>
               </select>
             </div>
 
@@ -220,10 +223,20 @@ const EditConsultation = () => {
             </div>
 
             <Stack spacing={3} direction="row" className={Styles.editSave}>
-              <Button variant="contained" startIcon={<FastRewindIcon />} onClick={() => navigate("/dashboard")}>
+              <Button
+                variant="contained"
+                className={Styles.mainColor}
+                startIcon={<FastRewindIcon />}
+                onClick={() => navigate("/dashboard")}
+              >
                 Back
               </Button>
-              <Button variant="contained" onClick={handleSave} endIcon={<BookmarkAddIcon />}>
+              <Button
+                variant="contained"
+                className={Styles.mainColor}
+                onClick={handleSave}
+                endIcon={<BookmarkAddIcon />}
+              >
                 Save
               </Button>
             </Stack>

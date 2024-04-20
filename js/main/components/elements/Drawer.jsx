@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -96,6 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 }));
 
 export default function DrawerXDashTable({ onLogout, children }) {
+  const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -209,14 +211,21 @@ export default function DrawerXDashTable({ onLogout, children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Dashboard ", "Appointments", "Inbox", "Replied", "Missed "].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+          {[
+            { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
+            { path: "/appointments", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
+            { path: "/inbox", icon: <EventNoteIcon />, label: "Inbox" },
+            { path: "/replied", icon: <MarkChatReadIcon />, label: "Replied" },
+            { path: "/missed", icon: <CancelScheduleSendOutlinedIcon />, label: "Missed" },
+          ].map((item, index) => (
+            <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
+                onClick={() => navigate(item.path)} // Navigate on click
               >
                 <ListItemIcon
                   sx={{
@@ -225,22 +234,15 @@ export default function DrawerXDashTable({ onLogout, children }) {
                     justifyContent: "center",
                   }}
                 >
-                  {
-                    [
-                      <SpaceDashboardIcon />,
-                      <ShoppingBagRoundedIcon />,
-                      <EventNoteIcon />,
-                      <MarkChatReadIcon />,
-                      <CancelScheduleSendOutlinedIcon />,
-                    ][index]
-                  }
+                  {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
       </Drawer>
+
       <Box component="main" sx={{ flexGrow: 1 }} className={Styles.mainDashboardContent}>
         {/*I Rendered the children here A.K.A main dashboard content */}
         {children}

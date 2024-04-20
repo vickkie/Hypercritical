@@ -261,7 +261,7 @@ const Dashboard = () => {
             </div>
             <div className={Styles.dashTopbarRight}>
               <div className={Styles.addFloatTop}>
-                <div className={Styles.addOrderFloat}>
+                <div className={Styles.addOrderFloat} onClick={() => navigate("/newConsultation")}>
                   <div className={Styles.addFloatBtn} aria-label="add">
                     <AddIcon />
                   </div>

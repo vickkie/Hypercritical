@@ -29,6 +29,7 @@ const EditConsultation = () => {
   const [consultDate, setconsultDate] = useState("");
   const [budget, setBudget] = useState(null);
   const [comment, setComment] = useState(null);
+  const [seenStatus, setSeenStatus] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
 
   const [error, setError] = useState(null);
@@ -83,7 +84,7 @@ const EditConsultation = () => {
         setStatus(data.status);
         setMessage(data.message);
         setBudget(data.budget);
-
+        setSeenStatus(data.seen || "Unread");
         setConsultationtype(data.consultationType || "");
         setComment(data.comment || "");
 
@@ -115,6 +116,7 @@ const EditConsultation = () => {
       status: status,
       date: consultDate,
       comment: comment,
+      seen: seenStatus,
     };
 
     setConsultation(updatedConsultation); // Update the state with the new values
@@ -144,7 +146,7 @@ const EditConsultation = () => {
 
   return (
     <div>
-      <Container maxWidth="lg" className={Styles.dashInnerWrapper} style={{ background: "#f4f7f8" }}>
+      <Container className={Styles.dashInnerWrapper} style={{ background: "#f4f7f8" }}>
         <AlertDelete handleClickOpen={handleClickOpen} open={openAlertChange} handleClose={handleClose} />
 
         <DrawerXDashTable onLogout={handleLogout} className={Styles.dashEditWrapper}>
@@ -179,7 +181,7 @@ const EditConsultation = () => {
                   <label>Consultation Type</label>
                   <input
                     className={Styles.editForm}
-                    value={consultation.consultationType}
+                    value={consultationType}
                     onChange={(e) => setConsultationtype(e.target.value)}
                   />
                 </div>
@@ -216,6 +218,21 @@ const EditConsultation = () => {
                 <div className={Styles.editInputWrapper}>
                   <label>Budget</label>
                   <input className={Styles.editForm} value={budget} onChange={(e) => setBudget(e.target.value)} />
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Seen status</label>
+                  <select
+                    className={Styles.editForm}
+                    value={seenStatus}
+                    onChange={(e) => setSeenStatus(e.target.value)}
+                  >
+                    <option value="Unread" style={{ color: "green" }}>
+                      Unread
+                    </option>
+                    <option value="Read" style={{ color: "orange" }}>
+                      Read
+                    </option>
+                  </select>
                 </div>
               </div>
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -10,24 +10,24 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import EventNoteIcon from "@mui/icons-material/EventNote";
 import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MarkChatReadIcon from "@mui/icons-material/MarkChatRead";
-import CancelScheduleSendOutlinedIcon from "@mui/icons-material/CancelScheduleSendOutlined";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 
 import Styles from "../styles.module.css";
+import { AddTaskOutlined, PendingActions } from "@mui/icons-material";
+import { Badge } from "@mui/material";
+import { UnreadNumberContext } from "./UnreadNumberContext";
 
 const drawerWidth = 180;
 
@@ -100,6 +100,7 @@ export default function DrawerXDashTable({ onLogout, children }) {
   const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { unreadNewNumber } = useContext(UnreadNumberContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -213,10 +214,18 @@ export default function DrawerXDashTable({ onLogout, children }) {
         <List>
           {[
             { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
-            { path: "/appointments", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
-            { path: "/inbox", icon: <EventNoteIcon />, label: "Inbox" },
-            { path: "/replied", icon: <MarkChatReadIcon />, label: "Replied" },
-            { path: "/missed", icon: <CancelScheduleSendOutlinedIcon />, label: "Missed" },
+            { path: "/dashboard", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
+            { path: "/dashboard/Approved", icon: <MarkChatReadIcon />, label: "Approved " },
+            {
+              path: "/dashboard/Pending",
+              icon: (
+                <Badge badgeContent={unreadNewNumber} color="secondary">
+                  <PendingActions color="action" />
+                </Badge>
+              ),
+              label: "Pending",
+            },
+            { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
           ].map((item, index) => (
             <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton

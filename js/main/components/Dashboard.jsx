@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useMemo, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { getAuth, signOut } from "firebase/auth";
 import { getDatabase, ref, onValue, off, update, remove } from "firebase/database";
+
+//NOTE: Ui imports
 import Container from "@mui/material/Container";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -18,22 +20,24 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DeleteIcon from "@mui/icons-material/Delete";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-
 import Styles from "./styles.module.css";
-import DrawerXDashTable from "./elements/Drawer";
-import AlertDelete from "./elements/AlertDelete";
+import DrawerXDashTable from "./Fragments/Drawer";
+import AlertDelete from "./Fragments/AlertDelete";
+
+//NOTE: Custom imports
+import SearchInput from "./Fragments/SearchInput";
+import { UnreadNumberContext } from "./Fragments/UnreadNumberContext";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
   const auth = getAuth();
   const navigate = useNavigate();
+  const { status } = useParams();
 
   const [consultations, setConsultations] = useState({});
   const [page, setPage] = useState(0);
@@ -44,6 +48,8 @@ const Dashboard = () => {
   const [dataState, setDataState] = useState("LOADING");
   const [errorMessage, setErrorMessage] = useState("");
   const [consultationToDelete, setConsultationToDelete] = useState(null);
+  const [unreadNumber, setUnreadNumber] = useState(0);
+  const { setNewUnreadNumber } = useContext(UnreadNumberContext);
 
   const [openAlertDelete, setOpenAlertDelete] = useState(false);
 
@@ -54,7 +60,6 @@ const Dashboard = () => {
   const handleClose = () => {
     setOpenAlertDelete(false);
   };
-
   useEffect(() => {
     const db = getDatabase();
     const consultationRef = ref(db, "consultations");
@@ -63,17 +68,29 @@ const Dashboard = () => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         setConsultations(data);
+
+        let unreadCount = 0;
+
         for (let key in data) {
-          if (!data[key].hasOwnProperty("status" || "paymentStatus")) {
+          // Ensure default status and paymentStatus if not present
+          if (!data[key].hasOwnProperty("status")) {
             data[key].status = "Unavailable";
+          }
+          if (!data[key].hasOwnProperty("paymentStatus")) {
             data[key].paymentStatus = "Due soon";
           }
+
+          // Check if the consultation has a 'seen' property and if it's "Unread"
+          if (data[key].hasOwnProperty("seen") && data[key].seen === "Unread") {
+            unreadCount++; // Increment the unread count
+          }
         }
+
+        setUnreadNumber(unreadCount);
         setDataState("SUCCESS");
       } else {
         console.log("No data available");
         setConsultations({});
-        setIsLoading(false);
         setDataState("ERROR");
         setErrorMessage("No data available");
       }
@@ -88,6 +105,13 @@ const Dashboard = () => {
       off(consultationRef, "value", handleData);
     };
   }, []);
+
+  // Log the updated unreadNumber value
+
+  useEffect(() => {
+    console.log(`Unread number: ${unreadNumber}`);
+    setNewUnreadNumber(unreadNumber); // Update the parent's state
+  }, [unreadNumber, setNewUnreadNumber]);
 
   const updateConsultationStatus = async (consultationUuid, newStatus) => {
     const db = getDatabase();
@@ -164,13 +188,14 @@ const Dashboard = () => {
 
   // Use of useMemo for filtering and sorting
   const consultationRows = useMemo(() => {
-    return Object.values(consultations)
-      .filter(
-        (consultation) =>
-          getNestedProperty(consultation, "name") && // Safely access consultation.name
-          getNestedProperty(consultation, "name").toLowerCase().includes(searchQuery.toLowerCase())
-      )
+    const filteredConsultations = Object.values(consultations).filter(
+      (consultation) =>
+        getNestedProperty(consultation, "name") && // Safely access consultation.name
+        getNestedProperty(consultation, "name").toLowerCase().includes(searchQuery.toLowerCase()) &&
+        (!status || consultation.status === status) // Apply filter if status is provided
+    );
 
+    return filteredConsultations
       .sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
@@ -189,9 +214,14 @@ const Dashboard = () => {
                 {expandedMessage === consultation.uuid ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </IconButton>
             </TableCell>
-            <TableCell className={Styles.cellStyle}>{consultation.status}</TableCell>
+            <TableCell className={Styles.cellStyle}>
+              <div className={`${consultation.status.toLowerCase()}`}>
+                {consultation.status === "Delivered" ? `${consultation.status} ✅` : consultation.status}
+              </div>
+            </TableCell>
             <TableCell className={Styles.cellStyle} style={{ display: "flex", alignContent: "center" }}>
               <ModeEditIcon
+                style={{ alignSelf: "center" }}
                 titleAccess="Edit"
                 className="pointHere"
                 onClick={() => navigate(`/edit/${consultation.uuid}`)}
@@ -230,7 +260,7 @@ const Dashboard = () => {
           </TableRow>
         </React.Fragment>
       ));
-  }, [consultations, searchQuery, sortOrder, expandedMessage, updateConsultationStatus]);
+  }, [consultations, searchQuery, sortOrder, expandedMessage, updateConsultationStatus, status]);
 
   return (
     <div>
@@ -246,13 +276,14 @@ const Dashboard = () => {
           <Box sx={{ minWidth: 650, height: "40px" }} className={Styles.dashTopbar}>
             <div className={Styles.dashTopbarLeft}>
               <div>
-                <input
+                {/* <input
                   className="searchbyname"
                   type="text"
-                  placeholder="Search name"
+                  placeholder={`${(<SearchIcon />)} Search name`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                />
+                /> */}
+                <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
               </div>
               <div className={Styles.dashTopbarFilter}>
                 <FilterListIcon />

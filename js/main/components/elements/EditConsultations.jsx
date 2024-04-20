@@ -29,6 +29,7 @@ const EditConsultation = () => {
   const [consultDate, setconsultDate] = useState("");
   const [budget, setBudget] = useState(null);
   const [comment, setComment] = useState(null);
+  const [dataState, setDataState] = useState("LOADING");
 
   const [error, setError] = useState(null);
 
@@ -85,9 +86,12 @@ const EditConsultation = () => {
 
         setConsultationtype(data.consultationType || "");
         setComment(data.comment || "");
+
+        setDataState("SUCCESS");
         setError(null);
       } else {
         console.log("Consultation not found");
+        setDataState("ERROR");
         setError("Consultation not found");
         navigate("/dashboard"); // Redirect to dashboard if consultation not found
       }
@@ -129,14 +133,14 @@ const EditConsultation = () => {
     }
   };
 
-  if (!consultation || error) {
-    return (
-      <div>
-        {error && <Alert severity="error">{error}</Alert>}
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  // if (!consultation || error) {
+  //   return (
+  //     <div>
+  //       {error && <Alert severity="error">{error}</Alert>}
+  //       <div>Loading...</div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>
@@ -146,101 +150,111 @@ const EditConsultation = () => {
         <DrawerXDashTable onLogout={handleLogout} className={Styles.dashEditWrapper}>
           <h4 className={Styles.editLabel}>Edit Consultation</h4>
 
-          <div className={Styles.editFormWrapper}>
-            <div className={Styles.editInputWrapper}>
-              <label className={Styles.editLabel}>Invoice No.</label>
-              <input className={Styles.editForm} disabled value={uuid}></input>
+          {dataState === "LOADING" && (
+            <div className="loaderContainer">
+              <div className="loader"></div>
             </div>
-            <div className={Styles.editInputWrapper}>
-              <label className={Styles.editLabel}>Customer Name</label>
-              <input
-                className={Styles.editForm}
-                value={consultationName}
-                onChange={(e) => setConsultationName(e.target.value)}
-              />
-            </div>
-            <div className={Styles.editInputWrapper}>
-              <label>Email</label>
-              <input className={Styles.editForm} onChange={(e) => setEmail(e.target.value)} value={email} />
-            </div>
-            <div className={Styles.editInputWrapper}>
-              <label>Consultation Type</label>
-              <input
-                className={Styles.editForm}
-                value={consultation.consultationType}
-                onChange={(e) => setConsultationtype(e.target.value)}
-              />
-            </div>
-            <div className={Styles.editInputWrapper}>
-              <label>Status</label>
-              <select className={Styles.editForm} value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="Approved" style={{ color: "green" }}>
-                  Approved
-                </option>
-                <option value="Pending" style={{ color: "orange" }}>
-                  Pending
-                </option>
-                <option value="Delivered" style={{ color: "blue" }}>
-                  Delivered
-                </option>
-                <option value="Canceled" style={{ color: "red" }}>
-                  Canceled
-                </option>
-                <option value="Declined" style={{ color: "red" }}>
-                  Declined
-                </option>
-              </select>
-            </div>
+          )}
+          {dataState === "ERROR" && <div className="errorContainer">{errorMessage}</div>}
+          {dataState === "SUCCESS" && (
+            <>
+              <div className={Styles.editFormWrapper}>
+                <div className={Styles.editInputWrapper}>
+                  <label className={Styles.editLabel}>Invoice No.</label>
+                  <input className={Styles.editForm} disabled value={uuid}></input>
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label className={Styles.editLabel}>Customer Name</label>
+                  <input
+                    className={Styles.editForm}
+                    value={consultationName}
+                    onChange={(e) => setConsultationName(e.target.value)}
+                  />
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Email</label>
+                  <input className={Styles.editForm} onChange={(e) => setEmail(e.target.value)} value={email} />
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Consultation Type</label>
+                  <input
+                    className={Styles.editForm}
+                    value={consultation.consultationType}
+                    onChange={(e) => setConsultationtype(e.target.value)}
+                  />
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Status</label>
+                  <select className={Styles.editForm} value={status} onChange={(e) => setStatus(e.target.value)}>
+                    <option value="Approved" style={{ color: "green" }}>
+                      Approved
+                    </option>
+                    <option value="Pending" style={{ color: "orange" }}>
+                      Pending
+                    </option>
+                    <option value="Delivered" style={{ color: "blue" }}>
+                      Delivered
+                    </option>
+                    <option value="Canceled" style={{ color: "red" }}>
+                      Canceled
+                    </option>
+                    <option value="Declined" style={{ color: "red" }}>
+                      Declined
+                    </option>
+                  </select>
+                </div>
 
-            <div className={Styles.editInputWrapper}>
-              <label>Date</label>
-              <input
-                className={Styles.editForm}
-                type="date"
-                value={consultDate ? new Date(consultDate).toISOString().split("T")[0] : ""}
-                onChange={(e) => setconsultDate(e.target.value)}
-              />
-            </div>
-            <div className={Styles.editInputWrapper}>
-              <label>Budget</label>
-              <input className={Styles.editForm} value={budget} onChange={(e) => setBudget(e.target.value)} />
-            </div>
-          </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Date</label>
+                  <input
+                    className={Styles.editForm}
+                    type="date"
+                    value={consultDate ? new Date(consultDate).toISOString().split("T")[0] : ""}
+                    onChange={(e) => setconsultDate(e.target.value)}
+                  />
+                </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Budget</label>
+                  <input className={Styles.editForm} value={budget} onChange={(e) => setBudget(e.target.value)} />
+                </div>
+              </div>
 
-          <div className={Styles.editLargeWrapper}>
-            <div className={Styles.editInputWrapper}>
-              <label>Message</label>
-              <textarea
-                className={[Styles.editForm, Styles.editMessage].join(" ")}
-                value={consultation.message}
-                disabled
-              />
-            </div>
+              <div className={Styles.editLargeWrapper}>
+                <div className={Styles.editInputWrapper}>
+                  <label>Message</label>
+                  <textarea
+                    className={[Styles.editForm, Styles.editMessage].join(" ")}
+                    value={consultation.message}
+                    disabled
+                  />
+                </div>
 
-            <div className={Styles.editInputWrapper}>
-              <label>Comment</label>
-              <input className={Styles.editForm} value={comment} onChange={(e) => setComment(e.target.value)} />
-            </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Comment</label>
+                  <input className={Styles.editForm} value={comment} onChange={(e) => setComment(e.target.value)} />
+                </div>
 
-            <Stack spacing={3} direction="row" className={Styles.editSave}>
-              <Button
-                variant="contained"
-                className={Styles.mainColor}
-                startIcon={<FastRewindIcon />}
-                onClick={() => navigate("/dashboard")}
-              >
-                Back
-              </Button>
-              <Button
-                variant="contained"
-                className={Styles.mainColor}
-                onClick={handleSave}
-                endIcon={<BookmarkAddIcon />}
-              >
-                Save
-              </Button>
-            </Stack>
-          </div>
+                <Stack spacing={3} direction="row" className={Styles.editSave}>
+                  <Button
+                    variant="contained"
+                    className={Styles.mainColor}
+                    startIcon={<FastRewindIcon />}
+                    onClick={() => navigate("/dashboard")}
+                  >
+                    Back
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className={Styles.mainColor}
+                    onClick={handleSave}
+                    endIcon={<BookmarkAddIcon />}
+                  >
+                    Save
+                  </Button>
+                </Stack>
+              </div>
+            </>
+          )}
         </DrawerXDashTable>
       </Container>
     </div>

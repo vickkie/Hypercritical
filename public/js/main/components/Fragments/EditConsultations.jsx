@@ -52,6 +52,8 @@ const EditConsultation = () => {
     }
   };
 
+  //TODO : Get data from database to be used
+
   useEffect(() => {
     const db = getDatabase();
     const consultationRef = ref(db, `consultations/${uuid}`);

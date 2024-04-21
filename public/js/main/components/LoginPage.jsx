@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
-import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import "firebase/auth";
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
+
+// custom hooks
 import { auth } from "./Firebase/auth";
 import { useAuth } from "./Fragments/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(SplitText);
 

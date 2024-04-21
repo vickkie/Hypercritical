@@ -12,7 +12,7 @@ import FastRewindIcon from "@mui/icons-material/FastRewind";
 import Swal from "sweetalert2";
 
 //NOTE: Custom imports
-import { useAuth } from "../AuthContext";
+import { useAuth } from "./AuthContext";
 import Styles from "../styles.module.css";
 import DrawerXDashTable from "./Drawer";
 

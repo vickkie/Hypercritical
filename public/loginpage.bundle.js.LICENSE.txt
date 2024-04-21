@@ -32,8 +32,6 @@ object-assign
 
 /*! ../../utils/createSvgIcon */
 
-/*! ../AuthContext */
-
 /*! ../Backdrop */
 
 /*! ../ButtonBase */
@@ -327,6 +325,8 @@ object-assign
 /*! ./FormControlContext */
 
 /*! ./Fragments/AddConsultations */
+
+/*! ./Fragments/AuthContext */
 
 /*! ./Fragments/ContextProviders */
 
@@ -1107,10 +1107,6 @@ object-assign
   \*******************************************/
 
 /*!********************************************!*\
-  !*** ./js/main/components/AuthContext.jsx ***!
-  \********************************************/
-
-/*!********************************************!*\
   !*** ./node_modules/prop-types/lib/has.js ***!
   \********************************************/
 
@@ -1437,6 +1433,10 @@ object-assign
 /*!*****************************************************!*\
   !*** ./node_modules/uuid/dist/esm-browser/regex.js ***!
   \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./js/main/components/Fragments/AuthContext.jsx ***!
+  \******************************************************/
 
 /*!******************************************************!*\
   !*** ./js/main/components/Fragments/SearchInput.jsx ***!

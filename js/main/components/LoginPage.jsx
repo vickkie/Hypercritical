@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import "firebase/auth";
 import { auth } from "./Firebase/auth";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "./Fragments/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(SplitText);

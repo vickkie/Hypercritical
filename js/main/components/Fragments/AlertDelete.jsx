@@ -1,3 +1,5 @@
+//! THis component is duplicated and not in use currently
+
 import React from "react";
 import Swal from "sweetalert2";
 

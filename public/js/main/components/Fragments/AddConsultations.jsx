@@ -13,7 +13,7 @@ import FastRewindIcon from "@mui/icons-material/FastRewind";
 import { AddCircleOutlineRounded } from "@mui/icons-material";
 
 //NOTE: Custom imports
-import { useAuth } from "../AuthContext";
+import { useAuth } from "./AuthContext";
 import DrawerXDashTable from "./Drawer";
 import Styles from "../styles.module.css";
 

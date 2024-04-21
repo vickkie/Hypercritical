@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -138,12 +138,10 @@ export default function DrawerXDashTable({ onLogout, children }) {
         console.log("Profile clicked");
         break;
       case "Account":
-        // Handle account action
         console.log("Account clicked");
         break;
       case "Dashboard":
-        // Handle dashboard action
-        console.log("Dashboard  ");
+        navigate("/dashboard");
         break;
       case "Logout":
         // Call the onLogout function passed as a prop

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -31,6 +31,7 @@ import { UnreadNumberContext } from "./UnreadNumberContext";
 
 const drawerWidth = 180;
 
+//creating drawer and sidebar theme
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
@@ -96,10 +97,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   }),
 }));
 
+//TODO : export the default function
+
 export default function DrawerXDashTable({ onLogout, children }) {
   const navigate = useNavigate();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { unreadNewNumber } = useContext(UnreadNumberContext);
 
   const handleDrawerOpen = () => {
@@ -110,21 +113,13 @@ export default function DrawerXDashTable({ onLogout, children }) {
     setOpen(false);
   };
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const pages = ["Dashboard"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {

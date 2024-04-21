@@ -39,6 +39,7 @@ const AddConsultation = () => {
 
   useBeforeReload("Are you sure you want to exit?");
 
+  //produce unique identifier
   useEffect(() => {
     const uuid = uuidv4();
     const uniquePart = uuid.substring(0, 6);

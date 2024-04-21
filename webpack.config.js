@@ -194,7 +194,7 @@ module.exports = {
     privacy: "./js/main/privacy.js",
     process: "./js/main/process.js",
     404: "./js/main/404.jsx",
-    projectSlider: "./App.jsx",
+    projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",
     loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",

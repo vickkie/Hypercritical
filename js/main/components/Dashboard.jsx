@@ -34,6 +34,7 @@ import Swal from "sweetalert2";
 //NOTE: Custom imports
 import SearchInput from "./Fragments/SearchInput";
 import { UnreadNumberContext } from "./Fragments/UnreadNumberContext";
+import useBeforeReload from "./Fragments/LeaveContext";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -51,6 +52,10 @@ const Dashboard = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [unreadNumber, setUnreadNumber] = useState(0);
   const { setNewUnreadNumber } = useContext(UnreadNumberContext);
+
+  useBeforeReload("Are you sure you want to leave?");
+
+  //TODO :Read data from database
 
   useEffect(() => {
     const db = getDatabase();
@@ -162,19 +167,6 @@ const Dashboard = () => {
       console.error("Error deleting consultation:", error);
     }
   };
-
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      event.preventDefault();
-      event.returnValue = ""; // browser requires returnValue to be set
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

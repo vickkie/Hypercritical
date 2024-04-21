@@ -16,6 +16,7 @@ import { AddCircleOutlineRounded } from "@mui/icons-material";
 import { useAuth } from "./AuthContext";
 import DrawerXDashTable from "./Drawer";
 import Styles from "../styles.module.css";
+import useBeforeReload from "./LeaveContext";
 
 const AddConsultation = () => {
   // Get the consultation UUID from the URL
@@ -36,6 +37,8 @@ const AddConsultation = () => {
 
   const [error, setError] = useState(null);
 
+  useBeforeReload("Are you sure you want to exit?");
+
   useEffect(() => {
     const uuid = uuidv4();
     const uniquePart = uuid.substring(0, 6);
@@ -52,19 +55,6 @@ const AddConsultation = () => {
       console.error("Logout failed:", error);
     }
   };
-
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      event.preventDefault();
-      event.returnValue = ""; // browser requires returnValue to be set
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
 
   useEffect(() => {
     if (!currentUser) {
@@ -148,7 +138,12 @@ const AddConsultation = () => {
                 </div>
                 <div className={Styles.editInputWrapper}>
                   <label>Email</label>
-                  <input className={Styles.editForm} onChange={(e) => setEmail(e.target.value)} value={email} />
+                  <input
+                    required
+                    className={Styles.editForm}
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
                 </div>
                 <div className={Styles.editInputWrapper}>
                   <label>Consultation Type</label>

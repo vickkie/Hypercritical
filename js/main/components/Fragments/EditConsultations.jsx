@@ -15,6 +15,7 @@ import Swal from "sweetalert2";
 import { useAuth } from "./AuthContext";
 import Styles from "../styles.module.css";
 import DrawerXDashTable from "./Drawer";
+import useBeforeReload from "./LeaveContext";
 
 const EditConsultation = () => {
   const { uuid } = useParams(); // Get the consultation UUID from the URL
@@ -34,19 +35,7 @@ const EditConsultation = () => {
   const [dataState, setDataState] = useState("LOADING");
 
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      event.preventDefault();
-      event.returnValue = ""; // browser requires returnValue to be set
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
+  useBeforeReload("Are you sure you want to exit?");
 
   useEffect(() => {
     if (!currentUser) {

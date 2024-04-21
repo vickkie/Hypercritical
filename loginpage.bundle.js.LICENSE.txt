@@ -334,11 +334,15 @@ object-assign
 
 /*! ./Fragments/EditConsultations */
 
+/*! ./Fragments/LeaveContext */
+
 /*! ./Fragments/SearchInput */
 
 /*! ./Fragments/UnreadNumberContext */
 
 /*! ./GlobalStyles */
+
+/*! ./LeaveContext */
 
 /*! ./ListContext */
 
@@ -1481,6 +1485,10 @@ object-assign
 /*!******************************************************!*\
   !*** ./node_modules/uuid/dist/esm-browser/native.js ***!
   \******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./js/main/components/Fragments/LeaveContext.jsx ***!
+  \*******************************************************/
 
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/base/FocusTrap/FocusTrap.js ***!

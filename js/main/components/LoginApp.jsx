@@ -20,7 +20,7 @@ const AddConsultation = isProduction
 
 const App = () => {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true }}>
       <ErrorBoundary>
         <ContextProviders>
           <Routes>

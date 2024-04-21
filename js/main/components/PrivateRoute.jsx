@@ -1,14 +1,14 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './AuthContext'; // Adjust the import path as necessary
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "./Fragments/AuthContext"; // Adjust the import path as necessary
 
 const PrivateRoute = ({ children }) => {
- const { currentUser } = useAuth();
+  const { currentUser } = useAuth();
 
- if (!currentUser) {
+  if (!currentUser) {
     return <Navigate to="/login" />;
- }
- return children;
+  }
+  return children;
 };
 
 export default PrivateRoute;

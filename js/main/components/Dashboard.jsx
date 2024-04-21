@@ -27,7 +27,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import Styles from "./styles.module.css";
 import DrawerXDashTable from "./Fragments/Drawer";
-import AlertDelete from "./Fragments/AlertDelete";
+
+import Swal from "sweetalert2";
 
 //NOTE: Custom imports
 import SearchInput from "./Fragments/SearchInput";
@@ -47,19 +48,9 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [dataState, setDataState] = useState("LOADING");
   const [errorMessage, setErrorMessage] = useState("");
-  const [consultationToDelete, setConsultationToDelete] = useState(null);
   const [unreadNumber, setUnreadNumber] = useState(0);
   const { setNewUnreadNumber } = useContext(UnreadNumberContext);
 
-  const [openAlertDelete, setOpenAlertDelete] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpenAlertDelete(true);
-  };
-
-  const handleClose = () => {
-    setOpenAlertDelete(false);
-  };
   useEffect(() => {
     const db = getDatabase();
     const consultationRef = ref(db, "consultations");
@@ -80,8 +71,8 @@ const Dashboard = () => {
             data[key].paymentStatus = "Due soon";
           }
 
-          // Check if the consultation has a 'seen' property and if it's "Unread"
-          if (data[key].hasOwnProperty("seen") && data[key].seen === "Unread") {
+          // Check if the consultation has a 'seen' property and if it's "Pending"
+          if (data[key].hasOwnProperty("status") && data[key].status === "Pending") {
             unreadCount++; // Increment the unread count
           }
         }
@@ -109,10 +100,16 @@ const Dashboard = () => {
   // Log the updated unreadNumber value
 
   useEffect(() => {
-    console.log(`Unread number: ${unreadNumber}`);
     setNewUnreadNumber(unreadNumber); // Update the parent's state
   }, [unreadNumber, setNewUnreadNumber]);
 
+  /**
+   * Updates the status of a consultation.
+   *
+   * @param {string} consultationUuid - The UUID of the consultation.
+   * @param {string} newStatus - The new status to update the consultation to.
+   * @return {Promise<void>} A promise that resolves when the consultation status is updated successfully, or rejects with an error if there was an issue updating the status.
+   */
   const updateConsultationStatus = async (consultationUuid, newStatus) => {
     const db = getDatabase();
     // Ensure the path correctly references the consultation using its UUID
@@ -123,6 +120,32 @@ const Dashboard = () => {
       console.log("Consultation status updated successfully");
     } catch (error) {
       console.error("Error updating consultation status:", error);
+    }
+  };
+
+  const handleConfirmDelete = (consultationUuid) => {
+    if (consultationUuid !== null) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // console.log("final", consultationUuid);
+          deleteConsultation(consultationUuid);
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: "Consultation id is null",
+      });
     }
   };
 
@@ -226,19 +249,12 @@ const Dashboard = () => {
                 className="pointHere"
                 onClick={() => navigate(`/edit/${consultation.uuid}`)}
               ></ModeEditIcon>
-
-              {/* <ModeEditIcon
-                titleAccess="Edit"
-                className="pointHere"
-                onClick={() => updateConsultationStatus(consultation.uuid, "Approved")}
-              ></ModeEditIcon> */}
-
               <IconButton
                 aria-label="delete"
                 color="primary"
                 onClick={() => {
-                  setConsultationToDelete(consultation.uuid);
-                  handleClickOpen();
+                  // console.log("uuid on click", consultation.uuid);
+                  handleConfirmDelete(consultation.uuid);
                 }}
                 className="pointHere"
               >
@@ -265,24 +281,10 @@ const Dashboard = () => {
   return (
     <div>
       <Container maxWidth="lg" className={Styles.dashInnerWrapper}>
-        <AlertDelete
-          handleDelete={() => deleteConsultation(consultationToDelete)}
-          handleClickOpen={handleClickOpen}
-          open={openAlertDelete}
-          handleClose={handleClose}
-        />
-
         <DrawerXDashTable onLogout={handleLogout}>
           <Box sx={{ minWidth: 650, height: "40px" }} className={Styles.dashTopbar}>
             <div className={Styles.dashTopbarLeft}>
               <div>
-                {/* <input
-                  className="searchbyname"
-                  type="text"
-                  placeholder={`${(<SearchIcon />)} Search name`}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                /> */}
                 <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
               </div>
               <div className={Styles.dashTopbarFilter}>

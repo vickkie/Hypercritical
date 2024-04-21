@@ -188,6 +188,15 @@
   justify-content: end;
   margin-bottom: 30px;
 }
+
+@media screen and (min-width: 600px) {
+  .editSave {
+    position: fixed;
+    top: 90px;
+    right: 11px;
+  }
+}
+
 .editLabel {
   display: block;
   margin-bottom: 8px;
@@ -235,4 +244,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.floatActions {
+  border-radius: 45px !important;
 }

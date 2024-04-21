@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
-import { useAuth } from "../AuthContext";
-import DrawerXDashTable from "./Drawer";
+import { v4 as uuidv4 } from "uuid";
+import Swal from "sweetalert2";
+
+//NOTE: Ui imports
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import FastRewindIcon from "@mui/icons-material/FastRewind";
-import Alert from "@mui/material/Alert";
 import { AddCircleOutlineRounded } from "@mui/icons-material";
-import { v4 as uuidv4 } from "uuid";
 
+//NOTE: Custom imports
+import { useAuth } from "../AuthContext";
+import DrawerXDashTable from "./Drawer";
 import Styles from "../styles.module.css";
 
 const AddConsultation = () => {
@@ -19,7 +22,6 @@ const AddConsultation = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const { currentUser } = useAuth();
-  const [openAlertChange, setOpenAlertChange] = useState(false);
   const [consultationName, setConsultationName] = useState("");
   const [email, setEmail] = useState("");
   const [consultationType, setConsultationType] = useState("Design");
@@ -50,13 +52,6 @@ const AddConsultation = () => {
       console.error("Logout failed:", error);
     }
   };
-  const handleClickOpen = () => {
-    setOpenAlertChange(true);
-  };
-
-  const handleClose = () => {
-    setOpenAlertChange(false);
-  };
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {
@@ -77,31 +72,51 @@ const AddConsultation = () => {
     }
   }, [currentUser, navigate]);
 
+  /**
+   * Handles the addition of a new consultation by showing a confirmation dialog,
+   * saving the changes to the database if confirmed, and navigating to the dashboard.
+   *
+   * @return {Promise<void>} Promise that resolves when the function completes.
+   */
   const handleAdd = async () => {
-    const database = getDatabase();
+    // Show the confirmation dialog
+    const result = await Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    });
 
-    try {
-      var newConsultationRef = ref(database, `consultations/${uuid}`);
-      await set(newConsultationRef, {
-        uuid: uuid,
-        name: consultationName,
-        message: message,
-        budget: budget,
-        consultationType: consultationType,
-        email: email,
-        status: seenStatus,
-        comment: comment,
-        seen: seenStatus,
-        date: new Date().toISOString(),
-      });
-      setDataState("SUCCESS");
-      setError(null);
-      console.log("Consultation Added successfully");
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error Adding consultation:", error);
-      setDataState("ERROR");
-      setError(error.message);
+    // Proceed based on the user's choice
+    if (result.isConfirmed) {
+      const database = getDatabase();
+
+      try {
+        var newConsultationRef = ref(database, `consultations/${uuid}`);
+        await set(newConsultationRef, {
+          uuid: uuid,
+          name: consultationName,
+          message: message,
+          budget: budget,
+          consultationType: consultationType,
+          email: email,
+          status: status,
+          comment: comment,
+          seen: seenStatus,
+          date: new Date().toISOString(),
+        });
+        setDataState("SUCCESS");
+        setError(null);
+        console.log("Consultation Added successfully");
+        navigate("/dashboard");
+      } catch (error) {
+        console.error("Error Adding consultation:", error);
+        setDataState("ERROR");
+        setError(error.message);
+      }
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
     }
   };
 
@@ -213,7 +228,7 @@ const AddConsultation = () => {
                 <Stack spacing={3} direction="row" className={Styles.editSave}>
                   <Button
                     variant="contained"
-                    className={Styles.mainColor}
+                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
                     onClick={() => navigate("/dashboard")}
                   >
@@ -221,7 +236,7 @@ const AddConsultation = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    className={Styles.mainColor}
+                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     onClick={handleAdd}
                     endIcon={<AddCircleOutlineRounded />}
                   >

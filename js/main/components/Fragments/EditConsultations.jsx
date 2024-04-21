@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDatabase, ref, onValue, update, off } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
-import { useAuth } from "../AuthContext";
-import AlertDelete from "./AlertDelete";
-import DrawerXDashTable from "./Drawer";
+
+//NOTE: Ui imports
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import FastRewindIcon from "@mui/icons-material/FastRewind";
-import Alert from "@mui/material/Alert";
+import Swal from "sweetalert2";
 
+//NOTE: Custom imports
+import { useAuth } from "../AuthContext";
 import Styles from "../styles.module.css";
+import DrawerXDashTable from "./Drawer";
 
 const EditConsultation = () => {
   const { uuid } = useParams(); // Get the consultation UUID from the URL
@@ -20,7 +22,6 @@ const EditConsultation = () => {
   const auth = getAuth();
   const { currentUser } = useAuth();
   const [consultation, setConsultation] = useState(null);
-  const [openAlertChange, setOpenAlertChange] = useState(false);
   const [consultationName, setConsultationName] = useState("");
   const [email, setEmail] = useState("");
   const [consultationType, setConsultationtype] = useState("");
@@ -33,14 +34,6 @@ const EditConsultation = () => {
   const [dataState, setDataState] = useState("LOADING");
 
   const [error, setError] = useState(null);
-
-  const handleClickOpen = () => {
-    setOpenAlertChange(true);
-  };
-
-  const handleClose = () => {
-    setOpenAlertChange(false);
-  };
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {
@@ -104,51 +97,60 @@ const EditConsultation = () => {
       off(consultationRef, "value", handleData);
     };
   }, [uuid, navigate]);
+
+  /**
+   * Handles the save action for the consultation.
+   *
+   * @return {Promise<void>} - A promise that resolves when the save action is completed.
+   */
   const handleSave = async () => {
-    // Update the consultation state with the new values
-    const updatedConsultation = {
-      ...consultation,
-      name: consultationName,
-      email: email,
-      message: message,
-      budget: budget,
-      consultationType: consultationType,
-      status: status,
-      date: consultDate,
-      comment: comment,
-      seen: seenStatus,
-    };
+    // Show the confirmation dialog
+    const result = await Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    });
 
-    setConsultation(updatedConsultation); // Update the state with the new values
+    // Proceed based on the user's choice
+    if (result.isConfirmed) {
+      // Update the consultation state with the new values
+      const updatedConsultation = {
+        ...consultation,
+        name: consultationName,
+        email: email,
+        message: message,
+        budget: budget,
+        consultationType: consultationType,
+        status: status,
+        date: consultDate,
+        comment: comment,
+        seen: seenStatus,
+      };
 
-    const db = getDatabase();
-    const consultationRef = ref(db, `consultations/${uuid}`);
+      setConsultation(updatedConsultation); // Update the state with the new values
 
-    try {
-      await update(consultationRef, updatedConsultation); // Use the updated consultation state
-      setError(null);
-      console.log("Consultation updated successfully");
-      navigate("/dashboard"); // Redirect back to dashboard after saving
-    } catch (error) {
-      console.error("Error updating consultation:", error);
-      setError(error.message);
+      const db = getDatabase();
+      const consultationRef = ref(db, `consultations/${uuid}`);
+
+      try {
+        await update(consultationRef, updatedConsultation); // Use the updated consultation state
+        setError(null);
+        console.log("Consultation updated successfully");
+        navigate("/dashboard"); // Redirect back to dashboard after saving
+      } catch (error) {
+        console.error("Error updating consultation:", error);
+        setError(error.message);
+      }
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
     }
   };
-
-  // if (!consultation || error) {
-  //   return (
-  //     <div>
-  //       {error && <Alert severity="error">{error}</Alert>}
-  //       <div>Loading...</div>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div>
       <Container className={Styles.dashInnerWrapper} style={{ background: "#f4f7f8" }}>
-        <AlertDelete handleClickOpen={handleClickOpen} open={openAlertChange} handleClose={handleClose} />
-
         <DrawerXDashTable onLogout={handleLogout} className={Styles.dashEditWrapper}>
           <h4 className={Styles.editLabel}>Edit Consultation</h4>
 
@@ -254,7 +256,7 @@ const EditConsultation = () => {
                 <Stack spacing={3} direction="row" className={Styles.editSave}>
                   <Button
                     variant="contained"
-                    className={Styles.mainColor}
+                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
                     onClick={() => navigate("/dashboard")}
                   >
@@ -262,7 +264,7 @@ const EditConsultation = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    className={Styles.mainColor}
+                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     onClick={handleSave}
                     endIcon={<BookmarkAddIcon />}
                   >

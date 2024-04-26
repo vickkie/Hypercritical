@@ -123,7 +123,13 @@ const Dashboard = () => {
   return (
     <DrawerXDashTable onLogout={handleLogout} className={Styles.dashboard} style={{ minHeight: "100vh" }}>
       <div className={Styles.dashboardWrapper}>
-        <div>Welcome to Hypercritical</div>;
+        <div className={Styles.dashboardTop}></div>
+        <div className="welcomeDashboard grownish">Welcome to Hypercritical</div>
+        <div className="bottomleft grownish"></div>
+        <div className="bottomcenter grownish"></div>
+        <div className="bottomright grownish"></div>
+        <div className="topcenter grownish"></div>
+        <div className="topright grownish"></div>
       </div>
     </DrawerXDashTable>
   );

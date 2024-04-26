@@ -494,3 +494,28 @@ th {
   --color-grownish: #2e3033;
   --color-grownish-1: #1a1b1e;
 }
+
+.welcomeDashboard {
+  grid-area: welcome;
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomcenter {
+  grid-area: bottomcenter;
+  background-image: url("https://i.pinimg.com/564x/64/b1/35/64b135afa82e09963bcccbb444110b3d.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.grownish {
+  background-color: var(--color-grownish);
+  border-radius: 25px;
+}

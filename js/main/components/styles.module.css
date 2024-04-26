@@ -74,9 +74,8 @@
 }
 
 .mainDashboardContent {
-  /* padding: 68px 6px 0px !important; */
-  padding: 0px 6px 0px !important;
-  min-width: calc(100vw - 78px);
+  min-width: calc(100vw - 222px);
+  color: var(--color-bg);
 }
 .addFloatTop {
   float: right;
@@ -113,6 +112,10 @@
   color: var(--color-bg);
   padding: 0 12px;
   font-size: 0.8rem;
+}
+
+.addFloatBtn path {
+  color: var(--color-grownish);
 }
 .dashTopbarRight {
   display: flex;
@@ -327,20 +330,6 @@
   display: none;
 }
 
-.dashboardWrapper {
-  display: grid;
-  grid-template-columns: 70% 30%;
-  grid-template-rows: auto;
-  gap: 1.3rem;
-  padding: 1rem;
-  grid-template-areas:
-    "topdashboard topdashboard"
-    "welcome topright"
-    "bottomleft bottomright";
-  height: 100%;
-  background-color: var(--color-grownish);
-}
-
 .EverythingWrapper {
   min-height: 100vh;
   background-color: var(--color-grownish-1);
@@ -364,4 +353,46 @@
 }
 .tableDataRow:not(:last-child) {
   border-top: solid 0.0058vw var(--color-bg);
+}
+
+.dashboardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 4rem 1fr 1fr;
+  gap: 1.3rem;
+  padding: 1rem;
+  grid-template-areas:
+    "topdashboard topdashboard topdashboard"
+    "welcome topcenter topright"
+    "bottomleft bottomcenter bottomright";
+  height: 100%;
+  background-color: var(--color-grownish-1);
+}
+
+.dashboardTop {
+  grid-area: topdashboard;
+  height: 64px;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: sticky;
+  z-index: 1100;
+  left: auto;
+  right: 0px;
+  box-shadow: rgba(255, 255, 255, 0.9) 0rem 0rem 0.0625rem 0.0625rem inset,
+    rgba(0, 0, 0, 0.05) 0rem 1.25rem 1.6875rem 0rem;
+  backdrop-filter: blur(2.625rem);
+  color: rgb(255, 255, 255);
+  top: 0.75rem;
+  min-height: 4.6875rem;
+  max-height: 4.7rem;
+  display: grid;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 1.25rem;
+  padding: 0.5rem 0px;
+  background-color: transparent !important;
+  border-color: rgba(226, 232, 240, 0.3) !important;
 }

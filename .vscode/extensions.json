@@ -1,0 +1,5 @@
+{
+  "recommendations": ["aaron-bond.better-comments", "adamraichu.font-viewer", "adpyke.codesnap", "amazonwebservices.aws-toolkit-vscode", "arifbudimanar.arifcode-theme", "astro-build.astro-vscode", "bierner.markdown-preview-github-styles", "Cardinal90.multi-cursor-case-preserve", "Codeium.codeium", "dbaeumer.vscode-eslint", "eamodio.gitlens", "esbenp.prettier-vscode", "formulahendry.auto-rename-tag", "jasonlhy.hungry-delete", "kisstkondoros.vscode-gutter-preview", "Orta.vscode-jest", "PKief.material-icon-theme", "pranaygp.vscode-css-peek", "redhat.vscode-yaml", "richie5um2.vscode-sort-json", "ritwickdey.LiveServer", "talhabalaj.actual-font-changer", "trybick.terminal-zoom", "usernamehw.errorlens"],
+  "unwantedRecommendations": []
+}
+

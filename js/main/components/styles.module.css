@@ -294,3 +294,23 @@
   justify-content: center;
   font-size: var(--hc-xxl);
 }
+
+.DrawerListWrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column-reverse;
+  justify-content: start;
+}
+.profileDrawerContainer {
+  align-items: center;
+  display: flex;
+  padding: 30px 10px;
+  justify-content: center;
+  flex-direction: column;
+}
+.profileName {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  display: none;
+}

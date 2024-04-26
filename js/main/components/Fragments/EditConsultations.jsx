@@ -78,7 +78,7 @@ const EditConsultation = () => {
         console.log("Consultation not found");
         setDataState("ERROR");
         setError("Consultation not found");
-        navigate("/dashboard"); // Redirect to dashboard if consultation not found
+        navigate("/sales"); // Redirect to sales if consultation not found
       }
     };
 
@@ -129,7 +129,7 @@ const EditConsultation = () => {
         await update(consultationRef, updatedConsultation); // Use the updated consultation state
         setError(null);
         console.log("Consultation updated successfully");
-        navigate("/dashboard"); // Redirect back to dashboard after saving
+        navigate("/sales"); // Redirect back to sales after saving
       } catch (error) {
         console.error("Error updating consultation:", error);
         setError(error.message);
@@ -249,7 +249,7 @@ const EditConsultation = () => {
                     variant="contained"
                     className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
-                    onClick={() => navigate("/dashboard")}
+                    onClick={() => navigate("/sales")}
                   >
                     Back
                   </Button>

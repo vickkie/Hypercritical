@@ -29,17 +29,21 @@ import { AddTaskOutlined, PendingActions } from "@mui/icons-material";
 import { Badge } from "@mui/material";
 import { UnreadNumberContext } from "./UnreadNumberContext";
 
-const drawerWidth = 180;
+const drawerWidth = 200;
 
 //creating drawer and sidebar theme
 const openedMixin = (theme) => ({
   width: drawerWidth,
+  margin: "10px;",
+  borderRadius: "25px;",
+  maxHeight: "calc(100vh - 20px);",
+  color: "var(--color-bg);",
+  background: "var(--color-grownish);",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
-  backgroundColor: "var(--main-color) !important",
 });
 
 const closedMixin = (theme) => ({
@@ -47,8 +51,12 @@ const closedMixin = (theme) => ({
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  margin: "10px;",
+  borderRadius: "25px;",
+  maxHeight: "calc(100vh - 20px);",
+  color: "var(--color-bg);",
+  background: "var(--color-grownish);",
   overflowX: "hidden",
-  backgroundColor: "var(--main-color) !important",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -59,27 +67,10 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
+  background: "inherit",
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-}));
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" })(({ theme, open }) => ({
@@ -105,12 +96,8 @@ export default function DrawerXDashTable({ onLogout, children }) {
   const [open, setOpen] = useState(false);
   const { unreadNewNumber } = useContext(UnreadNumberContext);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
   };
 
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -148,144 +135,99 @@ export default function DrawerXDashTable({ onLogout, children }) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} style={{ backgroundColor: "black" }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <OfflineBoltIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            Hypercritical
-          </Typography>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/assets/masks/hypercritical-192.png" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" className="drawerLeft" open={open} style={{ backgroundColor: "black" }}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <HighlightOffIcon /> : <HighlightOffIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <div className={Styles.DrawerListWrapper}>
-          <div>
-            <List>
-              {[
-                { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
-                { path: "/dashboard", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
-                { path: "/dashboard/Approved", icon: <MarkChatReadIcon />, label: "Approved " },
-                {
-                  path: "/dashboard/Pending",
-                  icon: (
-                    <Badge badgeContent={unreadNewNumber} color="secondary">
-                      <PendingActions color="action" />
-                    </Badge>
-                  ),
-                  label: "Pending",
-                },
-                { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
-              ].map((item, index) => (
-                <ListItem key={index} disablePadding sx={{ display: "block" }}>
-                  <ListItemButton
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
-                    }}
-                    onClick={() => navigate(item.path)} // Navigate on click
-                  >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-          </div>
+    <Box sx={{ display: "flex" }} className={Styles.EverythingWrapper}>
+      {/* <CssBaseline /> */}
 
-          <div className={Styles.profileDrawerContainer}>
-            <Divider />
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/assets/svg/icons8-github.svg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
+      <Drawer variant="permanent" className={Styles.drawerLeft} open={open}>
+        <div className={Styles.DrawerInnerWrapper}>
+          <DrawerHeader>
+            <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerToggle} edge="start">
+              {open ? <HighlightOffIcon /> : <OfflineBoltIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <div className={Styles.DrawerListWrapper}>
+            <div>
+              <List>
+                {[
+                  { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
+                  { path: "/sales", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
+                  { path: "/sales/Approved", icon: <MarkChatReadIcon />, label: "Approved " },
+                  {
+                    path: "/sales/Pending",
+                    icon: (
+                      <Badge badgeContent={unreadNewNumber} color="secondary">
+                        <PendingActions color="action" />
+                      </Badge>
+                    ),
+                    label: "Pending",
+                  },
+                  { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
+                ].map((item, index) => (
+                  <ListItem key={index} disablePadding sx={{ display: "block" }}>
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
+                      onClick={() => navigate(item.path)} // Navigate on click
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
+                    </ListItemButton>
+                  </ListItem>
                 ))}
-              </Menu>
-            </Box>
-            <div className={Styles.profileName} id="profileName">
-              <br />
-              <div>Uzitrake</div>
+              </List>
+            </div>
+
+            <div className={Styles.profileDrawerContainer}>
+              <Divider />
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/assets/svg/icons8-github.svg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              <div className={Styles.profileName} id="profileName">
+                <br />
+                <div>Uzitrake</div>
+              </div>
             </div>
           </div>
         </div>
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1 }} className={Styles.mainDashboardContent}>
-        {/*I Rendered the children here A.K.A main dashboard content */}
         {children}
       </Box>
     </Box>

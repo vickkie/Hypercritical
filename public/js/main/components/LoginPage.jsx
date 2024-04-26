@@ -53,6 +53,7 @@ const Login = () => {
       setPassword("");
       setMessage({ text: "Login Success. Welcome uzi !", type: "success" });
       setCurrentUser(userCredential.user);
+      document.querySelector(".nav").style.display = "none";
       navigate("/dashboard");
     } catch (error) {
       setMessage({ text: `Login failed: Try again`, type: "error" });

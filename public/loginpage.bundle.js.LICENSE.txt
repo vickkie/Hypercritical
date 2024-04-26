@@ -358,6 +358,8 @@ object-assign
 
 /*! ./Ripple */
 
+/*! ./Sales */
+
 /*! ./SelectInput */
 
 /*! ./Serializer.js */
@@ -377,8 +379,6 @@ object-assign
 /*! ./UnreadNumberContext */
 
 /*! ./Utility.js */
-
-/*! ./appBarClasses */
 
 /*! ./appendOwnerState */
 
@@ -840,8 +840,6 @@ object-assign
 
 /*! @mui/material */
 
-/*! @mui/material/AppBar */
-
 /*! @mui/material/Avatar */
 
 /*! @mui/material/Box */
@@ -851,8 +849,6 @@ object-assign
 /*! @mui/material/Collapse */
 
 /*! @mui/material/Container */
-
-/*! @mui/material/CssBaseline */
 
 /*! @mui/material/Divider */
 
@@ -891,8 +887,6 @@ object-assign
 /*! @mui/material/TablePagination */
 
 /*! @mui/material/TableRow */
-
-/*! @mui/material/Toolbar */
 
 /*! @mui/material/Tooltip */
 
@@ -1045,6 +1039,10 @@ object-assign
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
+
+/*!**************************************!*\
+  !*** ./js/main/components/Sales.jsx ***!
+  \**************************************/
 
 /*!****************************************!*\
   !*** ./node_modules/gsap/CSSPlugin.js ***!
@@ -1364,10 +1362,6 @@ object-assign
 
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/base/useBadge/useBadge.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/@mui/material/AppBar/AppBar.js ***!
   \*****************************************************/
 
 /*!*****************************************************!*\
@@ -1859,10 +1853,6 @@ object-assign
   \************************************************************/
 
 /*!************************************************************!*\
-  !*** ./node_modules/@mui/material/AppBar/appBarClasses.js ***!
-  \************************************************************/
-
-/*!************************************************************!*\
   !*** ./node_modules/@mui/material/Avatar/avatarClasses.js ***!
   \************************************************************/
 
@@ -2040,10 +2030,6 @@ object-assign
 
 /*!***************************************************************!*\
   !*** ./node_modules/@mui/base/utils/resolveComponentProps.js ***!
-  \***************************************************************/
-
-/*!***************************************************************!*\
-  !*** ./node_modules/@mui/material/CssBaseline/CssBaseline.js ***!
   \***************************************************************/
 
 /*!***************************************************************!*\

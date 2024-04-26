@@ -19,6 +19,10 @@
   --font-2: SpaceGrotesk;
   --font-3: MonumentExtended;
   font-size: 15px;
+
+  /* !aditional */
+
+  --color-pinkish: #ffeae9;
 }
 :root {
   --hc-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
@@ -484,4 +488,9 @@ th {
 .declined {
   color: #ee6d19;
   background-color: #ffd8c4;
+}
+
+:root {
+  --color-grownish: #2e3033;
+  --color-grownish-1: #1a1b1e;
 }

@@ -65,7 +65,7 @@ const AddConsultation = () => {
 
   /**
    * Handles the addition of a new consultation by showing a confirmation dialog,
-   * saving the changes to the database if confirmed, and navigating to the dashboard.
+   * saving the changes to the database if confirmed, and navigating to the sales.
    *
    * @return {Promise<void>} Promise that resolves when the function completes.
    */
@@ -100,11 +100,15 @@ const AddConsultation = () => {
         setDataState("SUCCESS");
         setError(null);
         console.log("Consultation Added successfully");
-        navigate("/dashboard");
+        navigate("/sales");
       } catch (error) {
         console.error("Error Adding consultation:", error);
         setDataState("ERROR");
         setError(error.message);
+        Swal.fire("Error Adding consultation", "", "info");
+        setTimeout(() => {
+          navigate("/sales");
+        }, 3000);
       }
     } else if (result.isDenied) {
       Swal.fire("Changes are not saved", "", "info");
@@ -226,7 +230,7 @@ const AddConsultation = () => {
                     variant="contained"
                     className={[Styles.mainColor, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
-                    onClick={() => navigate("/dashboard")}
+                    onClick={() => navigate("/sales")}
                   >
                     Back
                   </Button>

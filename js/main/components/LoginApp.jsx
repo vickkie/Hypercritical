@@ -18,6 +18,8 @@ const AddConsultation = isProduction
   ? require("./Fragments/AddConsultations").default
   : React.lazy(() => import("./Fragments/AddConsultations"));
 
+const Sales = isProduction ? require("./Sales").default : React.lazy(() => import("./Sales"));
+
 const App = () => {
   return (
     <Router future={{ v7_startTransition: true }}>
@@ -55,10 +57,18 @@ const App = () => {
               }
             />
             <Route
-              path="/dashboard/:status?"
+              path="/sales"
               element={
                 <PrivateRoute>
-                  <Dashboard />
+                  <Sales />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/sales/:status?"
+              element={
+                <PrivateRoute>
+                  <Sales />
                 </PrivateRoute>
               }
             />

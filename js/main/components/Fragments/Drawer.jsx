@@ -203,46 +203,85 @@ export default function DrawerXDashTable({ onLogout, children }) {
             {theme.direction === "rtl" ? <HighlightOffIcon /> : <HighlightOffIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
-        <List>
-          {[
-            { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
-            { path: "/dashboard", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
-            { path: "/dashboard/Approved", icon: <MarkChatReadIcon />, label: "Approved " },
-            {
-              path: "/dashboard/Pending",
-              icon: (
-                <Badge badgeContent={unreadNewNumber} color="secondary">
-                  <PendingActions color="action" />
-                </Badge>
-              ),
-              label: "Pending",
-            },
-            { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
-          ].map((item, index) => (
-            <ListItem key={index} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
+        <div className={Styles.DrawerListWrapper}>
+          <div>
+            <List>
+              {[
+                { path: "/dashboard", icon: <SpaceDashboardIcon />, label: "Dashboard" },
+                { path: "/dashboard", icon: <ShoppingBagRoundedIcon />, label: "Appointments" },
+                { path: "/dashboard/Approved", icon: <MarkChatReadIcon />, label: "Approved " },
+                {
+                  path: "/dashboard/Pending",
+                  icon: (
+                    <Badge badgeContent={unreadNewNumber} color="secondary">
+                      <PendingActions color="action" />
+                    </Badge>
+                  ),
+                  label: "Pending",
+                },
+                { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
+              ].map((item, index) => (
+                <ListItem key={index} disablePadding sx={{ display: "block" }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
+                    }}
+                    onClick={() => navigate(item.path)} // Navigate on click
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+
+          <div className={Styles.profileDrawerContainer}>
+            <Divider />
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/assets/svg/icons8-github.svg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
                 }}
-                onClick={() => navigate(item.path)} // Navigate on click
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <div className={Styles.profileName} id="profileName">
+              <br />
+              <div>Uzitrake</div>
+            </div>
+          </div>
+        </div>
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1 }} className={Styles.mainDashboardContent}>

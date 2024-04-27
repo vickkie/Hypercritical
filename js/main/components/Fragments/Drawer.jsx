@@ -24,7 +24,7 @@ import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 
-import Styles from "../styles.module.css";
+import Styles from "../sass/styles.module.css";
 import { AddTaskOutlined, PendingActions } from "@mui/icons-material";
 import { Badge } from "@mui/material";
 import { UnreadNumberContext } from "./UnreadNumberContext";

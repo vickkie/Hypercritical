@@ -6,28 +6,10 @@ import { getDatabase, ref, onValue, off, update, remove } from "firebase/databas
 
 //? NOTE: Ui imports
 
-import Container from "@mui/material/Container";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import TablePagination from "@mui/material/TablePagination";
-import Table from "@mui/material/Table";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import AddIcon from "@mui/icons-material/Add";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import DeleteIcon from "@mui/icons-material/Delete";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import Styles from "./styles.module.css";
+import "./sass/list.css";
+import Styles from "./sass/styles.module.css";
 import DrawerXDashTable from "./Fragments/Drawer";
+import TodoList from "./Fragments/TodoList";
 
 import Swal from "sweetalert2";
 
@@ -122,14 +104,19 @@ const Dashboard = () => {
 
   return (
     <DrawerXDashTable onLogout={handleLogout} className={Styles.dashboard} style={{ minHeight: "100vh" }}>
-      <div className={Styles.dashboardWrapper}>
-        <div className={Styles.dashboardTop}></div>
-        <div className="welcomeDashboard grownish">Welcome to Hypercritical</div>
-        <div className="bottomleft grownish"></div>
-        <div className="bottomcenter grownish"></div>
-        <div className="bottomright grownish"></div>
-        <div className="topcenter grownish"></div>
-        <div className="topright grownish"></div>
+      <div className="dashboardContent">
+        <div className={Styles.dashboardWrapper}>
+          <div className={Styles.dashboardTop}></div>
+          <div className="welcomeDashboard grownish">Welcome to Hypercritical</div>
+          <div className="bottomleft grownish"></div>
+          <div className="bottomcenter grownish">
+            <div className="bottomcenter-text">Home of design</div>
+          </div>
+          <div className="topcenter grownish"></div>
+          <div className="todo-list-right grownish">
+            <TodoList />
+          </div>
+        </div>
       </div>
     </DrawerXDashTable>
   );

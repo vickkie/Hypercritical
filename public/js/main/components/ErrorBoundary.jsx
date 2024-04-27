@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./styles.module.css";
+import Styles from "./sass/styles.module.css";
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {

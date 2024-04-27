@@ -507,7 +507,7 @@ th {
 
 .bottomcenter {
   grid-area: bottomcenter;
-  background-image: url("https://i.pinimg.com/564x/64/b1/35/64b135afa82e09963bcccbb444110b3d.jpg");
+  background-image: url("../assets/images/ui/man_glasses_style_208430_3840x2400.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 25px;
@@ -518,4 +518,9 @@ th {
 .grownish {
   background-color: var(--color-grownish);
   border-radius: 25px;
+}
+
+.todo-list-right {
+  grid-area: todo-list;
+  font-family: var(--font-2);
 }

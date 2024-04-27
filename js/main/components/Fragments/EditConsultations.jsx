@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 //NOTE: Custom imports
 import { useAuth } from "./AuthContext";
-import Styles from "../styles.module.css";
+import Styles from "../sass/styles.module.css";
 import DrawerXDashTable from "./Drawer";
 import useBeforeReload from "./LeaveContext";
 

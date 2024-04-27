@@ -15,7 +15,7 @@ import { AddCircleOutlineRounded } from "@mui/icons-material";
 //NOTE: Custom imports
 import { useAuth } from "./AuthContext";
 import DrawerXDashTable from "./Drawer";
-import Styles from "../styles.module.css";
+import Styles from "../sass/styles.module.css";
 import useBeforeReload from "./LeaveContext";
 
 const AddConsultation = () => {

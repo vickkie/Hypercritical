@@ -335,9 +335,13 @@
   background-color: var(--color-grownish-1);
 }
 
-.EverythingWrapper * path {
+.drawerLeft path {
   fill: var(--color-bg);
   color: var(--color-bg);
+}
+
+.drawerLeft {
+  font-family: var(--font-2) !important;
 }
 .DrawerInnerWrapper {
   margin: 4px;
@@ -356,15 +360,16 @@
 }
 
 .dashboardWrapper {
+  min-height: 100svh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 27% 27% 43%;
   grid-template-rows: 4rem 1fr 1fr;
   gap: 1.3rem;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
   grid-template-areas:
     "topdashboard topdashboard topdashboard"
-    "welcome topcenter topright"
-    "bottomleft bottomcenter bottomright";
+    "welcome topcenter todo-list"
+    "bottomleft bottomcenter todo-list";
   height: 100%;
   background-color: var(--color-grownish-1);
 }

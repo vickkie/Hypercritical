@@ -26,7 +26,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import Styles from "./styles.module.css";
+import Styles from "./sass/styles.module.css";
 import DrawerXDashTable from "./Fragments/Drawer";
 
 import Swal from "sweetalert2";

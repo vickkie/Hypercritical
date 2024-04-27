@@ -148,6 +148,10 @@ object-assign
 
 /*! ../colors/red */
 
+/*! ../components/Context */
+
+/*! ../components/connectAdvanced */
+
 /*! ../composeClasses */
 
 /*! ../createTheme */
@@ -250,6 +254,10 @@ object-assign
 
 /*! ../utils/ClassNameConfigurator */
 
+/*! ../utils/Subscription */
+
+/*! ../utils/bindActionCreators */
+
 /*! ../utils/capitalize */
 
 /*! ../utils/computeAutoPlacement.js */
@@ -290,6 +298,8 @@ object-assign
 
 /*! ../utils/rectToClientRect.js */
 
+/*! ../utils/shallowEqual */
+
 /*! ../utils/useControlled */
 
 /*! ../utils/useEnhancedEffect */
@@ -302,9 +312,15 @@ object-assign
 
 /*! ../utils/useIsFocusVisible */
 
+/*! ../utils/useIsomorphicLayoutEffect */
+
 /*! ../utils/useSlot */
 
 /*! ../utils/userAgent.js */
+
+/*! ../utils/verifyPlainObject */
+
+/*! ../utils/warning */
 
 /*! ../utils/within.js */
 
@@ -313,6 +329,8 @@ object-assign
 /*! ./AuthContext */
 
 /*! ./CSSPlugin.js */
+
+/*! ./Context */
 
 /*! ./Dashboard */
 
@@ -404,6 +422,8 @@ object-assign
 
 /*! ./badgeClasses */
 
+/*! ./batch */
+
 /*! ./boxClasses */
 
 /*! ./breakpoints */
@@ -430,6 +450,12 @@ object-assign
 
 /*! ./collapseClasses */
 
+/*! ./components/Context */
+
+/*! ./components/Provider */
+
+/*! ./components/connectAdvanced */
+
 /*! ./compose */
 
 /*! ./computeOffsets.js */
@@ -437,6 +463,8 @@ object-assign
 /*! ./computeStyles.js */
 
 /*! ./config */
+
+/*! ./connect/connect */
 
 /*! ./contains.js */
 
@@ -470,6 +498,8 @@ object-assign
 
 /*! ./defaultTheme */
 
+/*! ./defineProperty.js */
+
 /*! ./deprecatedPropType */
 
 /*! ./detectOverflow.js */
@@ -493,6 +523,8 @@ object-assign
 /*! ./eventListeners.js */
 
 /*! ./expandToHashMap.js */
+
+/*! ./exports */
 
 /*! ./extendSxProp */
 
@@ -550,6 +582,12 @@ object-assign
 
 /*! ./hide.js */
 
+/*! ./hooks/useDispatch */
+
+/*! ./hooks/useSelector */
+
+/*! ./hooks/useStore */
+
 /*! ./iconButtonClasses */
 
 /*! ./identifier */
@@ -567,6 +605,8 @@ object-assign
 /*! ./isLayoutViewport.js */
 
 /*! ./isMuiElement */
+
+/*! ./isPlainObject */
 
 /*! ./isScrollParent.js */
 
@@ -590,6 +630,10 @@ object-assign
 
 /*! ./listScrollParents.js */
 
+/*! ./mapDispatchToProps */
+
+/*! ./mapStateToProps */
+
 /*! ./math.js */
 
 /*! ./memoize */
@@ -601,6 +645,8 @@ object-assign
 /*! ./merge */
 
 /*! ./mergePaddingObject.js */
+
+/*! ./mergeProps */
 
 /*! ./mergeSlotProps */
 
@@ -672,6 +718,8 @@ object-assign
 
 /*! ./selectClasses */
 
+/*! ./selectorFactory */
+
 /*! ./setPrototypeOf.js */
 
 /*! ./setRef */
@@ -706,11 +754,17 @@ object-assign
 
 /*! ./tableRowClasses */
 
+/*! ./toPrimitive.js */
+
+/*! ./toPropertyKey.js */
+
 /*! ./toolbarClasses */
 
 /*! ./tooltipClasses */
 
 /*! ./touchRippleClasses */
+
+/*! ./typeof.js */
 
 /*! ./typographyClasses */
 
@@ -728,6 +782,10 @@ object-assign
 
 /*! ./useIsFocusVisible */
 
+/*! ./useReduxContext */
+
+/*! ./useStore */
+
 /*! ./useTheme */
 
 /*! ./useThemeWithoutDefault */
@@ -737,6 +795,8 @@ object-assign
 /*! ./utils/ChildMapping */
 
 /*! ./utils/PropTypes */
+
+/*! ./utils/batch */
 
 /*! ./utils/createSvgIcon */
 
@@ -748,11 +808,21 @@ object-assign
 
 /*! ./utils/orderModifiers.js */
 
+/*! ./utils/reactBatchedUpdates */
+
 /*! ./utils/reflow */
+
+/*! ./utils/shallowEqual */
 
 /*! ./validate.js */
 
+/*! ./verifySubselectors */
+
+/*! ./warning */
+
 /*! ./wrap-idb-value.js */
+
+/*! ./wrapMapToProps */
 
 /*! ./zIndex */
 
@@ -761,6 +831,8 @@ object-assign
 /*! @babel/runtime/helpers/esm/extends */
 
 /*! @babel/runtime/helpers/esm/inheritsLoose */
+
+/*! @babel/runtime/helpers/esm/objectSpread2 */
 
 /*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */
 
@@ -1000,6 +1072,8 @@ object-assign
 
 /*! clsx */
 
+/*! css-box-model */
+
 /*! firebase/app */
 
 /*! firebase/auth */
@@ -1012,17 +1086,25 @@ object-assign
 
 /*! idb */
 
+/*! memoize-one */
+
 /*! object-assign */
 
 /*! prop-types */
 
+/*! raf-schd */
+
 /*! react */
+
+/*! react-beautiful-dnd */
 
 /*! react-dom */
 
 /*! react-dom/client */
 
 /*! react-is */
+
+/*! react-redux */
 
 /*! react-router */
 
@@ -1032,6 +1114,8 @@ object-assign
 
 /*! react/jsx-runtime */
 
+/*! redux */
+
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /*! scheduler */
@@ -1040,7 +1124,11 @@ object-assign
 
 /*! sweetalert2 */
 
+/*! tiny-invariant */
+
 /*! tslib */
+
+/*! use-memo-one */
 
 /*! uuid */
 
@@ -1066,6 +1154,10 @@ object-assign
 
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/redux/es/redux.js ***!
   \****************************************/
 
 /*!*****************************************!*\
@@ -1153,6 +1245,10 @@ object-assign
   \**********************************************/
 
 /*!**********************************************!*\
+  !*** ./node_modules/react-redux/es/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
   !*** ./node_modules/stylis/src/Tokenizer.js ***!
   \**********************************************/
 
@@ -1198,6 +1294,10 @@ object-assign
 
 /*!************************************************!*\
   !*** ./node_modules/@mui/utils/useId/useId.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/react-redux/es/exports.js ***!
   \************************************************/
 
 /*!*************************************************!*\
@@ -1388,6 +1488,14 @@ object-assign
   !*** ./node_modules/@mui/utils/refType/refType.js ***!
   \****************************************************/
 
+/*!****************************************************!*\
+  !*** ./node_modules/raf-schd/dist/raf-schd.esm.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/batch.js ***!
+  \****************************************************/
+
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/base/useBadge/useBadge.js ***!
   \*****************************************************/
@@ -1505,6 +1613,10 @@ object-assign
   \******************************************************/
 
 /*!******************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/warning.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
   !*** ./node_modules/uuid/dist/esm-browser/native.js ***!
   \******************************************************/
 
@@ -1550,6 +1662,10 @@ object-assign
 
 /*!*******************************************************!*\
   !*** ./node_modules/@remix-run/router/dist/router.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useStore.js ***!
   \*******************************************************/
 
 /*!********************************************************!*\
@@ -1618,6 +1734,10 @@ object-assign
 
 /*!********************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/popper-lite.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/connect.js ***!
   \********************************************************/
 
 /*!********************************************************!*\
@@ -1773,6 +1893,18 @@ object-assign
   \**********************************************************/
 
 /*!**********************************************************!*\
+  !*** ./node_modules/memoize-one/dist/memoize-one.esm.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useDispatch.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useSelector.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
   !*** ./node_modules/sweetalert2/dist/sweetalert2.all.js ***!
   \**********************************************************/
 
@@ -1782,6 +1914,10 @@ object-assign
 
 /*!***********************************************************!*\
   !*** ./js/main/components/Fragments/ContextProviders.jsx ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
   \***********************************************************/
 
 /*!***********************************************************!*\
@@ -1869,6 +2005,22 @@ object-assign
   \***********************************************************/
 
 /*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Context.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mergeProps.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/Subscription.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/shallowEqual.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
   !*** ./node_modules/react-transition-group/esm/config.js ***!
   \***********************************************************/
 
@@ -1934,6 +2086,18 @@ object-assign
 
 /*!************************************************************!*\
   !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Provider.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/isPlainObject.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/use-memo-one/dist/use-memo-one.esm.js ***!
   \************************************************************/
 
 /*!*************************************************************!*\
@@ -2049,7 +2213,15 @@ object-assign
   \**************************************************************/
 
 /*!**************************************************************!*\
+  !*** ./node_modules/css-box-model/dist/css-box-model.esm.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
   !*** ./node_modules/firebase/database/dist/esm/index.esm.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useReduxContext.js ***!
   \**************************************************************/
 
 /*!***************************************************************!*\
@@ -2093,8 +2265,16 @@ object-assign
   \***************************************************************/
 
 /*!***************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/wrapMapToProps.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/Transition.js ***!
   \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js ***!
+  \****************************************************************/
 
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/base/generateUtilityClasses/index.js ***!
@@ -2164,6 +2344,22 @@ object-assign
   !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
   \****************************************************************/
 
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapStateToProps.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/selectorFactory.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/verifyPlainObject.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/tiny-invariant/dist/esm/tiny-invariant.js ***!
+  \****************************************************************/
+
 /*!*****************************************************************!*\
   !*** ./node_modules/@firebase/logger/dist/esm/index.esm2017.js ***!
   \*****************************************************************/
@@ -2217,6 +2413,14 @@ object-assign
   \*****************************************************************/
 
 /*!*****************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/bindActionCreators.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-redux/node_modules/react-is/index.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/utils/reflow.js ***!
   \*****************************************************************/
 
@@ -2226,6 +2430,14 @@ object-assign
 
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js ***!
   \******************************************************************/
 
 /*!******************************************************************!*\
@@ -2276,6 +2488,14 @@ object-assign
   !*** ./node_modules/@popperjs/core/lib/utils/expandToHashMap.js ***!
   \******************************************************************/
 
+/*!******************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/reactBatchedUpdates.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
+
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
   \*******************************************************************/
@@ -2314,6 +2534,18 @@ object-assign
 
 /*!*******************************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/utils/rectToClientRect.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/connectAdvanced.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapDispatchToProps.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/verifySubselectors.js ***!
   \*******************************************************************/
 
 /*!********************************************************************!*\
@@ -2588,6 +2820,10 @@ object-assign
   !*** ./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js ***!
   \************************************************************************/
 
+/*!************************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js ***!
+  \************************************************************************/
+
 /*!*************************************************************************!*\
   !*** ./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js ***!
   \*************************************************************************/
@@ -2630,6 +2866,10 @@ object-assign
 
 /*!**************************************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js ***!
   \**************************************************************************/
 
 /*!***************************************************************************!*\
@@ -2750,6 +2990,10 @@ object-assign
 
 /*!************************************************************************************!*\
   !*** ./node_modules/@mui/utils/elementTypeAcceptingRef/elementTypeAcceptingRef.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/react-redux/node_modules/react-is/cjs/react-is.development.js ***!
   \************************************************************************************/
 
 /*!**************************************************************************************!*\
@@ -2987,6 +3231,15 @@ object-assign
  */
 
 /** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
  * react-is.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.

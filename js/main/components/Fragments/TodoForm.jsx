@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
@@ -16,11 +17,21 @@ function TodoForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input,
-    });
-    setInput("");
+    // Check if in edit mode or adding new todo
+    if (props.edit) {
+      // Editing existing todo, keep input as is
+      props.onSubmit({
+        id: props.edit.id,
+        text: input,
+      });
+    } else {
+      // Adding new todo, clear input
+      props.onSubmit({
+        id: uuidv4(),
+        text: input,
+      });
+      setInput("");
+    }
   };
 
   return (

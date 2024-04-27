@@ -11,6 +11,7 @@ function TodoList() {
   }
 
   const [todos, setTodos] = useState(initTodo);
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
@@ -21,10 +22,8 @@ function TodoList() {
     }
 
     const newTodos = [todo, ...todos];
-
-    setTodos(newTodos);
-    console.log(...todos);
-    localStorage.setItem("todos", JSON.stringify(todos));
+    setTodos(newTodos); // Update state first
+    localStorage.setItem("todos", JSON.stringify(newTodos)); // Then update local storage
   };
 
   const updateTodo = (todoId, newValue) => {
@@ -44,7 +43,8 @@ function TodoList() {
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
+        // Create a new object with updated property, avoiding mutation
+        return { ...todo, isComplete: !todo.isComplete };
       }
       return todo;
     });

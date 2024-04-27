@@ -69,13 +69,14 @@
   "lozad": "^1.16.0",
   "mouse-follower": "^1.1.2",
   "react": "^18.2.0",
+  "react-beautiful-dnd": "^13.1.1",
   "react-dom": "^18.2.0",
+  "react-icons": "^3.11.0",
   "react-router-dom": "^6.22.3",
   "reeller": "^0.0.5",
   "splitting": "^1.0.6",
   "sweetalert2": "^11.10.8",
   "swiper": "^11.1.1",
-  "uuid": "^9.0.1",
-  "react-icons": "^3.11.0"
+  "uuid": "^9.0.1"
  }
 }

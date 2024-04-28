@@ -280,7 +280,7 @@ const Dashboard = () => {
               <div>
                 <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
               </div>
-              <div className={Styles.dashTopbarFilter}>
+              <div className={[Styles.dashTopbarFilter, Styles.OrangyBackground].join("")}>
                 <FilterListIcon />
                 <div>Filter</div>
               </div>

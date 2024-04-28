@@ -51,7 +51,7 @@ function TodoForm(props) {
     <form onSubmit={handleSubmit} className="todo-form">
       {props.edit ? (
         <div>
-          <input
+          <textarea
             placeholder="Update"
             value={input}
             onChange={handleChange}
@@ -59,9 +59,12 @@ function TodoForm(props) {
             ref={inputRef}
             className="todo-input edit"
           />
-          <button onClick={handleSubmit} className="todo-button edit">
-            Update
-          </button>
+          <div className="updateButtonWrapper">
+            {" "}
+            <button onClick={handleSubmit} className="todo-button edit">
+              Update
+            </button>
+          </div>
         </div>
       ) : (
         <div className="taskInputWrapper">
@@ -89,6 +92,7 @@ function TodoForm(props) {
               className="todo-input"
               ref={inputRef}
             />
+
             <svg className="todoInputBelow" viewBox="0 0 114 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M1 16.1196C4.71107 13.7913 11.6544 8.97964 12.2529 11.9288C12.8515 14.8779 17.9793 19.5865 26 18.5C34.0207 17.4135 42.6341 10.5 48.5 10.5C54.3659 10.5 49.5 19.3659 64.5 18.5C79.5 17.634 85 8.5 90.5 9C96 9.5 92.5 13.5 113 13.5"
@@ -96,6 +100,37 @@ function TodoForm(props) {
                 strokeWidth="1.8"
                 strokeLinecap="round"
               />
+            </svg>
+          </div>
+
+          <div style={{ cursor: "pointer" }} onClick={handleSubmit}>
+            <svg
+              width="24"
+              height="24px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                  stroke="#F84F39"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>{" "}
+                <path
+                  d="M7.75 12L10.58 14.83L16.25 9.17004"
+                  stroke="#F84F39"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>{" "}
+              </g>
             </svg>
           </div>
         </div>

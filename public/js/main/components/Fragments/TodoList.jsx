@@ -28,7 +28,7 @@ function TodoList() {
         reject(new Error("Todo text is empty or only contains whitespace."));
         return;
       }
-
+      //reject if id already exists
       const existingTodo = todos.find((t) => t.text === todo.id);
       if (existingTodo) {
         reject(new Error("Item already exists."));

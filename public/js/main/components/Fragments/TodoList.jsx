@@ -29,15 +29,6 @@ function TodoList() {
         return;
       }
 
-      function generateTaskNumber() {
-        const uuid = uuidv4();
-        const uniquePart = uuid.substring(0, 6);
-        const taskNumber = `TASK-${uniquePart}`;
-        return taskNumber;
-      }
-
-      const taskid = generateTaskNumber();
-
       const existingTodo = todos.find((t) => t.text === todo.id);
       if (existingTodo) {
         reject(new Error("Item already exists."));
@@ -47,7 +38,7 @@ function TodoList() {
       const db = getDatabase();
       const todosRef = ref(db, `tasks`);
       try {
-        await update(todosRef, { [`${taskid}`]: todo });
+        await update(todosRef, { [`${todo.id}`]: todo });
 
         // Wait for the database update to complete before updating the UI
         onValue(todosRef, (snapshot) => {
@@ -68,12 +59,14 @@ function TodoList() {
       return;
     }
 
+    console.log(`update id is- ${todoId}`);
+
     const db = getDatabase();
     const todoRef = ref(db, `tasks/${todoId}`);
     try {
-      await update(todoRef, newValue).then(() => {
-        setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === todoId ? { ...todo, ...newValue } : todo)));
-      });
+      await update(todoRef, newValue);
+      // Optimized state update to avoid unnecessary re-renders
+      setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === todoId ? { ...todo, ...newValue } : todo)));
     } catch (error) {
       console.error("Error updating todo:", error);
     }
@@ -91,7 +84,7 @@ function TodoList() {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          removeTodo(deleteTaskid); // Pass deleteTaskid directly to removeTodo
+          removeTodo(deleteTaskid); // Passed deleteTaskid directly to removeTodo
         }
       });
     } else {
@@ -121,7 +114,10 @@ function TodoList() {
   const completeTodo = (id) => {
     const db = getDatabase();
     const todoRef = ref(db, `tasks/${id}`);
-    update(todoRef, { isComplete: true });
+    update(todoRef, { isComplete: true }).then(() => {
+      // Optimized state update to avoid unnecessary re-renders
+      setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? { ...todo, isComplete: true } : todo)));
+    });
   };
 
   return (

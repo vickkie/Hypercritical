@@ -30,8 +30,8 @@ function TodoForm(props) {
       function generateTaskNumber() {
         const uuid = uuidv4();
         const uniquePart = uuid.substring(0, 6);
-        const taskNumber = `TASK-${uniquePart}`;
-        return taskNumber;
+        const taskid = `TASK-${uniquePart}`;
+        return taskid;
       }
 
       const taskid = generateTaskNumber();

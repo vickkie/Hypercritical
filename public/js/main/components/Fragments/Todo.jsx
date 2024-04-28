@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TodoForm from "./TodoForm";
 import RiveAnimation from "./RiveAnimation";
 
 const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: "",
-  });
-  const [deleteTaskid, setdeleteTaskid] = useState(null);
+  const [edit, setEdit] = useState({ id: null, value: "" });
 
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
+    console.log(`passed,delete id- ${edit.id}`);
     setEdit({
       id: null,
       value: "",
@@ -73,7 +70,14 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
                           />{" "}
                         </svg>{" "}
                       </div>{" "}
-                      <div key={todo.id} className="taskHolder" onClick={() => completeTodo(todo.id)}>
+                      <div
+                        key={todo.id}
+                        className="taskHolder"
+                        {...() => {
+                          console.log(todo.id);
+                        }}
+                        onClick={() => completeTodo(todo.id)}
+                      >
                         {" "}
                         {todo.text}{" "}
                       </div>{" "}

@@ -146,6 +146,13 @@ export default function DrawerXDashTable({ onLogout, children }) {
             </IconButton>
           </DrawerHeader>
           <div className={Styles.DrawerListWrapper}>
+            <div className="logout-drawer-wrapper" onClick={() => onLogout()}>
+              <svg className="logout-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <title>Logout</title>
+                <path d="M778.016 772.992q-52 55.008-120.992 84.992-71.008 31.008-150.016 31.008-76 0-144.512-28.512t-122.016-82.016-82.016-122.496-28.512-144 28.512-144 82.016-122.496 122.016-82.016 144-28.512 144.512 28.512 122.016 82.496q11.008 10.016 26.016 10.016t25.504-10.496 10.496-25.504-11.008-24.992q-62.016-62.016-142.016-96-84-36-175.008-36t-175.008 36q-80 34.016-142.016 96t-96 142.016Q57.984 420.992 57.984 512t36 175.008q34.016 80 96 142.016t142.016 96q84 36 175.008 36 94.016 0 179.008-36.992 82.016-36 144-100.992 11.008-11.008 10.496-25.504t-11.008-24.992-25.504-10.496-26.016 11.008z m184-260q0-12-8-20.992l-108-139.008q-10.016-12-24.512-13.504t-26.496 7.488-13.504 24 7.488 27.008l63.008 80h-408q-15.008 0-25.504 10.496t-10.496 25.504q0 15.008 10.496 25.504t25.504 10.496h408l-63.008 80.992q-8.992 12-7.488 26.496t13.504 23.488q10.016 8 22.016 8 18.016 0 28.992-14.016l108-139.008q8-8.992 8-20.992v-2.016z" />
+              </svg>
+            </div>
+
             <div>
               <List>
                 {[
@@ -155,7 +162,7 @@ export default function DrawerXDashTable({ onLogout, children }) {
                   {
                     path: "/sales/Pending",
                     icon: (
-                      <Badge badgeContent={unreadNewNumber} color="secondary">
+                      <Badge badgeContent={unreadNewNumber} color="primary">
                         <PendingActions color="action" />
                       </Badge>
                     ),
@@ -163,7 +170,7 @@ export default function DrawerXDashTable({ onLogout, children }) {
                   },
                   { path: "/newConsultation", icon: <AddTaskOutlined />, label: "Add Work" },
                 ].map((item, index) => (
-                  <ListItem key={index} disablePadding sx={{ display: "block" }}>
+                  <ListItem key={index} disablePadding sx={{ display: "block", fontFamily: "inherit" }}>
                     <ListItemButton
                       sx={{
                         minHeight: 48,
@@ -181,7 +188,11 @@ export default function DrawerXDashTable({ onLogout, children }) {
                       >
                         {item.icon}
                       </ListItemIcon>
-                      <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
+                      <ListItemText
+                        primary={item.label}
+                        className={Styles.DrawerLabels}
+                        sx={{ opacity: open ? 1 : 0 }}
+                      />
                     </ListItemButton>
                   </ListItem>
                 ))}
@@ -193,7 +204,11 @@ export default function DrawerXDashTable({ onLogout, children }) {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/assets/svg/icons8-github.svg" />
+                    <Avatar
+                      alt="Uzitrake"
+                      className={Styles.profileAvatar}
+                      src="https://i.postimg.cc/x89Py6mJ/profile.jpg"
+                    />
                   </IconButton>
                 </Tooltip>
                 <Menu

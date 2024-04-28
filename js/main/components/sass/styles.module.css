@@ -71,6 +71,7 @@
 .drawerLeft {
   border-right: 1px solid rgba(119, 102, 102, 0.12);
   background-color: var(--color-grownish-1);
+  font-family: var(--font-2);
 }
 
 .mainDashboardContent {
@@ -150,7 +151,7 @@
   align-items: center;
   justify-content: start;
   padding: 0px 24px;
-  background: var(--color-bg);
+  background: var(--color-orangy);
 
   border: none;
   border-radius: 30px;
@@ -362,9 +363,9 @@
 .dashboardWrapper {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 27% 27% 43%;
-  grid-template-rows: 4rem 1fr 1fr;
-  gap: 1.3rem;
+  grid-template-columns: 27% 27% 45%;
+  grid-template-rows: 3rem 1fr 1fr;
+  gap: 0.5rem;
   padding: 1rem 1rem 1rem 0;
   grid-template-areas:
     "topdashboard topdashboard topdashboard"
@@ -374,30 +375,62 @@
   background-color: var(--color-grownish-1);
 }
 
+@media screen and (min-width: 570px) and (max-width: 900px) {
+  .dashboardWrapper {
+    grid-template-rows: 3rem minmax(150px, 252px) auto minmax(150px, 252px) !important;
+    grid-template-areas:
+      "topdashboard topdashboard"
+      "welcome topcenter "
+      "todo-list todo-list"
+      "bottomleft bottomcenter" !important;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .dashboardWrapper {
+    grid-template-rows: 3rem minmax(150px, 252px) minmax(150px, 250px) auto auto 300px !important;
+    grid-template-areas:
+      "topdashboard"
+      "welcome"
+      "bottomcenter"
+      "todo-list"
+      "topcenter"
+      "bottomleft " !important;
+    grid-template-columns: unset;
+  }
+}
+
 .dashboardTop {
   grid-area: topdashboard;
-  height: 64px;
+  height: fit-content;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  flex-shrink: 0;
   position: sticky;
   z-index: 1100;
   left: auto;
   right: 0px;
-  box-shadow: rgba(255, 255, 255, 0.9) 0rem 0rem 0.0625rem 0.0625rem inset,
-    rgba(0, 0, 0, 0.05) 0rem 1.25rem 1.6875rem 0rem;
+  /* box-shadow: rgba(255, 255, 255, 0.9) 0rem 0rem 0.0625rem 0.0625rem inset,
+    rgba(0, 0, 0, 0.05) 0rem 1.25rem 1.6875rem 0rem; */
   backdrop-filter: blur(2.625rem);
-  color: rgb(255, 255, 255);
-  top: 0.75rem;
-  min-height: 4.6875rem;
-  max-height: 4.7rem;
-  display: grid;
+  color: var(--color-bg);
+  top: 0;
+  max-height: 4rem;
   -webkit-box-align: center;
   align-items: center;
   border-radius: 1.25rem;
   padding: 0.5rem 0px;
   background-color: transparent !important;
   border-color: rgba(226, 232, 240, 0.3) !important;
+  display: grid;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+.profileAvatar {
+  border: 2px solid var(--color-orangy);
+}
+.Styles.DrawerLabels {
+  font-family: var(--font-2) !important;
 }

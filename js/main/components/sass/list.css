@@ -169,7 +169,7 @@
 .bottomcenter-text {
   height: fit-content;
   padding: 0.5rem 1rem;
-  background-color: var(--main-color);
+  background-color: var(--color-orangy);
   border-radius: 25px;
   justify-self: center;
   align-self: end;
@@ -201,6 +201,78 @@
   width: 1.2em;
   height: 1.2em;
   vertical-align: middle;
-  fill: #f84f39;
+  fill: var(--color-orangy);
   overflow: hidden;
+}
+.logout-svg-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+  overflow: hidden;
+  cursor: pointer;
+}
+.logout-drawer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-top: 6vh;
+  pointer-events: all;
+  cursor: pointer;
+}
+.search-input-nav {
+  background: transparent;
+  padding: 2px 1rem;
+  border: none;
+  width: 11rem;
+  border-radius: 25px;
+}
+.search-input-nav::placeholder {
+  color: var(--color-bg);
+  font-family: var(--font-2);
+}
+.search-input-icon {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.search-navbarwrapper {
+  background: #ffffff1c;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  width: 194px;
+  padding: 5px 22px;
+  color: var(--color-bg);
+  border-radius: 25px;
+}
+.navDash-topright {
+  width: fit-content;
+  display: flex;
+  gap: 10px;
+}
+.navbar-right {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.bell-topbar svg {
+  fill: var(--color-orangy);
+  height: 1.4rem;
+  width: 1.4rem;
+}
+.bell-topbar {
+  padding: 0 1.3rem 0 0;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.navbarlogo {
+  font-family: var(--font-2);
+  padding: 5px 10px;
+  background: var(--color-orangy);
+  border-radius: 25px;
+}
+.OrangyBackground {
+  background-color: var(--color-orangy);
 }

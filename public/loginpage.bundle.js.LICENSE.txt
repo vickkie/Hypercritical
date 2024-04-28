@@ -926,6 +926,8 @@ object-assign
 
 /*! @mui/material/Avatar */
 
+/*! @mui/material/Badge */
+
 /*! @mui/material/Box */
 
 /*! @mui/material/Button */

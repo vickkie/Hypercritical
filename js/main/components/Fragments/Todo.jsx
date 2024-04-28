@@ -66,7 +66,7 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
                         {" "}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="list-icon-drag"
+                          className="list-icon-drag"
                           viewBox="0 0 1024 1024"
                           version="1.1"
                         >

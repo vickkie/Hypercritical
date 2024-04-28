@@ -28,11 +28,11 @@
 }
 
 .todo-input {
-  padding: 14px 32px 14px 16px;
+  padding: 14px 2px;
   border-radius: 4px 0 0 4px;
   border: none;
   outline: none;
-  width: 300px;
+  width: 100%;
   background: transparent;
   color: var(--color-bg);
   position: relative;
@@ -62,12 +62,24 @@
 }
 
 .todo-input.edit {
-  border: 2px solid #149fff;
+  border: none;
+  height: 159px;
+  max-height: 600px;
+  text-wrap: wrap;
+  line-break: normal;
+  background: #f0ffff14;
+  backdrop-filter: blur(80px);
+  margin: 0rem 1rem;
+  width: calc(100% - 2rem);
+  max-width: calc(100% - 2rem);
 }
 
 .todo-button.edit {
-  background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, 1) 100%);
-  padding: 16px 22px;
+  background: #ffffff45;
+  color: var(--color-bg);
+  font-family: var(--font-2);
+  border-radius: 2rem;
+  padding: 1rem 4rem;
 }
 
 .todo-container {
@@ -76,7 +88,7 @@
   position: relative;
 }
 
-.todo-row {
+/* .todo-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,7 +99,21 @@
   padding: 0.5rem 1rem;
   color: var(--color-bg);
   width: 93%;
+} */
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  background: #ffffff0a;
+  backdrop-filter: blur(14px);
+  padding: 0.5rem 1rem;
+  color: var(--color-bg);
+  width: 99%;
+  /* border-bottom: solid 0.0056vw #9d9696ed; */
 }
+
 .move-around {
   cursor: pointer;
   pointer-events: all;
@@ -127,9 +153,11 @@
   cursor: pointer;
 }
 .taskInputWrapper {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
+  grid-template-columns: 30% 65% 20%;
+  overflow: hidden;
 }
 
 .taskHolder {
@@ -157,8 +185,22 @@
 .todoInputBelow {
   position: absolute;
   bottom: -8px;
-  width: 36%;
+  width: 20%;
   left: 0;
   right: 0;
   height: 23px;
+}
+.updateButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.list-icon-drag {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  fill: #f84f39;
+  overflow: hidden;
 }

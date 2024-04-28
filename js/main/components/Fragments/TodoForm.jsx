@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -23,14 +22,28 @@ function TodoForm(props) {
       props.onSubmit({
         id: props.edit.id,
         text: input,
+        date: new Date().toISOString(),
       });
     } else {
       // Adding new todo, clear input
-      props.onSubmit({
-        id: uuidv4(),
+
+      function generateTaskNumber() {
+        const uuid = uuidv4();
+        const uniquePart = uuid.substring(0, 6);
+        const taskNumber = `TASK-${uniquePart}`;
+        return taskNumber;
+      }
+
+      const taskid = generateTaskNumber();
+      const todo = {
+        id: taskid,
         text: input,
-      });
-      setInput("");
+        date: new Date().toISOString(),
+      };
+      setInput(""); // Clear the input field
+
+      // Update the state with the new todo
+      props.onSubmit(todo);
     }
   };
 
@@ -62,7 +75,7 @@ function TodoForm(props) {
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M1.74414 5.18125C1.74414 3.99384 2.70673 3.03125 3.89414 3.03125H12.7305C13.9179 3.03125 14.8805 3.99384 14.8805 5.18125L14.8805 7.50804C14.8805 7.86703 14.5895 8.15804 14.2305 8.15804C13.8715 8.15804 13.5805 7.86703 13.5805 7.50804L13.5805 5.18125C13.5805 4.71181 13.1999 4.33125 12.7305 4.33125H3.89414C3.4247 4.33125 3.04414 4.71181 3.04414 5.18125V10.7175C3.04414 11.1869 3.4247 11.5675 3.89414 11.5675H6.34336C6.70234 11.5675 6.99336 11.8585 6.99336 12.2175C6.99336 12.5765 6.70234 12.8675 6.34336 12.8675H3.89414C2.70673 12.8675 1.74414 11.9049 1.74414 10.7175V5.18125Z"
+                d="M1.74414 5.18125C1.74414 3.99384 2.70673 3.03125 3.89414 3.03125H12.7305C13.9179 3.03125 14.8805 3.99384 14.8805 5.18125L14.8805 7.50804C14.8805 7.86703 14.5895 8.15804 14.2305 8.15804C13.8715 8.15804 13.5805 7.86703 13.5805 7.50804L13.5805 5.18125C13.5805 4.71181 13.1999 4.33125 12.7305 4.33125H3.04414C3.4247 4.33125 3.04414 4.71181 3.04414 5.18125V10.7175C3.04414 11.1869 3.4247 11.5675 3.89414 11.5675H6.34336C6.70234 11.5675 6.99336 11.8585 6.99336 12.2175C6.99336 12.5765 6.70234 12.8675 6.34336 12.8675H3.89414C2.70673 12.8675 1.74414 11.9049 1.74414 10.7175V5.18125Z"
                 fill="#F84F39"
               />
             </svg>

@@ -38,13 +38,17 @@ function TodoList() {
       const db = getDatabase();
       const todosRef = ref(db, `tasks`);
       try {
-        await update(todosRef, { [`${todo.id}`]: todo });
+        const newId = todo.id;
+        // Add the new todo to the database
+        await update(todosRef, { [`${newId}`]: { ...todo, id: newId, date: new Date().toISOString() } });
 
         // Wait for the database update to complete before updating the UI
         onValue(todosRef, (snapshot) => {
           const todosData = snapshot.val();
           const todosArray = todosData ? Object.entries(todosData).map(([key, value]) => ({ id: key, ...value })) : [];
-          setTodos(todosArray);
+          // Sort todos by date and slice to get the last 7
+          const lastSevenTodos = todosArray.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 7);
+          setTodos(lastSevenTodos);
           resolve();
         });
       } catch (error) {

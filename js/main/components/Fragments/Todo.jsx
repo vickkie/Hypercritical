@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TodoForm from "./TodoForm";
 import RiveAnimation from "./RiveAnimation";
 
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
+  const [deleteTaskid, setdeleteTaskid] = useState(null);
 
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
@@ -18,15 +19,25 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   };
 
   const onDragEnd = (result) => {
-    console.log("Drag ended:", result);
     if (!result.destination) return;
     const items = Array.from(todos);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    console.log("New order of todos:", items);
-    // Pass the updated todos list to the updateTodo function
-    updateTodo(items);
+    // Update the order in Firebase
+    const db = getDatabase();
+    const todosRef = ref(db, `tasks`);
+    const updates = {};
+    items.forEach((todo, index) => {
+      updates[`/${todo.id}`] = { ...todo, order: index };
+    });
+    update(todosRef, updates)
+      .then(() => {
+        console.log("Order updated in Firebase");
+      })
+      .catch((error) => {
+        console.error("Error updating order:", error);
+      });
   };
 
   if (edit.id) {
@@ -46,14 +57,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
                       className={todo.isComplete ? "todo-row complete" : "todo-row"}
                       {...provided.droppableProps}
                       ref={provided.innerRef}
-                      // {...provided.dragHandleProps}
                     >
-                      {console.log("Rendering Draggable:", todo.id)}
-                      <div
-                        className="move-around"
-                        {...provided.dragHandleProps}
-                        onDrag={() => console.log(`Todo drag dragging,${todo.id}`)}
-                      >
+                      <div className="move-around" {...provided.dragHandleProps}>
                         {" "}
                         <svg height="0.95rem" xmlns="http://www.w3.org/2000/svg" viewBox="4 7 16 10.01">
                           {" "}
@@ -85,7 +90,12 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
                             />{" "}
                           </svg>{" "}
                         </button>{" "}
-                        <button onClick={() => removeTodo(todo.id)} className="delete-icon">
+                        <button
+                          onClick={() => {
+                            handleConfirmDelete(todo.id);
+                          }}
+                          className="delete-icon"
+                        >
                           {" "}
                           <svg height="0.95rem" xmlns="http://www.w3.org/2000/svg" viewBox="-202.667 -224 149.3 192">
                             {" "}

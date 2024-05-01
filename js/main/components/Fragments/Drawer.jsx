@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -136,8 +133,6 @@ export default function DrawerXDashTable({ onLogout, children }) {
 
   return (
     <Box sx={{ display: "flex" }} className={Styles.EverythingWrapper}>
-      {/* <CssBaseline /> */}
-
       <Drawer variant="permanent" className={Styles.drawerLeft} open={open}>
         <div className={Styles.DrawerInnerWrapper}>
           <DrawerHeader>

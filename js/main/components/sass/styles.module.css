@@ -53,7 +53,10 @@
   border-radius: 22px;
   max-height: 41px;
   overflow: hidden;
-  color: var(--color-bg);
+  color: var(--color-bg) !important;
+}
+.sortCustom {
+  color: var(--color-bg) !important;
 }
 
 .dashTopbar {
@@ -99,7 +102,7 @@
   height: 37px;
   border: none;
   border-radius: 45px;
-  background: var(--color-grownish);
+  background: var(--color-orangy);
   display: grid;
   align-items: center;
   justify-content: start;
@@ -433,4 +436,7 @@
 }
 .Styles.DrawerLabels {
   font-family: var(--font-2) !important;
+}
+.pagination svg {
+  fill: var(--color-bg);
 }

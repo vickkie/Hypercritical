@@ -226,7 +226,11 @@ const Dashboard = () => {
             <TableCell className={Styles.cellStyle}>{consultation.consultationType}</TableCell>
             <TableCell className={Styles.cellStyle}>{new Date(consultation.date).toLocaleDateString()}</TableCell>
             <TableCell className={Styles.cellStyle}>
-              <IconButton size="small" onClick={() => toggleMessage(consultation.uuid)}>
+              <IconButton
+                size="small"
+                sx={{ color: "var(--color-bg)" }}
+                onClick={() => toggleMessage(consultation.uuid)}
+              >
                 {expandedMessage === consultation.uuid ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </IconButton>
             </TableCell>
@@ -259,7 +263,7 @@ const Dashboard = () => {
             <TableCell colSpan={8} style={{ paddingBottom: 0, paddingTop: 0 }}>
               <Collapse in={expandedMessage === consultation.uuid} timeout="auto" unmountOnExit>
                 <Box margin={1} className={Styles.messageBoxWrapper}>
-                  <TelegramIcon style={{ fill: "blue" }} />
+                  <TelegramIcon style={{ fill: "var(--color-orangy)" }} />
                   <Typography variant="body2" className={Styles.messageBoxDash}>
                     {consultation.message}
                   </Typography>
@@ -315,7 +319,10 @@ const Dashboard = () => {
                       <TableCell className={Styles.headcellStyle}>Consultation Type</TableCell>
                       <TableCell className={Styles.headcellStyle}>
                         Date
-                        <button className="sort" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+                        <button
+                          className={["sort", Styles.sortCustom].join(" ")}
+                          onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+                        >
                           {sortOrder === "asc" ? "▲" : "▼"}
                         </button>
                       </TableCell>

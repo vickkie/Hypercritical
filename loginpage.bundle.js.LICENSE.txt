@@ -3186,7 +3186,7 @@ object-assign
  */
 
 /**
- * @remix-run/router v1.16.0
+ * @remix-run/router v1.15.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -3211,7 +3211,7 @@ object-assign
  */
 
 /**
- * React Router DOM v6.23.0
+ * React Router DOM v6.22.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -3222,7 +3222,7 @@ object-assign
  */
 
 /**
- * React Router v6.23.0
+ * React Router v6.22.3
  *
  * Copyright (c) Remix Software Inc.
  *

@@ -27,7 +27,7 @@
   "@babel/preset-env": "^7.24.4",
   "@babel/preset-react": "^7.23.3",
   "@testing-library/jest-dom": "^6.4.2",
-  "@testing-library/react": "^14.3.0",
+  "@testing-library/react": "^15.0.6",
   "@types/gsap": "^3.0.0",
   "@types/lozad": "^1.16.4",
   "@types/react-dom": "^18.2.24",

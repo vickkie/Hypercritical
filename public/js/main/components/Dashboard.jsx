@@ -145,7 +145,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="welcomeDashboard grownish">Welcome to Hypercritical</div>
+          <div className="welcomeDashboard grownish">
+          <div>Welcome to Hypercritical</div>
+          <img src="https://i.postimg.cc/vBxYjDYy/earthBg.png" className="worldImage"></img>
+          </div>
           <div className="bottomleft grownish"></div>
           <div className="bottomcenter grownish">
             <div className="bottomcenter-text">Home of design</div>

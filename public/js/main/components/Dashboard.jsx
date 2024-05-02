@@ -146,8 +146,8 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="welcomeDashboard grownish">
-          <div>Welcome to Hypercritical</div>
-          <img src="https://i.postimg.cc/vBxYjDYy/earthBg.png" className="worldImage"></img>
+            <div className="welcomeMessage">Welcome to Hypercritical</div>
+            <div className="worldImage"></div>
           </div>
           <div className="bottomleft grownish"></div>
           <div className="bottomcenter grownish">

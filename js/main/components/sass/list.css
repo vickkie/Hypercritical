@@ -276,15 +276,24 @@
 .OrangyBackground {
   background-color: var(--color-orangy);
 }
-.welcomeDashboard{
+.welcomeDashboard {
   position: relative;
+  /* background-color: #e5e5e5; */
+  background-color: var(--color-bg);
 }
-  .worldImage{
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    object-fit: cover;
-    z-index: 1;
-  }       
+.worldImage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+  z-index: 1;
+  background-image: url(https://i.postimg.cc/vBxYjDYy/earthBg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.welcomeMessage {
+  color: var(--color-black);
+  z-index: 2;
+}

@@ -1,7 +1,7 @@
 {
  "name": "hypercritical",
  "version": "1.0.0",
- "description": "Hypercritical is a cutting-edge digital design and tech studio based in Kenya, specializing in crafting functional digital experiences through web app design",
+ "description": "Hypercritical is a cutting-edge digital design and tech studio based in Kenya, specializing in crafting functional digital experiences through web app design and development",
  "main": "./js/main/main.js",
  "scripts": {
   "start": "cross-env NODE_ENV=development node server.js",

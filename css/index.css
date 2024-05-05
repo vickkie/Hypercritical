@@ -18,7 +18,7 @@
   --font-1: sohne-light;
   --font-2: MonumentExtended;
   --font-3: MonumentExtended-light;
-  --font-4: Blind-Krystal; /*important for marquee*/
+  --font-4: Blind-Krystal; /*!important for marquee*/
   --font-5: GT-Alpine;
   --mid-largefont: 1.8rem;
   --mid-font: 6vw;
@@ -1282,7 +1282,8 @@ input[type="radio"]:checked + .radio-input {
   height: 100%;
 }
 .bot-bait {
-  padding: 17px 0;
+  padding: 1rem 0;
+  margin: 0 -1rem;
 }
 .align-middle {
   vertical-align: middle;

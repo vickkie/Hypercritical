@@ -125,3 +125,7 @@ html {
 .terms-6v {
   font-size: 6svw;
 }
+#privacyPage .below-line,
+#termsPage .below-line {
+  background-color: #676767;
+}

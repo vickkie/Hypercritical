@@ -210,6 +210,9 @@ const changeColorr = (event) => {
 
 checkradios.forEach((checkradio) => {
   checkradio.addEventListener("change", changeColorr);
+  checkradio.addEventListener("doubleclicked", () => {
+    classList.remove("clicked");
+  });
 });
 
 //group 5: show and hide the scroll top button and scroll to top

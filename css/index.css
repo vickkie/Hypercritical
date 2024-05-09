@@ -1970,4 +1970,5 @@ html {
   height: 100%;
   background-color: var(--color-black);
   color: var(--color-bg);
+  position: relative;
 }

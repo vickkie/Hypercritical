@@ -22,6 +22,7 @@ class App extends React.Component {
           heading: event.target.closest(".work-tile").dataset.heading,
           year: event.target.closest(".work-tile").dataset.year,
           text: event.target.closest(".work-tile").dataset.text,
+          projectId: event.target.closest(".work-tile").dataset.slug,
           media: mediaUrls,
         };
         // console.log("Project data:", projectData);
@@ -77,7 +78,7 @@ class App extends React.Component {
               </div>
               <div className="copy-wrapper">
                 <div className="copy">{this.state.selectedProject?.text}</div>
-                <a className="work-link" href="">
+                <a className="work-link" href={`project#${this.state.selectedProject?.projectId}`}>
                   View full case study
                 </a>
               </div>
@@ -95,7 +96,7 @@ class App extends React.Component {
                     </div>
                   ))}
                 </div>
-                <a className="tile view-all work-link" href="">
+                <a className="tile view-all work-link" href={`project#${this.state.selectedProject?.projectId}`}>
                   <p>
                     View full
                     <br /> case study

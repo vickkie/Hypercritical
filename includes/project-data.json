@@ -1,0 +1,44 @@
+[
+    {
+        "content": "Skincare on a mission of empathy and self-discovery.",
+        "media": " assets/images/works/lumina/lumina-mockall-low.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
+        "year": "2018",
+        "id": "lumina",
+        "title": "Lumina"
+    },
+    {
+        "dataContent": "To build the future, forget the status-quo.",
+        "media": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp",
+        "year": "2020",
+        "id": "trakexcel",
+        "title": "Trakexcel"
+    },
+    {
+        "content": "Archive of my works and skills ;)",
+        "media": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
+        "year": "2023",
+        "id": "uzitrake",
+        "title": "Uzitrake"
+    },
+    {
+        "content": "Step in technology for all.",
+        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
+        "year": "2023",
+        "id": "kizik",
+        "title": "Kizik"
+    },
+    {
+        "content": "Getting into the swing of things. ",
+        "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
+        "year": "2019",
+        "id": "robin-golf",
+        "title": "Robin-golf"
+    },
+    {
+        "content": "Make your skin age inappropriate. ",
+        "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
+        "year": "2021",
+        "id": "spoiled-child",
+        "title": "spoiled-child"
+    }
+]

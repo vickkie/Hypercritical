@@ -33,23 +33,22 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const fetchData = () => {
+    const fetchData = async () => {
       const path = window.location.hash.substring(1); // Remove the '#' from the hash
       const page = pagesData.find((p) => p.id === path);
-      try {
+      if (page) {
         setCurrentPageData(page);
         setDataState("SUCCESS");
-      } catch (error) {
+      } else {
         setDataState("ERROR");
       }
-      console.log(`page itself; ${page.title}`);
     };
 
     fetchData();
-  }, []);
+  }, []); // This effect will only run once when the component mounts
 
   const errorHere = () => {
-    throw Error;
+    throw new Error("Simulated error for testing");
   };
 
   console.log(`currentPageData:`, currentPageData);
@@ -57,12 +56,26 @@ function App() {
 
   return (
     <ErrorBoundary>
-      {dataState === "SUCCESS" && (
-        <>
-          <ProjectContent pageData={currentPageData} />
-        </>
-      )}
-      {dataState === "ERROR" && { ...() => errorHere(Error) }}
+      <>
+        {dataState === "SUCCESS" && (
+          <>
+            <ProjectContent pageData={currentPageData} />
+          </>
+        )}
+        {dataState === "ERROR" && (
+          <div>
+            {/* Call the errorHere function and handle the error it throws */}
+            {() => {
+              try {
+                errorHere();
+              } catch (error) {
+                console.error(error); // Handle the error as needed
+                return <div>Error occurred: {error.message}</div>;
+              }
+            }}
+          </div>
+        )}
+      </>
     </ErrorBoundary>
   );
 }
@@ -82,3 +95,17 @@ const renderApp = () => {
 };
 
 document.addEventListener("DOMContentLoaded", renderApp);
+
+// import React, { useRef, useEffect } from "react";
+
+// function MyComponent() {
+//   const myRef = useRef(null);
+
+//   useEffect(() => {
+//     // Now you can access the DOM element
+//     const element = myRef.current;
+//     // Perform operations on 'element'
+//   }, []);
+
+//   return <div ref={myRef}>Hello, world!</div>;
+// }

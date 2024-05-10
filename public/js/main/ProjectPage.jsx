@@ -5,30 +5,32 @@ import ProjectContent from "./ProjectContent";
 import pagesData from "../../includes/project-data.json";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-const isBrowser =
-  typeof window !== "undefined" &&
-  typeof window.document !== "undefined" &&
-  typeof window.document.createElement !== "undefined";
-const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-let passed = false;
-
-let currentUrl = new URL(window.location.href);
-
-if (isBrowser && ABSOLUTE_URL_REGEX.test(currentUrl)) {
-  passed = true;
-  console.log("passed");
-} else {
-  console.log("failed");
-}
-
-const path = window.location.hash.substring(1);
-
-console.log(`full url:  ${currentUrl}`);
-console.log(`path ${path}`);
-
 function App() {
   const [currentPageData, setCurrentPageData] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
+  const [urlstate, seturlState] = useState("FAILED");
+
+  useEffect(() => {
+    const isBrowser =
+      typeof window !== "undefined" &&
+      typeof window.document !== "undefined" &&
+      typeof window.document.createElement !== "undefined";
+    const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+
+    let currentUrl = new URL(window.location.href);
+
+    if (isBrowser && ABSOLUTE_URL_REGEX.test(currentUrl)) {
+      seturlState("PASSED");
+      console.log("passed");
+    } else {
+      console.log("failed");
+    }
+
+    const path = window.location.hash.substring(1);
+
+    console.log(`full url:  ${currentUrl}`);
+    console.log(`path ${path}`);
+  }, []);
 
   useEffect(() => {
     const fetchData = () => {
@@ -51,6 +53,7 @@ function App() {
   };
 
   console.log(`currentPageData:`, currentPageData);
+  console.log(urlstate);
 
   return (
     <ErrorBoundary>
@@ -59,18 +62,9 @@ function App() {
           <ProjectContent pageData={currentPageData} />
         </>
       )}
-      {dataState === "ERROR" && { ...() => errorHere() }}
+      {dataState === "ERROR" && { ...() => errorHere(Error) }}
     </ErrorBoundary>
   );
-}
-
-{
-  /* <Router>
-        <Routes>
-          <Route exact path="/" component={() => <ProjectContent pageData={currentPageData} />} />
-          <Route path="/:pageId" component={() => <ProjectContent pageData={currentPageData} />} />
-        </Routes>
-      </Router> */
 }
 
 const renderApp = () => {

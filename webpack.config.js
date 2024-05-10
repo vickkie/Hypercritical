@@ -150,7 +150,7 @@ const plugins = [
     template: "./project.html",
     filename: "project.html",
     inject: "body",
-    chunks: ["project"],
+    chunks: ["projectReact", "project"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -204,13 +204,14 @@ module.exports = {
     studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
-    project: "./js/main/ProjectPage.jsx",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",
     loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",
     process: "./js/main/process.js",
+    projectReact: "./js/main/ProjectPage.jsx",
+    project: "./js/main/project.js",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js

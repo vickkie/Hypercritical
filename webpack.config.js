@@ -147,6 +147,18 @@ const plugins = [
     },
   }),
   new HtmlWebpackPlugin({
+    template: "./project.html",
+    filename: "project.html",
+    inject: "body",
+    chunks: ["project"],
+    minify: {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+    },
+  }),
+  new HtmlWebpackPlugin({
     template: "./login.html",
     filename: "login.html",
     inject: "body",
@@ -192,12 +204,13 @@ module.exports = {
     studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
-    process: "./js/main/process.js",
+    project: "./js/main/ProjectPage.jsx",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",
     loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",
+    process: "./js/main/process.js",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js

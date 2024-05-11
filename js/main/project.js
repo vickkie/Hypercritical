@@ -180,69 +180,83 @@ headertl.addLabel("start").fromTo(
   }
 );
 
-//Group 9: split using  gsap splitetext
+// Group 6: inverse the arrow colors using gsap
 
-gsap.registerPlugin(SplitText);
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-const herolargelogo = select(".project-title");
-let herotext = new SplitText(herolargelogo, { type: "chars", charsClass: "split-chars" });
+  const darkSections = gsap.utils.toArray(".white-section");
+  var arrowWrapper = select(".top-arrow-wrapper");
+  var arrowpath = select(".top-arrow-path");
+  var menuName = select(".menu-name");
+  var menuDotline = selectAll(".menu-dot-line");
+  let navBelowline = select(".nav .below-line");
+  let mainloogo = select(".nav_logo_parent");
+  let midloogo = select(".est_nav");
 
-console.log(herotext);
+  function makedark() {
+    arrowpath.style.stroke = "var(--color-bg)";
+    arrowWrapper.style.fill = "var(--color-black)";
 
-let splittext = gsap.utils.toArray(".split-chars");
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
+  }
 
-function animatehero() {
-  let herotl = gsap.timeline();
-  herotl.addLabel("start").from(
-    splittext,
-    {
-      delay: 0.6,
-      duration: 1.2,
-      // ease: "power1.inOut",
-      y: 120,
-    },
-    "start"
-  );
-}
+  function makedarker() {
+    arrowpath.style.stroke = "var(--color-black)";
+    midloogo.style.fill = "var(--color-black)";
+    navBelowline.style.background = "var(--color-black)";
+    mainloogo.style.color = "var(--color-black)";
+    arrowWrapper.style.fill = "var(--color-black)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-black)";
+    });
+    menuName.style.color = "var(--color-black)";
+  }
 
-function changeColors() {
-  let navtl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".footer",
-      start: "top top",
-      toggleActions: "play none none reverse",
-    },
+  function makewhite() {
+    midloogo.style.fill = "var(--color-bg)";
+    navBelowline.style.background = "var(--color-bg)";
+    mainloogo.style.color = "var(--color-bg)";
+    menuDotline.forEach((menuDotline) => {
+      menuDotline.style.background = "var(--color-bg)";
+    });
+    menuName.style.color = "var(--color-bg)";
+  }
+
+  //maintain white for hero section
+
+  function maintainWhite() {
+    let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollPosition < 0.8 * window.innerHeight) {
+      makewhite();
+    } else if (scrollPosition >= 0.8 * window.innerHeight && scrollPosition < 1.8 * window.innerHeight) {
+      makedarker();
+    }
+  }
+
+  maintainWhite();
+
+  window.addEventListener("scroll", maintainWhite);
+
+  darkSections.forEach((darkSection, i) => {
+    const darken = gsap.timeline({
+      scrollTrigger: {
+        trigger: darkSection,
+        id: i + 1,
+        start: "top top",
+        endtrigger: darkSection,
+        end: "bottom bottom",
+        scrub: true,
+        markers: !true,
+        onEnter: () => makedark(),
+        onLeave: () => makewhite(),
+        onEnterBack: () => makedark(),
+        onLeaveBack: () => makewhite(),
+      },
+    });
   });
-
-  navtl
-    .addLabel("start")
-    .fromTo(
-      ".nav_logo_parent",
-      {
-        color: "var(--color-black)",
-      },
-      {
-        color: "var(--color-bg)",
-        duration: 0.1,
-        ease: "power4.out",
-      }
-    )
-    .fromTo(
-      ".est_nav svg",
-      {
-        fill: "var(--color-black)",
-      },
-      {
-        fill: "var(--color-bg)",
-        duration: 0.1,
-        ease: "power4.out",
-      }
-    );
-}
-
-window.onload = () => {
-  animatehero();
-  setTimeout(() => {
-    changeColors();
-  }, 4000);
-};
+});

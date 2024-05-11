@@ -1,52 +1,87 @@
 [
     {
-        "content": "Skincare on a mission of empathy and self-discovery.",
-        "media": " assets/images/works/lumina/lumina-mockall-low.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
-
-        "year": "2018",
         "id": "lumina",
+        "aim": " This project entailed developing a robust design system and refining digital touchpoints, ensuring a seamless user experience across their app ecosystem with a design partner capable of adapting to their continuously evolving requirements.",
+        "year": "2018",
+        "tasks": "UI DESIGN, RE-BRANDING",
         "title": "Lumina",
+        "media": " assets/images/works/lumina/lumina-mockall-low.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
+        "mediaLarge": " assets/images/works/lumina/lumina-mockall-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
+        "client": "Lumina Skincare",
+        "content": "Skincare on a mission of empathy and self-discovery.",
+        "solution": " Throughout our partnership, As the developer responsible for designing Lumina's product branding and website, I addressed these challenges by implementing a comprehensive solution. Through extensive market research and collaboration with Lumina's team, I developed a cohesive brand identity that resonated with the target audience and differentiated Lumina from competitors. This involved creating visually appealing packaging designs that conveyed the premium quality and efficacy of Lumina's skincare products.",
+        "Analysis": " Lumina, a skincare product company, faced several challenges in establishing its brand identity and online presence. The company struggled with low brand recognition, difficulty in conveying the benefits of its products, and limited customer engagement on its existing website.",
+        "previewColor": "var(--color-bg)",
         "previewImage": "assets/images/works/general/14.jpg"
-
     },
     {
-        "dataContent": "To build the future, forget the status-quo.",
-        "media": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp",
-        "year": "2020",
         "id": "trakexcel",
+        "aim": "Objective was to design a website for Trakexcel agency that is exceptionally attractive and visually appealing. Every aspect of the design was crafted to captivate visitors and leave a lasting impression, ensuring that the website stands out amidst the digital landscape.",
+        "task": "design,ui development",
+        "year": "2020",
         "title": "Trakexcel",
+        "media": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp",
+        "mediaLarge": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp",
+        "client": "Trakexcel agency",
+        "Analysis": "Trakexcel Agency, a leading provider of marketing and analytics solutions, aimed to revolutionize its online presence and brand image. Recognizing the importance of a captivating design that resonates with its target audience, they entrusted us with this mission. As our collaboration progressed, our focus extended to enhancing user engagement and streamlining the user experience.",
+        "solution": " We undertook various initiatives to enhance Trakexcel's online presence. We began by optimizing the website's interface and user experience, focusing on improving navigation and visual appeal. Subsequently, we delved into mobile design, exploring new app directions and refining user interactions to optimize engagement. Additionally, we revamped the onboarding process, redesigning flows and incorporating custom illustrations to communicate Trakexcel's brand story effectively. Our ultimate achievement was the development of a comprehensive design system that ensured consistency and efficiency across all design, product, and engineering endeavors.",
+        "dataContent": "To build the future, forget the status-quo.",
+        "previewColor": "var(--color-bg)",
         "previewImage": "assets/images/works/trakexcel/Trakexcel-iPhone-high.webp"
     },
     {
-        "content": "Archive of my works and skills ;)",
-        "media": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
-        "year": "2023",
         "id": "uzitrake",
+        "aim": "As a programmer and UX/UI designer, I recognized the importance of showcasing my skills and projects effectively to potential clients and employers.<br /><br /> However, creating a portfolio that truly reflected my expertise and creativity posed a significant challenge. I needed a platform that not only highlighted my technical abilities but also conveyed my design sensibilities and problem-solving approach in a compelling manner.",
+        "task": "Ui design,Web Development, archive",
+        "year": "2023",
         "title": "Uzitrake",
+        "media": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
+        "mediaLarge": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
+        "client": "Personal portfolio",
+        "content": "Archive of my works and skills ;)",
+        "solution": "To address this challenge, I approached the design and development of my portfolio with a strategic mindset, focusing on three key aspects: showcasing my technical proficiency, demonstrating my designexpertise, and providing insight into my problem-solving process.<br /><br />In terms of design, I employed user-centered principles to craft an intuitive and visually engaginginterface. I carefully curated my portfolio projects, selecting a diverse range of work that showcasedmy versatility and creativity across different domains and platforms<br /><br />Throughout the development process, I iterated on the design and content based on feedback from peers, mentors, and potential users, ensuring that my portfolio effectively showcased my skills and resonated with its intended audience.",
+        "Analysis": "Crafting a captivating portfolio as a UX/UI designer presented a unique challenge. I needed a platform that not only showcased my design prowess but also effectively communicated my artistic vision and directorial leadership.",
+        "previewColor": "var(--color-bg)",
         "previewImage": "assets/images/works/general/19.jpg"
     },
     {
-        "content": "Step in technology for all.",
-        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
-        "year": "2023",
         "id": "kizik",
+        "year": "2023",
         "title": "Kizik",
+        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
+        "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
+        "content": "Step in technology for all.",
+        "previewColor": "var(--color-bg)",
         "previewImage": "assets/images/works/general/10.jpg"
     },
     {
-        "content": "Getting into the swing of things. ",
-        "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
-        "year": "2019",
         "id": "robin-golf",
+        "year": "2019",
         "title": "Robin-golf",
-        "previewImage": "assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp"
+        "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
+        "mediaLarge": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
+        "content": "Getting into the swing of things. ",
+        "previewColor": "#df6565",
+        "previewImage": "assets/images/works/golfer/0544.webp"
     },
     {
-        "content": "Make your skin age inappropriate. ",
-        "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
-        "year": "2021",
         "id": "spoiled-child",
+        "year": "2021",
         "title": "spoiled-child",
+        "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
+        "mediaLarge": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
+        "content": "Make your skin age inappropriate. ",
+        "previewColor": "#9B41FF",
         "previewImage": "assets/images/works/general/1.jpg"
+    },
+    {
+        "id": "jstimler",
+        "year": "2023",
+        "title": "jstimler",
+        "media": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || aassets/videos/motion22.mp4",
+        "content": "Shaping fashion's fabric narrative. ",
+        "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/videos/motion22.mp4",
+        "previewColor": "#EDD400",
+        "previewImage": "assets/images/works/jstimler/Jstimler.png"
     }
 ]

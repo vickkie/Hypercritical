@@ -34,6 +34,54 @@ html {
   .projectHeroWrapper {
     min-height: 70vh !important;
   }
+  .projectAim {
+    grid-template-areas: "Aimleft" " Aimright" " Aimcenter" !important;
+    grid-template-columns: 1fr !important;
+    min-height: 19.5rem;
+    padding: 1rem !important;
+  }
+  .projectAbout {
+    grid-template-columns: 1fr !important;
+    row-gap: 2rem;
+    padding: 1rem !important;
+  }
+  .aboutLeft,
+  .Aimleft,
+  .solutionLeft {
+    text-align: center;
+    font-size: larger;
+    font-weight: 800;
+  }
+  .projectSolution {
+    display: grid;
+    grid-template-areas:
+      "solutionLeft"
+      " solutionCenter"
+      " solutionRight" !important;
+    grid-template-columns: 1fr !important;
+    justify-content: space-between;
+    padding: 3rem 1rem !important;
+    text-align: left;
+    row-gap: 2rem;
+  }
+  .projectMetadata {
+    color: var(--color-bg);
+    grid-area: projectMetadata;
+    grid-template-areas:
+      "client"
+      " tasks "
+      " year" !important;
+    grid-template-columns: 1fr !important;
+    height: max-content;
+    justify-content: space-between;
+    min-height: 9.5rem;
+    padding: 3rem 20px;
+    text-align: center;
+    row-gap: 2rem;
+  }
+  .projecttask {
+    text-align: unset !important;
+  }
 }
 
 #project-page .nav_logo_parent {

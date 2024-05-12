@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { HashRouter as Router, Route, Routes, Switch } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import ProjectContent from "./ProjectContent";
-import pagesData from "../../includes/project-data.json";
-import ErrorBoundary from "./components/ErrorBoundary";
+import pagesData from "../../../includes/project-data.json";
+import ErrorBoundary from "../components/ErrorBoundary";
+import Vanilla from "./ProjectVanilla";
 
 function App() {
   const [currentPageData, setCurrentPageData] = useState(null);
@@ -21,15 +22,15 @@ function App() {
 
     if (isBrowser && ABSOLUTE_URL_REGEX.test(currentUrl)) {
       seturlState("PASSED");
-      console.log("passed");
     } else {
       console.log("failed");
+      return;
     }
 
     const path = window.location.hash.substring(1);
 
-    console.log(`full url:  ${currentUrl}`);
-    console.log(`path ${path}`);
+    // console.log(`full url:  ${currentUrl}`);
+    // console.log(`path ${path}`);
   }, []);
 
   useEffect(() => {
@@ -38,28 +39,37 @@ function App() {
       const page = pagesData.find((p) => p.id === path);
       if (page) {
         setCurrentPageData(page);
-        setDataState("SUCCESS");
       } else {
         setDataState("ERROR");
       }
     };
 
     fetchData();
-  }, []); // This effect will only run once when the component mounts
+  }, []);
+
+  // console.log(`currentPageData-out`, currentPageData);
+
+  useEffect(() => {
+    if (currentPageData !== null) {
+      setDataState("SUCCESS");
+      Vanilla();
+      // console.log(urlstate);
+    } else {
+      Vanilla();
+    }
+  });
 
   const errorHere = () => {
     throw new Error("Simulated error for testing");
   };
 
-  console.log(`currentPageData:`, currentPageData);
-  console.log(urlstate);
-
   return (
     <ErrorBoundary>
       <>
-        {dataState === "SUCCESS" && (
+        {dataState === "SUCCESS" && currentPageData !== null && (
           <>
             <ProjectContent pageData={currentPageData} />
+            {/* <Vanilla /> */}
           </>
         )}
         {dataState === "ERROR" && (
@@ -69,7 +79,7 @@ function App() {
               try {
                 errorHere();
               } catch (error) {
-                console.error(error); // Handle the error as needed
+                console.error(error);
                 return <div>Error occurred: {error.message}</div>;
               }
             }}

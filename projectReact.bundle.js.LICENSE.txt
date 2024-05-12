@@ -1,12 +1,24 @@
+/*!
+ * Cuberto Mouse Follower
+ * https://cuberto.com/
+ *
+ * @version 1.1.2
+ * @author Cuberto, Artem Dordzhiev (Draft)
+ */
+
 /*! !!../../../../node_modules/css-loader/dist/cjs.js!./styles.module.css */
 
 /*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
 
 /*! ../../../../node_modules/css-loader/dist/runtime/api.js */
 
-/*! ../../includes/project-data.json */
+/*! ../../../includes/project-data.json */
+
+/*! ../components/ErrorBoundary */
 
 /*! ./ProjectContent */
+
+/*! ./ProjectVanilla */
 
 /*! ./cjs/react-dom.development.js */
 
@@ -14,9 +26,9 @@
 
 /*! ./cjs/scheduler.development.js */
 
-/*! ./components/ErrorBoundary */
-
 /*! ./sass/styles.module.css */
+
+/*! mouse-follower */
 
 /*! react */
 
@@ -28,16 +40,10 @@
 
 /*! scheduler */
 
-/*!*********************************!*\
-  !*** ./js/main/ProjectPage.jsx ***!
-  \*********************************/
+/*! splitting */
 
 /*!************************************!*\
   !*** ./includes/project-data.json ***!
-  \************************************/
-
-/*!************************************!*\
-  !*** ./js/main/ProjectContent.jsx ***!
   \************************************/
 
 /*!*************************************!*\
@@ -53,12 +59,28 @@
   \*****************************************/
 
 /*!******************************************!*\
+  !*** ./js/main/projects/ProjectPage.jsx ***!
+  \******************************************/
+
+/*!******************************************!*\
   !*** ./node_modules/react-dom/client.js ***!
   \******************************************/
+
+/*!*********************************************!*\
+  !*** ./js/main/projects/ProjectContent.jsx ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./js/main/projects/ProjectVanilla.jsx ***!
+  \*********************************************/
 
 /*!**********************************************!*\
   !*** ./js/main/components/ErrorBoundary.jsx ***!
   \**********************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/splitting/dist/splitting.js ***!
+  \**************************************************/
 
 /*!***************************************************!*\
   !*** ./js/main/components/sass/styles.module.css ***!
@@ -71,6 +93,10 @@
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
   \*****************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
+  \**********************************************************/
 
 /*!*************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -87,6 +113,26 @@
 /*!*****************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./js/main/components/sass/styles.module.css ***!
   \*****************************************************************************************/
+
+/**
+ * @license React
+ * react-dom.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * scheduler.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 /**
  * Checks if an event is supported in the current execution environment.

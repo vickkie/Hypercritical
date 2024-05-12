@@ -35,8 +35,8 @@
         "task": "Ui design,Web Development, archive",
         "year": "2023",
         "title": "Uzitrake",
-        "media": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
-        "mediaLarge": "assets/images/works/portfolio/uzitrake8.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/me-mountains.webp",
+        "media": "assets/images/works/portfolio/uzitrake89.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/works/portfolio/uziport-multi.webp || assets/images/works/portfolio/background_logotype.png || assets/images/works/portfolio/6ffd2a192642973.65df0533da245.png",
+        "mediaLarge": "assets/images/works/portfolio/uziport-multi.webp || assets/images/works/portfolio/uzitrake89.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp ||  assets/images//works/portfolio/background_logotype.png || assets/images/works/portfolio/6ffd2a192642973.65df0533da245.png",
         "client": "Personal portfolio",
         "content": "Archive of my works and skills ;)",
         "solution": "To address this challenge, I approached the design and development of my portfolio with a strategic mindset, focusing on three key aspects: showcasing my technical proficiency, demonstrating my designexpertise, and providing insight into my problem-solving process.<br /><br />In terms of design, I employed user-centered principles to craft an intuitive and visually engaginginterface. I carefully curated my portfolio projects, selecting a diverse range of work that showcasedmy versatility and creativity across different domains and platforms<br /><br />Throughout the development process, I iterated on the design and content based on feedback from peers, mentors, and potential users, ensuring that my portfolio effectively showcased my skills and resonated with its intended audience.",
@@ -51,8 +51,8 @@
         "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
         "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
         "content": "Step in technology for all.",
-        "previewColor": "var(--color-bg)",
-        "previewImage": "assets/images/works/general/10.jpg"
+        "previewColor": "var(--color-black)",
+        "previewImage": "assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm"
     },
     {
         "id": "robin-golf",
@@ -78,9 +78,9 @@
         "id": "jstimler",
         "year": "2023",
         "title": "jstimler",
-        "media": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || aassets/videos/motion22.mp4",
+        "media": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler//motion22.mp4",
         "content": "Shaping fashion's fabric narrative. ",
-        "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/videos/motion22.mp4",
+        "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
         "previewColor": "#EDD400",
         "previewImage": "assets/images/works/jstimler/Jstimler.png"
     }

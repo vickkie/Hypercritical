@@ -26,12 +26,29 @@ function ProjectContent({ pageData }) {
       <section className="projectHeroWrapper">
         <div className="projectHero">
           <div className="preview__img">
-            <div className="preview__img-inner" style={{ backgroundImage: `url(${projectPreview})` }}></div>
-            <div className="preview__title">
-              <span className="preview__title-inner splitchars" style={{ color: `${pageData.previewColor}` }}>
-                {pageData.title}
-              </span>
-            </div>
+            {projectPreview.endsWith(".mp4") || projectPreview.endsWith(".webm") ? (
+              <>
+                <div className="preview__img-inner relative">
+                  <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+                    <source src={projectPreview} type={projectPreview.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+                  </video>
+                </div>
+                <div className="preview__title absolute">
+                  <span className="preview__title-inner splitchars" style={{ color: `${pageData.previewColor}` }}>
+                    {pageData.title}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="preview__img-inner" style={{ backgroundImage: `url(${projectPreview})` }}></div>
+                <div className="preview__title">
+                  <span className="preview__title-inner splitchars" style={{ color: `${pageData.previewColor}` }}>
+                    {pageData.title}
+                  </span>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>

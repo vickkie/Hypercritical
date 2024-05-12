@@ -6,13 +6,13 @@
         "tasks": "UI DESIGN, RE-BRANDING",
         "title": "Lumina",
         "media": " assets/images/works/lumina/lumina-mockall-low.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
-        "mediaLarge": " assets/images/works/lumina/lumina-mockall-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-packaging-mid.webp?auto=compress,format || assets/images/works/lumina/lumina-apply.webp",
+        "mediaLarge": "assets/images/works/lumina/lumina-cover.webp || assets/images/works/lumina/lumina-packaging-mid.webp || assets/images/works/lumina/lumina-apply.webp || assets/images/works/lumina/lumina-mockall-high.webp",
         "client": "Lumina Skincare",
         "content": "Skincare on a mission of empathy and self-discovery.",
         "solution": " Throughout our partnership, As the developer responsible for designing Lumina's product branding and website, I addressed these challenges by implementing a comprehensive solution. Through extensive market research and collaboration with Lumina's team, I developed a cohesive brand identity that resonated with the target audience and differentiated Lumina from competitors. This involved creating visually appealing packaging designs that conveyed the premium quality and efficacy of Lumina's skincare products.",
         "Analysis": " Lumina, a skincare product company, faced several challenges in establishing its brand identity and online presence. The company struggled with low brand recognition, difficulty in conveying the benefits of its products, and limited customer engagement on its existing website.",
-        "previewColor": "var(--color-bg)",
-        "previewImage": "assets/images/works/general/14.jpg"
+        "previewColor": "transparent",
+        "previewImage": "assets/images/works/lumina/lumina-2.webp"
     },
     {
         "id": "trakexcel",
@@ -48,18 +48,18 @@
         "id": "kizik",
         "year": "2023",
         "title": "Kizik",
-        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
-        "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm",
+        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
+        "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
         "content": "Step in technology for all.",
-        "previewColor": "var(--color-black)",
-        "previewImage": "assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm"
+        "previewColor": "var(--main-color)",
+        "previewImage": "assets/images/works/kizik/kizik-banner.webm"
     },
     {
         "id": "robin-golf",
         "year": "2019",
         "title": "Robin-golf",
-        "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
-        "mediaLarge": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png || assets/images/works/golfer/0f2b0c64-d1e0-40aa-a6b7-2e0ebb3b.webp",
+        "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png ||  assets/images/works/golfer/robin-child.webp || assets/images/works/golfer/robingolf-cart.avif",
+        "mediaLarge": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png || assets/images/works/golfer/robin-child.webp || assets/images/works/golfer/robingolf-cart.avif",
         "content": "Getting into the swing of things. ",
         "previewColor": "#df6565",
         "previewImage": "assets/images/works/golfer/0544.webp"
@@ -68,8 +68,8 @@
         "id": "spoiled-child",
         "year": "2021",
         "title": "spoiled-child",
-        "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
-        "mediaLarge": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp",
+        "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp || assets/images/works/spoiled-child/spoiledchild.com.webp  || assets/images/works/spoiled-child/whospoiled.webp",
+        "mediaLarge": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.webp || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp || assets/images/works/spoiled-child/spoiledchild.com.webp  || assets/images/works/spoiled-child/whospoiled.webp",
         "content": "Make your skin age inappropriate. ",
         "previewColor": "#9B41FF",
         "previewImage": "assets/images/works/general/1.jpg"
@@ -82,6 +82,6 @@
         "content": "Shaping fashion's fabric narrative. ",
         "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
         "previewColor": "#EDD400",
-        "previewImage": "assets/images/works/jstimler/Jstimler.png"
+        "previewImage": "assets/images/works/jstimler/jstimler-banner.avif"
     }
 ]

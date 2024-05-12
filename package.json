@@ -64,7 +64,7 @@
   "gsap": "^3.12.5",
   "lozad": "^1.16.0",
   "mouse-follower": "^1.1.2",
-  "react": "^18.2.0",
+  "react": "^18.3.1",
   "react-beautiful-dnd": "^13.1.1",
   "react-dom": "^18.2.0",
   "react-router-dom": "^6.22.3",

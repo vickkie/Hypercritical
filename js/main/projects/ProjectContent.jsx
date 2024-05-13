@@ -18,8 +18,9 @@ function ProjectContent({ pageData }) {
   const media3 = mediaUrls[2];
   const media4 = mediaUrls[3];
   const media5 = mediaUrls[4];
+  const media6 = mediaUrls[5];
 
-  // console.log(mediaUrls);
+  console.log(mediaUrls);
 
   return (
     <>
@@ -152,6 +153,21 @@ function ProjectContent({ pageData }) {
                     </video>
                   ) : (
                     <img src={media5} alt={pageData.title} />
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+          <div className="otherImage">
+            {media6 !== undefined && (
+              <>
+                <div className="otherImage-inner">
+                  {media6.endsWith(".mp4") || media6.endsWith(".webm") ? (
+                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+                      <source src={media6} type={media6.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+                    </video>
+                  ) : (
+                    <img src={media6} alt={pageData.title} />
                   )}
                 </div>
               </>

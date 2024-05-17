@@ -249,6 +249,8 @@ summary {
   background-color: var(--color-bg);
   grid-template-columns: 1fr;
   padding: 100px 40px;
+  color: var(--color-black);
+  overflow: hidden;
 }
 .wrap-exit {
   display: grid;

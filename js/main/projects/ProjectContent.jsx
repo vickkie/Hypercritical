@@ -180,3 +180,85 @@ function ProjectContent({ pageData }) {
 }
 
 export default ProjectContent;
+
+// import React from "react";
+
+// const MediaElement = ({ url, title }) => {
+//   if (url.endsWith(".mp4") || url.endsWith(".webm")) {
+//     return (
+//       <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+//         <source src={url} type={url.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+//       </video>
+//     );
+//   } else {
+//     return <img src={url} alt={title} />;
+//   }
+// };
+
+// function ProjectContent({ pageData }) {
+//   const mediaAttr = window.innerWidth < 768 ? pageData.media : pageData.mediaLarge;
+//   const mediaUrls = mediaAttr ? mediaAttr.split(" || ") : [];
+
+//   return (
+//     <>
+//       {/* Hero Section */}
+//       <section className="projectHeroWrapper">
+//         <div className="projectHero">
+//           <div className="preview__img">{MediaElement({ url: pageData.previewImage, title: pageData.title })}</div>
+//         </div>
+//       </section>
+
+//       {/* Details Section */}
+//       <section className="projectDetails">
+//         {/* Metadata */}
+//         <div className="projectMetadata">
+//           {/* Client */}
+//           <div className="projectclient">
+//             <div className="metaDataheader">CLIENT</div>
+//             <div>{pageData.client}</div>
+//           </div>
+//           {/* Expertise */}
+//           <div className="projecttask">
+//             <div className="metaDataheader">EXPERTISE</div>
+//             <div>{pageData.task}</div>
+//           </div>
+//           {/* Year */}
+//           <div className="projectyear">
+//             <div className="metaDataheader">YEAR</div>
+//             <div>{pageData.year}</div>
+//           </div>
+//         </div>
+
+//         {/* About Project */}
+//         <div className="projectAbout">
+//           <div className="aboutLeft">About Project</div>
+//           <div className="aboutCenter">
+//             <div className="aboutClient">{pageData.content}</div>
+//             <div className="projectAnalysis">{pageData.Analysis}</div>
+//           </div>
+//           <div className="aboutRight"></div>
+//         </div>
+
+//         {/* Images */}
+//         {mediaUrls.map((url, index) => (
+//           <div key={index} className={`projectImage${index + 1}`}>
+//             <div className={`projectImage${index + 1}-inner`}>
+//               <MediaElement url={url} title={pageData.title} />
+//             </div>
+//           </div>
+//         ))}
+
+//         {/* Additional Images */}
+//         {mediaUrls.slice(6).map((url, index) => (
+//           <div key={index} className="otherImage">
+//             <div className="otherImage-inner">
+//               <MediaElement url={url} title={pageData.title} />
+//             </div>
+//           </div>
+//         ))}
+//       </section>
+//     </>
+//   );
+// }
+
+// export default ProjectContent;

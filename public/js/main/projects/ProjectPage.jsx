@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Routes, Switch, useNavigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import ProjectContent from "./ProjectContent";
 import pagesData from "../../../includes/project-data.json";
@@ -7,10 +7,13 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import Vanilla from "./ProjectVanilla";
 
 function App() {
+  // const navigate = useNavigate();
+
   const [currentPageData, setCurrentPageData] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
   const [urlstate, seturlState] = useState("FAILED");
+  const [nextiousPage, setNextiouspage] = useState("");
 
   useEffect(() => {
     const isBrowser =
@@ -34,20 +37,6 @@ function App() {
     // console.log(`path ${path}`);
   }, []);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const path = window.location.hash.substring(1); // Remove the '#' from the hash
-  //     const page = pagesData.find((p) => p.id === path);
-  //     if (page) {
-  //       setCurrentPageData(page);
-  //     } else {
-  //       setDataState("ERROR");
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       const path = window.location.hash.substring(1); // Remove the '#' from the hash
@@ -59,24 +48,40 @@ function App() {
         console.log(`currentpage id ${currentIndex}`);
 
         // Extract all IDs from pagesData
-        const allIds = pagesData.map((p, index) => [p.id, index]);
+
+        let allIds = [];
+        allIds = pagesData.map((p) => p.id);
+        //fetch the whole data
+        let allData = pagesData.map((data) => data);
 
         let allIndexes = [...allIds];
         console.log("All Indexes:", allIndexes);
+        //find current age index/ id
+        const currentId = allData.findIndex((page) => page.id === currentIndex);
 
-        const myid = allIndexes.find((p, index) => [p.id === currentIndex]);
-        console.log(myid);
+        let nextId = currentId + 1;
+        let nextPage;
 
-        allIds.forEach((id, index) => {
-          console.log(`Processing ID: ${id},${index}`);
-        });
+        if (nextId == allIndexes.length) {
+          nextPage = allIndexes[0];
+          setNextiouspage(nextPage);
+          console.log(`nextiousPage: ${nextiousPage}`);
+        } else {
+          nextPage = allIndexes[`${nextId}`];
+          setNextiouspage(nextPage);
+          console.log(`nextiousPage: ${nextiousPage}`);
+        }
+
+        // console.log(`current id, ${currentId}`);
+        // console.log(`next id, ${nextId}`);
+        // console.log(allIndexes.length);
       } else {
         setDataState("ERROR");
       }
     };
 
     fetchData();
-  }, []);
+  }, [nextiousPage]);
 
   // console.log(`currentPageData-out`, currentPageData);
 
@@ -99,7 +104,7 @@ function App() {
       <>
         {dataState === "SUCCESS" && currentPageData !== null && (
           <>
-            <ProjectContent pageData={currentPageData} />
+            <ProjectContent pageData={currentPageData} nextPage={nextiousPage} />
             {/* <Vanilla /> */}
           </>
         )}
@@ -136,17 +141,3 @@ const renderApp = () => {
 };
 
 document.addEventListener("DOMContentLoaded", renderApp);
-
-// import React, { useRef, useEffect } from "react";
-
-// function MyComponent() {
-//   const myRef = useRef(null);
-
-//   useEffect(() => {
-//     // Now you can access the DOM element
-//     const element = myRef.current;
-//     // Perform operations on 'element'
-//   }, []);
-
-//   return <div ref={myRef}>Hello, world!</div>;
-// }

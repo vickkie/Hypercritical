@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import { html } from "splitting";
 
-function ProjectContent({ pageData }) {
+function ProjectContent({ pageData, nextPage }) {
   let mediaAttr;
 
   if (window.innerWidth < 768) {
@@ -22,6 +23,10 @@ function ProjectContent({ pageData }) {
   const media7 = mediaUrls[6];
 
   // console.log(mediaUrls);
+
+  // const gotoPage = () => {
+  //   navigate(`project#${nextPage}`);
+  // };
 
   return (
     <>
@@ -192,7 +197,15 @@ function ProjectContent({ pageData }) {
         </div>
       </section>
       <section className="thirtyworks">
-        <a href="/works" className="thirty-wrapper">
+        <a
+          href={`project#${nextPage}`}
+          onClick={() =>
+            setTimeout(() => {
+              location.reload();
+            }, 1000)
+          }
+          className="thirty-wrapper"
+        >
           <div className="below-line" style={{ width: "100%" }}>
             <span></span>
           </div>

@@ -41,6 +41,7 @@ main {
 } */
 .hero-studio {
   min-height: 100svh;
+  min-height: 100vh;
   background-color: var(--color-bg);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -360,9 +361,19 @@ main {
 }
 
 @media screen and (max-width: 767px) {
+  .contact-boxes-wrapper {
+    padding: 0 0.2rem !important;
+  }
+  .Button_ArrowCont__WrhN_ {
+    border-radius: 50% 0 50% 0 !important;
+    margin: 0 -6px -10px 0 !important;
+  }
   .why-box {
     grid-template-columns: 1fr !important;
     padding: 4rem 8px !important;
+  }
+  .customer-contact {
+    padding: 0 0 0.4rem !important;
   }
   .why-left {
     flex-direction: column-reverse;

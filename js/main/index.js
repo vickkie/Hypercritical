@@ -291,10 +291,11 @@ function scrollTop() {
 
 document.addEventListener("DOMContentLoaded", function () {
   showHero();
+
+  // setTimeout(() => {
+  scrollTop();
   initParallax();
-  setTimeout(() => {
-    scrollTop();
-  }, 3000);
+  // }, 3000);
 });
 
 //group 7 : animate divider lines using gsap and scrollTrigger
@@ -373,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
-    if (innerWidth > 767) {
+    if (window.innerWidth > 767) {
       let cursorme = new MouseFollower();
     }
   }
@@ -463,16 +464,18 @@ const elephantcursor = new MouseFollower({
 
 // });
 
-let peanutWrapper = select(".ourservices");
-const peanutcursor = new MouseFollower();
+if (window.innerWidth > 767) {
+  let peanutWrapper = select(".ourservices");
+  const peanutcursor = new MouseFollower();
 
-peanutWrapper.addEventListener("mouseenter", () => {
-  peanutcursor.setImg("./../../assets/images/peanut.webp");
-});
+  peanutWrapper.addEventListener("mouseenter", () => {
+    peanutcursor.setImg("./../../assets/images/peanut.webp");
+  });
 
-peanutWrapper.addEventListener("mouseleave", () => {
-  peanutcursor.removeImg();
-});
+  peanutWrapper.addEventListener("mouseleave", () => {
+    peanutcursor.removeImg();
+  });
+}
 
 // Group 12: inverse the arrow colors using gsap
 
@@ -964,3 +967,10 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("blur", dozeLater);
   window.addEventListener("focus", stopDozing);
 });
+
+if (innerWidth < 425) {
+  const heroImage = select(".parallax-process-image");
+
+  heroImage.src = "assets/images/hero-small.webp";
+  heroImage.style.width = "100vw";
+}

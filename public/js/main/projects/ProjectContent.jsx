@@ -19,8 +19,9 @@ function ProjectContent({ pageData }) {
   const media4 = mediaUrls[3];
   const media5 = mediaUrls[4];
   const media6 = mediaUrls[5];
+  const media7 = mediaUrls[6];
 
-  console.log(mediaUrls);
+  // console.log(mediaUrls);
 
   return (
     <>
@@ -57,11 +58,11 @@ function ProjectContent({ pageData }) {
         <div className="projectMetadata">
           <div className="projectclient">
             <div className="metaDataheader">CLIENT</div>
-            <div>{pageData.client}</div>
+            <div className="lowercase">{pageData.client}</div>
           </div>
           <div className="projecttask">
             <div className="metaDataheader">EXPERTISE</div>
-            <div>{pageData.task}</div>
+            <div className="lowercase">{pageData.task}</div>
           </div>
           <div className="projectyear">
             <div className="metaDataheader">YEAR</div>
@@ -173,7 +174,45 @@ function ProjectContent({ pageData }) {
               </>
             )}
           </div>
+          <div className="otherImage">
+            {media7 !== undefined && (
+              <>
+                <div className="otherImage-inner">
+                  {media7.endsWith(".mp4") || media7.endsWith(".webm") ? (
+                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+                      <source src={media7} type={media7.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+                    </video>
+                  ) : (
+                    <img src={media7} alt={pageData.title} />
+                  )}
+                </div>
+              </>
+            )}
+          </div>
         </div>
+      </section>
+      <section className="thirtyworks">
+        <a href="/works" className="thirty-wrapper">
+          <div className="below-line" style={{ width: "100%" }}>
+            <span></span>
+          </div>
+          <div className="top-line" style={{ width: "100%" }}>
+            <span></span>
+          </div>
+          <div className="thirty-left">
+            <svg role="button">
+              <use xlinkHref="assets/svg/sprite.svg#sharp-arrow"></use>
+            </svg>
+          </div>
+          <div className="thirty-center">
+            Next <span className="gt-italic">Project</span>
+          </div>
+          <div className="thirty-right">
+            <svg role="button">
+              <use xlinkHref="assets/svg/sprite.svg#sharp-arrow"></use>
+            </svg>
+          </div>
+        </a>
       </section>
     </>
   );
@@ -201,35 +240,28 @@ export default ProjectContent;
 
 //   return (
 //     <>
-//       {/* Hero Section */}
 //       <section className="projectHeroWrapper">
 //         <div className="projectHero">
 //           <div className="preview__img">{MediaElement({ url: pageData.previewImage, title: pageData.title })}</div>
 //         </div>
 //       </section>
 
-//       {/* Details Section */}
 //       <section className="projectDetails">
-//         {/* Metadata */}
 //         <div className="projectMetadata">
-//           {/* Client */}
 //           <div className="projectclient">
 //             <div className="metaDataheader">CLIENT</div>
 //             <div>{pageData.client}</div>
 //           </div>
-//           {/* Expertise */}
 //           <div className="projecttask">
 //             <div className="metaDataheader">EXPERTISE</div>
 //             <div>{pageData.task}</div>
 //           </div>
-//           {/* Year */}
 //           <div className="projectyear">
 //             <div className="metaDataheader">YEAR</div>
 //             <div>{pageData.year}</div>
 //           </div>
 //         </div>
 
-//         {/* About Project */}
 //         <div className="projectAbout">
 //           <div className="aboutLeft">About Project</div>
 //           <div className="aboutCenter">
@@ -239,7 +271,6 @@ export default ProjectContent;
 //           <div className="aboutRight"></div>
 //         </div>
 
-//         {/* Images */}
 //         {mediaUrls.map((url, index) => (
 //           <div key={index} className={`projectImage${index + 1}`}>
 //             <div className={`projectImage${index + 1}-inner`}>
@@ -248,8 +279,7 @@ export default ProjectContent;
 //           </div>
 //         ))}
 
-//         {/* Additional Images */}
-//         {mediaUrls.slice(6).map((url, index) => (
+//         {mediaUrls.slice(7).map((url, index) => (
 //           <div key={index} className="otherImage">
 //             <div className="otherImage-inner">
 //               <MediaElement url={url} title={pageData.title} />

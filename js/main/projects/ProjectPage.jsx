@@ -8,6 +8,7 @@ import Vanilla from "./ProjectVanilla";
 
 function App() {
   const [currentPageData, setCurrentPageData] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
   const [urlstate, seturlState] = useState("FAILED");
 
@@ -33,12 +34,42 @@ function App() {
     // console.log(`path ${path}`);
   }, []);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const path = window.location.hash.substring(1); // Remove the '#' from the hash
+  //     const page = pagesData.find((p) => p.id === path);
+  //     if (page) {
+  //       setCurrentPageData(page);
+  //     } else {
+  //       setDataState("ERROR");
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       const path = window.location.hash.substring(1); // Remove the '#' from the hash
       const page = pagesData.find((p) => p.id === path);
       if (page) {
         setCurrentPageData(page);
+
+        let currentIndex = page.id;
+        console.log(`currentpage id ${currentIndex}`);
+
+        // Extract all IDs from pagesData
+        const allIds = pagesData.map((p, index) => [p.id, index]);
+
+        let allIndexes = [...allIds];
+        console.log("All Indexes:", allIndexes);
+
+        const myid = allIndexes.find((p, index) => [p.id === currentIndex]);
+        console.log(myid);
+
+        allIds.forEach((id, index) => {
+          console.log(`Processing ID: ${id},${index}`);
+        });
       } else {
         setDataState("ERROR");
       }

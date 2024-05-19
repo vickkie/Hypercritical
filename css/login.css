@@ -219,6 +219,7 @@ ul {
   background-color: var(--color-bg);
   display: grid;
   min-height: 100svh;
+  min-height: 100vh;
   min-width: 100vw;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;

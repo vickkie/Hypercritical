@@ -503,6 +503,7 @@ figure {
   }
   .language-expla {
     font-size: 1.02rem !important;
+    font-family: var(--font-1);
   }
   .service-main {
     background-color: var(--color-bg);
@@ -826,6 +827,7 @@ figure {
   }
   .language-expla {
     font-size: 1.32rem;
+
     padding: 0 15px;
   }
 }

@@ -198,12 +198,16 @@ function ProjectContent({ pageData, nextPage }) {
       </section>
       <section className="thirtyworks">
         <a
-          href={`project#${nextPage}`}
+          href={`/project#${nextPage}`}
           onClick={() =>
             setTimeout(() => {
               location.reload();
-            }, 1000)
+              document.documentElement.scrollTop = 0;
+            }, 300)
           }
+          // onClick={() => {
+          //   window.location = `/project#${nextPage}`;
+          // }}
           className="thirty-wrapper"
         >
           <div className="below-line" style={{ width: "100%" }}>

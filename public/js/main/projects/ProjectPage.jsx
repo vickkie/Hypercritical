@@ -45,7 +45,7 @@ function App() {
         setCurrentPageData(page);
 
         let currentIndex = page.id;
-        console.log(`currentpage id ${currentIndex}`);
+        // console.log(`currentpage id ${currentIndex}`);
 
         // Extract all IDs from pagesData
 
@@ -55,8 +55,9 @@ function App() {
         let allData = pagesData.map((data) => data);
 
         let allIndexes = [...allIds];
-        console.log("All Indexes:", allIndexes);
-        //find current age index/ id
+        // console.log("All Indexes:", allIndexes);
+
+        //? find current age index/ id
         const currentId = allData.findIndex((page) => page.id === currentIndex);
 
         let nextId = currentId + 1;

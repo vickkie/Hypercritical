@@ -150,7 +150,7 @@ const plugins = [
     template: "./project.html",
     filename: "project.html",
     inject: "body",
-    chunks: ["projectReact"],
+    chunks: ["projectReact", "projectVanilla"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -210,6 +210,7 @@ module.exports = {
     loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",
     projectReact: "./js/main/projects/ProjectPage.jsx",
+    projectVanilla: "./js/main/projects/project.js",
   },
   output: {
     filename: "[name].bundle.js", // outputs {file}.bundle.js

@@ -80,7 +80,11 @@ function ProjectContent({ pageData, nextPage }) {
             <div className="aboutClient">{pageData.content}</div>
             <div className="projectAnalysis">{pageData.Analysis}</div>
           </div>
-          <div className="aboutRight"></div>
+          <div className="aboutRight">
+            <div className="deco-svg">
+              <img src="assets/svg/52c27296e8340fd5cddcb94ec151be0e.svg" alt="" />
+            </div>
+          </div>
         </div>
         <div className="projectImage1">
           <div className="projectImage1-inner">
@@ -100,7 +104,11 @@ function ProjectContent({ pageData, nextPage }) {
           <div className="Aimcenter">
             <div className="Aimmain" dangerouslySetInnerHTML={{ __html: pageData.aim }}></div>
           </div>
-          <div className="Aimright"></div>
+          <div className="Aimright">
+            <div className="deco-svg">
+              <img src="assets/svg/91b2ba05cc1f02b1e9ebc4330c275d95.svg" alt="" />
+            </div>
+          </div>
         </div>
         <div className="projectImage2">
           <div className="projectImage2-left">
@@ -131,7 +139,11 @@ function ProjectContent({ pageData, nextPage }) {
             <div>Solution</div>
           </div>
           <div className="solutionCenter" dangerouslySetInnerHTML={{ __html: pageData.solution }}></div>
-          <div className="solutionRight"></div>
+          <div className="solutionRight">
+            <div className="deco-svg">
+              <img src="assets/svg/asterisk-w.svg" alt="" />
+            </div>
+          </div>
         </div>
         <div className="remainingImages">
           <div className="otherImage">

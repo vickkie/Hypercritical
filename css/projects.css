@@ -19,10 +19,21 @@ html {
   background-color: var(--color-bg);
 }
 @media screen and (max-width: 768px) {
+  .thirty-center {
+    font-size: var(--hc-xl);
+  }
+  .thirty-wrapper svg {
+    height: 100%;
+    width: calc(28px + 3vw);
+  }
+  .projectAim {
+    row-gap: 2rem;
+  }
   .projectImage2-inner img,
   .projectImage2-inner video {
     max-height: 100vw !important;
   }
+
   .projectImage2 {
     row-gap: 1rem;
     grid-template-areas:
@@ -92,7 +103,7 @@ html {
 }
 
 #project-page .below-line {
-  background-color: var(--color-bg);
+  background-color: var(--main-color);
 }
 .est_nav {
   fill: var(--color-bg);
@@ -347,4 +358,19 @@ html {
 }
 .absolute {
   position: absolute !important;
+}
+
+.footer__link-top {
+  cursor: pointer;
+}
+.deco-svg {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+.deco-svg img {
+  max-width: 4rem;
+}
+.thirtyworks {
+  padding: 7rem 0;
 }

@@ -60,7 +60,7 @@ function App() {
         //? find current age index/ id
         const currentId = allData.findIndex((page) => page.id === currentIndex);
 
-        let nextId = currentId + 1;
+        let nextId = currentId + parseInt("1");
         let nextPage;
 
         if (nextId == allIndexes.length) {
@@ -89,10 +89,12 @@ function App() {
   useEffect(() => {
     if (currentPageData !== null) {
       setDataState("SUCCESS");
-      Vanilla();
-      // console.log(urlstate);
+      //* Vanilla called in project js file
+      //* This is an alternative...
+      // Vanilla();
     } else {
-      Vanilla();
+      // Vanilla();
+      //? do nothing
     }
   });
 

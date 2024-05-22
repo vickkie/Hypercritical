@@ -204,6 +204,7 @@ module.exports = {
     studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
+    process: "./js/main/process.js",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",

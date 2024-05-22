@@ -5,7 +5,7 @@
     "hero-service";
   grid-template-columns: 1fr;
   grid-template-rows: 30% 50% 20%;
-  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
 }
 .animate {
@@ -72,15 +72,19 @@ figure {
   overflow: hidden;
 }
 
+.inspire-later {
+  display: none;
+}
+
 .introduction {
-  background-color: #222 !important;
+  background-color: var(--color-black) !important;
   display: grid;
   grid-template-areas:
     "introtitle introexpla"
     "... introfooter";
   grid-template-columns: 30% 70%;
   grid-template-rows: 1fr 200px;
-  min-height: 100vh;
+  min-height: 100svh;
   position: relative;
   color: var(--color-bg);
 }
@@ -390,12 +394,17 @@ figure {
   cursor: pointer;
   width: 5.8em;
   height: 5.8em;
-  border: 1px solid rgba(241, 241, 241, 0.35);
+  border: 1px solid var(--main-color);
   border-radius: 100%;
   justify-content: center;
   align-items: center;
   margin-left: 12%;
   display: flex;
+}
+.circle-arrow svg {
+  translate: none;
+  rotate: -90deg;
+  scale: 1.5;
 }
 
 @media screen and (min-width: 768px) {
@@ -449,7 +458,7 @@ figure {
 
 .services-video {
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   border-radius: 45px;
 }
 
@@ -498,6 +507,11 @@ figure {
   :root {
     --gap: calc(var(--size) / 30);
   }
+  .inspire-later {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
   .marquee svg {
     scale: 0.6;
   }
@@ -513,7 +527,7 @@ figure {
       "serviceanimation "
       " servicebody";
     grid-template-columns: 1fr;
-    min-height: 100vh;
+    min-height: 100svh;
     padding: 60px 7%;
     position: relative;
     row-gap: 30px;
@@ -695,7 +709,7 @@ figure {
 .exit-services {
   display: grid;
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   background-color: var(--color-bg);
   grid-template-columns: 1fr;
   padding: 100px 40px;
@@ -850,4 +864,12 @@ figure {
 .scroll-service-down span {
   width: fit-content;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .contact-service {
+    display: grid;
+    justify-self: center;
+    transform: scale(0.6);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
 }

@@ -436,3 +436,18 @@ backdrop.addEventListener("click", () => {
       "start"
     );
 });
+
+gsap.registerPlugin(SplitText);
+
+const herolargelogo = select(".lets-make");
+
+let herotext = new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
+
+const splitchars = selectAll(".split-chars");
+
+splitchars.forEach((splitchar) => {
+  new SplitText(splitchar, {
+    type: "chars",
+    charsClass: "otherchars",
+  });
+});

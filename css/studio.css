@@ -41,7 +41,6 @@ main {
 } */
 .hero-studio {
   min-height: 100svh;
-  min-height: 100vh;
   background-color: var(--color-bg);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -361,6 +360,11 @@ main {
 }
 
 @media screen and (max-width: 767px) {
+  .est-hero {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
   .contact-boxes-wrapper {
     padding: 0 0.2rem !important;
   }
@@ -384,7 +388,7 @@ main {
   }
   .story-left img {
     height: auto;
-    max-width: 23vw;
+    max-width: 40vw;
     width: 100%;
   }
   .story-wrapper-inner {
@@ -487,6 +491,14 @@ html:focus-within {
   }
 }
 @media (max-width: 767px) {
+  .est-hero .est-year {
+    font-size: xx-small;
+  }
+  .side-innovate img {
+    height: 16vw;
+    rotate: -63deg;
+    width: auto;
+  }
   .below-studio-hero {
     min-height: calc(50vh + 20px) !important;
   }
@@ -857,7 +869,7 @@ p.campaign-info.progress-value {
 
 .swiper-slide {
   min-height: 50vh;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1485,4 +1497,12 @@ p.campaign-info.progress-value {
   .swiper-header {
     padding: 2rem 0 !important;
   }
+}
+.founder .designer {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.designer-svg {
+  transform: scale(0.7);
 }

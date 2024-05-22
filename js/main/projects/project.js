@@ -1,10 +1,21 @@
 import MouseFollower from "mouse-follower";
 import Vanilla from "./ProjectVanilla";
+import lozad from "lozad";
 
 let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+// lozad preload images when needed
+
+const observer = lozad(".lozad", {
+  rootMargin: "100px 0px",
+  loaded: function (el) {
+    // console.log("Element loaded:", el);
+  },
+});
+observer.observe();
 
 // ScrollSmoother.create({
 //   smooth: 1,
@@ -31,7 +42,7 @@ function close() {
 menuopen.addEventListener("click", open);
 menuclose.addEventListener("click", close);
 
-//Animate arrows on hover
+//Group 2:  Animate arrows on hover
 
 function AnimateArrows(params) {
   let thirtyWrapper = select(".thirtyworks");
@@ -58,7 +69,7 @@ function AnimateArrows(params) {
   });
 }
 
-// // Group 2: assign links
+// Group 3: assign links
 
 function assignLinks(config) {
   for (const key in config) {
@@ -143,7 +154,7 @@ new Promise((resolve, reject) => {
 
 assignExp();
 
-// //Group 3: show mouse follower
+//Group 4: show mouse follower
 
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
@@ -187,8 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   toTopbutton.addEventListener("click", scrollTop);
 });
-
-// // Group 6: inverse the arrow colors using gsap
+// Group 4: inverse the arrow colors using gsap
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -268,5 +278,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-// group 18: create gsap amation on arrows on hover back and forth they move together

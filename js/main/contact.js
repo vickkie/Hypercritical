@@ -18,7 +18,26 @@ ScrollSmoother.create({
   smoothTouch: 0.1,
 });
 
-// Group 1: assign links
+//Group 1: menuUzi midmoon
+
+let midmoon = select(".mid-moon");
+let menuclose = select(".action--close");
+let menuopen = select(".action--menuUzi");
+
+function open() {
+  midmoon.classList.add("mid-moon--light");
+  midmoon.classList.remove("mid-moon--dark");
+}
+// Close the menuUzi.
+function close() {
+  midmoon.classList.add("mid-moon--dark");
+  midmoon.classList.remove("mid-moon--light");
+}
+
+menuopen.addEventListener("click", open);
+menuclose.addEventListener("click", close);
+
+// Group 1.1: assign links
 
 let mouseFollower = new MouseFollower();
 

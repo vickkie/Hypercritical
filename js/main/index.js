@@ -974,3 +974,12 @@ if (innerWidth < 425) {
   heroImage.src = "assets/images/hero-small.webp";
   heroImage.style.width = "100vw";
 }
+
+//change innerHTML
+
+let menuItem3 = select(".menuUzi__item--3 .menuUzi__item-inner");
+
+if (innerWidth < 767) {
+  menuItem3.innerHTML =
+    '<div class="title-upper">social networks</div><div class="socials-buttons"><a target="_blank" class="social-networks instagram transit" aria-label="instagram" style="background-color:rgba(1,1,1,0)" href="https://www.instagram.com/u.z.i.__"><img src="assets/svg/g_instagram.png" alt="Instagram icon, png, black" class="social-img" data-label="" style="filter:invert(0%)"></a><a target="_blank" class="social-networks github transit" aria-label="github" style="background-color:rgba(1,1,1,0)" href="https://www.github.com/vickkie"><img src="assets/svg/icons8-github.svg" data-label="" alt="" class="social-img" style="filter:invert(0%)"></a><a target="_blank" class="social-networks w-inline-block linktree transit" aria-label="linktree" style="background-color:rgba(1,1,1,0)" href="https://linktr.ee/uzitrake"><img src="assets/svg/linktree.svg" alt="" class="social-img" data-label="" style="filter:invert(0%)"></a></div>';
+}

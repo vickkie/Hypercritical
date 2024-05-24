@@ -138,7 +138,7 @@ const plugins = [
     template: "./process.html",
     filename: "process.html",
     inject: "body",
-    chunks: ["process"],
+    chunks: ["common", "process"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -204,7 +204,9 @@ module.exports = {
     studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
+    common: "./js/main/common.jsx",
     process: "./js/main/process.js",
+    menu: "./js/library/multi-menu.js",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",

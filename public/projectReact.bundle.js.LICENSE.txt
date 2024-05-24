@@ -30,8 +30,6 @@
 
 /*! scheduler */
 
-/*! splitting */
-
 /*!************************************!*\
   !*** ./includes/project-data.json ***!
   \************************************/
@@ -68,10 +66,6 @@
   !*** ./js/main/components/ErrorBoundary.jsx ***!
   \**********************************************/
 
-/*!**************************************************!*\
-  !*** ./node_modules/splitting/dist/splitting.js ***!
-  \**************************************************/
-
 /*!***************************************************!*\
   !*** ./js/main/components/sass/styles.module.css ***!
   \***************************************************/
@@ -99,26 +93,6 @@
 /*!*****************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./js/main/components/sass/styles.module.css ***!
   \*****************************************************************************************/
-
-/**
- * @license React
- * react-dom.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
- * @license React
- * scheduler.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
 
 /**
  * Checks if an event is supported in the current execution environment.

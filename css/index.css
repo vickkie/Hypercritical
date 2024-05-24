@@ -2003,3 +2003,47 @@ html {
   color: var(--color-bg);
   position: relative;
 }
+
+@media screen and (max-width: 767px) {
+  .menuUzi a.mainmenuUzi__item {
+    color: #0c0c0c !important;
+    text-transform: uppercase !important;
+    border-bottom: solid 1px !important;
+    padding: 6px 2rem !important;
+    text-transform: uppercase !important;
+    font-size: x-large;
+  }
+  .mainmenuUzi,
+  .sidemenuUzi {
+    display: flex;
+    align-items: stretch !important;
+    flex-direction: column;
+    text-align: left !important;
+    font-family: "MonumentExtended-light" !important;
+  }
+  .menuUzi__item--1 .menuUzi__item-inner {
+    background: #ffffff !important;
+  }
+  .action--close {
+    color: #000000 !important;
+  }
+  main .menuUzi {
+    grid-template-rows: 75% 25% !important;
+  }
+  .menuUzi__item-inner {
+    justify-content: flex-end;
+  }
+
+  .menuUzi__item--3 .title-upper {
+    font-size: 0.82em;
+    text-align: left;
+    padding: 10px;
+  }
+  .menuUzi__item--3 .menuUzi__item-inner {
+    padding: 10px 20px !important;
+    background: var(--main-color) !important;
+  }
+  .menuUzi {
+    height: 100svh !important;
+  }
+}

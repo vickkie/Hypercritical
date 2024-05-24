@@ -111,6 +111,20 @@ class UziMenu extends React.Component {
                 style={{ filter: "invert(0%)" }}
               />
             </a>
+            <a
+              className="social-networks w-inline-block transit"
+              aria-label="menu-login"
+              href="/login"
+              style={{ position: "absolute", right: "1.5rem" }}
+            >
+              <img
+                src="assets/svg/enter-arrow.svg"
+                alt="login arro"
+                className="social-img"
+                data-label=""
+                style={{ filter: "invert(0%)", transform: "rotate(180deg)" }}
+              />
+            </a>
           </div>
         </>
       );

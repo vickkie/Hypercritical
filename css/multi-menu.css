@@ -17,6 +17,7 @@ body {
   --color-info: #57535a;
   --color-title: #e23434;
   --color-tagline: #e2e2e2;
+  --font-g: SpaceGrotesk;
 }
 .menuUzi a {
   color: var(--color-link) !important;
@@ -484,4 +485,85 @@ body {
   .action--close {
     right: 0.5rem !important;
   }
+}
+@media screen and (max-width: 767px) {
+  @font-face {
+    font-display: swap;
+    font-family: SpaceGrotesk;
+    src: url(../fonts/SpaceGrotesk.woff2) format("woff2");
+  }
+
+  .menuUzi a.mainmenuUzi__item {
+    color: #0c0c0c !important;
+    text-transform: uppercase !important;
+    border-bottom: solid 1px !important;
+    padding: 6px 2rem !important;
+    text-transform: uppercase !important;
+    font-family: var(--font-g), var(--font-3);
+    font-size: xx-large;
+  }
+  .mainmenuUzi,
+  .sidemenuUzi {
+    display: flex;
+    align-items: stretch !important;
+    flex-direction: column;
+    text-align: left !important;
+  }
+  .menuUzi__item--1 .menuUzi__item-inner {
+    background: #ffffff !important;
+  }
+  .action--close {
+    color: #000000 !important;
+  }
+  main .menuUzi {
+    grid-template-rows: 75% 25% !important;
+  }
+  .menuUzi__item-inner {
+    justify-content: flex-end;
+    /* justify-content: space-around; */
+  }
+
+  .menuUzi__item--3 .title-upper {
+    font-size: 0.82em;
+    text-align: left;
+    padding: 10px;
+  }
+  .menuUzi__item--3 .menuUzi__item-inner {
+    padding: 10px 20px !important;
+    background: var(--main-color) !important;
+  }
+  .menuUzi {
+    height: 100svh !important;
+  }
+  .menuUzi__item--3 .title-upper {
+    font-size: 0.82em;
+    text-align: left;
+    padding: 10px;
+  }
+}
+.title-upper {
+  color: var(--color-black);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+.socials-buttons {
+  display: flex;
+  margin-top: 12px;
+}
+.social-img {
+  height: 24px;
+  width: 24px;
+}
+.social-networks {
+  align-items: center;
+  background-color: rgba(1, 1, 1, 0);
+  border: 1px solid rgba(1, 1, 1, 0.35);
+  border-radius: 100%;
+  display: flex;
+  height: 52px;
+  justify-content: center;
+  margin-right: 4px;
+  width: 52px;
 }

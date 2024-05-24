@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Group 4: menuUzi midmoon
+
 let midmoon = select(".mid-moon");
 let menuclose = select(".action--close");
 let menuopen = select(".action--menuUzi");

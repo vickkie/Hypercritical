@@ -735,7 +735,8 @@ figure {
   border-radius: 50%;
 }
 .top-exit h2 {
-  font-size: calc(5vw + 10px);
+  font-size: calc(5.5vw + 10px);
+  font-family: var(--font-5);
 }
 
 .top-exit {
@@ -748,7 +749,7 @@ figure {
 }
 .contact-service {
   position: relative;
-
+  font-family: var(--font-5);
   background: transparent;
   border: 1px solid var(--color-black);
   outline: none;

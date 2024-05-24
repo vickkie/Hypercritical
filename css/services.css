@@ -873,3 +873,8 @@ figure {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
 }
+@media screen and (max-width: 425px) {
+  .scroll-service-down {
+    grid-template-columns: 30% 40% 30% !important;
+  }
+}

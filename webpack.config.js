@@ -42,7 +42,7 @@ const plugins = [
     template: "./index.html",
     filename: "index.html",
     inject: "body",
-    chunks: ["main"], // main js  chunks included in the HTML
+    chunks: ["main", "menu"], // main js  chunks included in the HTML
     minify: {
       collapseWhitespace: true,
       removeComments: false,
@@ -54,7 +54,7 @@ const plugins = [
     template: "./contact.html",
     filename: "contact.html",
     inject: "body",
-    chunks: ["contact"], // contact chunk to include in the HTML
+    chunks: ["contact", "menu"], // contact chunk to include in the HTML
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -66,7 +66,7 @@ const plugins = [
     template: "./services.html",
     filename: "services.html",
     inject: "body",
-    chunks: ["services"], // Service chunk to include in the HTML
+    chunks: ["services", "menu"], // Service chunk to include in the HTML
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -78,7 +78,7 @@ const plugins = [
     template: "./works.html",
     filename: "works.html",
     inject: "body",
-    chunks: ["works", , "projectSlider"],
+    chunks: ["works", "projectSlider", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -90,7 +90,7 @@ const plugins = [
     template: "./404.html",
     filename: "404.html",
     inject: "body",
-    chunks: ["404"],
+    chunks: ["404", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -102,7 +102,7 @@ const plugins = [
     template: "./studio.html",
     filename: "studio.html",
     inject: "body",
-    chunks: ["studio", "partnerModal"],
+    chunks: ["studio", "partnerModal", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -114,7 +114,7 @@ const plugins = [
     template: "./terms.html",
     filename: "terms.html",
     inject: "body",
-    chunks: ["terms"],
+    chunks: ["terms", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -126,7 +126,7 @@ const plugins = [
     template: "./privacy.html",
     filename: "privacy.html",
     inject: "body",
-    chunks: ["privacy"],
+    chunks: ["privacy", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -138,7 +138,7 @@ const plugins = [
     template: "./process.html",
     filename: "process.html",
     inject: "body",
-    chunks: ["common", "process"],
+    chunks: ["process", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -150,7 +150,7 @@ const plugins = [
     template: "./project.html",
     filename: "project.html",
     inject: "body",
-    chunks: ["projectReact", "projectVanilla"],
+    chunks: ["projectReact", "projectVanilla", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -162,7 +162,7 @@ const plugins = [
     template: "./login.html",
     filename: "login.html",
     inject: "body",
-    chunks: ["loginpage", "login"],
+    chunks: ["loginpage", "login", "menu"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -204,9 +204,8 @@ module.exports = {
     studio: "./js/main/studio.js",
     terms: "./js/main/terms.js",
     privacy: "./js/main/privacy.js",
-    common: "./js/main/common.jsx",
+    menu: "./js/main/MultiMenu.jsx",
     process: "./js/main/process.js",
-    menu: "./js/library/multi-menu.js",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
     partnerModal: "./modal.jsx",

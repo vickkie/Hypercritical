@@ -145,7 +145,7 @@ class UziMenu extends React.Component {
       ComponentToRender = () => <PhoneMenu />;
     }
 
-    console.log("isMounted");
+    // console.log("isMounted");
 
     return <ComponentToRender />;
   }

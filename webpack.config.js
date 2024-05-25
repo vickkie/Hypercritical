@@ -208,7 +208,7 @@ module.exports = {
     process: "./js/main/process.js",
     404: "./js/main/404.jsx",
     projectSlider: "./js/main/workSlider.jsx",
-    partnerModal: "./modal.jsx",
+    partnerModal: "./js/main/modal.jsx",
     loginpage: "./js/main/components/LoginApp.jsx",
     login: "./js/main/login.js",
     projectReact: "./js/main/projects/ProjectPage.jsx",

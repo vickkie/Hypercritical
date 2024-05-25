@@ -376,6 +376,35 @@ designerButtons.forEach((designer, i) => {
   });
 });
 
+let partnerElement = select(".partner-modal");
+let partnerInnerElement = select(".partner-modal-inner");
+
+const closeModalnow = () => {
+  gsap
+    .timeline({ defaults: { ease: "power4.inOut" } })
+    .addLabel("start", "+=0")
+    .to(
+      ".partner-modal",
+      {
+        duration: 0.1,
+        opacity: 0,
+      },
+      "start"
+    )
+    .to(
+      ".partner-modal",
+      {
+        duration: 0.3,
+        scale: 0,
+      },
+      "start"
+    );
+};
+
+partnerElement.addEventListener("click", () => {
+  closeModalnow();
+});
+
 // Group 12: years of experience and data
 function assignExp(config) {
   for (const key in config) {

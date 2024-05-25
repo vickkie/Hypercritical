@@ -22,10 +22,6 @@ export default function Multimenu(params) {
         this.DOM.mainLinks = this.DOM.el.querySelectorAll(".mainmenuUzi > a.mainmenuUzi__item");
         this.DOM.sidemenuUziLinks = this.DOM.el.querySelectorAll(".sidemenuUzi__item-inner");
 
-        if (this.DOM.sidemenuUziLinks) {
-          console.log("wtf");
-          console.log(this.DOM.sidemenuUziLinks[0]);
-        }
         this.DOM.menuUzilink = this.DOM.el.querySelector(".menuUzi__item-link");
       }
       // Open the menuUzi.

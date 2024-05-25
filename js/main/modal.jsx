@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-class App extends React.Component {
+class PartnerModalApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -135,7 +135,7 @@ class App extends React.Component {
 const container = document.getElementById("partner-modal");
 if (container) {
   const root = createRoot(container);
-  root.render(<App />);
+  root.render(<PartnerModalApp />);
 } else {
   console.error("Container element not found");
 }

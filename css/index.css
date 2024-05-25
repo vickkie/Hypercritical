@@ -14,6 +14,7 @@
   --stick-black: #000;
   --stick-white: #fff;
   --main-color: #fc1234;
+  --main-co: #e03122;
   --color-third: #bed2f5;
   --color-forth: #2b2d42;
   --font-1: sohne-light;
@@ -2004,4 +2005,10 @@ html {
   background-color: var(--color-black);
   color: var(--color-bg);
   position: relative;
+}
+.black {
+  color: var(--color-black);
+}
+.rotate180 {
+  transform: rotate(180deg);
 }

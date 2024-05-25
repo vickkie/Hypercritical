@@ -12,11 +12,21 @@ let selectAll = (e) => document.querySelectorAll(e);
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-ScrollSmoother.create({
-  smooth: 1,
-  effects: true,
-  smoothTouch: 0.1,
-});
+function smoothTouch(params) {
+  if (innerWidth > 767) {
+    ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      smoothTouch: 0.1,
+    });
+  } else {
+    console.info("Phone detected");
+  }
+}
+
+smoothTouch();
+
+window.addEventListener("resize", smoothTouch);
 
 //Group 1: menuUzi midmoon
 

@@ -407,38 +407,76 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//Group 11: SplitText
+//Group 11: SplitText on hero text and animate
 
+gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
-const splitchars = selectAll(".split-chars");
-
-splitchars.forEach((splitchar) => {
-  new SplitText(splitchar, {
-    type: "words",
-    wordsClass: "otherchars",
-  });
+let title = new SplitText(".split-chars", {
+  type: "words,lines,chars",
+  wordsClass: "content__title word",
+  charsClass: "char",
+  linesClass: "lines",
 });
 
-let herowords = selectAll(".otherchars");
-let navBelowline = selectAll(".nav .below-line");
-
 const showHero = () => {
-  gsap
-    .timeline({ defaults: { ease: "expo.out", delay: 0 } })
-    .set(splitchars, { overflow: "hidden" })
-    .addLabel("start")
-    .fromTo(
-      herowords,
-      { y: "102%" },
+  const fx28Titles = [...document.querySelectorAll(".split-chars")];
 
-      {
-        duration: 2.3,
-        y: "0",
-        ease: "power2.inOut",
-      },
-      "start+=0"
-    );
+  fx28Titles.forEach((title) => {
+    const words = [...title.querySelectorAll(".word")];
+
+    for (const word of words) {
+      const chars = word.querySelectorAll(".char");
+      const charsTotal = chars.length;
+
+      gsap
+        .timeline({ defaults: { delay: 0.2 } })
+        .addLabel("start")
+        .fromTo(
+          chars,
+          {
+            "will-change": "transform, filter",
+            transformOrigin: "50% 100%",
+            scale: (position) => {
+              const factor =
+                position < Math.ceil(charsTotal / 2)
+                  ? position
+                  : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+              return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0.5, 2.1, factor);
+            },
+            y: (position) => {
+              const factor =
+                position < Math.ceil(charsTotal / 2)
+                  ? position
+                  : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+              return gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 60, factor);
+            },
+            rotation: (position) => {
+              const factor =
+                position < Math.ceil(charsTotal / 2)
+                  ? position
+                  : Math.ceil(charsTotal / 2) - Math.abs(Math.floor(charsTotal / 2) - position) - 1;
+              return position < charsTotal / 2
+                ? gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), -4, 0, factor)
+                : gsap.utils.mapRange(0, Math.ceil(charsTotal / 2), 0, 4, factor);
+            },
+            filter: "blur(12px) opacity(0)",
+          },
+          {
+            ease: "power2.inOut",
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            filter: "blur(0px) opacity(1)",
+            stagger: {
+              amount: 0.15,
+              from: "center",
+            },
+          },
+          "start+=0.4"
+        );
+    }
+  });
 };
 
 window.onload = () => {

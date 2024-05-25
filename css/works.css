@@ -378,6 +378,7 @@ video {
 }
 
 .sw-partner-marquee-row {
+  font-family: var(--font-3);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -522,6 +523,7 @@ video {
 }
 
 .works-exit {
+  font-family: var(--font-5);
   height: fit-content;
   min-height: 100vh;
   background-color: var(--color-bg);
@@ -535,10 +537,11 @@ video {
 }
 
 .lets-make {
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   padding: 14px 2.62rem;
-  color: var(--main-color);
+  color: var(--main-co);
   justify-content: center;
   align-items: center;
 }
@@ -630,7 +633,7 @@ video {
 .rolling-text .letter {
   display: inline-block;
   transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
-  color: var(--main-color);
+  color: var(--main-co);
 }
 
 .letter:nth-child(1) {
@@ -1004,10 +1007,16 @@ video {
     font-size: 16vw !important;
     gap: 0.7rem;
     width: 100%;
-    display: grid;
+    /* display: grid; */
+  }
+  .lets-make {
+    align-items: start;
   }
 }
 .rolling-text .block {
   display: flex;
   justify-content: center;
+}
+.rotate180 {
+  transform: rotate(180deg);
 }

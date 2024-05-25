@@ -4,7 +4,7 @@
     "link":"/index",
     "start_url":"/index",
     "theme_color":"#e2ccff",
-    "background_color":"#fcfcfc",
+    "background_color":"transparent",
     "display":"fullscreen",
     "orientation":"portrait",
     "shortcuts":[],

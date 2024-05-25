@@ -10,6 +10,12 @@
 
 /*! ./cjs/react.development.js */
 
+/*! lozad */
+
+/*! lozad.js - v1.16.0 - 2020-09-06
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2020 Apoorv Saxena; Licensed MIT */
+
 /*! mouse-follower */
 
 /*! react */
@@ -25,6 +31,10 @@
 /*!*********************************************!*\
   !*** ./js/main/projects/ProjectVanilla.jsx ***!
   \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/lozad/dist/lozad.min.js ***!
+  \**********************************************/
 
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!

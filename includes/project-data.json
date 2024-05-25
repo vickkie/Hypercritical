@@ -11,17 +11,17 @@
         "content": "Skincare on a mission of empathy and self-discovery.",
         "solution": " Throughout our partnership, As the developer responsible for designing Lumina's product branding and website, I addressed these challenges by implementing a comprehensive solution. Through extensive market research and collaboration with Lumina's team, I developed a cohesive brand identity that resonated with the target audience and differentiated Lumina from competitors. This involved creating visually appealing packaging designs that conveyed the premium quality and efficacy of Lumina's skincare products.",
         "Analysis": " Lumina, a skincare product company, faced several challenges in establishing its brand identity and online presence. The company struggled with low brand recognition, difficulty in conveying the benefits of its products, and limited customer engagement on its existing website.",
-        "previewColor": "transparent",
-        "previewImage": "assets/images/works/lumina/lumina-2.webp"
+        "previewColor": "#fff",
+        "previewImage": "assets/images/works/lumina-web/wow-bg.avif"
     },
     {
         "id": "trakexcel",
-        "aim": "Objective was to design a website for Trakexcel agency that is exceptionally attractive and visually appealing. Every aspect of the design was crafted to captivate visitors and leave a lasting impression, ensuring that the website stands out amidst the digital landscape.",
+        "aim": "The objective was to design and develop a website for Trakexcel agency that is exceptionally attractive and visually appealing. Every aspect of the design was crafted to captivate visitors and leave a lasting impression, ensuring that the website stands out amidst the digital landscape.",
         "task": "design,ui development",
         "year": "2020",
         "title": "Trakexcel",
-        "media": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp || assets/images/works/trakexcel/68e3f4158977523.63c9b54a11c46.png",
-        "mediaLarge": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp || assets/images/works/trakexcel/68e3f4158977523.63c9b54a11c46.png",
+        "media": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp || assets/images/works/trakexcel/localhost_trakexcel_blog.avif",
+        "mediaLarge": "assets/images/works/trakexcel/Index-page-mid.webp?auto=compress,format || assets/images/works/trakexcel/trakexcel-mockall-mid.webp?auto=compress,format || assets/images/works/trakexcel/Trakexcel-iPhone-midhigh.webp || assets/images/works/trakexcel/localhost_trakexcel_blog.avif",
         "client": "Trakexcel agency",
         "Analysis": "Trakexcel Agency, a leading provider of marketing and analytics solutions, aimed to revolutionize its online presence and brand image. Recognizing the importance of a captivating design that resonates with its target audience, they entrusted us with this mission. As our collaboration progressed, our focus extended to enhancing user engagement and streamlining the user experience.",
         "solution": " We undertook various initiatives to enhance Trakexcel's online presence. We began by optimizing the website's interface and user experience, focusing on improving navigation and visual appeal. Subsequently, we delved into mobile design, exploring new app directions and refining user interactions to optimize engagement.</br></br> Additionally, we revamped the onboarding process, redesigning flows and incorporating custom illustrations to communicate Trakexcel's brand story effectively. Our ultimate achievement was the development of a comprehensive design system that ensured consistency and efficiency across all design, product, and engineering endeavors.",
@@ -78,8 +78,8 @@
         "mediaLarge": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.avif || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp || assets/images/works/spoiled-child/spoiledchild.com.webp  || assets/images/works/spoiled-child/whospoiled.webp",
         "content": "Make your skin age inappropriate. ",
         "solution":"The project began with setting a collaborative creative direction. This involves understanding the brand's vision, values, and target audience to ensure the design aligns with these elements. Collaborating closely with the client allows for a shared understanding of the desired outcome, leading to a more cohesive final product.<br><br>A crucial aspect of the design process was defining product categories and creating detailed pages for each product. These pages were designed to immerse users in a colorful capsule-driven world, enhancing the shopping experience through visual appeal and thematic consistency<br><br>The website's content strategy prioritizes community involvement, showcasing User-Generated Content (UGC) to demonstrate product usage and effectiveness. This approach not only builds trust with potential customers but also fosters a sense of community among existing ones<br><br>The visual design and art direction were tailored to reflect the brand's unique personality, described as confident, tongue-in-cheek, and impactful yet simple. This approach ensures that the website stands out in the crowded beauty space, attracting attention and resonating with the target audience.<br><br>The eCommerce platform used for Spoiled Child is custom, highlighting the need for a tailored solution that meets the specific requirements of the brand and its online presence. This customization includes features such as personalized product recommendations, secure payment processing, and efficient order management",
-        "previewColor": "transparent",
-        "previewImage": "assets/images/works/spoiled-child/hair-min_1.avif"
+        "previewColor": "var(--color-bg)",
+        "previewImage": "assets/images/works/spoiled-child/sospoiled.avif"
     },
     {
         "id": "jstimler",

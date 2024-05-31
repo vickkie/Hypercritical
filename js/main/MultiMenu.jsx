@@ -160,12 +160,6 @@ const renderMenu = () => {
         <UziMenu />
       </React.StrictMode>
     );
-
-    //?Important to give gsap time to animate menu
-
-    // setTimeout(() => {
-    //   Multimenu();
-    // }, 1000);
   } else {
     console.error("Element with your root id is not found");
   }

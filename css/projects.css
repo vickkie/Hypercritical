@@ -374,3 +374,6 @@ html {
 .thirtyworks {
   padding: 7rem 0;
 }
+.otherImage {
+  overflow: hidden;
+}

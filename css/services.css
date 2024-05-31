@@ -425,6 +425,8 @@ figure {
   padding: 40px 0;
   position: relative;
   align-items: center;
+  font-family: var(--font-1);
+  font-weight: 700;
 }
 .top-border {
   height: 0.052vw;

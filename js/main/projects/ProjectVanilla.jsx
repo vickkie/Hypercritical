@@ -56,6 +56,50 @@ function Vanilla() {
     splitAnimate();
   }, 10);
 
+  let scaledHover = selectAll([".projectImage2-inner img", ".otherImage-inner img"]);
+
+  scaledHover.forEach((scaled) => {
+    let gsapHover = gsap.timeline();
+
+    let mouseenter = "mouseenter",
+      mouseleave = "mouseleave",
+      event;
+
+    scaled.addEventListener("mouseenter", zoom);
+
+    scaled.addEventListener("mouseleave", reset);
+    function zoom() {
+      TweenMax.staggerTo(
+        scaled,
+        1.5,
+        {
+          ease: "Expo.easeOut",
+          x: 0,
+          y: 0,
+          rotationX: 0,
+          rotationY: 0,
+          scale: 1.1,
+        },
+        0.04
+      );
+    }
+    function reset() {
+      TweenMax.staggerTo(
+        scaled,
+        1.5,
+        {
+          ease: "Expo.easeOut",
+          x: 0,
+          y: 0,
+          rotationX: 0,
+          rotationY: 0,
+          scale: 1,
+        },
+        0.07
+      );
+    }
+  });
+
   // !closing tag :dont remove
 }
 

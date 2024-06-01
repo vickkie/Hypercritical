@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the timeline
     const transitionTimeline = gsap.timeline();
 
+    // Change cursor to loading
+    document.body.style.cursor = "progress";
+
     // Add a label to the timeline and animate the transition-out element
     transitionTimeline.addLabel("start", 0).fromTo(
       ".transition-out",
@@ -26,6 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
           scaleY: 1,
           duration: 1.1, // Adjusted duration to match the timeline
           ease: "power2.inOut", // Added ease for consistency
+          onComplete: () => {
+            // Revert cursor to default after transition
+            document.body.style.cursor = "default";
+          },
         },
         "start+=1.0"
       );
@@ -37,7 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           scaleY: 0,
           duration: 1.1, // Adjusted duration to match the timeline
-          ease: "power2.inOut", // Added ease for consistency
+          ease: "power2.inOut",
+          onComplete: () => {
+            // Revert cursor to default after transition
+            document.body.style.cursor = "default";
+          },
         },
         "start+=1.0"
       );

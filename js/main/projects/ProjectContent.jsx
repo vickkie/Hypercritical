@@ -9,7 +9,7 @@ function ProjectContent({ pageData, nextPage }) {
     mediaAttr = pageData.mediaLarge;
   }
 
-  // For now max  is 7.. needs improvements
+  //TODO needs improvements
   // const mediaAttr = pageData.media;
   const mediaUrls = mediaAttr ? mediaAttr.split(" || ") : [];
   const projectPreview = pageData.previewImage;

@@ -16,15 +16,9 @@ function ProjectContent({ pageData, nextPage }) {
   const media1 = mediaUrls[0];
   const media2 = mediaUrls[1];
   const media3 = mediaUrls[2];
-  const media4 = mediaUrls[3];
-  const media5 = mediaUrls[4];
-  const media6 = mediaUrls[5];
-  const media7 = mediaUrls[6];
 
   const importantMedia = [...mediaUrls.slice(0, 15)];
   const restMedia = [...mediaUrls.slice(3)];
-
-  console.log(restMedia);
 
   function MediaComponent({ src, type, alt }) {
     return (

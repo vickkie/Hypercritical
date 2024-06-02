@@ -278,3 +278,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Function to fetch project data (replace with your actual data source)
+// async function fetchProjects() {
+//   const response = await fetch("../../includes/project-data.json");
+//   const projects = await response.json();
+//   return projects;
+// }
+
+// // Function to preload images
+// function preloadImages(projects) {
+//   projects.forEach((project) => {
+//     // Ensure the path is correct relative to where your site is served
+//     const imagePath = project.previewImage.startsWith("/") ? project.previewImage : "/" + project.previewImage;
+
+//     const link = document.createElement("link");
+//     link.rel = "preload";
+//     link.as = "image";
+//     link.href = imagePath;
+//     document.head.appendChild(link);
+//   });
+// }
+
+// // Fetch projects and preload images
+// fetchProjects().then(preloadImages);
+
+async function fetchProjects() {
+  try {
+    const response = await fetch("../../../includes/project-data.json");
+    if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
+    const projects = await response.json();
+    return projects;
+  } catch (error) {
+    console.error("Failed to fetch project data:", error);
+    return []; // Return an empty array in case of failure
+  }
+}
+
+function getMediaTypeFromExtension(extension) {
+  const videoExtensions = ["mp4", "webm"];
+  if (videoExtensions.includes(extension.toLowerCase())) {
+    return "video";
+  } else {
+    return "image";
+  }
+}
+
+function preloadMedia(projects) {
+  projects.forEach((project) => {
+    // Convert the relative path to an absolute URL
+    const baseUrl = window.location.origin; // Gets the origin of the current page
+    const absoluteUrl = new URL(project.previewImage, baseUrl).toString();
+
+    // Extract the file extension from the absolute URL
+    const url = new URL(absoluteUrl);
+    const pathParts = url.pathname.split("/"); // Split by slash to separate directories and file
+    const fileName = pathParts[pathParts.length - 1]; // Get the last part as the file name
+
+    const extensionIndex = fileName.lastIndexOf("."); // Find the position of the last dot
+    const extension = extensionIndex > 0 ? fileName.substring(extensionIndex + 1) : "";
+
+    // Extract the extension if found
+
+    // Determine the media type based on the file extension
+    const mediaType = getMediaTypeFromExtension(extension);
+
+    // Construct the href with the absolute URL
+    const href = absoluteUrl;
+
+    if (mediaType === "video") {
+      const link = document.createElement("video");
+
+      link.preload = "metadata";
+      link.src = href;
+      document.head.appendChild(link);
+    } else {
+      const link = document.createElement("link");
+
+      link.rel = "preload";
+      link.as = mediaType;
+      link.href = href;
+      document.head.appendChild(link);
+    }
+  });
+}
+
+// window.onload = function () {
+fetchProjects().then(preloadMedia).catch(console.error);
+// };

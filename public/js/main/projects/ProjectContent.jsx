@@ -21,11 +21,26 @@ function ProjectContent({ pageData, nextPage }) {
   const media6 = mediaUrls[5];
   const media7 = mediaUrls[6];
 
-  // console.log(mediaUrls);
+  const importantMedia = [...mediaUrls.slice(0, 15)];
+  const restMedia = [...mediaUrls.slice(3)];
 
-  // const gotoPage = () => {
-  //   navigate(`project#${nextPage}`);
-  // };
+  console.log(restMedia);
+
+  function MediaComponent({ src, type, alt }) {
+    return (
+      <div className="otherImage">
+        <div className="otherImage-inner">
+          {type === "video/mp4" || type === "video/webm" ? (
+            <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+              <source src={src} type={type} />
+            </video>
+          ) : (
+            <img src={src} alt={alt} />
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -77,6 +92,7 @@ function ProjectContent({ pageData, nextPage }) {
           <div className="aboutLeft">About Project</div>
           <div className="aboutCenter">
             <div className="aboutClient">{pageData.content}</div>
+            <br></br>
             <div className="projectAnalysis">{pageData.Analysis}</div>
           </div>
           <div className="aboutRight">
@@ -145,66 +161,31 @@ function ProjectContent({ pageData, nextPage }) {
           </div>
         </div>
         <div className="remainingImages">
-          <div className="otherImage">
-            {media4 !== undefined && (
-              <>
-                <div className="otherImage-inner">
-                  {media4.endsWith(".mp4") || media4.endsWith(".webm") ? (
-                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
-                      <source src={media4} type={media4.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
-                    </video>
-                  ) : (
-                    <img src={media4} alt={pageData.title} />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-          <div className="otherImage">
-            {media5 !== undefined && (
-              <>
-                <div className="otherImage-inner">
-                  {media5.endsWith(".mp4") || media5.endsWith(".webm") ? (
-                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
-                      <source src={media5} type={media5.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
-                    </video>
-                  ) : (
-                    <img src={media5} alt={pageData.title} />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-          <div className="otherImage">
-            {media6 !== undefined && (
-              <>
-                <div className="otherImage-inner">
-                  {media6.endsWith(".mp4") || media6.endsWith(".webm") ? (
-                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
-                      <source src={media6} type={media6.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
-                    </video>
-                  ) : (
-                    <img src={media6} alt={pageData.title} />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-          <div className="otherImage">
-            {media7 !== undefined && (
-              <>
-                <div className="otherImage-inner">
-                  {media7.endsWith(".mp4") || media7.endsWith(".webm") ? (
-                    <video muted={true} loop={true} autoPlay={true} playsInline={true}>
-                      <source src={media7} type={media7.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
-                    </video>
-                  ) : (
-                    <img src={media7} alt={pageData.title} />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
+          {importantMedia.length !== null &&
+            importantMedia.slice(3).map((media, index) => {
+              const fileType = media.match(/\.(\w+)$/);
+              let type = "image/webp";
+
+              if (fileType) {
+                switch (fileType[1]) {
+                  case "mp4":
+                    type = "video/mp4";
+                    break;
+                  case "webm":
+                    type = "video/webm";
+                    break;
+                  default:
+                    // Any other file type is treated as an image
+                    type = "image/webp"; // changeable
+                    break;
+                }
+              } else {
+                // If no file extension is detected, treat it as an unknown type
+                type = "unknown";
+              }
+
+              return <MediaComponent key={index} src={media} type={type} alt={`Media ${index + 8}`} />;
+            })}
         </div>
       </section>
       <section className="thirtyworks">
@@ -216,9 +197,6 @@ function ProjectContent({ pageData, nextPage }) {
               document.documentElement.scrollTop = 0;
             }, 300)
           }
-          // onClick={() => {
-          //   window.location = `/project#${nextPage}`;
-          // }}
           className="thirty-wrapper"
         >
           <div className="below-line" style={{ width: "100%" }}>
@@ -247,76 +225,3 @@ function ProjectContent({ pageData, nextPage }) {
 }
 
 export default ProjectContent;
-
-// import React from "react";
-
-// const MediaElement = ({ url, title }) => {
-//   if (url.endsWith(".mp4") || url.endsWith(".webm")) {
-//     return (
-//       <video muted={true} loop={true} autoPlay={true} playsInline={true}>
-//         <source src={url} type={url.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
-//       </video>
-//     );
-//   } else {
-//     return <img src={url} alt={title} />;
-//   }
-// };
-
-// function ProjectContent({ pageData }) {
-//   const mediaAttr = window.innerWidth < 768 ? pageData.media : pageData.mediaLarge;
-//   const mediaUrls = mediaAttr ? mediaAttr.split(" || ") : [];
-
-//   return (
-//     <>
-//       <section className="projectHeroWrapper">
-//         <div className="projectHero">
-//           <div className="preview__img">{MediaElement({ url: pageData.previewImage, title: pageData.title })}</div>
-//         </div>
-//       </section>
-
-//       <section className="projectDetails">
-//         <div className="projectMetadata">
-//           <div className="projectclient">
-//             <div className="metaDataheader">CLIENT</div>
-//             <div>{pageData.client}</div>
-//           </div>
-//           <div className="projecttask">
-//             <div className="metaDataheader">EXPERTISE</div>
-//             <div>{pageData.task}</div>
-//           </div>
-//           <div className="projectyear">
-//             <div className="metaDataheader">YEAR</div>
-//             <div>{pageData.year}</div>
-//           </div>
-//         </div>
-
-//         <div className="projectAbout">
-//           <div className="aboutLeft">About Project</div>
-//           <div className="aboutCenter">
-//             <div className="aboutClient">{pageData.content}</div>
-//             <div className="projectAnalysis">{pageData.Analysis}</div>
-//           </div>
-//           <div className="aboutRight"></div>
-//         </div>
-
-//         {mediaUrls.map((url, index) => (
-//           <div key={index} className={`projectImage${index + 1}`}>
-//             <div className={`projectImage${index + 1}-inner`}>
-//               <MediaElement url={url} title={pageData.title} />
-//             </div>
-//           </div>
-//         ))}
-
-//         {mediaUrls.slice(7).map((url, index) => (
-//           <div key={index} className="otherImage">
-//             <div className="otherImage-inner">
-//               <MediaElement url={url} title={pageData.title} />
-//             </div>
-//           </div>
-//         ))}
-//       </section>
-//     </>
-//   );
-// }
-
-// export default ProjectContent;

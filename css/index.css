@@ -1772,9 +1772,14 @@ html {
     font-size: var(--hc-xxxl);
   }
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1080px) {
   .thirty-center {
     font-size: var(--hc-xxl);
+  }
+}
+@media screen and (min-width: 1081px) and (max-width: 1440px) {
+  .thirty-center {
+    font-size: var(--hc-xl);
   }
 }
 

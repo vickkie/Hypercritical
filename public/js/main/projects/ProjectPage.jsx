@@ -46,6 +46,7 @@ function App() {
         setCurrentPageData(page);
 
         let currentIndex = page.id;
+        setCurrentIndex(currentIndex);
         // console.log(`currentpage id ${currentIndex}`);
 
         // Extract all IDs from pagesData

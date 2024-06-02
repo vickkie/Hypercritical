@@ -44,7 +44,13 @@ function ProjectContent({ pageData, nextPage }) {
             {projectPreview.endsWith(".mp4") || projectPreview.endsWith(".webm") ? (
               <>
                 <div className="preview__img-inner relative">
-                  <video muted={true} loop={true} autoPlay={true} playsInline={true}>
+                  <video
+                    muted={true}
+                    loop={true}
+                    autoPlay={true}
+                    playsInline={true}
+                    poster={`assets/images/works/${pageData.id}/hero-poster.avif`}
+                  >
                     <source src={projectPreview} type={projectPreview.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
                   </video>
                 </div>

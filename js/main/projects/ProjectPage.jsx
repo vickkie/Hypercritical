@@ -4,7 +4,8 @@ import { createRoot } from "react-dom/client";
 import ProjectContent from "./ProjectContent";
 import pagesData from "../../../includes/project-data.json";
 import ErrorBoundary from "../components/ErrorBoundary";
-import Vanilla from "./ProjectVanilla";
+// import Preloader from "./ReactPreloader";
+// import Vanilla from "./ProjectVanilla";
 
 function App() {
   // const navigate = useNavigate();
@@ -66,11 +67,11 @@ function App() {
         if (nextId == allIndexes.length) {
           nextPage = allIndexes[0];
           setNextiouspage(nextPage);
-          console.log(`nextiousPage: ${nextiousPage}`);
+          // console.log(`nextiousPage: ${nextiousPage}`);
         } else {
           nextPage = allIndexes[`${nextId}`];
           setNextiouspage(nextPage);
-          console.log(`nextiousPage: ${nextiousPage}`);
+          // console.log(`nextiousPage: ${nextiousPage}`);
         }
 
         // console.log(`current id, ${currentId}`);

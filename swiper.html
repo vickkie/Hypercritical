@@ -1,0 +1,887 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css" />
+
+<body class="demo-2">
+  <svg class="hidden">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <title>arrow</title>
+      <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
+    </symbol>
+    <symbol id="icon-drop" viewBox="0 0 24 24">
+      <title>drop</title>
+      <path
+        d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"
+      />
+      <path
+        d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"
+      />
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 32.6 31.8">
+      <title>github</title>
+      <path
+        d="M16.3,0C7.3,0,0,7.3,0,16.3c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4C7.4,10.7,6.8,9,7.7,6.8c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C32.6,7.3,25.3,0,16.3,0z"
+      />
+    </symbol>
+    <symbol id="hypercritical" viewBox="7.80069 -0.000757502 3.6 3.301">
+      <path
+        d="M 8.7375 3.3 c -0.015 0 -0.0255 -0.0075 -0.0345 -0.0135 c -0.1305 -0.075 -0.2505 -0.162 -0.36 -0.264 a 2.073 2.073 90 0 1 -0.477 -0.795 a 1.629 1.629 90 0 1 -0.06 -0.588 c 0.012 -0.1695 0.045 -0.336 0.1125 -0.495 c 0.0345 -0.081 0.075 -0.162 0.117 -0.24 a 1.623 1.623 90 0 1 0.39 -0.471 A 1.767 1.767 90 0 1 9.675 0.0015 c 0.8355 0.036 1.4895 0.609 1.6725 1.332 a 1.71 1.71 90 0 1 -0.189 1.302 a 1.7745 1.7745 90 0 1 -0.6255 0.6315 c -0.018 0.012 -0.036 0.021 -0.054 0.03 c -0.0075 -0.0075 0 -0.009 0 -0.0135 l 0.0105 -0.0105 a 1.419 1.419 90 0 0 0.2115 -0.285 a 1.1385 1.1385 90 0 0 0.111 -0.9105 a 0.99 0.99 90 0 0 -0.2025 -0.3615 a 1.236 1.236 90 0 0 -0.7005 -0.42 a 1.488 1.488 90 0 0 -0.93 0.1125 a 1.26 1.26 90 0 0 -0.5115 0.4905 c -0.0435 0.075 -0.069 0.1575 -0.09 0.24 c -0.0255 0.105 -0.039 0.2115 -0.033 0.321 c 0.009 0.171 0.057 0.333 0.135 0.486 a 1.4325 1.4325 90 0 0 0.255 0.348 c 0.003 0 0.003 0 0.0045 0.006 Z"
+        fill="#fff"
+      />
+    </symbol>
+    <symbol id="icon-keyboard" viewBox="0 0 100 70">
+      <title>keyboard</title>
+
+      <path
+        d="M 60.94,1.83 39.22,1.83 C 36.71,1.83 34.67,3.86 34.67,6.376 L 34.67,28.1 C 34.67,30.61 36.71,32.65 39.22,32.65 L 60.94,32.65 C 63.45,32.65 65.5,30.61 65.5,28.1 L 65.5,6.376 C 65.5,3.86 63.45,1.83 60.94,1.83 Z M 44.79,18.63 50.08,11.74 55.37,18.63 Z"
+        opacity="0.2"
+      />
+      <path
+        d="M 60.86,36.75 39.14,36.75 C 36.63,36.75 34.59,38.79 34.59,41.3 L 34.59,63.02 C 34.59,65.53 36.63,67.57 39.14,67.57 L 60.86,67.57 C 63.38,67.57 65.41,65.53 65.41,63.02 L 65.41,41.3 C 65.42,38.79 63.38,36.75 60.86,36.75 Z M 50.08,57.45 44.79,50.55 55.37,50.55 Z"
+        opacity="0.2"
+      />
+      <path
+        d="M 95.45,36.75 73.73,36.75 C 71.22,36.75 69.18,38.79 69.18,41.3 L 69.18,63.02 C 69.18,65.53 71.22,67.57 73.73,67.57 L 95.45,67.57 C 97.97,67.57 100,65.53 100,63.02 L 100,41.3 C 100,38.79 97.97,36.75 95.45,36.75 Z M 83.4,57.45 83.4,46.86 90.3,52.16 Z"
+      />
+      <path
+        d="M 26.27,36.75 4.55,36.75 C 2.037,36.75 0,38.79 0,41.3 L 0,63.02 C 0,65.53 2.037,67.57 4.55,67.57 L 26.27,67.57 C 28.78,67.57 30.82,65.53 30.82,63.02 L 30.82,41.3 C 30.82,38.79 28.78,36.75 26.27,36.75 Z M 16.69,57.45 9.79,52.16 16.69,46.86 Z"
+      />
+    </symbol>
+  </svg>
+  <main>
+    <div class="message">Please view this demo on desktop in order to have the best experience.</div>
+    <div class="hypercritical-div">
+      <a class="hypercritical" onclick="window.open('https://hypercritical.vercel.app', '_blank')" title="find us"
+        ><svg class="icon icon--github">
+          <use xlink:href="#hypercritical"></use></svg
+      ></a>
+    </div>
+    <div class="content content--fixed">
+      <header class="hypercritical-header">
+        <h1 class="hypercritical-header__title">Hypercritical studio</h1>
+        <span class="info">Carousel Arrow Cursor</span>
+      </header>
+      <a
+        class="github"
+        href=""
+        onclick="window.open('https://github.com/vickkie', '_blank')"
+        title="Find this  on GitHub"
+        ><svg class="icon icon--github">
+          <use xlink:href="#icon-github"></use></svg
+      ></a>
+      <nav class="demos">
+        <svg class="icon icon--keyboard">
+          <use xlink:href="#icon-keyboard"></use>
+        </svg>
+      </nav>
+    </div>
+
+    <div class="content content--demo2">
+      <div class="arrow-cursor">
+        <svg class="arrow-cursor__icon" viewBox="0 0 117.25 86.75">
+          <path
+            class="arrow-cursor__path"
+            d="M111.45,42.5,74.65,5.7l-9.9,9.9,20.6,20.6H6.45v14h78.9L64.75,70.8l9.9,9.9,36.8-36.8A1,1,0,0,0,111.45,42.5Z"
+          />
+        </svg>
+      </div>
+      <div class="background-f">
+        <div class="grid">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide--wide">
+                <img
+                  class="swiper-slide__img lazyload"
+                  data-src="https://i.postimg.cc/mZSwdSMn/neoculturalcouture-thumb.webp
+"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide swiper-slide--portrait">
+                <img
+                  class="swiper-slide__img lazyload"
+                  data-src="                                https://i.postimg.cc/63r0xrPy/errormgmt-thumb.webp"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide swiper-slide--wide">
+                <img class="swiper-slide__img lazyload" data-src=https://i.postimg.cc/15z16QjN/7.jpg " alt="">
+              </div>
+              <div class="swiper-slide swiper-slide--portrait">
+                <img
+                  class="swiper-slide__img lazyload"
+                  data-src="https://i.postimg.cc/4dHMMfjB/garoaskincare-thumb.webp"
+                />
+              </div>
+              <div class="swiper-slide swiper-slide--square">
+                <img
+                  class="swiper-slide__img lazyload"
+                  data-src="https://i.postimg.cc/kG7yJVrw/yulia-thumb.webp"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide swiper-slide--portrait">
+                <img
+                  class="swiper-slide__img lazyload"
+                  data-src="https://i.postimg.cc/4ywQmJsG/villaeugenie-thumb.webp"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.init = false;
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</body>
+
+<style>
+  .background-f {
+    background-image: url(https://i.postimg.cc/nhWT4c7c/villa-eugenie-about-1.jpg);
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .demo-2 {
+    --color-text: #919191;
+    --color-bg: #e4dfdd42;
+    --color-link: #000000;
+    --color-link-hover: #fff;
+    --color-info: #fff;
+    --swiper-height: 65vh;
+
+    .grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      z-index: 2;
+
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 35px;
+        &.lazyloaded {
+          opacity: 1;
+        }
+      }
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: var(--swiper-height);
+      overflow: hidden;
+      .swiper-wrapper {
+        width: 100%;
+      }
+      .swiper-slide {
+        width: auto;
+        background-color: transparent;
+        display: flex;
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        position: relative;
+        width: 0;
+        padding-left: calc(var(--swiper-height) / 2 * 3);
+        &--square {
+          padding-left: var(--swiper-height);
+        }
+        &--portrait {
+          padding-left: calc(var(--swiper-height) / 3 * 2);
+        }
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 50%;
+      height: 100%;
+      margin-top: 0;
+      top: 0;
+      background-image: none;
+      cursor: none;
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-next {
+      right: 0;
+    }
+
+    .arrow-cursor {
+      width: 150px;
+      height: 110px;
+      position: fixed;
+      left: -75px;
+      top: -55px;
+      z-index: 10000000;
+      pointer-events: none;
+      &__icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &__path {
+        stroke: #ff6741;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    }
+  }
+  .arrow-cursor__icon {
+    fill: white;
+  }
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+  [hidden] {
+    display: none;
+  }
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+  }
+  a:focus {
+    outline: thin dotted;
+  }
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+  h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  abbr[title] {
+    border-bottom: 1px dotted;
+  }
+  b,
+  strong {
+    font-weight: bold;
+  }
+  dfn {
+    font-style: italic;
+  }
+  hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+  }
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+  }
+  pre {
+    white-space: pre-wrap;
+  }
+  q {
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+  small {
+    font-size: 80%;
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  img {
+    border: 0;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  figure {
+    margin: 0;
+  }
+  fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+  }
+  legend {
+    border: 0;
+    padding: 0;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+  button,
+  input {
+    line-height: normal;
+  }
+  button,
+  select {
+    text-transform: none;
+  }
+  button,
+  html input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  button[disabled],
+  html input[disabled] {
+    cursor: default;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  textarea {
+    overflow: auto;
+    vertical-align: top;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: #fff;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: #57585c;
+    color: var(--color-text);
+    background-color: #fff;
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fade effect */
+  .js body {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .js body.render {
+    opacity: 1;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-link);
+    outline: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-link-hover);
+    outline: none;
+  }
+
+  .hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .message {
+    position: relative;
+    z-index: 100;
+    display: none;
+    text-align: center;
+    line-height: 1.4;
+    background: var(--color-bg);
+    color: var(--color-link);
+    padding: 2em 2em 1em;
+  }
+
+  /* Icons */
+  .icon {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 auto;
+    fill: currentColor;
+  }
+
+  .icon--keyboard {
+    display: none;
+  }
+
+  main {
+    position: relative;
+    width: 100%;
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  .content--fixed {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-content: space-between;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    height: 100vh;
+    padding: 0.5rem 1.5em;
+    pointer-events: none;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto 4em;
+    grid-template-areas:
+      "header header"
+      "example ..."
+      "github demos";
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .content--fixed a {
+    pointer-events: auto;
+  }
+
+  /* Header */
+  .hypercritical-header {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+    align-self: start;
+    grid-area: header;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hypercritical-header__title {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.75em 0;
+    @media (max-width: 768px) {
+      margin-right: 15px;
+    }
+  }
+
+  .info {
+    margin: 0 0 0 1.25em;
+    color: var(--color-info);
+  }
+
+  .github {
+    display: block;
+    align-self: end;
+    grid-area: github;
+    justify-self: start;
+  }
+
+  .demos {
+    position: relative;
+    display: block;
+    align-self: end;
+    text-align: center;
+    grid-area: demos;
+  }
+
+  .demo {
+    display: flex;
+    line-height: 1;
+    margin: 0 12px;
+    color: var(--color-link);
+    transition: color 0.2s ease;
+    height: 24px;
+    align-items: center;
+    span {
+      transition: color 0.2s ease;
+    }
+  }
+  a.demo--current span {
+    color: var(--color-text);
+  }
+
+  .demo span {
+    white-space: nowrap;
+  }
+
+  a.demo--current {
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 55em) {
+    .info {
+      margin: 0;
+    }
+    .hypercritical-links {
+      margin: 0;
+    }
+  }
+
+  .icon--github {
+    fill: white;
+  }
+
+  @media screen and (min-width: 55em) {
+    .icon--keyboard {
+      position: absolute;
+      right: 0.55em;
+      bottom: -30%;
+      display: block;
+      width: 54px;
+      height: 46px;
+      fill: var(--color-link);
+    }
+
+    .demos {
+      display: flex;
+      padding-right: 80px;
+      justify-self: end;
+    }
+
+    .demo span {
+      line-height: 1;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .message {
+      display: flex;
+      height: 95vh;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .message {
+      background: none;
+    }
+    .cursor-wrapper,
+    .arrow-cursor,
+    .circle-cursor,
+    .square-cursor,
+    .demos {
+      display: none !important;
+    }
+  }
+
+  @media (pointer: coarse) AND (min-width: 55em) {
+    .message {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+    }
+  }
+
+  .website,
+  .website svg {
+    margin-left: 30px;
+    fill: white;
+  }
+  .hypercritical-div {
+    position: absolute;
+    z-index: 4;
+    place-content: center;
+    justify-content: center;
+    display: grid;
+    align-items: center;
+    width: 100%;
+    top: 20px;
+  }
+
+  .hypercritical {
+    cursor: pointer;
+  }
+</style>
+<script>
+  const initPageTransitions = () => {
+    setTimeout(() => document.body.classList.add("render"), 60);
+    const navdemos = Array.from(document.querySelectorAll(".demos__links .demo"));
+    const total = navdemos.length;
+    const current = navdemos.findIndex((el) => el.classList.contains("demo--current"));
+    const navigate = (linkEl) => {
+      document.body.classList.remove("render");
+      document.body.addEventListener("transitionend", () => (window.location = linkEl.href));
+    };
+    navdemos.forEach((link) =>
+      link.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        navigate(ev.currentTarget);
+      })
+    );
+    document.addEventListener("keydown", (ev) => {
+      const keyCode = ev.keyCode || ev.which;
+      let linkEl;
+      if (keyCode === 37) {
+        linkEl = current > 0 ? navdemos[current - 1] : navdemos[total - 1];
+      } else if (keyCode === 39) {
+        linkEl = current < total - 1 ? navdemos[current + 1] : navdemos[0];
+      } else {
+        return false;
+      }
+      navigate(linkEl);
+    });
+  };
+
+  // export default initPageTransitions;
+
+  class Demo2 {
+    constructor() {
+      initPageTransitions();
+      this.initDemo();
+      this.initSwiper();
+      window.lazySizes.init();
+    }
+
+    initDemo() {
+      const { Back } = window;
+      this.cursor = document.querySelector(".arrow-cursor");
+      this.cursorIcon = document.querySelector(".arrow-cursor__icon");
+      this.cursorBox = this.cursor.getBoundingClientRect();
+      this.easing = Back.easeOut.config(1.7);
+      this.animationDuration = 0.3;
+      this.cursorSide = null; // will be "left" or "right"
+      this.cursorInsideSwiper = false;
+
+      // initial cursor styling
+      TweenMax.to(this.cursorIcon, 0, {
+        rotation: -135,
+        opacity: 0,
+        scale: 0.5,
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        this.clientX = e.clientX;
+        this.clientY = e.clientY;
+      });
+
+      const render = () => {
+        TweenMax.set(this.cursor, {
+          x: this.clientX,
+          y: this.clientY,
+        });
+        requestAnimationFrame(render);
+      };
+      requestAnimationFrame(render);
+
+      // mouseenter
+      const onSwiperMouseEnter = (e) => {
+        this.swiperBox = e.target.getBoundingClientRect();
+
+        if (!this.clientX) this.clientX = e.clientX;
+        if (!this.clientY) this.clientY = e.clientY;
+
+        let startRotation;
+        if (this.clientY < this.swiperBox.top + this.swiperBox.height / 2) {
+          startRotation = -135;
+        } else {
+          startRotation = this.clientX > window.innerWidth / 2 ? 135 : -315;
+        }
+        TweenMax.set(this.cursorIcon, {
+          rotation: startRotation,
+        });
+
+        this.cursorSide = this.clientX > window.innerWidth / 2 ? "right" : "left";
+
+        TweenMax.to(this.cursorIcon, this.animationDuration, {
+          rotation: this.cursorSide === "right" ? 0 : -180,
+          scale: 1,
+          opacity: 1,
+          ease: this.easing,
+        });
+      };
+
+      // mouseLeave
+      const onSwiperMouseLeave = (e) => {
+        this.swiperBox = e.target.getBoundingClientRect();
+
+        let outRotation = 0;
+        if (this.clientY < this.swiperBox.top + this.swiperBox.height / 2) {
+          outRotation = this.cursorSide === "right" ? -135 : -45;
+        } else {
+          outRotation = this.cursorSide === "right" ? 135 : -315;
+        }
+
+        TweenMax.to(this.cursorIcon, this.animationDuration, {
+          rotation: outRotation,
+          opacity: 0,
+          scale: 0.3,
+        });
+
+        this.cursorSide = null;
+        this.cursorInsideSwiper = false;
+      };
+
+      // move cursor from left to right or right to left inside the Swiper
+      const onSwitchSwiperSides = () => {
+        if (this.cursorInsideSwiper) {
+          TweenMax.to(this.cursorIcon, this.animationDuration, {
+            rotation: this.cursorSide === "right" ? -180 : 0,
+            ease: this.easing,
+          });
+          this.cursorSide = this.cursorSide === "left" ? "right" : "left";
+        }
+
+        if (!this.cursorInsideSwiper) {
+          this.cursorInsideSwiper = true;
+        }
+      };
+
+      const swiperContainer = document.querySelector(".swiper-container");
+      swiperContainer.addEventListener("mouseenter", onSwiperMouseEnter);
+      swiperContainer.addEventListener("mouseleave", onSwiperMouseLeave);
+
+      const swiperButtonPrev = document.querySelector(".swiper-button-prev");
+      const swiperButtonNext = document.querySelector(".swiper-button-next");
+      swiperButtonPrev.addEventListener("mouseenter", onSwitchSwiperSides);
+      swiperButtonNext.addEventListener("mouseenter", onSwitchSwiperSides);
+    }
+
+    initSwiper() {
+      const { Swiper } = window;
+      this.swiper = new Swiper(".swiper-container", {
+        loop: true,
+        slidesPerView: "auto",
+        spaceBetween: 40,
+        centeredSlides: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      this.swiper.on("touchMove", (e) => {
+        const { clientX, clientY } = e;
+        this.clientX = clientX;
+        this.clientY = clientY;
+
+        this.cursorSide = this.clientX > window.innerWidth / 2 ? "right" : "left";
+
+        TweenMax.to(this.cursorIcon, this.animationDuration, {
+          rotation: this.cursorSide === "right" ? 0 : -180,
+          ease: this.easing,
+        });
+      });
+
+      this.bumpCursorTween = TweenMax.to(this.cursor, 0.1, {
+        scale: 0.85,
+        onComplete: () => {
+          TweenMax.to(this.cursor, 0.2, {
+            scale: 1,
+            ease: this.easing,
+          });
+        },
+        paused: true,
+      });
+
+      this.swiper.on("slideChange", () => {
+        this.bumpCursorTween.play();
+      });
+    }
+  }
+
+  const demo2 = new Demo2();
+</script>

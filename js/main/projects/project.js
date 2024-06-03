@@ -279,29 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Function to fetch project data (replace with your actual data source)
-// async function fetchProjects() {
-//   const response = await fetch("../../includes/project-data.json");
-//   const projects = await response.json();
-//   return projects;
-// }
-
-// // Function to preload images
-// function preloadImages(projects) {
-//   projects.forEach((project) => {
-//     // Ensure the path is correct relative to where your site is served
-//     const imagePath = project.previewImage.startsWith("/") ? project.previewImage : "/" + project.previewImage;
-
-//     const link = document.createElement("link");
-//     link.rel = "preload";
-//     link.as = "image";
-//     link.href = imagePath;
-//     document.head.appendChild(link);
-//   });
-// }
-
-// // Fetch projects and preload images
-// fetchProjects().then(preloadImages);
+//Group  5:  Function to fetch project data and preload their images
 
 async function fetchProjects() {
   try {
@@ -336,9 +314,7 @@ function preloadMedia(projects) {
     const fileName = pathParts[pathParts.length - 1]; // Get the last part as the file name
 
     const extensionIndex = fileName.lastIndexOf("."); // Find the position of the last dot
-    const extension = extensionIndex > 0 ? fileName.substring(extensionIndex + 1) : "";
-
-    // Extract the extension if found
+    const extension = extensionIndex > 0 ? fileName.substring(extensionIndex + 1) : ""; // Extract the extension if found
 
     // Determine the media type based on the file extension
     const mediaType = getMediaTypeFromExtension(extension);

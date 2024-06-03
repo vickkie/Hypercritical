@@ -72,7 +72,9 @@ function ProjectContent({ pageData, nextPage }) {
             )}
           </div>
         </div>
+        <div className="gradient-me"></div>
       </section>
+
       <section className="projectDetails">
         <div className="projectMetadata">
           <div className="projectclient">

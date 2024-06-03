@@ -2017,3 +2017,12 @@ html {
 .rotate180 {
   transform: rotate(180deg);
 }
+
+.gradient-me {
+  z-index: 1;
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(transparent, #000);
+  margin-top: -9vh;
+  grid-area: gradient;
+}

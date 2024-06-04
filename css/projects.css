@@ -279,6 +279,7 @@ html {
 
 .projectImage1-inner {
   mask-image: url("../assets/svg/3b.svg");
+  -webkit-mask-image: url("../assets/svg/3b.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   max-width: 90vw;

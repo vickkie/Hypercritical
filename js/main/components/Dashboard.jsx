@@ -4,6 +4,7 @@ import { useAuth } from "./Fragments/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
 import { getDatabase, ref, onValue, off, update, remove } from "firebase/database";
 import Badge from "@mui/material/Badge";
+import CardBarChart from "./Views/ProjectsChart";
 
 //? NOTE: Ui imports
 
@@ -153,7 +154,9 @@ const Dashboard = () => {
           <div className="bottomcenter grownish">
             <div className="bottomcenter-text">Home of design</div>
           </div>
-          <div className="topcenter grownish"></div>
+          <div className="topcenter grownish">
+            <CardBarChart />
+          </div>
           <div className="todo-list-right grownish">
             <TodoList />
           </div>

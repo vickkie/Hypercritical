@@ -297,3 +297,10 @@
   color: var(--color-black);
   z-index: 2;
 }
+.projectBar {
+  height: 100%;
+  justify-content: center;
+  display: grid;
+  font-family: var(--font-2);
+  font-size: 1.2rem;
+}

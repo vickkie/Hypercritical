@@ -35,7 +35,13 @@ object-assign
 
 /*! !!../../../../node_modules/css-loader/dist/cjs.js!./styles.module.css */
 
+/*! !!../node_modules/css-loader/dist/cjs.js!./tailwind-output.css */
+
 /*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! ../../../../css/tailwind-output.css */
 
 /*! ../../../../node_modules/css-loader/dist/runtime/api.js */
 
@@ -206,6 +212,8 @@ object-assign
 /*! ../merge */
 
 /*! ../moment */
+
+/*! ../node_modules/css-loader/dist/runtime/api.js */
 
 /*! ../ownerDocument */
 
@@ -418,6 +426,8 @@ object-assign
 /*! ./Utility.js */
 
 /*! ./Views/ProjectsChart */
+
+/*! ./Views/ProjectsRevenue */
 
 /*! ./appendOwnerState */
 
@@ -1148,6 +1158,10 @@ object-assign
 /*! use-memo-one */
 
 /*! uuid */
+
+/*!*********************************!*\
+  !*** ./css/tailwind-output.css ***!
+  \*********************************/
 
 /*!************************************!*\
   !*** ./node_modules/gsap/index.js ***!
@@ -2155,6 +2169,10 @@ object-assign
 
 /*!******************************************************!*\
   !*** ./js/main/components/Fragments/SearchInput.jsx ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./js/main/components/Views/ProjectsRevenue.jsx ***!
   \******************************************************/
 
 /*!******************************************************!*\
@@ -3367,6 +3385,10 @@ object-assign
 
 /*!***********************************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./css/tailwind-output.css ***!
   \***********************************************************************/
 
 /*!***********************************************************************!*\

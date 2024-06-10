@@ -19,6 +19,8 @@ import Swal from "sweetalert2";
 import SearchInput from "./Fragments/SearchInput";
 import { UnreadNumberContext } from "./Fragments/UnreadNumberContext";
 import useBeforeReload from "./Fragments/LeaveContext";
+import ProjectSales from "./Views/ProjectsRevenue";
+import TopCountries from "./Views/ProjectsRevenue";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
@@ -150,7 +152,9 @@ const Dashboard = () => {
             <div className="welcomeMessage">Welcome to Hypercritical</div>
             <div className="worldImage"></div>
           </div>
-          <div className="bottomleft grownish"></div>
+          <div className="bottomleft grownish">
+            <TopCountries></TopCountries>
+          </div>
           <div className="bottomcenter grownish">
             <div className="bottomcenter-text">Home of design</div>
           </div>

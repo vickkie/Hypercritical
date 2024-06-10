@@ -186,6 +186,51 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     }
   }
 
+  //get country analytics data, simple
+
+  // Function to fetch the visitor's IP address
+  const fetchIpAddress = async () => {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error("Error fetching IP:", error);
+      return null;
+    }
+  };
+
+  // Function to query the IP address for geolocation data
+  const fetchGeolocationData = async (ipAddress) => {
+    if (!ipAddress) return;
+
+    try {
+      const response = await fetch(`http://ip-api.com/json/${ipAddress}`);
+      const data = await response.json();
+      updateCountry(data.country);
+    } catch (error) {
+      console.error("Error fetching geolocation data:", error);
+    }
+  };
+
+  // Function to update the result element with the country name
+  const updateCountry = (country) => {
+    console.log(country);
+    return country;
+  };
+
+  // Main logic
+  const countryOrigin = async () => {
+    const ipAddress = await fetchIpAddress();
+    if (ipAddress) {
+      fetchGeolocationData(ipAddress);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    countryOrigin();
+  });
+
   // Generate a unique ID for the new entry
 
   // Generate a unique ID for the new entry
@@ -202,6 +247,7 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     date: new Date().toISOString(),
     comment: `Added From  website registration`,
     seen: "Unread",
+    country: countryOrigin(),
   });
 
   showDialog();

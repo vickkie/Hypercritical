@@ -1,1 +1,0 @@
-let select=e=>document.querySelector(e),selectAll=e=>document.querySelectorAll(e);document.addEventListener("DOMContentLoaded",(()=>{const e=select(".nav_logo_parent");select(".inputLogin1"),select(".inputLogin2");matchMedia("screen and (max-width: 768px)").matches&&(e.innerHTML="H.C")}));

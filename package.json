@@ -6,9 +6,9 @@
  "scripts": {
   "start": "cross-env NODE_ENV=development http-server public",
   "build": "cross-env NODE_ENV=production webpack --mode production",
-  "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+  "watch": "cross-env NODE_ENV=development webpack --mode development --watch && npx tailwindcss -i ./css/tailwind.css -o ./src/tailwind-output.css --watch",
   "test": "cross-env NODE_ENV=test jest",
-  "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run buld"
+  "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build"
  },
  "repository": {
   "type": "git",

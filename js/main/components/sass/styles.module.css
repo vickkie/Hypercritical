@@ -241,12 +241,17 @@
   gap: 30px;
   align-items: center;
   padding: 30px 0;
+  margin-bottom: 2rem;
 }
 .editMessage {
   min-height: 130px;
 }
 .mainColor {
   background-color: var(--main-color) !important;
+}
+
+.orangy {
+  background-color: var(--color-orangy) !important;
 }
 
 @media (min-width: 768px) {
@@ -439,4 +444,10 @@
 }
 .pagination svg {
   fill: var(--color-bg);
+}
+.font-1 {
+  font-family: var(--font-1);
+}
+.disabled {
+  cursor: not-allowed;
 }

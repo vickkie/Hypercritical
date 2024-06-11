@@ -33,6 +33,10 @@ const EditConsultation = () => {
   const [comment, setComment] = useState(null);
   const [seenStatus, setSeenStatus] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
+  const [agreedAmount, setAgreedAmount] = useState("");
+  const [country, setCountry] = useState("");
+  const [progress, setProjectProgress] = useState("");
+  const [timeline, setTimeline] = useState("");
 
   const [error, setError] = useState(null);
   useBeforeReload("Are you sure you want to exit?");
@@ -71,6 +75,10 @@ const EditConsultation = () => {
         setSeenStatus(data.seen || "Unread");
         setConsultationtype(data.consultationType || "");
         setComment(data.comment || "");
+        setCountry(data.country || "not set");
+        setAgreedAmount(data.agreedAmount || "0");
+        setProjectProgress(data.progress || "0");
+        setTimeline(data.timeline || "");
 
         setDataState("SUCCESS");
         setError(null);
@@ -104,6 +112,8 @@ const EditConsultation = () => {
       denyButtonText: `Don't save`,
     });
 
+    let AgreedAmount = toCurrencyNumber(agreedAmount);
+
     // Proceed based on the user's choice
     if (result.isConfirmed) {
       // Update the consultation state with the new values
@@ -118,6 +128,10 @@ const EditConsultation = () => {
         date: consultDate,
         comment: comment,
         seen: seenStatus,
+        country: country,
+        agreedAmount: AgreedAmount,
+        progress: progress,
+        timeline: timeline,
       };
 
       setConsultation(updatedConsultation); // Update the state with the new values
@@ -138,9 +152,19 @@ const EditConsultation = () => {
       Swal.fire("Changes are not saved", "", "info");
     }
   };
+  const toCurrencyNumber = (amount) => {
+    // Check if the amount is a valid number
+    if (isNaN(amount)) {
+      console.warn("Invalid amount:", amount);
+      return ""; // Return an empty string or handle invalid input as appropriate
+    }
+
+    // Format the amount as currency
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount);
+  };
 
   return (
-    <div>
+    <div className="font-1">
       <Container className={Styles.dashInnerWrapper} style={{ background: "#f4f7f8" }}>
         <DrawerXDashTable onLogout={handleLogout} className={Styles.dashEditWrapper}>
           <h4 className={Styles.editLabel}>Edit Consultation</h4>
@@ -156,7 +180,7 @@ const EditConsultation = () => {
               <div className={Styles.editFormWrapper}>
                 <div className={Styles.editInputWrapper}>
                   <label className={Styles.editLabel}>Invoice No.</label>
-                  <input className={Styles.editForm} disabled value={uuid}></input>
+                  <input className={[Styles.editForm, Styles.disabled].join(" ")} disabled value={uuid}></input>
                 </div>
                 <div className={Styles.editInputWrapper}>
                   <label className={Styles.editLabel}>Customer Name</label>
@@ -171,6 +195,10 @@ const EditConsultation = () => {
                   <input className={Styles.editForm} onChange={(e) => setEmail(e.target.value)} value={email} />
                 </div>
                 <div className={Styles.editInputWrapper}>
+                  <label>Country</label>
+                  <input className={Styles.editForm} onChange={(e) => setCountry(e.target.value)} value={country} />
+                </div>
+                <div className={Styles.editInputWrapper}>
                   <label>Consultation Type</label>
                   <input
                     className={Styles.editForm}
@@ -178,6 +206,26 @@ const EditConsultation = () => {
                     onChange={(e) => setConsultationtype(e.target.value)}
                   />
                 </div>
+                <div className={Styles.editInputWrapper}>
+                  <label>Timeline</label>
+                  <input className={Styles.editForm} value={timeline} onChange={(e) => setTimeline(e.target.value)} />
+                  <span>Months</span>
+                </div>
+
+                <div className={Styles.editInputWrapper}>
+                  <label>Budget</label>
+                  <input className={Styles.editForm} value={budget} onChange={(e) => setBudget(e.target.value)} />
+                </div>
+
+                <div className={Styles.editInputWrapper}>
+                  <label>Agreed Amount</label>
+                  <input
+                    className={Styles.editForm}
+                    value={agreedAmount}
+                    onChange={(e) => setAgreedAmount(parseFloat(e.target.value))}
+                  />
+                </div>
+
                 <div className={Styles.editInputWrapper}>
                   <label>Status</label>
                   <select className={Styles.editForm} value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -200,18 +248,20 @@ const EditConsultation = () => {
                 </div>
 
                 <div className={Styles.editInputWrapper}>
-                  <label>Date</label>
-                  <input
-                    className={Styles.editForm}
-                    type="date"
-                    value={consultDate ? new Date(consultDate).toISOString().split("T")[0] : ""}
-                    onChange={(e) => setconsultDate(e.target.value)}
-                  />
+                  <label>Project Progress</label>
+                  <div className={Styles.sliderWrapper}>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value={progress}
+                      onChange={(e) => setProjectProgress(e.target.value)}
+                    />
+                    <span id="progressOutput">{progress}%</span>
+                  </div>
                 </div>
-                <div className={Styles.editInputWrapper}>
-                  <label>Budget</label>
-                  <input className={Styles.editForm} value={budget} onChange={(e) => setBudget(e.target.value)} />
-                </div>
+
                 <div className={Styles.editInputWrapper}>
                   <label>Seen status</label>
                   <select
@@ -226,6 +276,16 @@ const EditConsultation = () => {
                       Read
                     </option>
                   </select>
+                </div>
+
+                <div className={Styles.editInputWrapper}>
+                  <label>Date</label>
+                  <input
+                    className={Styles.editForm}
+                    type="date"
+                    value={consultDate ? new Date(consultDate).toISOString().split("T")[0] : ""}
+                    onChange={(e) => setconsultDate(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -247,7 +307,7 @@ const EditConsultation = () => {
                 <Stack spacing={3} direction="row" className={Styles.editSave}>
                   <Button
                     variant="contained"
-                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
+                    className={[Styles.orangy, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
                     onClick={() => navigate("/sales")}
                   >
@@ -255,7 +315,7 @@ const EditConsultation = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
+                    className={[Styles.orangy, Styles.floatActions].join(" ")}
                     onClick={handleSave}
                     endIcon={<BookmarkAddIcon />}
                   >

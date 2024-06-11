@@ -41,6 +41,7 @@ class SearchInput extends React.Component {
               top: "50%",
               transform: "translateY(-50%) scale(0.8)",
               display: "flex",
+              color: "var(--color-black)",
             }}
           >
             <SearchIcon style={{ opacity: "0.7" }} />

@@ -84,7 +84,7 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
                       >
                         {todo.text}
                       </div>
-                      <div className="icons">
+                      <div className="icons" style={{ gap: "20px" }}>
                         <button onClick={() => setEdit({ id: todo.id, value: todo.text })} className="edit-icon">
                           {" "}
                           <svg height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

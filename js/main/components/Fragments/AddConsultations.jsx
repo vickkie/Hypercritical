@@ -116,7 +116,7 @@ const AddConsultation = () => {
   };
 
   return (
-    <div>
+    <div className="font-1">
       <Container className={Styles.dashInnerWrapper} style={{ background: "#f4f7f8" }}>
         <DrawerXDashTable onLogout={handleLogout} className={Styles.dashEditWrapper}>
           <h4 className={Styles.editLabel}>Add Consultation</h4>
@@ -228,7 +228,7 @@ const AddConsultation = () => {
                 <Stack spacing={3} direction="row" className={Styles.editSave}>
                   <Button
                     variant="contained"
-                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
+                    className={[Styles.orangy, Styles.floatActions].join(" ")}
                     startIcon={<FastRewindIcon />}
                     onClick={() => navigate("/sales")}
                   >
@@ -236,7 +236,7 @@ const AddConsultation = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    className={[Styles.mainColor, Styles.floatActions].join(" ")}
+                    className={[Styles.orangy, Styles.floatActions].join(" ")}
                     onClick={handleAdd}
                     endIcon={<AddCircleOutlineRounded />}
                   >

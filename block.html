@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ISP Block Test</title>
+  </head>
+  <body>
+    <h1>ISP Block Test</h1>
+    <button onclick="checkWebsite('https://hypercritical.vercel.app')">Check Website</button>
+
+    <script>
+      function checkWebsite(url) {
+        fetch(url)
+          .then((response) => {
+            if (response.ok) {
+              console.log("The website is not blocked.");
+            } else {
+              console.log("The website might be blocked. Status Code: " + response.status);
+            }
+          })
+          .catch((error) => {
+            console.log("An error occurred: " + error.message);
+          });
+      }
+    </script>
+  </body>
+</html>

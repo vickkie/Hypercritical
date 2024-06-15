@@ -451,3 +451,18 @@
 .disabled {
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 600px) {
+  .drawerLeft {
+    position: absolute;
+    display: math;
+    left: 1px;
+  }
+  /* .DrawerInnerWrapper {
+    margin-left: 1px;
+    height: fit-content;
+    margin-top: 47px;
+    border-right: solid 1px var(--color-bg);
+    padding-bottom: 16px;
+  } */
+}

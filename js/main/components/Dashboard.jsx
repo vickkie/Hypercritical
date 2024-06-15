@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useContext } from "react";
+import React, { useEffect, useState, useMemo, useContext, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "./Fragments/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
@@ -28,6 +28,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const { status } = useParams();
   const { unreadNewNumber } = useContext(UnreadNumberContext);
+  const inputRef = React.useRef(null);
 
   const [consultations, setConsultations] = useState({});
   const [searchQuery, setSearchQuery] = useState("");

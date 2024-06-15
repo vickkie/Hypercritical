@@ -13,6 +13,22 @@ function TodoForm(props) {
     setInput(e.target.value);
   };
 
+  useEffect(() => {
+    // Remove focus from the input field initially
+    inputRef.current.tabIndex = -1;
+  }, []);
+
+  const handleAddIconClick = () => {
+    // Focus the input field when the add icon is clicked
+    inputRef.current.tabIndex = 0;
+    inputRef.current.focus();
+  };
+
+  const combinedHandler = () => {
+    handleSubmit();
+    handleAddIconClick();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -68,7 +84,7 @@ function TodoForm(props) {
         </div>
       ) : (
         <div className="taskInputWrapper">
-          <button onClick={handleSubmit} className="todo-button">
+          <button onClick={combinedHandler} className="todo-button">
             <svg width="28px" height="28px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect opacity="0.2" x="9.92188" y="3.18848" width="2.46094" height="0.937988" fill="#F84F39" />
               <path

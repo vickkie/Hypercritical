@@ -71,6 +71,18 @@ const Login = () => {
     }
   }, []);
 
+  useEffect(() => {
+    let passwordInput = document.querySelector(".inputLogin2");
+
+    passwordInput.addEventListener("focus", () => {
+      passwordInput.type = "text";
+    });
+
+    passwordInput.addEventListener("blur", () => {
+      passwordInput.type = "password";
+    });
+  });
+
   return (
     <React.Fragment>
       <div className="loginwrapper">

@@ -203,12 +203,44 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower();
+      let cursorme = new MouseFollower({
+        speed: 0.2,
+      });
     }
+
+    let sniperCursor = select(".sniper");
+    let sniperTarget = select(".snipersvg");
+    let sniperTargets = selectAll(["a", "details"]);
+    let snipedBlack = selectAll(".snipedblack");
+    let snipedwhite = selectAll(".snipedwhite");
+    let root = document.documentElement;
+
+    const cursor = new MouseFollower({
+      el: sniperCursor,
+    });
+
+    sniperTargets.forEach((sniped, i) => {
+      sniped.addEventListener("mouseenter", () => {
+        sniperTarget.classList.add("rotate-cursorr");
+      });
+      sniped.addEventListener("mouseleave", () => {
+        sniperTarget.classList.remove("rotate-cursorr");
+      });
+    });
+
+    snipedBlack.forEach((snipeBlack) => {
+      snipeBlack.addEventListener("mouseenter", () => {
+        root.style.setProperty("--sniper-color", "#000");
+      });
+      snipeBlack.addEventListener("mouseleave", () => {
+        let root = document.documentElement;
+        root.style.setProperty("--sniper-color", "#fff");
+      });
+    });
   }
 
   cursor();
-  window.addEventListener("res", cursor);
+  window.addEventListener("resize", cursor);
 });
 
 // Group 6: blur header

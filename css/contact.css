@@ -35,3 +35,15 @@ html {
 .tidio-5hhiig {
   display: none !important;
 }
+
+@media screen and (max-width: 767px) {
+  .socials-header {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 18vh !important;
+  }
+  .heading-2 {
+    cursor: pointer;
+    font-size: 11vw !important;
+  }
+}

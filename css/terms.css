@@ -2,6 +2,10 @@ html {
   overflow-y: scroll;
 }
 
+.mf-cursor:before {
+  background: var(--main-sub) !important;
+}
+
 .nav {
   bottom: auto;
   left: 0;

@@ -11,10 +11,9 @@ let select = (e) => document.querySelector(e);
 let selectAll = (e) => document.querySelectorAll(e);
 
 //group 0:: lozad lazyload ..
-
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
-    rootMargin: "200px 0px",
+    rootMargin: "-200px 0px",
     loaded: function (el) {
       // console.log("Element loaded:", el);
     },
@@ -82,10 +81,52 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower();
+      let cursorme = new MouseFollower({
+        speed: 0.6,
+      });
+
+      let sniperCursor = select(".sniper");
+      let sniperTarget = select(".snipersvg");
+      let sniperTargets = selectAll(["a", "details"]);
+      let snipedBlack = selectAll(".snipedblack");
+      let snipedwhite = selectAll(".snipedwhite");
+      let root = document.documentElement;
+      let mediaTargets = selectAll(".media-wrapper");
+
+      const cursor = new MouseFollower({
+        el: sniperCursor,
+      });
+
+      sniperTargets.forEach((sniped, i) => {
+        let root = document.documentElement;
+        sniperTarget.classList.add("rotate-cursorr");
+        root.style.setProperty("--sniper-color", "var(--main-sub");
+      });
+
+      snipedBlack.forEach((snipeBlack) => {
+        snipeBlack.addEventListener("mouseenter", () => {
+          console.log("going dark");
+          root.style.setProperty("--sniper-color", "#000");
+        });
+        snipeBlack.addEventListener("mouseleave", () => {
+          root.style.setProperty("--sniper-color", "var(--main-sub");
+        });
+      });
+
+      //to prevent mouse follower inside project preview
+      mediaTargets.forEach((mediaTarget) => {
+        mediaTarget.addEventListener("mouseenter", () => {
+          sniperCursor.style.display = "none";
+        });
+        mediaTarget.addEventListener("mouseleave", () => {
+          sniperCursor.style.display = "block";
+        });
+      });
     }
   }
+
   cursor();
+
   window.addEventListener("resize", cursor);
 });
 

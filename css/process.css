@@ -485,4 +485,9 @@ summary {
     font-size: calc(3vw + 21px);
     /* text-align: center; */
   }
+  .top-exit h2 {
+    font-size: calc(5.5vw + 29px);
+    font-family: var(--font-5);
+    margin: 0 -20px;
+  }
 }

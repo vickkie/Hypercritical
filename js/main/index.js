@@ -374,13 +374,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
-    if (window.innerWidth > 767) {
-      let cursorme = new MouseFollower();
+    if (innerWidth > 767) {
+      let cursorme = new MouseFollower({
+        speed: 0.6,
+      });
+
+      let sniperCursor = select(".sniper");
+      let sniperTarget = select(".snipersvg");
+      let sniperTargets = selectAll(["a", "details"]);
+      let snipedBlack = selectAll(".snipedblack");
+      let snipedwhite = selectAll(".snipedwhite");
+      let root = document.documentElement;
+
+      const cursor = new MouseFollower({
+        el: sniperCursor,
+      });
+
+      sniperTargets.forEach((sniped, i) => {
+        let root = document.documentElement;
+        sniperTarget.classList.add("rotate-cursorr");
+        root.style.setProperty("--sniper-color", "var(--main-sub");
+      });
+
+      snipedBlack.forEach((snipeBlack) => {
+        snipeBlack.addEventListener("mouseenter", () => {
+          root.style.setProperty("--sniper-color", "#000");
+          root.style.setProperty("--main-sub", "#000");
+        });
+        snipeBlack.addEventListener("mouseleave", () => {
+          root.style.setProperty("--main-sub", "#fc1234");
+          root.style.setProperty("--sniper-color", "var(--main-sub");
+        });
+      });
     }
   }
 
   cursor();
-  window.addEventListener("res", cursor);
+
+  window.addEventListener("resize", cursor);
 });
 
 //Group 10: control opening and closing of accordion

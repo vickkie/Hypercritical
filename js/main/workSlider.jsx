@@ -96,7 +96,10 @@ class App extends React.Component {
                     </div>
                   ))}
                 </div>
-                <a className="tile view-all work-link" href={`project#${this.state.selectedProject?.projectId}`}>
+                <a
+                  className="tile view-all snipedblack work-link"
+                  href={`project#${this.state.selectedProject?.projectId}`}
+                >
                   <p>
                     View full
                     <br /> case study

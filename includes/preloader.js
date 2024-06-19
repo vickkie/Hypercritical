@@ -64,6 +64,34 @@ const vue = new Vue({
       });
     },
 
+    // load() {
+    //   const progress = this.calculateLoadingProgress();
+    //   const targetProgress = progress.toString().padStart(3, "0");
+
+    //   const start = +this.loaded;
+    //   const end = +targetProgress;
+
+    //   const increment = end > start ? 1 : -1;
+
+    //   const animateNext = () => {
+    //     if ((increment > 0 && this.loaded < end) || (increment < 0 && this.loaded > end)) {
+    //       this.loaded += increment;
+    //       this.loadStyle.height = `${this.loaded}%`;
+    //       if (progress >= 1) {
+    //         mounted();
+    //       }
+
+    //       setTimeout(animateNext, 20);
+    //     } else {
+    //       if (progress >= 100) {
+    //         this.doneLoading();
+    //       }
+    //     }
+    //   };
+
+    //   animateNext();
+    // },
+
     load() {
       const progress = this.calculateLoadingProgress();
       const targetProgress = progress.toString().padStart(3, "0");
@@ -74,18 +102,23 @@ const vue = new Vue({
       const increment = end > start ? 1 : -1;
 
       const animateNext = () => {
+        // Prevent going back and forth by checking if we've already passed the target
         if ((increment > 0 && this.loaded < end) || (increment < 0 && this.loaded > end)) {
           this.loaded += increment;
           this.loadStyle.height = `${this.loaded}%`;
-          if (progress >= 1) {
+
+          // Only call mounted() if we're moving forward towards 100%
+          if (increment > 0 && this.loaded <= 100) {
             mounted();
           }
 
-          setTimeout(animateNext, 20);
-        } else {
-          if (progress >= 100) {
+          // Stop the animation if we've reached 100%
+          if (this.loaded === 100) {
+            clearInterval(this.loading); // Clear the interval to stop further updates
             this.doneLoading();
           }
+
+          setTimeout(animateNext, 20);
         }
       };
 

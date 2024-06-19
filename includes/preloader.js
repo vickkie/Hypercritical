@@ -93,8 +93,18 @@ const vue = new Vue({
     // },
 
     load() {
-      const progress = this.calculateLoadingProgress();
-      const targetProgress = progress.toString().padStart(3, "0");
+      // Defined a buffer size for smoothing. Larger values will result in smoother but slower updates.
+      const bufferSize = 10;
+
+      // Calculate the smoothed progress by averaging the last few values.
+      let smoothedProgress = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        smoothedProgress += this.calculateLoadingProgress();
+      }
+      smoothedProgress /= bufferSize;
+
+      // Convert the smoothed progress to a string and pad with leading zeros.
+      const targetProgress = smoothedProgress.toString().padStart(3, "0");
 
       const start = +this.loaded;
       const end = +targetProgress;
@@ -102,19 +112,18 @@ const vue = new Vue({
       const increment = end > start ? 1 : -1;
 
       const animateNext = () => {
-        // Prevent going back and forth by checking if we've already passed the target
         if ((increment > 0 && this.loaded < end) || (increment < 0 && this.loaded > end)) {
           this.loaded += increment;
           this.loadStyle.height = `${this.loaded}%`;
 
-          // Only call mounted() if we're moving forward towards 100%
+          // Update the progress bar only if we're moving forward towards 100%.
           if (increment > 0 && this.loaded <= 100) {
             mounted();
           }
 
-          // Stop the animation if we've reached 100%
+          // Stop the animation if we've reached 100%.
           if (this.loaded === 100) {
-            clearInterval(this.loading); // Clear the interval to stop further updates
+            clearInterval(this.loading); // Clear the interval to stop further updates.
             this.doneLoading();
           }
 
@@ -152,12 +161,9 @@ const vue = new Vue({
       return percentageProgress;
     },
     animatePreloader() {
-      // setTimeout(() => {
-      // this.enableScrolling();
-      // animatingNow();
-
-      /* -> */ animateDone();
-      // }, 500);
+      setTimeout(() => {
+        animateDone();
+      }, 200);
 
       let app = this;
 

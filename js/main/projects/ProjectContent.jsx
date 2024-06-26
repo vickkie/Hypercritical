@@ -91,13 +91,24 @@ function ProjectContent({ pageData, nextPage }) {
           </div>
         </div>
         <div className="projectAbout">
-          <div className="aboutLeft">About Project</div>
+          <div className="aboutLeft">
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
+            About Project
+          </div>
           <div className="aboutCenter">
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div className="aboutClient">{pageData.content}</div>
             <br></br>
             <div className="projectAnalysis">{pageData.Analysis}</div>
           </div>
           <div className="aboutRight">
+            <svg className="right-deco" xmlns="http://www.w3.org/2000/svg" viewBox="539.9 0.9 1100 399.2">
+              <path d="M540 400V31c0-16.5685 13.431-30 30-30h1070" stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div className="deco-svg">
               <img src="assets/svg/52c27296e8340fd5cddcb94ec151be0e.svg" alt="" />
             </div>
@@ -116,12 +127,27 @@ function ProjectContent({ pageData, nextPage }) {
         </div>
         <div className="projectAim">
           <div className="Aimleft">
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div>Our Mission</div>
           </div>
           <div className="Aimcenter">
-            <div className="Aimmain" dangerouslySetInnerHTML={{ __html: pageData.aim }}></div>
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
+            <svg className="right-deco" xmlns="http://www.w3.org/2000/svg" viewBox="539.9 0.9 1100 399.2">
+              <path d="M540 400V31c0-16.5685 13.431-30 30-30h1070" stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
+
+            <div className="Aimmain">
+              <div dangerouslySetInnerHTML={{ __html: pageData.aim }}></div>
+            </div>
           </div>
           <div className="Aimright">
+            <svg className="right-deco" xmlns="http://www.w3.org/2000/svg" viewBox="539.9 0.9 1100 399.2">
+              <path d="M540 400V31c0-16.5685 13.431-30 30-30h1070" stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div className="deco-svg">
               <img src="assets/svg/91b2ba05cc1f02b1e9ebc4330c275d95.svg" alt="" />
             </div>
@@ -153,10 +179,25 @@ function ProjectContent({ pageData, nextPage }) {
         </div>
         <div className="projectSolution">
           <div className="solutionLeft">
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div>Solution</div>
           </div>
-          <div className="solutionCenter" dangerouslySetInnerHTML={{ __html: pageData.solution }}></div>
+          <div className="solutionCenter">
+            {/* Render the dynamic HTML content */}
+            <div dangerouslySetInnerHTML={{ __html: pageData.solution }} />
+
+            {/* Render the SVG separately */}
+            <svg className="left-deco" xmlns="http://www.w3.org/2000/svg" viewBox="-0.1 0.9 540.2 406.2">
+              <path d="M0 1h510c16.569 0 30 13.4315 30 30v376V31 " stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
+          </div>
+
           <div className="solutionRight">
+            <svg className="right-deco" xmlns="http://www.w3.org/2000/svg" viewBox="539.9 0.9 1100 399.2">
+              <path d="M540 400V31c0-16.5685 13.431-30 30-30h1070" stroke="#fff" strokeWidth="0.1" fill="none" />
+            </svg>
             <div className="deco-svg">
               <img src="assets/svg/asterisk-w.svg" alt="" />
             </div>

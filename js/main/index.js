@@ -646,38 +646,6 @@ if (playPromise !== undefined) {
   playPromise.then((_) => {}).catch((error) => {});
 }
 
-//GRoup 14: animate button on portfolio work trailers
-
-// script.js
-// document.addEventListener("DOMContentLoaded", function () {
-//   const carouselItems = select(".carousel");
-//   const backButton = select(".-prev");
-//   const nextButton = select(".-next");
-
-//   let currentIndex = 0;
-
-//   function moveCarousel(direction) {
-//     const itemWidth = carouselItems.children[0].offsetWidth;
-//     const carouselWidth = carouselItems.offsetWidth;
-//     const totalItems = carouselItems.children.length;
-
-//     if (direction === "next") {
-//       currentIndex = (currentIndex + 1) % totalItems;
-//     } else if (direction === "back") {
-//       currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-//     }
-
-//     carouselItems.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-//   }
-
-//   backButton.addEventListener("click", function () {
-//     moveCarousel("back");
-//   });
-
-//   nextButton.addEventListener("click", function () {
-//     moveCarousel("next");
-//   });
-// });
 //group 15 : overlay and succes button
 
 function showDialog() {

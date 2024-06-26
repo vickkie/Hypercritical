@@ -1,0 +1,369 @@
+<button class="btn bla flex flexSB flexCE toOverlay toPartager elDom" style="transform: translate(0px, 0%)">
+  <span class="mot">
+    <span>Share</span>
+    <!-- <span class="fond a inset">Partager</span> -->
+  </span>
+  <span class="icon">
+    <svg
+      class="fleche"
+      fill="none"
+      height="22"
+      viewBox="0 0 27 22"
+      width="27"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <clipPath id="a"><path d="m0 0h26.13v21.46h-26.13z"></path></clipPath>
+      <g clip-path="url(#a)">
+        <path
+          d="m17.86 19.54c1.46-1.9 4.82-6.27 8.26-8.8-3.61-2.47-6.88-6.91999-8.3-8.83999-.33-.44-.58-.79-.67-.88-1.11-1.1100017-2.16-1.320008-2.89-.600008-.2088.201021-.3507.461527-.4061.746038-.0555.28452-.0219.57921.0961.84397.2033.49252.5142.93329.91 1.29.38.38 3.22 2.67 8 6.46l.53.41999h-.68c-4.48.15-13.56-.56999-17.92-.91999-1.26-.1-2.17-.17-2.34-.17-1.610003 0-2.45.55999-2.45 1.61999s.839997 1.61 2.45 1.61c.2 0 1.44-.08 3.17-.2 4.62-.31 13.23-.89 17.08-.89h.72l-.56.45c-1.74 1.37-7.44 5.89-8 6.45-.3935.3649-.7068.8076-.92 1.3-.1131.2648-.1431.5576-.086.8398.0572.2822.1988.5403.406.7402.73.73 1.76.53 2.88-.59.1-.07.37-.43.72-.88z"
+          fill="#181818"
+        ></path>
+      </g>
+    </svg>
+  </span>
+</button>
+<style>
+  body {
+    background-color: #000;
+  }
+  /* .btn {
+    width: 225px;
+    margin: 0 5px 0 0;
+    transform: translateY(150%);
+  }
+  .btn {
+    line-height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+    border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+    transform: translateZ(0);
+    overflow: hidden;
+    position: relative;
+    background: 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bla {
+    background: #000;
+  }
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-align: left;
+  }
+  .btn .mot,
+  .menu-item a .mot {
+    flex: 0 0 100%;
+    padding: 0 0 0 25px;
+  }
+
+  .btn .icon,
+  .btn .mot,
+  .menu-item a .icon,
+  .menu-item a .mot {
+    background: #fff;
+    border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+    transition: 0.15s;
+  }
+  .btn .mot span,
+  .menu-item a .mot span {
+    display: block;
+    transition: 0.15s;
+  }
+
+  @media (max-width: 1270px) {
+    .btn .icon,
+    .menu-item a .icon {
+      width: 54px;
+    }
+  }
+  .btn .icon,
+  .menu-item a .icon {
+    display: flex;
+    align-items: center;
+    height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+    width: calc(3.47vw + 10px);
+    justify-content: center;
+    padding: 0 10px 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .btn .icon svg,
+  .menu-item a .icon svg {
+    width: clamp(24px, 1.875vw, 36px);
+    height: auto;
+  }
+  @media (pointer: fine) and (min-width: 768px) and (max-width: 1270px) {
+    .btn:hover .mot {
+      transform: translateX(calc(-44px -5px));
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .mot,
+    .menu-item a:hover .mot {
+      transform: translate(calc(-3.47vw - 5px));
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .icon,
+    .menu-item a:hover .icon {
+      transform: translateX(10px);
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) and (max-width: 1270px) {
+    .btn:hover .mot span,
+    .menu-item a:hover .mot span {
+      transform: translate(calc(44px + 5px), 0);
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .mot span,
+    .menu-item a:hover .mot span {
+      transform: translate(calc(3.47vw + 5px), 0);
+    }
+  }
+  .btn .mot span,
+  .menu-item a .mot span {
+    display: block;
+    transition: 0.15s;
+  } */
+
+  .btn {
+    width: 225px;
+    margin: 0 var(--gutter) 0 0;
+    transform: translateY(150%);
+  }
+  .btn,
+  .menu-item a {
+    line-height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+    border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+    transform: translateZ(0);
+    overflow: hidden;
+    position: relative;
+    background: 0 0;
+  }
+  .flexCE {
+    align-items: center;
+  }
+  .flexSB {
+    justify-content: space-between;
+  }
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+ 
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-align: left;
+  }
+  body,
+  button {
+    color: #181818;
+  }
+  .btn .mot,
+  .menu-item a .mot {
+    flex: 0 0 100%;
+    padding: 0 0 0 var(--paddSmall);
+  }
+  .btn .icon,
+  .btn .mot,
+  .menu-item a .icon,
+  .menu-item a .mot {
+    background: #fff;
+    border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+    transition: 0.15s;
+  }
+  body,
+  div,
+  a,
+  p,
+  span {
+    user-select: text !important;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: relative;
+  }
+  .btn .mot span,
+  .menu-item a .mot span {
+    display: block;
+    transition: 0.15s;
+  }
+  @media (max-width: 1270px) {
+    .btn .icon,
+    .menu-item a .icon {
+      width: 54px;
+    }
+  }
+  .btn .icon,
+  .menu-item a .icon {
+    display: flex;
+    align-items: center;
+    height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+    /* width: calc(3.47vw + 10px); */
+    justify-content: center;
+    padding: 0 10px 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .btn .icon,
+  .btn .mot,
+  .menu-item a .icon,
+  .menu-item a .mot {
+    background: #fff;
+    border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+    transition: 0.15s;
+  }
+  .btn .icon svg,
+  .menu-item a .icon svg {
+    width: clamp(24px, 1.875vw, 36px);
+    height: auto;
+  }
+  @media (pointer: fine) and (min-width: 768px) and (max-width: 1270px) {
+    .btn:hover .mot,
+    .menu-item a:hover .mot {
+      transform: translateX(calc(-44px - var(--gutter)));
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .mot,
+    .menu-item a:hover .mot {
+      /* transform: translate(calc(-3.47vw - var(--gutter))); */
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .icon,
+    .menu-item a:hover .icon {
+      transform: translateX(10px);
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) and (max-width: 1270px) {
+    .btn:hover .mot span,
+    .menu-item a:hover .mot span {
+      transform: translate(calc(44px + var(--gutter)), 0);
+    }
+  }
+  @media (pointer: fine) and (min-width: 768px) {
+    .btn:hover .mot span,
+    .menu-item a:hover .mot span {
+      /* transform: translate(calc(3.47vw + var(--gutter)), 0); */
+    }
+  }
+  :root {
+    --gutter: 5px;
+    --paddSmall: 25px;
+  }
+</style>
+
+/* General Reset */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+
+body, button {
+  color: #181818;
+}
+
+.btn,.menu-item a {
+  line-height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+  border-radius: clamp(25px, 1.7361111111vw, 33.3333333333px);
+  transform: translateZ(0);
+  overflow: hidden;
+  position: relative;
+  background: 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexSB {
+  justify-content: space-between;
+}
+
+.flexCE {
+  align-items: center;
+}
+
+.bla {
+  background: #fff;
+}
+
+.buttonContainer {
+  width: 225px;
+  margin: 0 var(--gutter) 0 0;
+  transform: translateY(150%);
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  height: clamp(44px, 3.4722222222vw, 66.6666666667px);
+  justify-content: center;
+  padding: 0 10px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.iconSvg {
+  width: clamp(24px, 1.875vw, 36px);
+  height: auto;
+}
+
+.motSpan {
+  display: block;
+  transition: 0.15s;
+}
+
+@media (max-width: 1270px) {
+ .iconContainer {
+    width: 54px;
+  }
+}
+
+@media (pointer: fine) and (min-width: 768px) {
+ .buttonContainer:hover.motSpan {
+    transform: translateX(calc(-44px - var(--gutter)));
+  }
+ .iconContainer:hover {
+    transform: translateX(10px);
+  }
+}

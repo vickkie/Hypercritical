@@ -1,35 +1,43 @@
 {
-    "name": "Hypercritical",
-    "short_name":"Hypercritical",
-    "link":"/index",
-    "start_url":"/index",
-    "theme_color":"#e2ccff",
-    "background_color":"transparent",
-    "display":"fullscreen",
-    "orientation":"portrait",
-    "shortcuts":[],
-    "icons": [
-    
+  "name": "Hypercritical",
+  "short_name": "H.C",
+  "icons": [
     {
-      "src": "../assets/masks/hypercritical-192.png",
-      "sizes": "196x196",
+      "src": "../assets/masks/favicon-assets/pwa-192x192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
-      "src": "../assets/masks/hypercritical-512.png",
+      "src": "../assets/masks/favicon-assets/pwa-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/masks/favicon-assets/pwa-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "../assets/masks/favicon-assets/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "fullscreen",
+  "background_color": "#FFFFFF",
+  "theme_color": "#fc1234",
+  "description": "Hypercritical is a cutting-edge digital design studio specializing in crafting functional digital experiences through web app design and development",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "/index"
     }
   ]
-  ,
-  "prefer_related_applications": false,
-   "related_applications": [
-    {
-    "platform": "play",
-    "id": "/index"
-    }
-]
-
 }

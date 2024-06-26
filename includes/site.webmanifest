@@ -1,0 +1,35 @@
+{
+  "name": "Hypercritical",
+  "short_name": "H.C",
+  "icons": [
+    {
+      "src": "../assets/masks/favicon-assets/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/masks/favicon-assets/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../assets/masks/favicon-assets/pwa-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "../assets/masks/favicon-assets/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#FFFFFF",
+  "theme_color": "#fc1234",
+  "description": "Hypercritical is a cutting-edge digital design  studio  specializing in crafting functional digital experiences through web app design and development"
+}

@@ -746,8 +746,8 @@ details[open] {
     width: 6.2rem;
   }
 }
-.c-sprite {
-  background-image: url(../assets/images/elephant-loop.webp);
+.c-sprite { 
+  /* background-image: url(../assets/images/elephant-loop.webp); */
   height: 100%;
   width: 100%;
 }

@@ -19,9 +19,14 @@ html {
   background-color: var(--color-bg);
 }
 @media screen and (max-width: 768px) {
+  .right-deco,
+  .left-deco {
+    display: none;
+  }
   .thirty-center {
     font-size: var(--hc-xl);
   }
+
   .thirty-wrapper svg {
     height: 100%;
     width: calc(28px + 3vw);
@@ -378,4 +383,41 @@ html {
 }
 .otherImage {
   overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutCenter,
+  .solutionCenter {
+    background: url(../assets/svg-pathz.svg);
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    border-top-right-radius: 46px;
+  }
+  .aboutRight,
+  .aboutLeft,
+  .aboutCenter,
+  .solutionLeft,
+  .solutionCenter,
+  .solutionRight,
+  .Aimcenter,
+  .Aimright,
+  .Aimleft {
+    position: relative;
+    padding: 20px;
+  }
+}
+.right-deco {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+}
+.left-deco {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
 }

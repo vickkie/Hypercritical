@@ -746,7 +746,7 @@ details[open] {
     width: 6.2rem;
   }
 }
-.c-sprite { 
+.c-sprite {
   /* background-image: url(../assets/images/elephant-loop.webp); */
   height: 100%;
   width: 100%;
@@ -1399,6 +1399,7 @@ input[type="radio"]:checked + .radio-input {
 }
 .dialog-content {
   text-align: center;
+  font-family: var(--font-5);
 }
 .close-dialog {
   background: transparent;

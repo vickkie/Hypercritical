@@ -62,7 +62,7 @@
   "@emotion/react": "^11.11.4",
   "@emotion/styled": "^11.11.5",
   "@mui/icons-material": "^5.15.15",
-  "@mui/material": "^5.15.15",
+  "@mui/material": "^5.15.21",
   "@studio-freight/lenis": "^1.0.39",
   "body-parser": "^1.20.2",
   "chart.js": "2.9.4",

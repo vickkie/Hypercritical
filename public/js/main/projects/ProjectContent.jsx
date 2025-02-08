@@ -46,6 +46,7 @@ function ProjectContent({ pageData, nextPage }) {
                 <div className="preview__img-inner relative">
                   <video
                     muted={true}
+                    metadata
                     loop={true}
                     autoPlay={true}
                     playsInline={true}
@@ -79,11 +80,11 @@ function ProjectContent({ pageData, nextPage }) {
         <div className="projectMetadata">
           <div className="projectclient">
             <div className="metaDataheader">CLIENT</div>
-            <div className="lowercase">{pageData.client}</div>
+            <div className="lowercase">{pageData?.client}</div>
           </div>
           <div className="projecttask">
             <div className="metaDataheader">EXPERTISE</div>
-            <div className="lowercase">{pageData.task}</div>
+            <div className="lowercase">{pageData?.task}</div>
           </div>
           <div className="projectyear">
             <div className="metaDataheader">YEAR</div>
@@ -110,7 +111,25 @@ function ProjectContent({ pageData, nextPage }) {
               <path d="M540 400V31c0-16.5685 13.431-30 30-30h1070" stroke="#fff" strokeWidth="0.1" fill="none" />
             </svg>
             <div className="deco-svg">
-              <img src="assets/svg/52c27296e8340fd5cddcb94ec151be0e.svg" alt="" />
+              <a href={pageData?.link} target="_blank" rel="noopener noreferrer">
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.510301 2.3982 121 127.1" width={50}>
+                  <path
+                    d="M 60 129 Z M -0.002 63.356 A 1 1 0 0 0 119.96 61.777 A 1 1 0 0 0 0 64 Z "
+                    stroke="none"
+                    stroke-width="0.5"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M 46.676 41.238 L 80.562 41.037 L 80.38 72.604 M 80.312 41.537 L 39.085 84.014"
+                    stroke="#000"
+                    stroke-width="5"
+                    fill="none"
+                  />
+                </svg> */}
+                <img src="assets/svg/arrow-r.svg" alt="" className="deco-img" />
+
+                {pageData ? pageData.link && <div color="white">Visit</div> : ""}
+              </a>
             </div>
           </div>
         </div>

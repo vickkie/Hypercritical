@@ -6,42 +6,18 @@
  * @author Cuberto, Artem Dordzhiev (Draft)
  */
 
-/*! ./ProjectVanilla */
-
-/*! ./cjs/react.development.js */
-
-/*! lozad */
-
 /*! lozad.js - v1.16.0 - 2020-09-06
 * https://github.com/ApoorvSaxena/lozad.js
 * Copyright (c) 2020 Apoorv Saxena; Licensed MIT */
 
-/*! mouse-follower */
-
-/*! react */
-
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
-/*!*************************************!*\
-  !*** ./js/main/projects/project.js ***!
-  \*************************************/
-
-/*!*************************************!*\
-  !*** ./node_modules/react/index.js ***!
-  \*************************************/
-
-/*!*********************************************!*\
-  !*** ./js/main/projects/ProjectVanilla.jsx ***!
-  \*********************************************/
-
-/*!**********************************************!*\
-  !*** ./node_modules/lozad/dist/lozad.min.js ***!
-  \**********************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/react/cjs/react.development.js ***!
-  \*****************************************************/
-
-/*!**********************************************************!*\
-  !*** ./node_modules/mouse-follower/dist/index.module.js ***!
-  \**********************************************************/
+/**
+ * @license React
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */

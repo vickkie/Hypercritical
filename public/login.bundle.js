@@ -1,2 +1,1 @@
-/*! For license information please see login.bundle.js.LICENSE.txt */
 (()=>{var n=function(n){return document.querySelector(n)};document.addEventListener("DOMContentLoaded",(function(){var e=n(".nav_logo_parent"),t=(n(".inputLogin1"),n(".inputLogin2"),n(".inputLogin2"));console.log(t),matchMedia("screen and (max-width: 768px)").matches&&(e.innerHTML="H.C")}))})();

@@ -35,6 +35,7 @@
         "client": "Personal portfolio",
         "content": "Archive of my works and skills ;)",
         "id": "uzitrake",
+        "link": "https://vickkie.github.io",
         "media": "assets/images/works/portfolio/uzitrake89.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp || assets/images/works/portfolio/uziport-multi.webp || assets/images/works/portfolio/background_logotype.png || assets/images/works/portfolio/6ffd2a192642973.65df0533da245.avif",
         "mediaLarge": "assets/images/works/portfolio/uziport-multi.webp || assets/images/works/portfolio/uzitrake89.webp || assets/images/works/portfolio/uzitrake-extrahigh-1.webp ||  assets/images//works/portfolio/background_logotype.png || assets/images/works/portfolio/6ffd2a192642973.65df0533da245.avif",
         "previewColor": "var(--color-bg)",
@@ -42,103 +43,93 @@
         "solution": "To address this challenge, I approached the design and development of my portfolio with a strategic mindset, focusing on three key aspects: showcasing my technical proficiency, demonstrating my design expertise, and providing insight into my problem-solving process.<br /><br />In terms of design, I employed user-centered principles to craft an intuitive and visually engaginginterface. I carefully curated my portfolio projects, selecting a diverse range of work that showcasedmy versatility and creativity across different domains and platforms<br /><br />Throughout the development process, I iterated on the design and content based on feedback from peers, mentors, and potential users, ensuring that my portfolio effectively showcased my skills and resonated with its intended audience.",
         "task": "Ui design,Web Development, archive",
         "title": "Uzitrake",
-        "link":"https://vickkie.github.io",
         "year": "2023"
     },
-  
-{
-    "id": "kizik",
-    "year": "2023",
-    "title": "Kizik",
-    "aim": "As Hypercritical Studio, our aim was to collaborate with Kizik and revolutionize the footwear industry by designing a website that not only showcased their innovative products but also reflected their commitment to simplicity, convenience, and joy in everyday life. We recognized the opportunity to leverage our expertise in user experience design and web development to create a platform that would effectively communicate Kizik's brand message and enhance the user experience for visitors.",
-    "task": "Website Design and Development, User Experience Enhancement",
-    "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
-    "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
-    "client": "Kizik",
-    "content": "Kizik's mission was to transform the footwear industry by introducing innovative technology that simplified the process of wearing shoes. The company aimed to enhance everyday life by eliminating the need for traditional shoe fastenings, such as laces, and replacing them with a more convenient and user-friendly alternative. Kizik's technology represented a significant advancement in footwear design and usability, offering users a seamless and enjoyable experience with every step.",
-    "solution": "To bring Kizik's vision to life, we focused on designing and developing a website that effectively communicated the benefits and features of their revolutionary footwear technology. Our solution centered on creating a user-friendly interface that showcased Kizik's products and their unique selling points. We prioritized simplicity and accessibility, ensuring that users could easily navigate the website and explore Kizik's range of shoes. Additionally, we incorporated engaging visual elements and interactive features to captivate visitors and highlight the convenience and comfort of Kizik's footwear. Through iterative design and development, we refined the website to align with Kizik's brand identity and resonate with its target audience, ultimately delivering a seamless and compelling online experience.",
-    "Analysis": "Working on Kizik's website was an opportunity to contribute to the transformation of the footwear industry and enhance the lives of users worldwide. By leveraging innovative technology and user-centered design principles, we helped Kizik communicate its mission and showcase its products effectively to a global audience. The project underscored the importance of simplicity, convenience, and joy in everyday experiences, reflecting Kizik's commitment to making every day easier and more enjoyable for everyone.",
-    "previewColor": "var(--main-color)",
-    "previewImage": "assets/images/works/kizik/kizik-banner.webm"
-    ,"link":"https://kizik.com"
-}
-,
     {
+        "Analysis": "Working on Kizik's website was an opportunity to contribute to the transformation of the footwear industry and enhance the lives of users worldwide. By leveraging innovative technology and user-centered design principles, we helped Kizik communicate its mission and showcase its products effectively to a global audience. The project underscored the importance of simplicity, convenience, and joy in everyday experiences, reflecting Kizik's commitment to making every day easier and more enjoyable for everyone.",
+        "aim": "As Hypercritical Studio, our aim was to collaborate with Kizik and revolutionize the footwear industry by designing a website that not only showcased their innovative products but also reflected their commitment to simplicity, convenience, and joy in everyday life. We recognized the opportunity to leverage our expertise in user experience design and web development to create a platform that would effectively communicate Kizik's brand message and enhance the user experience for visitors.",
+        "client": "Kizik",
+        "content": "Kizik's mission was to transform the footwear industry by introducing innovative technology that simplified the process of wearing shoes. The company aimed to enhance everyday life by eliminating the need for traditional shoe fastenings, such as laces, and replacing them with a more convenient and user-friendly alternative. Kizik's technology represented a significant advancement in footwear design and usability, offering users a seamless and enjoyable experience with every step.",
+        "id": "kizik",
+        "link": "https://kizik.com",
+        "media": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
+        "mediaLarge": "assets/images/works/kizik/kizik-1-work-drawer-660x425.webm || assets/images/works/kizik/kizik-2-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik-3-work-drawer-660x425-1.webm || assets/images/works/kizik/kizik.com_en-ke(Nest Hub Max).png",
+        "previewColor": "var(--main-color)",
+        "previewImage": "assets/images/works/kizik/kizik-banner.webm",
+        "solution": "To bring Kizik's vision to life, we focused on designing and developing a website that effectively communicated the benefits and features of their revolutionary footwear technology. Our solution centered on creating a user-friendly interface that showcased Kizik's products and their unique selling points. We prioritized simplicity and accessibility, ensuring that users could easily navigate the website and explore Kizik's range of shoes. Additionally, we incorporated engaging visual elements and interactive features to captivate visitors and highlight the convenience and comfort of Kizik's footwear. Through iterative design and development, we refined the website to align with Kizik's brand identity and resonate with its target audience, ultimately delivering a seamless and compelling online experience.",
+        "task": "Website Design and Development, User Experience Enhancement",
+        "title": "Kizik",
+        "year": "2023"
+    },
+    {
+        "Analysis": "Robin Golf is a company that specializes in providing high-quality, stylish golf equipment aimed at making the sport more accessible and enjoyable for a wider range of players. Founded in 2020 and headquartered in Los Angeles, California, Robin Golf offers golf sets for women, men, and juniors, emphasizing design and functionality to enhance the player's experience from tee to green. ",
         "aim": "The Robin Golf website design was a strategic blend of branding, UX/UI design, development optimization, and customer engagement strategies. From its inception through ongoing improvements, the website serves as a testament to the power of thoughtful design in enhancing brand perception and driving business outcomes.",
         "content": "Getting into the swing of things. ",
-        "Analysis":"Robin Golf is a company that specializes in providing high-quality, stylish golf equipment aimed at making the sport more accessible and enjoyable for a wider range of players. Founded in 2020 and headquartered in Los Angeles, California, Robin Golf offers golf sets for women, men, and juniors, emphasizing design and functionality to enhance the player's experience from tee to green. ",
         "id": "robin-golf",
+        "link": "https://www.robingolf.com",
         "media": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.png ||  assets/images/works/golfer/robin-child.webp || assets/images/works/golfer/robingolf-cart.avif",
         "mediaLarge": "assets/images/works/golfer/6dac42a8-b10a-425d-9c10-d96fc9a2.webp || assets/images/works/golfer/robin-golf-logo-animation.mp4 || assets/images/works/golfer/aa844126-d9f4-4b61-8846-2fbc8920.webp || assets/images/works/golfer/robin-hero.avif || assets/images/works/golfer/robingolf-cart.avif || assets/images/works/golfer/robingolf.com_products_women(Nest Hub Max).avif",
         "previewColor": "#df6565",
         "previewImage": "assets/images/works/golfer/DSC00717.webp",
         "solution": "Initial Design Phase:<br><br>Brand Identity and Messaging : The website emphasizes Robin Golf's commitment to providing high-quality golf equipment accessible to a wide range of players. It positions Robin Golf as a brand that combines affordability with performance, appealing to both professionals and beginners<br><br>Visual Appeal and User Experience (UX): The design focuses on creating a visually appealing and intuitive interface. This includes responsive design elements to ensure the website is accessible across various devices, enhancing the overall user experience.<br><br>Development and Optimization <br><br> Headless Architecture: Initially, the website was built with a headless architecture, separating the front-end presentation layer from the back-end content management system (CMS). This approach allows for greater flexibility and scalability but requires careful integration with the CMS for ease of content updates.<br><br>Enhancements and Integrations: To address challenges with content updates and improve the website's effectiveness, Future Holidays refined the headless architecture. They introduced helpful apps and integrated Google Analytics to track user behavior and optimize conversion rates. Additionally, they implemented email capture lightboxes and automated product restock flows to boost sales",
         "title": "Robin-golf",
-        "year": "2019",
-        "link":"https://www.robingolf.com"
+        "year": "2019"
     },
     {
+        "Analysis": "Spoiled child skincare product  aims to challenge conventional anti-aging narratives by introducing the term ' age control' and providing products that promise fewer wrinkles and signs of aging by combining cutting-edge technology with a focus on personalization and sustainability.",
         "aim": "Personalization was a central theme, emphasizing the importance of catering to individual needs and preferences. The integration of the Spoiled Brain AI for personalized product recommendations is a significant feature, demonstrating the use of advanced technology to enhance user engagement and satisfaction",
         "content": "Make your skin age inappropriate. ",
-        "Analysis":"Spoiled child skincare product  aims to challenge conventional anti-aging narratives by introducing the term ' age control' and providing products that promise fewer wrinkles and signs of aging by combining cutting-edge technology with a focus on personalization and sustainability.",
         "id": "spoiled-child",
+        "link": "https://spoiledchild.com",
         "media": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.avif || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp || assets/images/works/spoiled-child/spoiledchild.com.webp  || assets/images/works/spoiled-child/whospoiled.webp",
         "mediaLarge": "assets/images/works/general/3c498d10-387e-412b-87dd-2092ee9e.avif || assets/videos/spoiled-child.webm || assets/images/works/general/e49b10f2-fefd-4b83-9430-d6ea4857.webp || assets/images/works/spoiled-child/spoiledchild.com.webp  || assets/images/works/spoiled-child/whospoiled.webp",
         "previewColor": "var(--color-bg)",
         "previewImage": "assets/images/works/spoiled-child/sospoiled.avif",
         "solution": "The project began with setting a collaborative creative direction. This involves understanding the brand's vision, values, and target audience to ensure the design aligns with these elements. Collaborating closely with the client allows for a shared understanding of the desired outcome, leading to a more cohesive final product.<br><br>A crucial aspect of the design process was defining product categories and creating detailed pages for each product. These pages were designed to immerse users in a colorful capsule-driven world, enhancing the shopping experience through visual appeal and thematic consistency<br><br>The website's content strategy prioritizes community involvement, showcasing User-Generated Content (UGC) to demonstrate product usage and effectiveness. This approach not only builds trust with potential customers but also fosters a sense of community among existing ones<br><br>The visual design and art direction were tailored to reflect the brand's unique personality, described as confident, tongue-in-cheek, and impactful yet simple. This approach ensures that the website stands out in the crowded beauty space, attracting attention and resonating with the target audience.<br><br>The eCommerce platform used for Spoiled Child is custom, highlighting the need for a tailored solution that meets the specific requirements of the brand and its online presence. This customization includes features such as personalized product recommendations, secure payment processing, and efficient order management",
         "title": "spoiled-child",
-        "year": "2021",
-        "link":"https://spoiledchild.com"
+        "year": "2021"
     },
-{
-    "aim": "As Hypercritical Studio, our aim with the J.Stimler project was to collaborate with the brand to revolutionize the fashion industry by leveraging sustainable fabrics and innovative designs. We aimed to create a high-quality, environmentally friendly website that reflected J.Stimler's commitment to transparency, ethical practices, and sustainability throughout its supply chain.",
-    "content": "Crafted with purpose, J.Stimler's collection is a testament to the power of sustainable fashion. Each piece is designed to not only look good but also do good, contributing to a more conscious and responsible fashion ecosystem.",
-    "analysis": "J.Stimler stands out in the fashion industry by blending environmental responsibility with high-end aesthetics. By focusing on organic materials and fair trade practices, the brand offers a compelling alternative to fast fashion, appealing to consumers who value ethics and sustainability in their wardrobe choices. Hypercritical Studio's approach to designing and developing J.Stimler's website was rooted in a deep understanding of the brand's ethos. We collaborated closely with J.Stimler to ensure that the website reflected their values and communicated their message effectively. Through thoughtful design and meticulous attention to detail, we created a platform that not only showcased J.Stimler's collections but also educated consumers about the importance of sustainable fashion. The website serves as a digital storefront for J.Stimler, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
-    "id": "jstimler",
-    "solution": "Hypercritical Studio approached the design and development of the J.Stimler website with a deep commitment to sustainability and ethical production. We collaborated closely with J.Stimler to ensure that every aspect of the website reflected their values and communicated their message effectively. Through thoughtful design and meticulous attention to detail, we created a platform that not only showcased J.Stimler's collections but also educated consumers about the importance of sustainable fashion. The website serves as a digital storefront for J.Stimler, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
-    "media": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
-    "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
-    "previewColor": "#EDD400",
-    "previewImage": "assets/images/works/jstimler/jstimler-banner.avif",
-    "title": "jstimler",
-    "year": "2023",
-    "link":"https://jstimler.co.uk"
-},
-{
-    "aim": "As Hypercritical Studio, our aim with the J.Stimler project was to collaborate with the brand to revolutionize the fashion industry by leveraging sustainable fabrics and innovative designs. We aimed to create a high-quality, environmentally friendly website that reflected J.Stimler's commitment to transparency, ethical practices, and sustainability throughout its supply chain.",
-    "content": "Crafted with purpose, J.Stimler's collection is a testament to the power of sustainable fashion. Each piece is designed to not only look good but also do good, contributing to a more conscious and responsible fashion ecosystem.",
-    "analysis": "J.Stimler stands out in the fashion industry by blending environmental responsibility with high-end aesthetics. By focusing on organic materials and fair trade practices, the brand offers a compelling alternative to fast fashion, appealing to consumers who value ethics and sustainability in their wardrobe choices. Hypercritical Studio's approach to designing and developing J.Stimler's website was rooted in a deep understanding of the brand's ethos. We collaborated closely with J.Stimler to ensure that the website reflected their values and communicated their message effectively. Through thoughtful design and meticulous attention to detail, we created a platform that not only showcased J.Stimler's collections but also educated consumers about the importance of sustainable fashion. The website serves as a digital storefront for J.Stimler, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
-    "id": "promokings",
-    "solution": "Hypercritical Studio approached the design and development of the Promokings shopping app with a deep commitment to sustainability and ethical production.  The Mobile app serves as a digital storefront for Promokings online ordering, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
-    "media": "assets/images/works/promokings/wireframe22.webp || assets/images/works/promokings/wireframe-p2.webp || assets/images/works/promokings/wireframe22.webp",
-    "mediaLarge": "assets/images/works/promokings/wireframe23.webp || assets/images/works/promokings/wireframe-p.webp || assets/images/works/promokings/wireframe22.webp",
-    "previewColor": "#EDD400",
-    "previewImage": "assets/images/works/promokings/promokings.webp",
-    "title": "promokings",
-    "year": "2023",
-    "link":"https://github.com/vickkie/Promokings"
-},
-{
- 
-    "aim": "As Hypercritical Studio, our goal with the Zephir project was to redefine high-end fashion e-commerce store by merging cutting-edge digital experiences with bold, statement-making apparel. From premium menswear and womenswear to children’s fashion and pride-inspired collections, Zephir was designed to exude exclusivity and style while providing seamless control through an advanced admin dashboard",
-    
-    "content": "Zephir is where bold fashion meets timeless sophistication. Every piece in our collection is crafted to **exude confidence and individuality**, ensuring that wearers don’t just follow trends—they set them. Whether it’s meticulously tailored menswear, effortlessly chic womenswear, or expressive pride apparel, Zephir stands as a beacon of **luxury, identity, and self-expression**.",
-    
-    "analysis": "Zephir distinguishes itself by offering a curated selection of **high-quality, statement-making apparel**. The brand isn’t just about selling fashion—it’s about **empowering self-expression through design**. By crafting pieces that blend avant-garde aesthetics with premium materials, Zephir attracts a clientele that values both quality and confidence. To match this, Hypercritical Studio meticulously developed a platform that captures Zephir’s **bold, fashion-forward energy**. The site features an **immersive shopping experience**, fluid navigation, and a robust admin dashboard that offers full control over inventory, orders, and customer engagement. Zephir isn't just a retail store—it's a movement in modern fashion.",
-    
-    "id": "zephir",
-    
-    "solution": "Hypercritical Studio took a forward-thinking approach to Zephir's development, ensuring the platform **not only looks luxurious but operates seamlessly**. With an intuitive, high-performance UI, an AI-powered recommendation engine, and an admin dashboard providing **real-time insights and control**, Zephir redefines what a **next-gen fashion e-commerce experience** should be."
-,
-    "media": "assets/images/works/zephir/0_Free MacBook on Dresser Mockup.psd_0fr2.webp || assets/images/works/zephir/0_Free iPhone based on Rock Mockup.psd_021.webp || assets/images/works/zephir/1_iPhone 16 Pro Mockup DKgoodart.psd_02.webp || assets/images/works/zephir/0_Free MacBook Pro On The Cabinet Mockup.psd_013.webp || assets/images/works/zephir/0_0_Isometric Smartphone Free Mockup.psd_01.webp || assets/images/works/zephir/0_Free MacBook Pro on Settee Mockup.psd_01.webp",
-    "mediaLarge": "assets/images/works/zephir/0_Free MacBook on Dresser Mockup.psd_0fr2.webp || assets/images/works/zephir/0_Free iPhone based on Rock Mockup.psd_021.webp || assets/images/works/zephir/1_iPhone 16 Pro Mockup DKgoodart.psd_0.webp || assets/images/works/zephir/0_Free MacBook Pro On The Cabinet Mockup.psd_013.webp || assets/images/works/zephir/0_0_Isometric Smartphone Free Mockup.psd_01.webp || assets/images/works/zephir/0_Free MacBook Pro on Settee Mockup.psd_01.webp",
-    "previewColor": "#cebd63",
-    "previewImage": "assets/images/works/zephir/banner_w2.webp",
-    "title": "zephir",
-    "client": "Zephir Store",
-    "year": "2025",
-    "link":"https://zephir.vercel.app"
-}
-
+    {
+        "aim": "As Hypercritical Studio, our aim with the J.Stimler project was to collaborate with the brand to revolutionize the fashion industry by leveraging sustainable fabrics and innovative designs. We aimed to create a high-quality, environmentally friendly website that reflected J.Stimler's commitment to transparency, ethical practices, and sustainability throughout its supply chain.",
+        "analysis": "J.Stimler stands out in the fashion industry by blending environmental responsibility with high-end aesthetics. By focusing on organic materials and fair trade practices, the brand offers a compelling alternative to fast fashion, appealing to consumers who value ethics and sustainability in their wardrobe choices. Hypercritical Studio's approach to designing and developing J.Stimler's website was rooted in a deep understanding of the brand's ethos. We collaborated closely with J.Stimler to ensure that the website reflected their values and communicated their message effectively. Through thoughtful design and meticulous attention to detail, we created a platform that not only showcased J.Stimler's collections but also educated consumers about the importance of sustainable fashion. The website serves as a digital storefront for J.Stimler, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
+        "content": "Crafted with purpose, J.Stimler's collection is a testament to the power of sustainable fashion. Each piece is designed to not only look good but also do good, contributing to a more conscious and responsible fashion ecosystem.",
+        "id": "jstimler",
+        "link": "https://jstimler.co.uk",
+        "media": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
+        "mediaLarge": "assets/images/works/jstimler/Fabrics-J-Stimler.webp || assets/images/works/jstimler/65785ac5cfa2c998014571-1.webp || assets/images/works/jstimler/motion22.mp4",
+        "previewColor": "#EDD400",
+        "previewImage": "assets/images/works/jstimler/jstimler-banner.avif",
+        "solution": "Hypercritical Studio approached the design and development of the J.Stimler website with a deep commitment to sustainability and ethical production. We collaborated closely with J.Stimler to ensure that every aspect of the website reflected their values and communicated their message effectively. Through thoughtful design and meticulous attention to detail, we created a platform that not only showcased J.Stimler's collections but also educated consumers about the importance of sustainable fashion. The website serves as a digital storefront for J.Stimler, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
+        "title": "jstimler",
+        "year": "2023"
+    },
+    {
+        "aim": "As Hypercritical Studio, our aim with the Promokings project was to collaborate with the brand to revolutionize the fashion industry by leveraging sustainable fabrics and innovative designs. We aimed to create a high-quality, environmentally friendly website that reflected J.Stimler's commitment to transparency, ethical practices, and sustainability throughout its supply chain.",
+        "analysis": "PromoKings revolutionizes the way consumers engage with promotions by offering a streamlined and accessible platform for discovering discounts and deals. The app's focus on user experience makes finding savings simple and efficient, appealing to budget-conscious individuals and deal hunters alike. PromoKings also takes pride in its partnerships with a wide variety of retailers, ensuring users have access to a broad range of promotions across different categories. By curating deals that cater to different tastes and needs, PromoKings positions itself as an essential tool in today's fast-paced shopping environment. The app is designed to make users' lives easier by giving them the power to access promotions on-demand, all while saving time and money.",
+        "content": "PromoKings is your ultimate solution for discovering and sharing the best promotions. With a user-friendly interface, PromoKings curates the best deals, discounts, and offers, making it easy to save on your favorite products and services. Whether you're a savvy shopper or looking for exclusive deals, PromoKings ensures you never miss out on a great offer.",
+        "id": "promokings",
+        "link": "https://github.com/vickkie/Promokings",
+        "media": "assets/images/works/promokings/wireframe22.webp || assets/images/works/promokings/wireframe-p2.webp || assets/images/works/promokings/wireframe22.webp",
+        "mediaLarge": "assets/images/works/promokings/wireframe23.webp || assets/images/works/promokings/wireframe-p.webp || assets/images/works/promokings/wireframe22.webp",
+        "previewColor": "#EDD400",
+        "previewImage": "assets/images/works/promokings/promokings.webp",
+        "solution": "Hypercritical Studio approached the design and development of the Promokings shopping app with a deep commitment to sustainability and ethical production.  The Mobile app serves as a digital storefront for Promokings online ordering, inviting users to explore their eco-friendly designs and learn more about their commitment to sustainability.",
+        "title": "promokings",
+        "year": "2023"
+    },
+    {
+        "aim": "As Hypercritical Studio, our goal with the Zephir project was to redefine high-end fashion e-commerce store by merging cutting-edge digital experiences with bold, statement-making apparel. From premium menswear and womenswear to children’s fashion and pride-inspired collections, Zephir was designed to exude exclusivity and style while providing seamless control through an advanced admin dashboard",
+        "analysis": "Zephir distinguishes itself by offering a curated selection of **high-quality, statement-making apparel**. The brand isn’t just about selling fashion—it’s about **empowering self-expression through design**. By crafting pieces that blend avant-garde aesthetics with premium materials, Zephir attracts a clientele that values both quality and confidence. To match this, Hypercritical Studio meticulously developed a platform that captures Zephir’s **bold, fashion-forward energy**. The site features an **immersive shopping experience**, fluid navigation, and a robust admin dashboard that offers full control over inventory, orders, and customer engagement. Zephir isn't just a retail store—it's a movement in modern fashion.",
+        "client": "Zephir Store",
+        "content": "Zephir is where bold fashion meets timeless sophistication. Every piece in our collection is crafted to **exude confidence and individuality**, ensuring that wearers don’t just follow trends—they set them. Whether it’s meticulously tailored menswear, effortlessly chic womenswear, or expressive pride apparel, Zephir stands as a beacon of **luxury, identity, and self-expression**.",
+        "id": "zephir",
+        "link": "https://zephir.vercel.app",
+        "media": "assets/images/works/zephir/0_Free MacBook on Dresser Mockup.psd_0fr2.webp || assets/images/works/zephir/0_Free iPhone based on Rock Mockup.psd_021.webp || assets/images/works/zephir/1_iPhone 16 Pro Mockup DKgoodart.psd_02.webp || assets/images/works/zephir/0_Free MacBook Pro On The Cabinet Mockup.psd_013.webp || assets/images/works/zephir/0_0_Isometric Smartphone Free Mockup.psd_01.webp || assets/images/works/zephir/0_Free MacBook Pro on Settee Mockup.psd_01.webp",
+        "mediaLarge": "assets/images/works/zephir/0_Free MacBook on Dresser Mockup.psd_0fr2.webp || assets/images/works/zephir/0_Free iPhone based on Rock Mockup.psd_021.webp || assets/images/works/zephir/1_iPhone 16 Pro Mockup DKgoodart.psd_0.webp || assets/images/works/zephir/0_Free MacBook Pro On The Cabinet Mockup.psd_013.webp || assets/images/works/zephir/0_0_Isometric Smartphone Free Mockup.psd_01.webp || assets/images/works/zephir/0_Free MacBook Pro on Settee Mockup.psd_01.webp",
+        "previewColor": "#cebd63",
+        "previewImage": "assets/images/works/zephir/banner_w2.webp",
+        "solution": "Hypercritical Studio took a forward-thinking approach to Zephir's development, ensuring the platform **not only looks luxurious but operates seamlessly**. With an intuitive, high-performance UI, an AI-powered recommendation engine, and an admin dashboard providing **real-time insights and control**, Zephir redefines what a **next-gen fashion e-commerce experience** should be.",
+        "title": "zephir",
+        "year": "2025"
+    }
 ]

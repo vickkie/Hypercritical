@@ -139,6 +139,35 @@
     "client": "Zephir Store",
     "year": "2025",
     "link":"https://zephir.vercel.app"
+},
+{
+  "aim": "As Hypercritical Studio, our goal with the Illunexus project was to build a sleek, conversion-optimized digital identity for a modern marketing agency. We wanted to create a platform that not only communicated Illunexus’ wide array of services but also positioned them as a bold leader in the digital marketing space through sharp UI, interactive content, and a future-proof tech stack.",
+  
+  "content": "Illunexus is the brainchild of bold marketers and growth hackers—built to **elevate brands digitally through powerful, data-backed strategies**. From SEO and CPA campaigns to social media dominance and email automation, Illunexus is engineered to be the **go-to digital partner** for businesses ready to scale. Our build reflects that same energy: clean, responsive, and made to perform.",
+  
+  "analysis": "Illunexus sets itself apart by offering a **360° digital marketing approach** rooted in execution, not fluff. Our job at Hypercritical Studio was to translate that into a **website that feels light but hits heavy**. We designed each section to focus on clarity and action: bold messaging, case study highlights, and a modular layout for scalability. With an intuitive structure and optimized performance across all devices, the site acts as both a digital business card and a lead magnet for Illunexus.",
+  
+  "id": "illunexus",
+  
+  "solution": "Hypercritical Studio crafted the Illunexus platform using a custom frontend that emphasizes **user flow and CTA-driven navigation**. We baked in performance, responsiveness, and flexibility—while keeping editing easy for the team behind Illunexus. Built with modern web principles, the final product empowers the agency to grow while looking sharp, credible, and professional.",
+  
+   "media":"assets/images/works/illunexus/0_1_Free MacBook Pro on Stand Mockup.psd_0cc.webp || assets/images/works/illunexus/0_2_iPhone Mockup.psd_0x.webp || assets/images/works/illunexus/0_Free MacBook Pro on Chair Mockup.psd_0.webp || assets/images/works/illunexus/0_2_Free Front View MacBook 16 Pro Mockup.psd_0.webp || assets/images/works/illunexus/0_3_Free Front View MacBook 16 Pro Mockup.psd_0.webp ",
+  
+  "mediaLarge":"assets/images/works/illunexus/0_1_Free MacBook Pro on Stand Mockup.psd_0cc.webp || assets/images/works/illunexus/0_2_iPhone Mockup.psd_0x.webp || assets/images/works/illunexus/0_Free MacBook Pro on Chair Mockup.psd_0.webp || assets/images/works/illunexus/0_2_Free Front View MacBook 16 Pro Mockup.psd_0.webp || assets/images/works/illunexus/0_3_Free Front View MacBook 16 Pro Mockup.psd_0.webp ",
+  
+  "previewColor": "#1a1a1a",
+  
+  "previewImage": "assets/images/works/illunexus/preview-hero.webp",
+  
+  "title": "illunexus",
+  
+  "client": "Illunexus Agency",
+  
+  "year": "2024",
+  
+  "link": "https://illunexus.vercel.app"
 }
+
+
 
 ]

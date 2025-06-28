@@ -48,7 +48,7 @@
   "jest": "^29.7.0",
   "mini-css-extract-plugin": "^2.8.1",
   "postcss": "^8.4.38",
-  "purgecss": "^6.0.0",
+  "purgecss": "^7.0.2",
   "style-loader": "^2.0.0",
   "tailwindcss": "^3.4.4",
   "terser-webpack-plugin": "^5.3.10",

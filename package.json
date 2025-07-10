@@ -75,7 +75,7 @@
   "react": "^18.3.1",
   "react-beautiful-dnd": "^13.1.1",
   "react-dom": "^18.2.0",
-  "react-router-dom": "^6.22.3",
+  "react-router-dom": "^7.6.3",
   "react-spring": "^9.7.3",
   "reeller": "^0.0.5",
   "splitting": "^1.0.6",

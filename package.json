@@ -79,7 +79,7 @@
   "react-spring": "^9.7.3",
   "reeller": "^0.0.5",
   "splitting": "^1.0.6",
-  "sweetalert2": "^11.11.0",
+  "sweetalert2": "^11.22.2",
   "swiper": "^11.1.1",
   "uuid": "^9.0.1"
  }

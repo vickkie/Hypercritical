@@ -166,7 +166,25 @@
   "year": "2024",
   
   "link": "https://illunexus.vercel.app"
-}
+},
+ {  
+    
+    "analysis": "Building a standout portfolio as a UX/UI designer wasn’t just about showing pretty screens — it was about creating a space that truly captured my creative vision, design strategy, and ability to lead visually compelling experiences. The real challenge was balancing aesthetic appeal with functional storytelling.",
+      "aim": "As both a programmer and a UX/UI designer, I knew my portfolio had to do more than list projects — it had to *speak*. I needed a platform that showcased my technical skills, creative instincts, and the way I solve real-world problems through design. Turning that into a cohesive, engaging digital experience was the ultimate goal.",
+   
+        "media": "assets/images/works/folio25/uzilabels.webp || assets/images/works/folio25/uzihand.webp || assets/images/works/folio25/uziwall.webp || assets/images/works/folio25/wallwork.webp || assets/images/works/folio25/uzibed.webp || assets/images/works/folio25/areass.webp",
+        "mediaLarge": "assets/images/works/folio25/uzilabels.webp || assets/images/works/folio25/uzihand.webp || assets/images/works/folio25/uziwall.webp || assets/images/works/folio25/wallwork.webp || assets/images/works/folio25/uzibed.webp || assets/images/works/folio25/areass.webp",
+        "previewColor": "transparent",
+        "previewImage": "assets/images/works/folio25/homecreative.webp",
+        "solution": "To address this challenge, I approached the design and development of my portfolio with a strategic mindset, focusing on three key aspects: showcasing my technical proficiency, demonstrating my design expertise, and providing insight into my problem-solving process.<br /><br />In terms of design, I employed user-centered principles to craft an intuitive and visually engaginginterface. I carefully curated my portfolio projects, selecting a diverse range of work that showcasedmy versatility and creativity across different domains and platforms<br /><br />Throughout the development process, I iterated on the design and content based on feedback from peers, mentors, and potential users, ensuring that my portfolio effectively showcased my skills and resonated with its intended audience.",
+        "client": "Personal portfolio",
+        "content": "Archive of my works and skills ;)",
+        "id": "vickkie",
+        "task": "Re-design,Web Development, archive",
+        "title": "Vickkie",
+        "link":"https://vickkie.vercel.app",
+        "year": "2025"
+    }
 
 
 

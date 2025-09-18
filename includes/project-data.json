@@ -184,6 +184,21 @@
         "title": "Vickkie",
         "link":"https://vickkie.vercel.app",
         "year": "2025"
+    },
+    {
+        "aim": "As Hypercritical Studio, our goal with the Medivana project was to design & build a seamless healthcare platform that empowers users to **find trusted doctors**, browse specialties, check real-time availability, and book appointments in seconds. The idea was to simplify healthcare access via sleek UI, mobile-friendly design, and scalable architecture that can grow with new modules (e.g. telehealth, record keeping).",
+        "content": "Medivana is a user-centric healthcare companion—built for people who want to manage their health without friction. Whether you’re looking for a specialist, checking who’s available, or scheduling care—Medivana makes it fast, reliable, and trustworthy. Our UI reflects clarity and trust through intuitive navigation, clean design, and empathetic touches.",
+        "analysis": "What sets Medivana apart is its focus on **user trust and speed** in a domain where both are critical. In the healthcare space, delays, confusing workflows, or poor UX can seriously erode confidence. My role was to translate medical utility into an interface that feels human: clear doctor profiles, visible availability, minimal form steps. Designed responsively for mobile & desktop. Built so the system is modular — easy to add features like ratings, notifications, or patient records — while maintaining performance and accessibility.",
+        "id": "medivana",
+        "solution": "I developed the Medivana platform using a modern architecture that prioritizes user flow: fast searches, minimal clicks to book, clean presentation of doctors & specialties. Emphasized performance, responsiveness, and modularity so that new features can slot in smoothly. Also baked in privacy/security from the start (doctor credentials display, secure data handling).",
+        "media": "assets/images/works/medivana/splash2.png || assets/images/works/medivana/categories.webp || assets/images/works/medivana/signup.webp || assets/images/works/medivana/home.webp || assets/images/works/medivana/docdetails.webp || assets/images/works/medivana/signin.webp || assets/images/works/medivana/profile.webp || assets/images/works/medivana/appointments.webp || assets/images/works/medivana/appointment-details.webp || assets/images/works/medivana/tilted.webp ",
+        "mediaLarge": "assets/images/works/medivana/splash2.png || assets/images/works/medivana/categories.webp || assets/images/works/medivana/signup.webp || assets/images/works/medivana/home.webp || assets/images/works/medivana/docdetails.webp || assets/images/works/medivana/signin.webp || assets/images/works/medivana/profile.webp || assets/images/works/medivana/appointments.webp || assets/images/works/medivana/appointment-details.webp || assets/images/works/medivana/tilted.webp ",
+        "previewColor": "transparent",
+        "previewImage": "assets/images/works/medivana/signin.webp",
+        "title": "Medivana",
+        "client": "Medivana (medical / health project)",
+        "year": "2025",
+        "link": "https://github.com/vickkie/Medivana"
     }
 
 

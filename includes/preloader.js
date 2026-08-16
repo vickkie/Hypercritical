@@ -26,6 +26,9 @@ const vue = new Vue({
   data: {
     loaded: 0,
     loading: null,
+    // Monotonic target — only ever increases, so the displayed value
+    // can never move backwards. This is what stops the 49,48,49,50 chatter.
+    targetLoaded: 0,
     loadStyle: {
       height: "0%",
       display: "block",
@@ -55,87 +58,52 @@ const vue = new Vue({
       // this.progressbar.css("display", "block");
     },
     startLoading() {
-      this.loading = setInterval(this.load, 20);
+      // Show loader2 / hide loader1 once, up front.
+      mounted();
 
-      // Listen for all resources to finish loading
+      // Single animation loop. Previously this used setInterval(load, 20)
+      // AND each load() spawned its own recursive setTimeout chain, so
+      // multiple chains mutated `loaded` at the same time — the root cause
+      // of the 49,48,49,50 jumping. One rAF loop = one writer.
+      this.loading = requestAnimationFrame(this.tick);
+
+      // When all resources finish, push the target to 100 and let the
+      // loop ease the displayed value up to it smoothly.
       window.addEventListener("load", () => {
-        // All resources are loaded
-        this.doneLoading();
+        this.targetLoaded = 100;
       });
     },
 
-    // load() {
-    //   const progress = this.calculateLoadingProgress();
-    //   const targetProgress = progress.toString().padStart(3, "0");
+    // One frame of the loader. Called via requestAnimationFrame only.
+    tick() {
+      const sampled = this.calculateLoadingProgress();
 
-    //   const start = +this.loaded;
-    //   const end = +targetProgress;
+      // Monotonic floor: the target never moves backwards.
+      if (sampled > this.targetLoaded) this.targetLoaded = sampled;
 
-    //   const increment = end > start ? 1 : -1;
-
-    //   const animateNext = () => {
-    //     if ((increment > 0 && this.loaded < end) || (increment < 0 && this.loaded > end)) {
-    //       this.loaded += increment;
-    //       this.loadStyle.height = `${this.loaded}%`;
-    //       if (progress >= 1) {
-    //         mounted();
-    //       }
-
-    //       setTimeout(animateNext, 20);
-    //     } else {
-    //       if (progress >= 100) {
-    //         this.doneLoading();
-    //       }
-    //     }
-    //   };
-
-    //   animateNext();
-    // },
-
-    load() {
-      // Defined a buffer size for smoothing. Larger values will result in smoother but slower updates.
-      const bufferSize = 10;
-
-      // Calculate the smoothed progress by averaging the last few values.
-      let smoothedProgress = 0;
-      for (let i = 0; i < bufferSize; i++) {
-        smoothedProgress += this.calculateLoadingProgress();
+      // Ease toward the target. Math.ceil on the gap guarantees we always
+      // advance by at least 1 per frame while below target (so the number
+      // never stalls), and the 0.18 factor makes the step shrink as we
+      // approach — giving a smooth deceleration instead of a flat ±1 march.
+      const gap = this.targetLoaded - this.loaded;
+      if (gap > 0) {
+        this.loaded = Math.min(100, this.loaded + Math.max(1, Math.ceil(gap * 0.18)));
+        this.loadStyle.height = `${this.loaded}%`;
       }
-      smoothedProgress /= bufferSize;
 
-      // Convert the smoothed progress to a string and pad with leading zeros.
-      const targetProgress = smoothedProgress.toString().padStart(3, "0");
+      if (this.loaded >= 100) {
+        this.doneLoading();
+        return;
+      }
 
-      const start = +this.loaded;
-      const end = +targetProgress;
-
-      const increment = end > start ? 1 : -1;
-
-      const animateNext = () => {
-        if ((increment > 0 && this.loaded < end) || (increment < 0 && this.loaded > end)) {
-          this.loaded += increment;
-          this.loadStyle.height = `${this.loaded}%`;
-
-          // Update the progress bar only if we're moving forward towards 100%.
-          if (increment > 0 && this.loaded <= 100) {
-            mounted();
-          }
-
-          // Stop the animation if we've reached 100%.
-          if (this.loaded === 100) {
-            clearInterval(this.loading); // Clear the interval to stop further updates.
-            this.doneLoading();
-          }
-
-          setTimeout(animateNext, 20);
-        }
-      };
-
-      animateNext();
+      this.loading = requestAnimationFrame(this.tick);
     },
 
     doneLoading() {
-      clearInterval(this.loading);
+      if (this.loading) cancelAnimationFrame(this.loading);
+      this.loading = null;
+      this.loaded = 100;
+      this.targetLoaded = 100;
       this.loadStyle.height = `100%`;
       this.updateStatus();
     },

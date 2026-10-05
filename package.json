@@ -41,7 +41,7 @@
   "cross-env": "^7.0.3",
   "css-loader": "^7.1.5",
   "css-minimizer-webpack-plugin": "^8.0.0",
-  "dotenv-webpack": "^8.0.1",
+  "dotenv-webpack": "^9.0.0",
   "html-minimizer-webpack-plugin": "^5.0.0",
   "html-webpack-plugin": "^5.0.0",
   "http-server": "^14.1.1",

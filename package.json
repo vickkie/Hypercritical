@@ -33,7 +33,7 @@
   "@types/gsap": "^3.0.0",
   "@types/lozad": "^1.16.4",
   "@types/react-dom": "^18.2.24",
-  "@types/webpack-dotenv-plugin": "^2.0.8",
+  "@types/webpack-dotenv-plugin": "^2.0.9",
   "autoprefixer": "^10.4.19",
   "babel-loader": "^9.1.3",
   "clean-webpack-plugin": "^4.0.0",

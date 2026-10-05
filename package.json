@@ -69,7 +69,7 @@
   "firebase": "^10.11.0",
   "gsap": "^3.12.5",
   "lozad": "^1.16.0",
-  "mouse-follower": "^1.1.2",
+  "mouse-follower": "^1.2.1",
   "react": "^18.3.1",
   "react-beautiful-dnd": "^13.1.1",
   "react-dom": "^18.2.0",

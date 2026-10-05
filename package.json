@@ -75,7 +75,7 @@
   "react-dom": "^18.2.0",
   "react-router-dom": "^7.8.0",
   "reeller": "^0.0.5",
-  "sweetalert2": "^11.26.24",
+  "sweetalert2": "^11.26.25",
   "swiper": "^11.1.1",
   "uuid": "^9.0.1"
  }

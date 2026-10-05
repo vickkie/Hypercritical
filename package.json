@@ -23,7 +23,7 @@
   "url": "https://github.com/vickkie/Hypercritical/issues"
  },
  "devDependencies": {
-  "@babel/core": "^7.24.0",
+  "@babel/core": "^8.0.6",
   "@babel/preset-env": "^7.29.7",
   "@babel/preset-react": "^7.23.3",
   "@testing-library/dom": "^10.4.2",

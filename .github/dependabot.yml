@@ -11,3 +11,9 @@ updates:
     ignore:
       - dependency-name: "@builder.io/partytown"
         versions: ["^0.10.x"]
+      - dependency-name: "chart.js"
+        versions: [">= 3.0.0"]
+      - dependency-name: "typescript"
+        versions: [">= 6.0.0"]
+      - dependency-name: "uuid"
+        versions: [">= 10.0.0"]

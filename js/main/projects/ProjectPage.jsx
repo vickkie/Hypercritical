@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes, Switch, useNavigate } from "react-router-dom";
+import { HashRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import ProjectContent from "./ProjectContent";
 import pagesData from "../../../includes/project-data.json";

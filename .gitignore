@@ -6,3 +6,5 @@ js/main/.env
 js/main/server.js
 secure
 .env*
+
+public/

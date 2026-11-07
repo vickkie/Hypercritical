@@ -23,21 +23,15 @@ const plugins = [
       { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
       { from: "offline.html", to: "offline.html" },
       { from: "css", to: "css" },
-      { from: "server.js", to: "server.js" },
-      { from: ".babelrc", to: ".babelrc" },
-      { from: ".babel.config.json", to: ".babel.config.json" },
-      { from: "tsconfig.json", to: "tsconfig.json" },
       { from: "fonts", to: "fonts" },
-      { from: "js", to: "js" },
+      { from: "js/library", to: "js/library" },
       { from: "assets", to: "assets" },
-      { from: "README.md", to: "README.md" },
       {
         from: partytown.libDirPath(),
         to: path.join(__dirname, "public", "~partytown"),
       },
     ],
   }),
-  ,
   new HtmlWebpackPlugin({
     template: "./index.html",
     filename: "index.html",
@@ -189,7 +183,6 @@ if (isProduction) {
       "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
       "process.env.FIREBASE_MEASUREMENT_ID": JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
       "process.env.FIREBASE_DATABASE_URL": JSON.stringify(process.env.FIREBASE_DATABASE_URL),
-      "process.env.BACKEND_DATABASE_URL": JSON.stringify(process.env.BACKEND_DATABASE_URL),
     })
   );
 }

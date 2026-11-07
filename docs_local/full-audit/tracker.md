@@ -6,14 +6,14 @@ Status legend: Fixed+Verified | Documented (audit only) | N/A with reason | NEED
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| S1 | CopyWebpackPlugin copies source/config into public/ | In progress | pending |
-| S2 | DefinePlugin inlines BACKEND_DATABASE_URL into client bundle | In progress | pending |
-| S3 | login.js console.log(passwordInput) and unused selectors | In progress | pending |
-| S4 | vercel.json security headers | In progress | pending |
-| S5 | server.js dev only confirmation | In progress | pending |
-| S6 | npm audit | In progress | pending |
-| S7 | Token/key handling in contact.js and index.js; workflow secrets | In progress | pending |
-| S8 | XSS sinks: innerHTML, dangerouslySetInnerHTML, document.write | In progress | pending |
+| S1 | CopyWebpackPlugin copies source/config into public/ | Fixed+Verified | findings/security.md S1 |
+| S2 | DefinePlugin inlines BACKEND_DATABASE_URL into client bundle | Fixed+Verified | findings/security.md S2 (never reached bundle; define removed) |
+| S3 | login.js console.log(passwordInput) and unused selectors | Fixed+Verified | findings/security.md S3 |
+| S4 | vercel.json security headers | Fixed+Verified | findings/security.md S4 |
+| S5 | server.js dev only confirmation | Documented | findings/security.md S5 |
+| S6 | npm audit | Documented | findings/security.md S6 (dep fixes under A items) |
+| S7 | Token/key handling in contact.js and index.js; workflow secrets | Documented | findings/security.md S7 |
+| S8 | XSS sinks: innerHTML, dangerouslySetInnerHTML, document.write | Documented | findings/security.md S8 |
 | S9 | belva-cms / SQLi / belva.on-forge.com | N/A | Not this repo; items belong to a different project |
 
 ## Functional

@@ -18,7 +18,6 @@ function ProjectContent({ pageData, nextPage }) {
   const media3 = mediaUrls[2];
 
   const importantMedia = [...mediaUrls.slice(0, 15)];
-  const restMedia = [...mediaUrls.slice(3)];
 
   function MediaComponent({ src, type, alt }) {
     return (
@@ -46,7 +45,7 @@ function ProjectContent({ pageData, nextPage }) {
                 <div className="preview__img-inner relative">
                   <video
                     muted={true}
-                    metadata
+                    preload="metadata"
                     loop={true}
                     autoPlay={true}
                     playsInline={true}

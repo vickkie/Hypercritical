@@ -174,7 +174,7 @@ const EditConsultation = () => {
               <div className="loader"></div>
             </div>
           )}
-          {dataState === "ERROR" && <div className="errorContainer">{errorMessage}</div>}
+          {dataState === "ERROR" && <div className="errorContainer">{error}</div>}
           {dataState === "SUCCESS" && (
             <>
               <div className={Styles.editFormWrapper}>

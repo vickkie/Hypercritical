@@ -31,37 +31,37 @@ Status legend: Fixed+Verified | Documented (audit only) | N/A with reason | NEED
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| A1 | public/ tracked build output | In progress | pending |
-| A2 | packagex.json dead duplicate | In progress | pending |
-| A3 | chart.js 2.9.4 usage | In progress | pending |
-| A4 | react-beautiful-dnd usage | In progress | pending |
-| A5 | @studio-freight/lenis rename | In progress | pending |
-| A6 | @types/chart.js mismatch | In progress | pending |
-| A7 | tsconfig and ts-loader dead config | In progress | pending |
-| A8 | webpack stray comma line 40; devtool false | In progress | pending |
-| A9 | lint script missing | In progress | pending |
-| A10 | Clean production build | In progress | pending |
+| A1 | public/ tracked build output | Fixed+Verified | findings/architecture-deps.md A1 |
+| A2 | packagex.json dead duplicate | Fixed+Verified | findings/architecture-deps.md A2 |
+| A3 | chart.js 2.9.4 usage | Documented | findings/architecture-deps.md A3 (in use, v2 API, no advisory; upgrade deferred) |
+| A4 | react-beautiful-dnd usage | Documented | findings/architecture-deps.md A4 (in use; migration is a refactor) |
+| A5 | @studio-freight/lenis rename | Fixed+Verified | findings/architecture-deps.md A5 |
+| A6 | @types/chart.js mismatch | Fixed+Verified | findings/architecture-deps.md A6 |
+| A7 | tsconfig and ts-loader dead config | Fixed+Verified | findings/architecture-deps.md A7 |
+| A8 | webpack stray comma line 40; devtool false | Fixed+Verified | findings/architecture-deps.md A8 |
+| A9 | lint script missing | Fixed+Verified | findings/architecture-deps.md A9 |
+| A10 | Clean production build | Fixed+Verified | findings/architecture-deps.md A10 |
 
 ## Technical debt
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| T1 | Unused vars/imports (eslint no-unused-vars) | In progress | pending |
-| T2 | console.log sweep | In progress | pending |
-| T3 | TODO/FIXME/HACK grep | In progress | pending |
-| T4 | Dead code: js/library vs js/main; call-worker vs hypercritical-worker | In progress | pending |
-| T5 | Unhandled promises | In progress | pending |
-| T6 | npm test | In progress | pending |
+| T1 | Unused vars/imports (eslint no-unused-vars) | Fixed+Verified | findings/tech-debt.md T1 |
+| T2 | console.log sweep | Fixed+Verified | findings/tech-debt.md T2 |
+| T3 | TODO/FIXME/HACK grep | Documented | findings/tech-debt.md T3 |
+| T4 | Dead code: js/library vs js/main; call-worker vs hypercritical-worker | Fixed+Verified | findings/tech-debt.md T4 |
+| T5 | Unhandled promises | Fixed+Verified | findings/tech-debt.md T5 |
+| T6 | npm test | NEEDS HUMAN REVIEW | findings/tech-debt.md T6 (jest env + stale test shape) |
 
 ## SEO (audit only)
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| E1 | Per page title/meta/canonical/OG/H1/alt | In progress | pending |
-| E2 | robots.txt and sitemap.xml | In progress | pending |
+| E1 | Per page title/meta/canonical/OG/H1/alt | Documented | findings/seo.md |
+| E2 | robots.txt and sitemap.xml | Documented | findings/seo.md (both missing; recommendation) |
 
 ## Performance (audit only)
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| P1 | Lighthouse or static perf review | In progress | pending |
+| P1 | Lighthouse or static perf review | Documented | findings/performance.md |

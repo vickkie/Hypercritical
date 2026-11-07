@@ -35,7 +35,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -76,7 +76,7 @@ new Promise((resolve, reject) => {
 
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -196,14 +196,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -253,7 +252,7 @@ headertl.addLabel("start").fromTo(
 gsap.registerPlugin(SplitText);
 
 const herolargelogo = select(".h-mega");
-let herotext = new SplitText(herolargelogo, { type: "chars", charsClass: "split-chars" });
+new SplitText(herolargelogo, { type: "chars", charsClass: "split-chars" });
 
 let splittext = gsap.utils.toArray(".split-chars");
 

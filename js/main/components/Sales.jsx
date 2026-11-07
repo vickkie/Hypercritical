@@ -70,15 +70,15 @@ const Dashboard = () => {
 
         for (let key in data) {
           // Ensure default status and paymentStatus if not present
-          if (!data[key].hasOwnProperty("status")) {
+          if (!Object.prototype.hasOwnProperty.call(data[key], "status")) {
             data[key].status = "Unavailable";
           }
-          if (!data[key].hasOwnProperty("paymentStatus")) {
+          if (!Object.prototype.hasOwnProperty.call(data[key], "paymentStatus")) {
             data[key].paymentStatus = "Due soon";
           }
 
           // Check if the consultation has a 'seen' property and if it's "Pending"
-          if (data[key].hasOwnProperty("status") && data[key].status === "Pending") {
+          if (Object.prototype.hasOwnProperty.call(data[key], "status") && data[key].status === "Pending") {
             unreadCount++; // Increment the unread count
           }
         }

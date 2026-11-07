@@ -1,7 +1,7 @@
 //Imports modules in file
 import MouseFollower from "mouse-follower";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import lozad from "lozad";
 import { v4 as uuidv4 } from "uuid";
 
@@ -21,7 +21,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "100px 0px",
-    loaded: function (el) {
+    loaded: function () {
       // console.log("Element loaded:", el);
     },
   });
@@ -64,7 +64,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -105,7 +105,7 @@ new Promise((resolve, reject) => {
 
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -190,7 +190,7 @@ gsap.registerPlugin(SplitText);
 
 const herolargelogo = select(".hero-largelogo");
 
-let herotext = new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
+new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
 
 const splitchars = selectAll(".split-chars");
 
@@ -205,8 +205,7 @@ let herowords = selectAll(".hero-words");
 
 // console.log(herowords);
 
-let heroSeparator = select(".below-line"),
-  heroMedia = select(".parallax-hero");
+let heroSeparator = select(".below-line");
 let heroimageWrapper = select(".hero-image");
 
 const showHero = () => {
@@ -251,8 +250,7 @@ const showHero = () => {
 
 function initParallax() {
   let slides = selectAll(".slide");
-  let slideId = 0;
-  slides.forEach((slide, i) => {
+  slides.forEach((slide) => {
     let imageWrapper = slide.querySelector(".parallax-image");
     function heroParallax() {
       gsap.fromTo(
@@ -375,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -383,14 +381,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -470,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const accordionItems = document.querySelectorAll("details");
   accordionItems.forEach((accordionItem) => {
-    accordionItem.addEventListener("click", (event) => {
+    accordionItem.addEventListener("click", () => {
       accordionItems.forEach((sibling) => {
         if (sibling != accordionItem) {
           sibling.removeAttribute("open");
@@ -486,7 +483,7 @@ let elephant = select(".c-elephant_himself");
 let elephant_wrapper = select(".elephant-boundary");
 // elephant_wrapper.addEventListener("mouseenter", () => {
 
-const elephantcursor = new MouseFollower({
+new MouseFollower({
   el: elephant,
   container: elephant_wrapper,
   speed: 22.5,
@@ -542,7 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
   darkSections.forEach((darkSection, i) => {
     //  let id = i;
     //  console.log(id);
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -599,7 +596,7 @@ animateVideo.fromTo(
 
 //complicated way to pause and unpause video
 
-const playvideotl = gsap.timeline({
+gsap.timeline({
   scrollTrigger: {
     trigger: worldvideo,
     start: "top bottom",
@@ -643,7 +640,7 @@ const playvideotl = gsap.timeline({
 var playPromise = worldvideo.play();
 
 if (playPromise !== undefined) {
-  playPromise.then((_) => {}).catch((error) => {});
+  playPromise.then(() => {}).catch(() => {});
 }
 
 //group 15 : overlay and succes button
@@ -794,18 +791,6 @@ checkradios.forEach((checkradio) => {
 
 // group 17: dropdown video
 
-/**
- * Play the video element.
- *
- * @param {Element} element - The element containing the video to be played
- * @return {void}
- */
-
-function playVideo(element) {
-  var video = element.querySelector(".grid__item-video");
-  video.play();
-}
-
 function resetVideo(element) {
   var video = element.querySelector(".grid__item-video");
   video.pause();
@@ -896,7 +881,7 @@ thirtyWrapper.addEventListener("mouseleave", () => {
 // group 20: create gsap amation for hover on projects whth fading color from --main-color to --color-black
 let projects = selectAll(".feature-inner-wrapper");
 
-projects.forEach((project, i) => {
+projects.forEach((project) => {
   // Function to convert RGB values to CSS rgb() format
   function rgbToCss(rgb) {
     return `rgb(${rgb.join(", ")})`;

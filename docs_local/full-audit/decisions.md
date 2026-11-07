@@ -35,6 +35,30 @@ Unguided calls made during the audit, dated, with evidence.
 
 - 404.html has no `.menuUzi` mount point so the chunk produced a console error and dead weight. Other pages keep `menu` - the mount point exists there.
 
+## 2026-11-07: public/ removed from git index
+
+- 1023 generated files were committed including mirrored source/config (security S1). gh-pages and Vercel both rebuild public/ (workflow runs npx webpack and publishes ./public; Vercel project carries build env vars). Untracked via git rm -r --cached plus .gitignore. Residual risk: if the Vercel project is set to serve a committed directory with no build step, its deploy config must switch to building first - flagged for the owner.
+
+## 2026-11-07: chart.js and react-beautiful-dnd left at current majors
+
+- Both are imported and functional. chart.js v2->v4 is a full options-API rewrite and dnd migration to @dnd-kit is a behavior refactor; both live behind auth where this audit cannot verify rendering. Documented as recommendations rather than forcing breaking migrations.
+
+## 2026-11-07: TypeScript toolchain removed entirely
+
+- Zero .ts/.tsx files. Removed tsconfig, ts-loader, typescript, all @types/*, the webpack rule and ts/tsx resolve extensions. If TS is wanted later, restore via git history.
+
+## 2026-11-07: devtool set to cheap-module-source-map in dev only
+
+- Was hardcoded false for all modes. Dev now gets maps; production still emits none.
+
+## 2026-11-07: dead duplicated components deleted
+
+- Header.jsx and AlertDelete.jsx were both marked "duplicated and not in use currently" with zero imports (Header also had latent undefined-handler bugs). Deleted rather than patched. call-worker.js, includes/call-workers.js and components/Firebase/todoAuth.jsx deleted as dead code. block.html and reeler.html kept as orphaned dev utilities.
+
+## 2026-11-07: remaining lint errors left as documented debt
+
+- 57 react/prop-types findings remain (adding PropTypes to every component is a large stylistic change with no runtime benefit). 1 no-unused-vars in untracked js/main/server.js. Baseline recorded so the script can gate future regressions.
+
 ## 2026-11-07: Commit convention
 
 - AGENTS.md / agents.md does NOT exist in repo root (verified: `ls agents.md AGENTS.md` -> "No such file or directory").

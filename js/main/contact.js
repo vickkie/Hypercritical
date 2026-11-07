@@ -1,6 +1,6 @@
 import MouseFollower from "mouse-follower";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import { v4 as uuidv4 } from "uuid";
 // import Lenis from "@studio-freight/lenis";
 //global
@@ -12,7 +12,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-function smoothTouch(params) {
+function smoothTouch() {
   if (innerWidth > 767) {
     ScrollSmoother.create({
       smooth: 1,
@@ -49,11 +49,11 @@ menuclose.addEventListener("click", close);
 
 // Group 1.1: assign links
 
-let mouseFollower = new MouseFollower();
+new MouseFollower();
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -244,6 +244,8 @@ document.getElementById("consultationForm").addEventListener("submit", async fun
     comment: `Added From  website registration`,
     seen: "Unread",
     country: await countryOrigin(),
+  }).catch((error) => {
+    console.error("Failed to save consultation:", error);
   });
 
   showDialog();
@@ -281,8 +283,8 @@ const changeColorr = (event) => {
 
 checkradios.forEach((checkradio) => {
   checkradio.addEventListener("change", changeColorr);
-  checkradio.addEventListener("doubleclicked", () => {
-    classList.remove("clicked");
+  checkradio.addEventListener("dblclick", () => {
+    checkradio.parentElement.classList.remove("clicked");
   });
 });
 
@@ -323,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -331,14 +333,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -386,7 +387,7 @@ headertl.addLabel("start").fromTo(
 gsap.registerPlugin(SplitText);
 
 const herolargelogo = select(".heading-2.split-chars");
-let herotext = new SplitText(herolargelogo, { type: "chars", charsClass: "splitted" });
+new SplitText(herolargelogo, { type: "chars", charsClass: "splitted" });
 
 let splittext = gsap.utils.toArray(".splitted");
 
@@ -449,30 +450,6 @@ function changeColors() {
     );
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setInterval(() => {
-    let chatIframe = document.getElementById("tidio-chat-iframe");
-    let chatIframeid = chatIframe ? chatIframe.id : null;
-
-    if (chatIframe) {
-      function hideShit() {
-        const chatWindow = chatIframe.contentWindow;
-        const iframeDocument = chatWindow.document;
-
-        let blockLink = iframeDocument.querySelector(".tidio-5hhiig");
-
-        if (blockLink) {
-          blockLink.style.display = "none";
-        } else {
-          // console.log("block link not found");
-        }
-      }
-      hideShit();
-    } else {
-      // console.log("chat button not found");
-    }
-  }, 1000);
-});
 
 window.onload = () => {
   animatehero();

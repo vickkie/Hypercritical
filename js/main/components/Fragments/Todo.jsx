@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { getDatabase, ref, update } from "firebase/database";
 import TodoForm from "./TodoForm";
 import RiveAnimation from "./RiveAnimation";
 
@@ -8,7 +9,6 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
 
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
-    console.log(`passed,delete id- ${edit.id}`);
     setEdit({
       id: null,
       value: "",
@@ -30,7 +30,6 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
     });
     update(todosRef, updates)
       .then(() => {
-        console.log("Order updated in Firebase");
       })
       .catch((error) => {
         console.error("Error updating order:", error);
@@ -76,9 +75,6 @@ const Todo = ({ todos, completeTodo, handleConfirmDelete, updateTodo }) => {
                       <div
                         key={todo.id}
                         className="taskHolder"
-                        {...() => {
-                          console.log(todo.id);
-                        }}
                         onClick={() => completeTodo(todo.id)}
                         style={{ textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden" }}
                       >

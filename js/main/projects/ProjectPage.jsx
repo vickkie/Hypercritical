@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import ProjectContent from "./ProjectContent";
 import pagesData from "../../../includes/project-data.json";
@@ -11,9 +10,9 @@ function App() {
   // const navigate = useNavigate();
 
   const [currentPageData, setCurrentPageData] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [, setCurrentIndex] = useState(null);
   const [dataState, setDataState] = useState("LOADING");
-  const [urlstate, seturlState] = useState("FAILED");
+  const [, seturlState] = useState("FAILED");
   const [nextiousPage, setNextiouspage] = useState("");
 
   useEffect(() => {
@@ -28,11 +27,9 @@ function App() {
     if (isBrowser && ABSOLUTE_URL_REGEX.test(currentUrl)) {
       seturlState("PASSED");
     } else {
-      console.log("failed");
       return;
     }
 
-    const path = window.location.hash.substring(1);
 
     // console.log(`full url:  ${currentUrl}`);
     // console.log(`path ${path}`);

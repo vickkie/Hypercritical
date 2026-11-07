@@ -10,7 +10,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "100px 0px",
-    loaded: function (el) {
+    loaded: function () {
       // console.log("Element loaded:", el);
     },
   });
@@ -48,7 +48,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -90,7 +90,7 @@ new Promise((resolve, reject) => {
 
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -211,14 +211,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -324,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", maintainWhite);
 
   darkSections.forEach((darkSection, i) => {
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -347,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function initParallax() {
   let slides = selectAll(".slide");
 
-  slides.forEach((slide, i) => {
+  slides.forEach((slide) => {
     let imageWrapper = slide.querySelector(".parallax-process");
     function heroParallax() {
       gsap.fromTo(
@@ -426,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const accordionItems = document.querySelectorAll("details");
   accordionItems.forEach((accordionItem) => {
-    accordionItem.addEventListener("click", (event) => {
+    accordionItem.addEventListener("click", () => {
       accordionItems.forEach((sibling) => {
         if (sibling != accordionItem) {
           sibling.removeAttribute("open");
@@ -441,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
-let title = new SplitText(".split-chars", {
+new SplitText(".split-chars", {
   type: "words,lines,chars",
   wordsClass: "content__title word",
   charsClass: "char",

@@ -16,7 +16,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "200px 0px",
-    loaded: function (el) {
+    loaded: function () {
       // console.log("Element loaded:", el);
     },
   });
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -98,14 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -152,7 +151,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -235,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", maintainWhite);
 
   darkSections.forEach((darkSection, i) => {
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -257,14 +256,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to update progress bar
 function updateProgressBar() {
-  let progressBar = select(".progress"),
-    progressValue = select(".progress-value"),
+  let     progressValue = select(".progress-value"),
     progressColor = select(".progress .color");
 
   let progressStartValue = 0,
     progressEndValue = 98;
 
-  let progressAnimation = gsap.to(progressColor, {
+  gsap.to(progressColor, {
     duration: 8,
     width: "98%",
     ease: "ease-in",
@@ -396,11 +394,11 @@ function openModal() {
 
 // Add event listeners to partner buttons
 let partnerButtons = document.querySelectorAll(".partner-logo");
-partnerButtons.forEach((button, i) => {
+partnerButtons.forEach((button) => {
   button.addEventListener("click", openModal);
 });
 let designerButtons = document.querySelectorAll(".designer");
-designerButtons.forEach((designer, i) => {
+designerButtons.forEach((designer) => {
   designer.addEventListener("click", (event) => {
     event.preventDefault();
     openModal();
@@ -408,7 +406,6 @@ designerButtons.forEach((designer, i) => {
 });
 
 let partnerElement = select(".partner-modal");
-let partnerInnerElement = select(".partner-modal-inner");
 
 const closeModalnow = () => {
   gsap
@@ -439,7 +436,7 @@ partnerElement.addEventListener("click", () => {
 // Group 12: years of experience and data
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -491,7 +488,7 @@ triggerButton.addEventListener("click", scrollToPosition);
 
 // Group 12: split and animate
 
-let splitText = new SplitText(".split-text", {
+new SplitText(".split-text", {
   type: "lines,words",
   linesClass: "lineChild",
   wordsClass: "wordsChild",

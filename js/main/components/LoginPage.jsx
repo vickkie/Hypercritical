@@ -58,7 +58,7 @@ const Login = () => {
     } catch (error) {
       setMessage({ text: `Login failed: Try again`, type: "error" });
       setMessageKey((prevKey) => prevKey + 1);
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 

@@ -13,7 +13,7 @@ class PartnerModalApp extends React.Component {
   }
 
   componentDidMount() {
-    document.querySelectorAll(".partner").forEach((button, i) => {
+    document.querySelectorAll(".partner").forEach((button) => {
       button.addEventListener("click", (event) => {
         const partnerData = {
           heading: event.target.closest(".partner").dataset.heading,
@@ -27,7 +27,7 @@ class PartnerModalApp extends React.Component {
         this.setState({ isDrawerOpen: true, selectedPartner: partnerData });
       });
     });
-    document.querySelectorAll(".designer").forEach((button, i) => {
+    document.querySelectorAll(".designer").forEach((button) => {
       button.addEventListener("click", (event) => {
         const partnerData = {
           heading: event.target.closest(".designer").dataset.heading,

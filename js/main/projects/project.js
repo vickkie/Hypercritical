@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const observer = lozad(".lozad", {
   rootMargin: "100px 0px",
-  loaded: function (el) {
+  loaded: function () {
     // console.log("Element loaded:", el);
   },
 });
@@ -44,7 +44,7 @@ menuclose.addEventListener("click", close);
 
 //Group 2:  Animate arrows on hover
 
-function AnimateArrows(params) {
+function AnimateArrows() {
   let thirtyWrapper = select(".thirtyworks");
   if (!thirtyWrapper) return;
   let thirtyArrowLeft = selectAll(".thirty-left svg");
@@ -74,7 +74,7 @@ function AnimateArrows(params) {
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -116,7 +116,7 @@ new Promise((resolve, reject) => {
 
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -160,7 +160,7 @@ assignExp();
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -168,14 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -291,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", maintainWhite);
 
   darkSections.forEach((darkSection, i) => {
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,

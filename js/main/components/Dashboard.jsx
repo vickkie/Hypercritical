@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useMemo, useContext, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "./Fragments/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
-import { getDatabase, ref, onValue, off, update, remove } from "firebase/database";
+import { getDatabase, ref, onValue, off } from "firebase/database";
 import Badge from "@mui/material/Badge";
 import CardBarChart from "./Views/ProjectsChart";
 
@@ -13,27 +13,20 @@ import Styles from "./sass/styles.module.css";
 import DrawerXDashTable from "./Fragments/Drawer";
 import TodoList from "./Fragments/TodoList";
 
-import Swal from "sweetalert2";
-
 //NOTE: Custom imports
-import SearchInput from "./Fragments/SearchInput";
 import { UnreadNumberContext } from "./Fragments/UnreadNumberContext";
 import useBeforeReload from "./Fragments/LeaveContext";
-import ProjectSales from "./Views/ProjectsRevenue";
 import TopCountries from "./Views/ProjectsRevenue";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
   const auth = getAuth();
   const navigate = useNavigate();
-  const { status } = useParams();
   const { unreadNewNumber } = useContext(UnreadNumberContext);
-  const inputRef = React.useRef(null);
 
-  const [consultations, setConsultations] = useState({});
-  const [searchQuery, setSearchQuery] = useState("");
-  const [dataState, setDataState] = useState("LOADING");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [, setConsultations] = useState({});
+  const [, setDataState] = useState("LOADING");
+  const [, setErrorMessage] = useState("");
   const [unreadNumber, setUnreadNumber] = useState(0);
   const { setNewUnreadNumber } = useContext(UnreadNumberContext);
 
@@ -54,15 +47,15 @@ const Dashboard = () => {
 
         for (let key in data) {
           // Ensure default status and paymentStatus if not present
-          if (!data[key].hasOwnProperty("status")) {
+          if (!Object.prototype.hasOwnProperty.call(data[key], "status")) {
             data[key].status = "Unavailable";
           }
-          if (!data[key].hasOwnProperty("paymentStatus")) {
+          if (!Object.prototype.hasOwnProperty.call(data[key], "paymentStatus")) {
             data[key].paymentStatus = "Due soon";
           }
 
           // Check if the consultation has a 'seen' property and if it's "Pending"
-          if (data[key].hasOwnProperty("status") && data[key].status === "Pending") {
+          if (Object.prototype.hasOwnProperty.call(data[key], "status") && data[key].status === "Pending") {
             unreadCount++; // Increment the unread count
           }
         }

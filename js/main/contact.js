@@ -153,7 +153,7 @@ function generateInvoiceNumber() {
 }
 
 // Function to handle form submission
-document.getElementById("consultationForm").addEventListener("submit", function (e) {
+document.getElementById("consultationForm").addEventListener("submit", async function (e) {
   e.preventDefault();
   var message = document.getElementById("message").value;
   var email = document.getElementById("email").value;
@@ -202,29 +202,25 @@ document.getElementById("consultationForm").addEventListener("submit", function 
 
   // Function to query the IP address for geolocation data
   const fetchGeolocationData = async (ipAddress) => {
-    if (!ipAddress) return;
+    if (!ipAddress) return null;
 
     try {
       const response = await fetch(`http://ip-api.com/json/${ipAddress}`);
       const data = await response.json();
-      updateCountry(data.country);
+      return data.country;
     } catch (error) {
       console.error("Error fetching geolocation data:", error);
+      return null;
     }
-  };
-
-  // Function to update the result element with the country name
-  const updateCountry = (country) => {
-    console.log(country);
-    return country;
   };
 
   // Main logic
   const countryOrigin = async () => {
     const ipAddress = await fetchIpAddress();
     if (ipAddress) {
-      fetchGeolocationData(ipAddress);
+      return fetchGeolocationData(ipAddress);
     }
+    return null;
   };
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -247,7 +243,7 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     date: new Date().toISOString(),
     comment: `Added From  website registration`,
     seen: "Unread",
-    country: countryOrigin(),
+    country: await countryOrigin(),
   });
 
   showDialog();

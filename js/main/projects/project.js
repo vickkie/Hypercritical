@@ -46,6 +46,7 @@ menuclose.addEventListener("click", close);
 
 function AnimateArrows(params) {
   let thirtyWrapper = select(".thirtyworks");
+  if (!thirtyWrapper) return;
   let thirtyArrowLeft = selectAll(".thirty-left svg");
   let thirtyArrowRight = selectAll(".thirty-right svg");
 

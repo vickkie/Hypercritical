@@ -15,6 +15,26 @@ Unguided calls made during the audit, dated, with evidence.
 
 - Every HTML template ships inline scripts (partytown bootstrap, config) and style-loader injects inline style tags. Nonce based CSP is not feasible without restructuring the templates. Documented as accepted residual risk.
 
+## 2026-11-07: membership_signup repointed to contact
+
+- The Join link targeted a page that never existed (no file, no git history). No signup capability exists in the codebase (auth is sign-in only, internal dashboard). Repointed to `contact` as the only conversion surface, rather than removing the menu item or guessing at a new page. If a real membership/signup page is built later the link should be restored.
+
+## 2026-11-07: manual DefinePlugin replaced by dotenv-webpack systemvars
+
+- The manual DefinePlugin overrode dotenv-webpack values with undefined whenever shell env lacked the vars, breaking Firebase outside Vercel (including CI gh-pages builds). Single source of truth is now Dotenv with `systemvars: true`: `.env` file for CI/local, real env vars on Vercel. Removes 8 conflict warnings and the undefined-config failure mode.
+
+## 2026-11-07: dead Tidio widget script removed
+
+- code.tidio.co/f1y79gyqdaoifsyjsg3va1jmuwklonpm.js returns 404 upstream; the chat widget has been dead in production. Removing the script tag only removes a guaranteed 404. If the team still wants chat they need a fresh Tidio key; the dormant iframe-manipulation code in contact.js is null-guarded and can be re-enabled.
+
+## 2026-11-07: ip-api.com left as HTTP, documented
+
+- The geolocation fetch uses http://ip-api.com (free tier is HTTP only) which is mixed content on the HTTPS site. Fixing the Promise bug makes `country` correct where the fetch can run, but in production it will be null until an HTTPS geo provider is chosen. Left unchanged pending owner decision on provider.
+
+## 2026-11-07: menu chunk removed from 404 page only
+
+- 404.html has no `.menuUzi` mount point so the chunk produced a console error and dead weight. Other pages keep `menu` - the mount point exists there.
+
 ## 2026-11-07: Commit convention
 
 - AGENTS.md / agents.md does NOT exist in repo root (verified: `ls agents.md AGENTS.md` -> "No such file or directory").

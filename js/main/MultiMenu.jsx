@@ -51,7 +51,7 @@ class UziMenu extends React.Component {
             <a href="login" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">Enter</span>
             </a>{" "}
-            <a href="membership_signup" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
+            <a href="contact" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">Join</span>
             </a>{" "}
             <a href="#" className="sidemenuUzi__item">

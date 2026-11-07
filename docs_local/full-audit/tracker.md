@@ -20,12 +20,12 @@ Status legend: Fixed+Verified | Documented (audit only) | N/A with reason | NEED
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| F1 | Internal link crawl across 13 HTML pages under vercel.json rewrite scheme | In progress | pending |
-| F2 | block.html, reeler.html, call-worker.js reachable or orphaned | In progress | pending |
-| F3 | Nav and mobile menu (MultiMenu.jsx) | In progress | pending |
-| F4 | Contact form submit/validation | In progress | pending |
-| F5 | Service worker registration and offline fallback | In progress | pending |
-| F6 | Per page console errors | In progress | pending |
+| F1 | Internal link crawl across 13 HTML pages under vercel.json rewrite scheme | Fixed+Verified | findings/functional.md F1 |
+| F2 | block.html, reeler.html, call-worker.js reachable or orphaned | Documented | findings/functional.md F2 (orphaned, left in place) |
+| F3 | Nav and mobile menu (MultiMenu.jsx) | Fixed+Verified | findings/functional.md F3 |
+| F4 | Contact form submit/validation | Fixed+Verified | findings/functional.md F4 |
+| F5 | Service worker registration and offline fallback | Fixed+Verified | findings/functional.md F5 |
+| F6 | Per page console errors | Fixed+Verified | findings/functional.md F6-F9 |
 
 ## Architecture and dependencies
 

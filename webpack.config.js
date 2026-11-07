@@ -7,7 +7,6 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const partytown = require("@builder.io/partytown/utils");
-const webpack = require("webpack");
 const UpdateDeploymentDatePlugin = require("./js/main/updateDeployment");
 
 // Check if the build is for production
@@ -84,7 +83,7 @@ const plugins = [
     template: "./404.html",
     filename: "404.html",
     inject: "body",
-    chunks: ["404", "menu"],
+    chunks: ["404"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -166,26 +165,12 @@ const plugins = [
   }),
   new Dotenv({
     allowEmptyValues: true,
+    systemvars: true,
   }),
   new HtmlMinimizerPlugin(),
   new CleanWebpackPlugin(),
   new UpdateDeploymentDatePlugin(),
 ];
-
-if (isProduction) {
-  plugins.push(
-    new webpack.DefinePlugin({
-      "process.env.FIREBASE_API_KEY": JSON.stringify(process.env.FIREBASE_API_KEY),
-      "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
-      "process.env.FIREBASE_PROJECT_ID": JSON.stringify(process.env.FIREBASE_PROJECT_ID),
-      "process.env.FIREBASE_STORAGE_BUCKET": JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
-      "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
-      "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
-      "process.env.FIREBASE_MEASUREMENT_ID": JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
-      "process.env.FIREBASE_DATABASE_URL": JSON.stringify(process.env.FIREBASE_DATABASE_URL),
-    })
-  );
-}
 
 module.exports = {
   mode: isProduction ? "production" : "development",

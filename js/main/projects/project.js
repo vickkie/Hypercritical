@@ -89,8 +89,10 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config.json").then((response) => response.json()))
       .then((data) => {
         assignLinks(data);
 
@@ -131,8 +133,10 @@ function assignExp(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config-data.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config-data")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config-data.json").then((response) => response.json()))
       .then((data) => {
         assignExp(data);
 
@@ -312,13 +316,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchProjects() {
   try {
-    const response = await fetch("../../../includes/project-data.json");
+    const response = await fetch(
+      "https://hc-api.5.45.99.148.sslip.io/api/config/project-data"
+    );
     if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
-    const projects = await response.json();
-    return projects;
+    const payload = await response.json();
+    if (payload && payload.data) return payload.data;
+    const fallback = await fetch("../../../includes/project-data.json");
+    return await fallback.json();
   } catch (error) {
     console.error("Failed to fetch project data:", error);
-    return []; // Return an empty array in case of failure
+    try {
+      const fallback = await fetch("../../../includes/project-data.json");
+      return await fallback.json();
+    } catch (fallbackError) {
+      console.error("Fallback project data fetch failed:", fallbackError);
+      return []; // Return an empty array in case of failure
+    }
   }
 }
 

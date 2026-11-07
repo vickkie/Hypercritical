@@ -68,8 +68,10 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config.json").then((response) => response.json()))
       .then((data) => {
         assignLinks(data);
         resolve();

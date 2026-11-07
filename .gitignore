@@ -8,3 +8,4 @@ secure
 .env*
 
 public/
+coverage/

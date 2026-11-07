@@ -1,5 +1,5 @@
 import MouseFollower from "mouse-follower";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
 // import gsap from "gsap";
@@ -13,7 +13,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "200px 0px",
-    loaded: function (el) {
+    loaded: function () {
       // console.log("Element loaded:", el);
     },
   });
@@ -34,7 +34,7 @@ let lenis = new Lenis({
   autoResize: true,
 });
 
-lenis.on("scroll", (e) => {});
+lenis.on("scroll", () => {});
 
 function raf(time) {
   lenis.raf(time);
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -101,14 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -200,7 +199,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -269,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //  let id = i;
     //  console.log(id);
 
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -289,9 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 gsap.registerPlugin(SplitText);
 
-const herolargelogo = select(".hero-largelogo");
 
-let herotext = new SplitText(".innerservice", { type: "chars", charsClass: "inner-service2" });
+new SplitText(".innerservice", { type: "chars", charsClass: "inner-service2" });
 
 // const splitchars = selectAll(".split-chars");
 
@@ -305,7 +303,7 @@ let herotext = new SplitText(".innerservice", { type: "chars", charsClass: "inne
 // Group 8: years of experience and data
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {

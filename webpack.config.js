@@ -212,15 +212,10 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: [".jsx", ".js"],
   },
   optimization: {
     minimize: true,
@@ -228,5 +223,5 @@ module.exports = {
   },
 
   plugins: plugins,
-  devtool: false,
+  devtool: isProduction ? false : "cheap-module-source-map",
 };

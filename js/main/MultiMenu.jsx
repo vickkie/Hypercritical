@@ -48,7 +48,7 @@ class UziMenu extends React.Component {
             <a href="#" className="sidemenuUzi__item" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">••••</span>
             </a>{" "}
-            <a href="login" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
+            <a href="https://admin.hypercritical.store" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">Enter</span>
             </a>{" "}
             <a href="contact" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
@@ -117,7 +117,7 @@ class UziMenu extends React.Component {
             <a
               className="social-networks w-inline-block transit"
               aria-label="menu-login"
-              href="/login"
+              href="https://admin.hypercritical.store"
               style={{ position: "absolute", right: "1.5rem" }}
             >
               <img

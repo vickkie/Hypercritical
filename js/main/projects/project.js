@@ -89,7 +89,7 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
+    fetch("https://hc-api.hypercritical.store/api/config/config")
       .then((response) => response.json())
       .then((payload) => payload.data)
       .catch(() => fetch("includes/config.json").then((response) => response.json()))
@@ -133,7 +133,7 @@ function assignExp(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config-data")
+    fetch("https://hc-api.hypercritical.store/api/config/config-data")
       .then((response) => response.json())
       .then((payload) => payload.data)
       .catch(() => fetch("includes/config-data.json").then((response) => response.json()))
@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchProjects() {
   try {
     const response = await fetch(
-      "https://hc-api.5.45.99.148.sslip.io/api/config/project-data"
+      "https://hc-api.hypercritical.store/api/config/project-data"
     );
     if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
     const payload = await response.json();

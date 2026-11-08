@@ -166,7 +166,7 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
+    fetch("https://hc-api.hypercritical.store/api/config/config")
       .then((response) => response.json())
       .then((payload) => payload.data)
       .catch(() => fetch("includes/config.json").then((response) => response.json()))
@@ -453,7 +453,7 @@ function assignExp(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config-data")
+    fetch("https://hc-api.hypercritical.store/api/config/config-data")
       .then((response) => response.json())
       .then((payload) => payload.data)
       .catch(() => fetch("includes/config-data.json").then((response) => response.json()))

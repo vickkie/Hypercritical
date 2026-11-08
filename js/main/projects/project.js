@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const observer = lozad(".lozad", {
   rootMargin: "100px 0px",
-  loaded: function (el) {
+  loaded: function () {
     // console.log("Element loaded:", el);
   },
 });
@@ -44,8 +44,9 @@ menuclose.addEventListener("click", close);
 
 //Group 2:  Animate arrows on hover
 
-function AnimateArrows(params) {
+function AnimateArrows() {
   let thirtyWrapper = select(".thirtyworks");
+  if (!thirtyWrapper) return;
   let thirtyArrowLeft = selectAll(".thirty-left svg");
   let thirtyArrowRight = selectAll(".thirty-right svg");
 
@@ -73,7 +74,7 @@ function AnimateArrows(params) {
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -88,8 +89,10 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config.json").then((response) => response.json()))
       .then((data) => {
         assignLinks(data);
 
@@ -115,7 +118,7 @@ new Promise((resolve, reject) => {
 
 function assignExp(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -130,8 +133,10 @@ function assignExp(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config-data.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config-data")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config-data.json").then((response) => response.json()))
       .then((data) => {
         assignExp(data);
 
@@ -159,7 +164,7 @@ assignExp();
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -167,14 +172,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -290,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", maintainWhite);
 
   darkSections.forEach((darkSection, i) => {
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -312,13 +316,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchProjects() {
   try {
-    const response = await fetch("../../../includes/project-data.json");
+    const response = await fetch(
+      "https://hc-api.5.45.99.148.sslip.io/api/config/project-data"
+    );
     if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
-    const projects = await response.json();
-    return projects;
+    const payload = await response.json();
+    if (payload && payload.data) return payload.data;
+    const fallback = await fetch("../../../includes/project-data.json");
+    return await fallback.json();
   } catch (error) {
     console.error("Failed to fetch project data:", error);
-    return []; // Return an empty array in case of failure
+    try {
+      const fallback = await fetch("../../../includes/project-data.json");
+      return await fallback.json();
+    } catch (fallbackError) {
+      console.error("Fallback project data fetch failed:", fallbackError);
+      return []; // Return an empty array in case of failure
+    }
   }
 }
 

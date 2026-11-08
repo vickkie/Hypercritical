@@ -1,4 +1,4 @@
-export default function Multimenu(params) {
+export default function Multimenu() {
   {
     // Class menuUzi.
 
@@ -154,6 +154,6 @@ export default function Multimenu(params) {
     }
     // Initialize the menuUzi.
 
-    const menuUzi = new MenuUzi(document.querySelector("nav.menuUzi"));
+    new MenuUzi(document.querySelector("nav.menuUzi"));
   }
 }

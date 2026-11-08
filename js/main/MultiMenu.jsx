@@ -51,7 +51,7 @@ class UziMenu extends React.Component {
             <a href="login" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">Enter</span>
             </a>{" "}
-            <a href="membership_signup" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
+            <a href="contact" className="sidemenuUzi__item transit" data-cursor="-medium -exclusion">
               <span className="sidemenuUzi__item-inner">Join</span>
             </a>{" "}
             <a href="#" className="sidemenuUzi__item">
@@ -69,6 +69,7 @@ class UziMenu extends React.Component {
           <div className="socials-buttons">
             <a
               target="_blank"
+              rel="noopener noreferrer"
               className="social-networks instagram transit"
               aria-label="instagram"
               style={{ backgroundColor: "rgba(1,1,1,0)" }}
@@ -84,6 +85,7 @@ class UziMenu extends React.Component {
             </a>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               className="social-networks github transit"
               aria-label="github"
               style={{ backgroundColor: "rgba(1,1,1,0)" }}
@@ -99,6 +101,7 @@ class UziMenu extends React.Component {
             </a>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               className="social-networks w-inline-block linktree transit"
               aria-label="linktree"
               href="https://linktr.ee/uzitrake"
@@ -137,13 +140,7 @@ class UziMenu extends React.Component {
     }, 1000);
 
     // Determine which component to render based on window width
-    let ComponentToRender;
-    if (this.state.windowWidth > 768) {
-      // width  breakpoint
-      ComponentToRender = () => <LaptopMenu />;
-    } else {
-      ComponentToRender = () => <PhoneMenu />;
-    }
+    const ComponentToRender = this.state.windowWidth > 768 ? LaptopMenu : PhoneMenu;
 
     // console.log("isMounted");
 

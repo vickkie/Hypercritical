@@ -7,7 +7,6 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const partytown = require("@builder.io/partytown/utils");
-const webpack = require("webpack");
 const UpdateDeploymentDatePlugin = require("./js/main/updateDeployment");
 
 // Check if the build is for production
@@ -23,21 +22,15 @@ const plugins = [
       { from: "hypercritical-worker.js", to: "hypercritical-worker.js" },
       { from: "offline.html", to: "offline.html" },
       { from: "css", to: "css" },
-      { from: "server.js", to: "server.js" },
-      { from: ".babelrc", to: ".babelrc" },
-      { from: ".babel.config.json", to: ".babel.config.json" },
-      { from: "tsconfig.json", to: "tsconfig.json" },
       { from: "fonts", to: "fonts" },
-      { from: "js", to: "js" },
+      { from: "js/library", to: "js/library" },
       { from: "assets", to: "assets" },
-      { from: "README.md", to: "README.md" },
       {
         from: partytown.libDirPath(),
         to: path.join(__dirname, "public", "~partytown"),
       },
     ],
   }),
-  ,
   new HtmlWebpackPlugin({
     template: "./index.html",
     filename: "index.html",
@@ -90,7 +83,7 @@ const plugins = [
     template: "./404.html",
     filename: "404.html",
     inject: "body",
-    chunks: ["404", "menu"],
+    chunks: ["404"],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -172,27 +165,12 @@ const plugins = [
   }),
   new Dotenv({
     allowEmptyValues: true,
+    systemvars: true,
   }),
   new HtmlMinimizerPlugin(),
   new CleanWebpackPlugin(),
   new UpdateDeploymentDatePlugin(),
 ];
-
-if (isProduction) {
-  plugins.push(
-    new webpack.DefinePlugin({
-      "process.env.FIREBASE_API_KEY": JSON.stringify(process.env.FIREBASE_API_KEY),
-      "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
-      "process.env.FIREBASE_PROJECT_ID": JSON.stringify(process.env.FIREBASE_PROJECT_ID),
-      "process.env.FIREBASE_STORAGE_BUCKET": JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
-      "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
-      "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
-      "process.env.FIREBASE_MEASUREMENT_ID": JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
-      "process.env.FIREBASE_DATABASE_URL": JSON.stringify(process.env.FIREBASE_DATABASE_URL),
-      "process.env.BACKEND_DATABASE_URL": JSON.stringify(process.env.BACKEND_DATABASE_URL),
-    })
-  );
-}
 
 module.exports = {
   mode: isProduction ? "production" : "development",
@@ -234,15 +212,10 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: [".jsx", ".js"],
   },
   optimization: {
     minimize: true,
@@ -250,5 +223,5 @@ module.exports = {
   },
 
   plugins: plugins,
-  devtool: false,
+  devtool: isProduction ? false : "cheap-module-source-map",
 };

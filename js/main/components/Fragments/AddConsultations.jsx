@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
@@ -125,7 +125,7 @@ const AddConsultation = () => {
               <div className="loader"></div>
             </div>
           )}
-          {dataState === "ERROR" && <div className="errorContainer">{errorMessage}</div>}
+          {dataState === "ERROR" && <div className="errorContainer">{error}</div>}
           {dataState === "SUCCESS" && (
             <>
               <div className={Styles.editFormWrapper}>

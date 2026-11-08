@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -104,7 +104,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 
 export default function DrawerXDashTable({ onLogout, children }) {
   const navigate = useNavigate();
-  const theme = useTheme();
   const [open, setOpen] = useState(false);
   const { unreadNewNumber } = useContext(UnreadNumberContext);
 
@@ -114,7 +113,6 @@ export default function DrawerXDashTable({ onLogout, children }) {
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const pages = ["Dashboard"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const handleOpenUserMenu = (event) => {

@@ -6,14 +6,11 @@ import { useState, useEffect } from "react";
 function ProjectHero(currentPageData) {
   const [projectPreview, setprojectPreview] = useState("");
 
-  console.log("exported", currentPageData);
-
   // let projectPreview;
   useEffect(() => {
     FetchDetails();
     // projectPreview = currentPageData.previewImage;
     setprojectPreview(currentPageData.previewImage);
-    console.log(`currentPageData-v1:`, projectPreview);
   }, [currentPageData]);
 
   return (

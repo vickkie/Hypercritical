@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    document.querySelectorAll(".work-tile").forEach((button, i) => {
+    document.querySelectorAll(".work-tile").forEach((button) => {
       button.addEventListener("click", (event) => {
         // console.log(`clicked-${i}`);
         const mediaAttr = event.target.closest(".work-tile").dataset.media;

@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
-
 function Vanilla() {
   global;
-  let select = (e) => document.querySelector(e);
   let selectAll = (e) => document.querySelectorAll(e);
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   ScrollSmoother.create({
@@ -19,10 +16,10 @@ function Vanilla() {
 
   //Split text
 
-  function splitAnimate(params) {
+  function splitAnimate() {
     gsap.registerPlugin(SplitText);
     const splitchars = selectAll(".splitchars");
-    splitchars.forEach((splitchar, key, p) => {
+    splitchars.forEach((splitchar) => {
       // console.log(p);
       new SplitText(splitchar, {
         type: "chars",
@@ -59,11 +56,8 @@ function Vanilla() {
   let scaledHover = selectAll([".projectImage2-inner img", ".otherImage-inner img"]);
 
   scaledHover.forEach((scaled) => {
-    let gsapHover = gsap.timeline();
+    gsap.timeline();
 
-    let mouseenter = "mouseenter",
-      mouseleave = "mouseleave",
-      event;
 
     scaled.addEventListener("mouseenter", zoom);
 

@@ -3,7 +3,6 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import { useAuth } from "./AuthContext";
 import { getDatabase, ref, onValue, off, update, remove } from "firebase/database";
-import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 
 function TodoList() {
@@ -23,16 +22,13 @@ function TodoList() {
   }, [currentUser]);
 
   const addTodo = async (todo) => {
-    return new Promise(async (resolve, reject) => {
       if (!todo.text || /^\s*$/.test(todo.text)) {
-        reject(new Error("Todo text is empty or only contains whitespace."));
-        return;
+        throw new Error("Todo text is empty or only contains whitespace.");
       }
       //reject if id already exists
       const existingTodo = todos.find((t) => t.text === todo.id);
       if (existingTodo) {
-        reject(new Error("Item already exists."));
-        return;
+        throw new Error("Item already exists.");
       }
 
       const db = getDatabase();
@@ -49,21 +45,17 @@ function TodoList() {
           // Sort todos by date and slice to get the last 7
           const lastSevenTodos = todosArray.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 7);
           setTodos(lastSevenTodos);
-          resolve();
         });
       } catch (error) {
         console.error("Error adding todo:", error);
-        reject(error);
+        throw error;
       }
-    });
   };
 
   const updateTodo = async (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
-
-    console.log(`update id is- ${todoId}`);
 
     const db = getDatabase();
     const todoRef = ref(db, `tasks/${todoId}`);

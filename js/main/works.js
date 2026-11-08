@@ -1,5 +1,5 @@
 import MouseFollower from "mouse-follower";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/all";
 import lozad from "lozad";
 import Reeller from "reeller";
@@ -14,7 +14,7 @@ let selectAll = (e) => document.querySelectorAll(e);
 document.addEventListener("DOMContentLoaded", function () {
   const observer = lozad(".lozad", {
     rootMargin: "-200px 0px",
-    loaded: function (el) {
+    loaded: function () {
       // console.log("Element loaded:", el);
     },
   });
@@ -35,7 +35,7 @@ let lenis = new Lenis({
   autoResize: true,
 });
 
-lenis.on("scroll", (e) => {});
+lenis.on("scroll", () => {});
 
 function raf(time) {
   lenis.raf(time);
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function cursor() {
     if (innerWidth > 767) {
-      let cursorme = new MouseFollower({
+      new MouseFollower({
         speed: 0.6,
       });
 
@@ -89,15 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
       let sniperTarget = select(".snipersvg");
       let sniperTargets = selectAll(["a", "details"]);
       let snipedBlack = selectAll(".snipedblack");
-      let snipedwhite = selectAll(".snipedwhite");
       let root = document.documentElement;
       let mediaTargets = selectAll(".media-wrapper");
 
-      const cursor = new MouseFollower({
+      new MouseFollower({
         el: sniperCursor,
       });
 
-      sniperTargets.forEach((sniped, i) => {
+      sniperTargets.forEach(() => {
         let root = document.documentElement;
         sniperTarget.classList.add("rotate-cursorr");
         root.style.setProperty("--sniper-color", "var(--main-sub");
@@ -105,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       snipedBlack.forEach((snipeBlack) => {
         snipeBlack.addEventListener("mouseenter", () => {
-          console.log("going dark");
           root.style.setProperty("--sniper-color", "#000");
         });
         snipeBlack.addEventListener("mouseleave", () => {
@@ -156,7 +154,7 @@ ScrollTrigger.create({
 
 Reeller.registerGSAP(gsap);
 
-const reeller = new Reeller({
+new Reeller({
   container: ".sw-partner-marquee",
   wrapper: ".sw-partner-marquee-row",
   itemSelector: ".sw-partner-marquee-row-item",
@@ -253,7 +251,7 @@ menuclose.addEventListener("click", close);
 
 function assignLinks(config) {
   for (const key in config) {
-    if (config.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(config, key)) {
       const elements = selectAll(key);
       elements.forEach((element) => {
         if (element) {
@@ -268,8 +266,10 @@ function assignLinks(config) {
 
 new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("includes/config.json")
+    fetch("https://hc-api.5.45.99.148.sslip.io/api/config/config")
       .then((response) => response.json())
+      .then((payload) => payload.data)
+      .catch(() => fetch("includes/config.json").then((response) => response.json()))
       .then((data) => {
         assignLinks(data);
         resolve();
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //  let id = i;
     //  console.log(id);
 
-    const darken = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: darkSection,
         id: i + 1,
@@ -342,10 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Group 11: gsap show and hide sidebar for projects
 
-function startLenis(i) {
-  let customWrapper = select(".work-drawer .inner");
-  let content = select(".scroll-wrapper");
-  let body = select("body");
+function startLenis() {
 
   let lenis = new Lenis({
     // wrapper: customWrapper,
@@ -376,9 +373,8 @@ function killLenis() {
 }
 
 let tileButtons = document.querySelectorAll(".work-tile");
-let thisDOM = select("html");
 
-tileButtons.forEach((button, i) => {
+tileButtons.forEach((button) => {
   button.addEventListener("click", () => {
     gsap
       .timeline()
@@ -482,7 +478,7 @@ gsap.registerPlugin(SplitText);
 
 const herolargelogo = select(".lets-make");
 
-let herotext = new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
+new SplitText(herolargelogo, { type: "words", wordsClass: "hero-words" });
 
 const splitchars = selectAll(".split-chars");
 

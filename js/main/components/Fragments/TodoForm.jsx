@@ -29,6 +29,12 @@ function TodoForm(props) {
     handleAddIconClick();
   };
 
+  const generateTaskNumber = () => {
+    const uuid = uuidv4();
+    const uniquePart = uuid.substring(0, 6);
+    return `TASK-${uniquePart}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,14 +48,6 @@ function TodoForm(props) {
       });
     } else {
       // Adding new todo, clear input
-
-      function generateTaskNumber() {
-        const uuid = uuidv4();
-        const uniquePart = uuid.substring(0, 6);
-        const taskid = `TASK-${uniquePart}`;
-        return taskid;
-      }
-
       const taskid = generateTaskNumber();
       const todo = {
         id: taskid,

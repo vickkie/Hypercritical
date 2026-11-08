@@ -6,7 +6,6 @@
 import React from "react";
 import { render, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import "@testing-library/jest-dom/extend-expect";
 import App from "../js/main/modal";
 
 // Mock gsap to prevent actual animations from running

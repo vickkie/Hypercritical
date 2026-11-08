@@ -1,7 +1,4 @@
 import MouseFollower from "mouse-follower";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
-import { v4 as uuidv4 } from "uuid";
 // import Lenis from "@studio-freight/lenis";
 //global
 
@@ -128,40 +125,12 @@ function hideDialog() {
   });
 }
 
-// Group 3: firebase
-
-// Initialize Firebase API
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.FIREBASE_DATABASE_URL, //databaseURL here
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
-function generateInvoiceNumber() {
-  // Generate a UUID
-  const uuid = uuidv4();
-  const uniquePart = uuid.substring(0, 6);
-  const invoiceNumber = `INV-${uniquePart}`;
-  return invoiceNumber;
-}
-
 // Function to handle form submission
 document.getElementById("consultationForm").addEventListener("submit", async function (e) {
   e.preventDefault();
   var message = document.getElementById("message").value;
   var email = document.getElementById("email").value;
   var name = document.getElementById("yourname").value;
-  const uuid = generateInvoiceNumber();
-  var status = "Pending";
 
   // Collect checkbox values
   var webDesign = document.getElementById("Web-Design").checked;
@@ -229,26 +198,24 @@ document.getElementById("consultationForm").addEventListener("submit", async fun
     countryOrigin();
   });
 
-  // Generate a unique ID for the new entry
-
-  // Generate a unique ID for the new entry
-  // Assuming `uuid` is the UUID for the new consultation
-  var newConsultationRef = ref(database, `consultations/${uuid}`);
-  set(newConsultationRef, {
-    uuid: uuid,
-    name: name,
-    message: message,
-    budget: budget,
-    consultationType: consultationType,
-    email: email,
-    status: status,
-    date: new Date().toISOString(),
-    comment: `Added From  website registration`,
-    seen: "Unread",
-    country: await countryOrigin(),
-  }).catch((error) => {
-    console.error("Failed to save consultation:", error);
-  });
+  fetch("https://hc-api.5.45.99.148.sslip.io/api/consultations", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      email,
+      message,
+      budget,
+      consultationType,
+      country: await countryOrigin(),
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    })
+    .catch((error) => {
+      console.error("Failed to save consultation:", error);
+    });
 
   showDialog();
 

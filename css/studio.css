@@ -587,6 +587,7 @@ html:focus-within {
 .sm-cont-21 {
   background: var(--color-white);
   grid-area: sm-cont-21;
+  grid-column: 1 / -1;
   padding: 3rem;
   display: flex;
   flex-direction: column;
